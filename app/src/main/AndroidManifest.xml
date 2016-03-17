@@ -2,6 +2,9 @@
 <manifest package="sample.hawk.com.mybasicappcomponents"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- For ContenProvider to get contact data -->
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +18,30 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".MyActivity">
+
+        </activity>
+
+        <service android:name=".MyService">
+
+        </service>
+
+        <!-- Statically register MyReceiver  -->
+        <receiver android:name=".MyReceiver">
+            <intent-filter>
+                <action android:name="sample.hawk.com.mybasicappcomponents.broadcast1"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="sample.hawk.com.mybasicappcomponents.broadcast2"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:authorities="sample.hawk.com.mybasicappcomponents"
+            android:name=".MyContentProvider">
+
+        </provider>
     </application>
 
 </manifest>
