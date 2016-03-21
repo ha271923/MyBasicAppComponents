@@ -38,7 +38,7 @@
         </receiver>
 
         <provider
-            android:authorities="sample.hawk.com.mybasicappcomponents"
+            android:authorities="sample.hawk.com.mybasicappcomponents.provider.Birthday"
             android:name=".MyContentProvider">
 
         </provider>

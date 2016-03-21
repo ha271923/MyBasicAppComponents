@@ -13,6 +13,12 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 public class MyReceiver extends BroadcastReceiver { // NOT UI thread
     final String TAG = "MyReceiver";
     static int i;
+
+    public MyReceiver() {
+        super();
+        SMLog.i();
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
         // HAWK:CAUTION!! If you register the receiver at AndroidManifest.xml and CODE, you will get twice broadcast here!

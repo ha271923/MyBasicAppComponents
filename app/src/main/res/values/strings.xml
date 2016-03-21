@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyBasicAppComponents</string>
+    <!-- For ContentProvider -->
+    <string name="action_settings">Settings</string>
+    <string name="birthday">Birthday</string>
+    <string name="name">Name</string>
+    <string name="add">Add a new Birthday</string>
+    <string name="show">Show all Birthdays</string>
+    <string name="delete">Delete all Birthdays</string>
 </resources>
