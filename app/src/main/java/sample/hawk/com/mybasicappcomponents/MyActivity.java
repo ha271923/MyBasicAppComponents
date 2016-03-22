@@ -1,6 +1,9 @@
 package sample.hawk.com.mybasicappcomponents;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 

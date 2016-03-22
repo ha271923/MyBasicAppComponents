@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -25,14 +26,39 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MainActivity extends Activity{
     private static final String TAG = "[MainActivity]";
+    public static String UPDATE_UI_ACTION = "sample.hawk.com.mybasicappcomponents.MainActivity.UPDATE_UI_ACTION";
+    public ProgressBar mMyProgressBar;
     public Button mMyActivityBtn;
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
-    public Button mMyReceiverBtn;public Button mMyBroadcastBtn;public TextView mMyOutputTextView;
+    public Button mMyReceiverBtn;public Button mMyBroadcastBtn;
+    public TextView mMyOutputTextView;public TextView mMyTimeTextView;
     public Button mMyProviderBtn;
     public Button mMygetStartServiceResultBtn;
     public Button mMygetBindServiceResultBtn;
+    private static int p;
     private BroadcastReceiver mMyReceiver = new MyReceiver();
+    // Application Model -----------------------------------------------------------------
+    // UPDATE_UI WAY1: an inner class for receive ui update event.
+    public class MainActivityUpdateReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if(MainActivity.UPDATE_UI_ACTION.equals(action)){
+                Bundle bundle = intent.getExtras();
+                String To_mMyOutputView = bundle.getString("To_mMyOutputView");
+                mMyTimeTextView.setText(To_mMyOutputView);
+                if(p>100)
+                    p=0;
+                mMyProgressBar.setProgress(p++);
+            }
+        }
+    }
+    private void register_MainActivityUpdateReceiver(){
+        MainActivityUpdateReceiver receiver = new MainActivityUpdateReceiver();
+        IntentFilter filter = new IntentFilter(UPDATE_UI_ACTION);
+        registerReceiver(receiver, filter);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +66,8 @@ public class MainActivity extends Activity{
 
         // View
         setContentView(R.layout.mainactivity);
+        mMyTimeTextView= (TextView) findViewById(R.id.time_textView);
+        mMyProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
@@ -49,6 +77,8 @@ public class MainActivity extends Activity{
         mMyProviderBtn = (Button) findViewById(R.id.ProviderBtn);
         mMygetStartServiceResultBtn = (Button) findViewById(R.id.getStartServiceResultBtn);
         mMygetBindServiceResultBtn = (Button) findViewById(R.id.getBindServiceResultBtn);
+
+        register_MainActivityUpdateReceiver();
 
         // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
@@ -60,8 +90,8 @@ public class MainActivity extends Activity{
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
 
-
     }
+
 
 
     // Model
