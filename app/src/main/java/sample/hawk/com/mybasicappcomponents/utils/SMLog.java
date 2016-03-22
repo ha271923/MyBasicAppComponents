@@ -13,6 +13,10 @@ public class SMLog {
         android.util.Log.i(TAG, getClassFunctionName());
     }
 
+    public static void i(String tag) {
+        android.util.Log.i(tag, getClassFunctionName()+"");
+    }
+
     public static void i(String tag, String msg) {
         if (null == msg)
         {
@@ -32,6 +36,11 @@ public class SMLog {
     public static void d() {
         android.util.Log.d(TAG, getClassFunctionName());
     }
+
+    public static void d(String tag) {
+        android.util.Log.i(TAG + tag, getClassFunctionName());
+    }
+
 
     public static void d(String tag, String msg) {
         if (DEBUG_LOG_ENABLED) {
@@ -57,6 +66,10 @@ public class SMLog {
         android.util.Log.i(TAG, getClassFunctionName());
     }
 
+    public static void w(String tag) {
+        android.util.Log.i(TAG + tag, getClassFunctionName());
+    }
+
     public static void w(String tag, String msg) {
         if (null == msg)
         {
@@ -76,6 +89,11 @@ public class SMLog {
     public static void e() {
         android.util.Log.i(TAG, getClassFunctionName());
     }
+
+    public static void e(String tag) {
+        android.util.Log.i(TAG + tag, getClassFunctionName());
+    }
+
 
     public static void e(String tag, String msg) {
         if (null == msg)

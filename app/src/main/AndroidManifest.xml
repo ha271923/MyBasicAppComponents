@@ -11,7 +11,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!-- TextView will auto show the keyboard, if you want it hidden, you can set stateHidden -->
+        <activity android:name=".MainActivity" android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -23,7 +24,7 @@
 
         </activity>
 
-        <service android:name=".MyService">
+        <service android:name=".MyLocalService">
 
         </service>
 

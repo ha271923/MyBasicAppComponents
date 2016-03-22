@@ -2,26 +2,36 @@ package sample.hawk.com.mybasicappcomponents;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MainActivity extends Activity{
+    private static final String TAG = "[MainActivity]";
     public Button mMyActivityBtn;
-    public Button mMyServiceBtn;
-    public Button mMyReceiverBtn;public Button mMyBroadcastBtn;public TextView mMyReceivedOutputTextView;
+    public ToggleButton mMyLocalServiceToggleBtn;
+    public ToggleButton mMyBindServiceToggleBtn;
+    public Button mMyReceiverBtn;public Button mMyBroadcastBtn;public TextView mMyOutputTextView;
     public Button mMyProviderBtn;
+    public Button mMygetStartServiceResultBtn;
+    public Button mMygetBindServiceResultBtn;
     private BroadcastReceiver mMyReceiver = new MyReceiver();
 
     @Override
@@ -29,23 +39,33 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState); SMLog.i();
 
         // View
-        setContentView(R.layout.activity_main);
-        // Presenter
+        setContentView(R.layout.mainactivity);
+        mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
-        mMyServiceBtn  = (Button) findViewById(R.id.ServiceBtn);
+        mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
+        mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
         mMyReceiverBtn = (Button) findViewById(R.id.ReceiverBtn);
         mMyBroadcastBtn = (Button) findViewById(R.id.BroadcastBtn);
-        mMyReceivedOutputTextView = (TextView) findViewById(R.id.ReceivedOutputTextView);
         mMyProviderBtn = (Button) findViewById(R.id.ProviderBtn);
+        mMygetStartServiceResultBtn = (Button) findViewById(R.id.getStartServiceResultBtn);
+        mMygetBindServiceResultBtn = (Button) findViewById(R.id.getBindServiceResultBtn);
+
+        // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
-        mMyServiceBtn.setOnClickListener(mMyServiceBtnListener);
+        mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
+        mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
+        mMygetStartServiceResultBtn.setOnClickListener(mMygetStartServiceResultBtnListener);
+        mMygetBindServiceResultBtn.setOnClickListener(mMygetBindServiceResultBtnListener);
         mMyReceiverBtn.setOnClickListener(mMyReceiverBtnListener);
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
+
+
     }
 
 
     // Model
+    //Only For Activity -------------------------------------------------------------------------
     private OnClickListener mMyActivityBtnListener =new OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -55,16 +75,84 @@ public class MainActivity extends Activity{
             startActivity(intent);
         }
     };
-    private OnClickListener mMyServiceBtnListener = new OnClickListener() {
+
+    //Only For Service -------------------------------------------------------------------------
+    private OnClickListener mMyLocalServiceToggleBtnListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
             SMLog.i();
             Intent intent = new Intent();
-            intent.setClass( MainActivity.this, MyService.class);
-            startService(intent);
+            intent.setClass( MainActivity.this, MyLocalService.class);
+            if(mMyLocalServiceToggleBtn.isChecked()){
+                startService(intent);
+                Toast.makeText(MainActivity.this, "START service", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("START Service");
+            }
+            else{
+                stopService(intent);
+                Toast.makeText(MainActivity.this, "STOP service", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("STOP Service");
+            }
+        }
+    };
+    private OnClickListener mMygetStartServiceResultBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
         }
     };
 
+    // LocalService
+    MyLocalService mMyLocalService;
+    boolean mBound = false;
+    private ServiceConnection mConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName className,IBinder service) {
+            SMLog.i();
+            MyLocalService.LocalBinder binder = (MyLocalService.LocalBinder) service;
+            mMyLocalService = binder.getService();
+            mBound = true;
+        }
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            SMLog.i();
+            mBound = false;
+        }
+    };
+    private OnClickListener mMyBindServiceToggleBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            boolean ret = false;
+            SMLog.i();
+            if(mMyBindServiceToggleBtn.isChecked()){
+                // TODO:mActivity.bindService(new Intent(mActivity, mClz), mConnection, Context.BIND_AUTO_CREATE));
+                Intent intent = new Intent(MainActivity.this, MyLocalService.class);
+                ret = bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+                Toast.makeText(MainActivity.this, "BIND service", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("bindService = "+ret);
+            }
+            else{
+                // TODO: mActivity.unbindService(mConnection);
+                unbindService(mConnection);
+                mBound = false;
+                Toast.makeText(MainActivity.this, "UNBIND service", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("unbindService");
+            }
+        }
+    };
+    private OnClickListener mMygetBindServiceResultBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (mBound) {
+                // Call API at background
+                int num = mMyLocalService.getRandomNumber();
+                Toast.makeText(MainActivity.this, "number: " + num, Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("number: "+ num);
+            }
+        }
+    };
+
+    //Only For BroadcastReceiver -------------------------------------------------------------------------
     private OnClickListener mMyReceiverBtnListener = new OnClickListener(){
         @Override
         public void onClick(View v) {
@@ -106,7 +194,6 @@ public class MainActivity extends Activity{
             SMLog.i();
     }
 
-    // Hawk: For contentProvider
     public void deleteAllBirthdays (View view) {  // Hawk: Already write android:onClick="showAllBirthdays" in AndroidManifest.xml .
         SMLog.i();
         // delete all the records and the table of the database provider

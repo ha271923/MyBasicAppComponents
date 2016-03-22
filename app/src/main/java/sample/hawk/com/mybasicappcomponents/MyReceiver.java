@@ -11,7 +11,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by Hawk_Wei on 2016/3/16.
  */
 public class MyReceiver extends BroadcastReceiver { // NOT UI thread
-    final String TAG = "MyReceiver";
+    private static final String TAG = "[MyReceiver]";
     static int i;
 
     public MyReceiver() {

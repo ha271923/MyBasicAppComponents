@@ -19,7 +19,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by Hawk_Wei on 2016/3/16.
  */
 public class MyContentProvider extends ContentProvider { // NOT UI thread
-    final String TAG = "MyContentProvider";
+    private static final String TAG = "[MyContentProvider]";
     DBHelper dbHelper;
     private SQLiteDatabase database;
 
