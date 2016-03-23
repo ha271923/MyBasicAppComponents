@@ -24,7 +24,7 @@ public class MyContentProvider extends ContentProvider { // NOT UI thread
     private SQLiteDatabase database;
 
     @Override
-    public boolean onCreate() {
+    public boolean onCreate() { // Hawk: UI thread, however the receiver class doesn't support UI component
         // TODO Auto-generated method stub
         SMLog.i();
         Context context = getContext();
