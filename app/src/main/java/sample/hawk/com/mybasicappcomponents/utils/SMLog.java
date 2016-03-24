@@ -14,7 +14,7 @@ public class SMLog {
     }
 
     public static void i(String tag) {
-        android.util.Log.i(tag, getClassFunctionName()+"");
+        android.util.Log.i(TAG + tag, getClassFunctionName()+"");
     }
 
     public static void i(String tag, String msg) {

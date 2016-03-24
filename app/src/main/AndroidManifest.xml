@@ -28,6 +28,11 @@
 
         </service>
 
+        <service android:name=".MyIntentService" >
+
+        </service>
+
+
         <!-- Statically register MyReceiver  -->
         <receiver android:name=".MyReceiver">
             <intent-filter>

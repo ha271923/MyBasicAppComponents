@@ -10,8 +10,10 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -22,24 +24,38 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MainActivity extends Activity{
     private static final String TAG = "[MainActivity]";
+    // This don't defined in AndroidManifest.xml
     public static String UPDATE_MAINACTIVITY_ACTION = "sample.hawk.com.mybasicappcomponents.MainActivity.UPDATE_UI_ACTION";
+    public static String UPDATE_MAINACTIVITY_PB_ACTION = "sample.hawk.com.mybasicappcomponents.MainActivity.UPDATE_PB_ACTION";
+
+    ProgressBar mMainActivityProgressBar;
+    private static int pa;
     public ProgressBar mMyServiceProgressBar;
+    private static int ps;
     public ProgressBar mMyReceiverProgressBar;
+    private static int pr;
     public ProgressBar mMyContentProviderProgressBar;
+    private static int pc;
+
     public Button mMyActivityBtn;
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
+    public ToggleButton mMyIntentServiceToggleBtn;
+    public ToggleButton mMyAsyncTaskToggleBtn;
     public Button mMyReceiverBtn;public Button mMyBroadcastBtn;
     public TextView mMyOutputTextView;public TextView mMyTimeTextView;
     public Button mMyProviderBtn;
-    public Button mMygetStartServiceResultBtn;
     public Button mMygetBindServiceResultBtn;
-    private static int p;
     private BroadcastReceiver mMyReceiver = new MyReceiver();
+
+
     // Application Model -----------------------------------------------------------------
     // UPDATE_UI WAY1B: an inner class for receive ui update event.
     MainActivityUpdateReceiver mMainActivityUpdateReceiver;
@@ -51,10 +67,16 @@ public class MainActivity extends Activity{
                 Bundle bundle = intent.getExtras();
                 String To_mMyOutputView = bundle.getString("To_mMyOutputView");
                 mMyTimeTextView.setText(To_mMyOutputView);
-                if(p>100)
-                    p=0;
-                mMyServiceProgressBar.setProgress(p++);
+                if(ps>100)
+                    ps=0;
+                mMyServiceProgressBar.setProgress(ps++);
             }
+            if(MainActivity.UPDATE_MAINACTIVITY_PB_ACTION.equals(action)){
+                if(ps>100)
+                    ps=0;
+                mMyServiceProgressBar.setProgress(ps++);
+            }
+
         }
     }
     private void register_MainActivityUpdateReceiver(){
@@ -70,6 +92,7 @@ public class MainActivity extends Activity{
         // View
         setContentView(R.layout.mainactivity);
         mMyTimeTextView= (TextView) findViewById(R.id.time_textView);
+        mMainActivityProgressBar = (ProgressBar) findViewById(R.id.myainactivity_progressBar);
         mMyServiceProgressBar = (ProgressBar) findViewById(R.id.myservice_progressBar);
         mMyReceiverProgressBar = (ProgressBar) findViewById(R.id.myreceiver_progressBar);
         mMyContentProviderProgressBar = (ProgressBar) findViewById(R.id.mycontentprovider_progressBar);
@@ -77,10 +100,11 @@ public class MainActivity extends Activity{
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
+        mMyIntentServiceToggleBtn= (ToggleButton) findViewById(R.id.IntentServiceToggleBtn);
+        mMyAsyncTaskToggleBtn= (ToggleButton) findViewById(R.id.AsyncTaskToggleBtn);
         mMyReceiverBtn = (Button) findViewById(R.id.ReceiverBtn);
         mMyBroadcastBtn = (Button) findViewById(R.id.BroadcastBtn);
         mMyProviderBtn = (Button) findViewById(R.id.ProviderBtn);
-        mMygetStartServiceResultBtn = (Button) findViewById(R.id.getStartServiceResultBtn);
         mMygetBindServiceResultBtn = (Button) findViewById(R.id.getBindServiceResultBtn);
 
         // WAY1: A broadcastReceiver for UI update event.
@@ -90,12 +114,17 @@ public class MainActivity extends Activity{
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
-        mMygetStartServiceResultBtn.setOnClickListener(mMygetStartServiceResultBtnListener);
+        mMyIntentServiceToggleBtn.setOnClickListener(mMyIntentServiceToggleBtnListener);
         mMygetBindServiceResultBtn.setOnClickListener(mMygetBindServiceResultBtnListener);
+        mMyAsyncTaskToggleBtn.setOnClickListener(mMyAsyncTaskToggleBtnListener);
         mMyReceiverBtn.setOnClickListener(mMyReceiverBtnListener);
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
 
+        // Show a progress bar running
+        // main_update_PB_thread(); // only for demo runOnUiThread() API
+
+        mMyTask= new  MyAsyncTask();
     }
 
     @Override
@@ -117,6 +146,7 @@ public class MainActivity extends Activity{
     };
 
     //Only For Service -------------------------------------------------------------------------
+    // LocalService start/stop
     private OnClickListener mMyLocalServiceToggleBtnListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -135,14 +165,8 @@ public class MainActivity extends Activity{
             }
         }
     };
-    private OnClickListener mMygetStartServiceResultBtnListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
 
-        }
-    };
-
-    // LocalService
+    // LocalService bind/unbind
     MyLocalService mMyLocalService;
     boolean mBound = false;
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -165,14 +189,12 @@ public class MainActivity extends Activity{
             boolean ret = false;
             SMLog.i();
             if(mMyBindServiceToggleBtn.isChecked()){
-                // TODO:mActivity.bindService(new Intent(mActivity, mClz), mConnection, Context.BIND_AUTO_CREATE));
                 Intent intent = new Intent(MainActivity.this, MyLocalService.class);
                 ret = bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
                 Toast.makeText(MainActivity.this, "BIND service", Toast.LENGTH_SHORT).show();
                 mMyOutputTextView.setText("bindService = "+ret);
             }
             else{
-                // TODO: mActivity.unbindService(mConnection);
                 unbindService(mConnection);
                 mBound = false;
                 Toast.makeText(MainActivity.this, "UNBIND service", Toast.LENGTH_SHORT).show();
@@ -188,6 +210,45 @@ public class MainActivity extends Activity{
                 int num = mMyLocalService.getRandomNumber();
                 Toast.makeText(MainActivity.this, "number: " + num, Toast.LENGTH_SHORT).show();
                 mMyOutputTextView.setText("number: "+ num);
+            }
+        }
+    };
+
+
+    private OnClickListener mMyIntentServiceToggleBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent(MainActivity.this, MyIntentService.class);
+            SMLog.i();
+            if(mMyIntentServiceToggleBtn.isChecked()){
+                startService(intent);
+                Toast.makeText(MainActivity.this, "new IntentService", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("START IntentService");
+            }
+            else{
+                // stopService(intent); // Hawk: IntentService can't be stop, href="http://stackoverflow.com/questions/8709989/how-to-stop-intentservice-in-android"
+                Toast.makeText(MainActivity.this, "Can't STOP IntentService", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("Can't STOP IntentService");
+            }
+        }
+    };
+
+    private OnClickListener mMyAsyncTaskToggleBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent(MainActivity.this, MyIntentService.class);
+            SMLog.i();
+            if(mMyAsyncTaskToggleBtn.isChecked()){
+                // Hawk: Update UI in AsyncTask's override APIs.
+                mMyTask= new  MyAsyncTask(); // AsyncTask can be executed only once, so new it everytime.
+                mMyTask.execute( "Start MyAsyncTask job!" );
+            }
+            else{
+                // Hawk: Update UI in AsyncTask's override APIs.
+                if(mMyTask!=null)
+                    mMyTask.cancel( true );
             }
         }
     };
@@ -285,5 +346,80 @@ public class MainActivity extends Activity{
         }
 
     }
+
+    private Timer timer = null;
+    public void main_update_PB_thread(){
+        SMLog.i(TAG,"main_update_PB_thread  ThreadId="+Thread.currentThread().getId()); // UI thread, only Run first time.
+        timer = new Timer();
+        timer.schedule(new TimerTask() { // schedule(TimerTask task, long delay, long period)
+            @Override
+            public void run() { // Worker thread, Run every 1sec
+                //SMLog.i(TAG,"main_update_PB_thread  run1() ThreadId="+Thread.currentThread().getId());
+
+                // TODO: implement your job here, it will run every second.
+
+                // UPDATE_UI WAY2: You call runOnUiThread in a thread under Activity class.
+                runOnUiThread(new Runnable() {
+                    public void run() // UI thread, Run every 1sec
+                    {
+                        //SMLog.i(TAG,"main_update_PB_thread  run2() ThreadId="+Thread.currentThread().getId());
+                        if(pa>100)
+                            pa=0;
+                        mMainActivityProgressBar.setProgress(pa++);
+                    }
+                });
+            }
+        }, 1000,1000); // time param at here!
+    }
+
+    // AsyncTask can only start by UI thread. ------------------------------------------------------
+    //param1：向後台任務的執行方法傳遞參數的類型；
+    //param2：在後台任務執行過程中，要求主UI thread處理中間狀態，通常是一些UI處理中傳遞的參數類型；
+    //param3：return value
+    private  MyAsyncTask mMyTask;
+    private class MyAsyncTask extends AsyncTask<String/*param1*/,String/*param2*/,String/*param3*/>
+    {
+        // Update UI before job start.
+        protected void onPreExecute() {
+            SMLog.i();
+            Toast.makeText(MainActivity.this, "AsyncTask start..." + this,Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        protected String/*param3*/ doInBackground(String... params/*param1*/) { // WorkerThread at here!
+            SMLog.i();
+            String pre = params[0]; // params[0]="Start MyAsyncTask job!"
+            // TODO: WORKTHREAD at here for implement your job!
+            for (int i = 0; i < 5; i++) {
+                publishProgress(pre+i/*param2*/); // Hawk: related with onProgressUpdate()
+                SystemClock.sleep(1000);
+            }
+            return "AsyncTask finish!";
+        }
+        // Update UI during Job is working.
+        protected void onProgressUpdate(String... values/*param2*/ ) {
+            SMLog.i();
+            mMyOutputTextView.setText(values[0]);
+            if(pa>100)
+                pa=0;
+            mMainActivityProgressBar.setProgress(pa++);
+        }
+
+        // Update UI after job done.
+        @Override
+        protected void onPostExecute(String result/*param3*/) {
+            super.onPostExecute(result);
+            SMLog.i();
+            Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+            mMyOutputTextView.setText(result);
+        }
+        // Update UI after job cancelled.
+        @Override
+        protected void onCancelled() {
+            SMLog.i();
+            mMyOutputTextView.setText("AsyncTask cancelled");
+        }
+    }
+
+
 
 }

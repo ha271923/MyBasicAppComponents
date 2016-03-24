@@ -18,7 +18,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 /**
  * Created by Hawk_Wei on 2016/3/16.
  */
-public class MyContentProvider extends ContentProvider { // NOT UI thread
+public class MyContentProvider extends ContentProvider { // Hawk: UI thread, however the ContentProvider class doesn't support UI component.
     private static final String TAG = "[MyContentProvider]";
     DBHelper dbHelper;
     private SQLiteDatabase database;
