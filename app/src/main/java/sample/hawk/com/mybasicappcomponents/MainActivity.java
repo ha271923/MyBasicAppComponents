@@ -267,10 +267,15 @@ public class MainActivity extends Activity{
         intent.setAction("sample.hawk.com.mybasicappcomponents.alarmmanager");
         final PendingIntent alarmIntent = PendingIntent.getBroadcast(MainActivity.this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 */
-
+/*
     // WAY2: Service : The specific service can get an intent if Alarm arrived!
         Intent intent = new Intent(MainActivity.this, MyNotificationService.class);
         final PendingIntent alarmIntent = PendingIntent.getService(MainActivity.this, MY_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+*/
+    // WAY3: Activity : The specific Activity can get an intent if Alarm arrived!
+        Intent intent = new Intent(MainActivity.this, MyActivity.class);
+        final PendingIntent alarmIntent = PendingIntent.getActivity(MainActivity.this, MY_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+
 
         if (enable == true) {
             // Hawk: Min duration forced up to 60000 as of Android 5.1
