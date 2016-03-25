@@ -1,6 +1,8 @@
 package sample.hawk.com.mybasicappcomponents;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -48,6 +51,7 @@ public class MainActivity extends Activity{
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
     public ToggleButton mMyIntentServiceToggleBtn;
+    public ToggleButton mMyAlarmManagerToggleBtn;
     public ToggleButton mMyAsyncTaskToggleBtn;
     public Button mMyReceiverBtn;public Button mMyBroadcastBtn;
     public TextView mMyOutputTextView;public TextView mMyTimeTextView;
@@ -76,7 +80,6 @@ public class MainActivity extends Activity{
                     ps=0;
                 mMyServiceProgressBar.setProgress(ps++);
             }
-
         }
     }
     private void register_MainActivityUpdateReceiver(){
@@ -102,6 +105,7 @@ public class MainActivity extends Activity{
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
         mMyIntentServiceToggleBtn= (ToggleButton) findViewById(R.id.IntentServiceToggleBtn);
         mMyAsyncTaskToggleBtn= (ToggleButton) findViewById(R.id.AsyncTaskToggleBtn);
+        mMyAlarmManagerToggleBtn= (ToggleButton) findViewById(R.id.AlarmManagerToggleBtn);
         mMyReceiverBtn = (Button) findViewById(R.id.ReceiverBtn);
         mMyBroadcastBtn = (Button) findViewById(R.id.BroadcastBtn);
         mMyProviderBtn = (Button) findViewById(R.id.ProviderBtn);
@@ -117,6 +121,7 @@ public class MainActivity extends Activity{
         mMyIntentServiceToggleBtn.setOnClickListener(mMyIntentServiceToggleBtnListener);
         mMygetBindServiceResultBtn.setOnClickListener(mMygetBindServiceResultBtnListener);
         mMyAsyncTaskToggleBtn.setOnClickListener(mMyAsyncTaskToggleBtnListener);
+        mMyAlarmManagerToggleBtn.setOnClickListener(mMyAlarmManagerToggleBtnListener);
         mMyReceiverBtn.setOnClickListener(mMyReceiverBtnListener);
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
@@ -253,6 +258,37 @@ public class MainActivity extends Activity{
         }
     };
 
+    public void scheduleAlarm(boolean enable) {
+        // Construct an intent that will execute the MyReceiver
+        Intent intent = new Intent(MainActivity.this, MyReceiver.class);
+        //Intent intent = new Intent();
+        intent.setAction("sample.hawk.com.mybasicappcomponents.alarmmanager");
+        final PendingIntent alarmIntent = PendingIntent.getBroadcast(MainActivity.this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        long firstMillis = System.currentTimeMillis();
+        AlarmManager mAlarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        if (enable == true) {
+            // Hawk: Min duration is 60sec.
+            mAlarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis + 10*1000, 60*1000, alarmIntent);
+            // mAlarmMgr.set(AlarmManager.RTC_WAKEUP, firstMillis + 10*1000, alarmIntent);
+        } else {
+            if (mAlarmMgr != null) {
+                mAlarmMgr.cancel(alarmIntent);
+            }
+        }
+    }
+    private OnClickListener mMyAlarmManagerToggleBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            if(mMyAlarmManagerToggleBtn.isChecked()){
+                scheduleAlarm(true);
+            }
+            else{
+                scheduleAlarm(false);
+            }
+        }
+    };
+
     //Only For BroadcastReceiver -------------------------------------------------------------------------
     private OnClickListener mMyReceiverBtnListener = new OnClickListener(){
         @Override
@@ -373,6 +409,7 @@ public class MainActivity extends Activity{
     }
 
     // AsyncTask can only start by UI thread. ------------------------------------------------------
+    // UPDATE_UI WAY3: AsyncTask can update UI easily.
     //param1：向後台任務的執行方法傳遞參數的類型；
     //param2：在後台任務執行過程中，要求主UI thread處理中間狀態，通常是一些UI處理中傳遞的參數類型；
     //param3：return value

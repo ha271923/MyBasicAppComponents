@@ -14,6 +14,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 public class MyReceiver extends BroadcastReceiver { // Hawk: UI thread, however the receiver class doesn't support UI component except you move it to be inner class of Activity.
     private static final String TAG = "[MyReceiver]";
     static int i;
+    public static final int SET_MYALARM_CODE = 12345;
 
     public MyReceiver() {
         super();
@@ -31,5 +32,10 @@ public class MyReceiver extends BroadcastReceiver { // Hawk: UI thread, however 
         if("sample.hawk.com.mybasicappcomponents.broadcast2".equals(intent.getAction())){
             SMLog.i(TAG,"Received " + "sample.hawk.com.mybasicappcomponents.broadcast2 !!!!");
         }
+        if("sample.hawk.com.mybasicappcomponents.alarmmanager".equals(intent.getAction())){
+            SMLog.i(TAG,"Received " + "sample.hawk.com.mybasicappcomponents.alarmmanager !!!!");
+        }
+
+
     }
 }

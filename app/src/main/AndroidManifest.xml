@@ -41,6 +41,9 @@
             <intent-filter>
                 <action android:name="sample.hawk.com.mybasicappcomponents.broadcast2"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="sample.hawk.com.mybasicappcomponents.alarmmanager"/>
+            </intent-filter>
         </receiver>
 
         <provider
