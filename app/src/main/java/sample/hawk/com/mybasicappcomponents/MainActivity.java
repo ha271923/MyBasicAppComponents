@@ -259,17 +259,23 @@ public class MainActivity extends Activity{
     };
 
     public void scheduleAlarm(boolean enable) {
-        // Construct an intent that will execute the MyReceiver
+        final int MY_REQUEST_CODE = 123456789;// Hawk: To Prvent two pendingIntent overwrite, you can define the diff REQUEST_CODE everytime.
+        AlarmManager mAlarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+/*
+    // WAY1: BroadcastReceiver : The specific receiver can get an intent if Alarm arrived!
         Intent intent = new Intent(MainActivity.this, MyReceiver.class);
-        //Intent intent = new Intent();
         intent.setAction("sample.hawk.com.mybasicappcomponents.alarmmanager");
         final PendingIntent alarmIntent = PendingIntent.getBroadcast(MainActivity.this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        long firstMillis = System.currentTimeMillis();
-        AlarmManager mAlarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+*/
+
+    // WAY2: Service : The specific service can get an intent if Alarm arrived!
+        Intent intent = new Intent(MainActivity.this, MyNotificationService.class);
+        final PendingIntent alarmIntent = PendingIntent.getService(MainActivity.this, MY_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+
         if (enable == true) {
-            // Hawk: Min duration is 60sec.
-            mAlarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis + 10*1000, 60*1000, alarmIntent);
-            // mAlarmMgr.set(AlarmManager.RTC_WAKEUP, firstMillis + 10*1000, alarmIntent);
+            // Hawk: Min duration forced up to 60000 as of Android 5.1
+            mAlarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10*1000, 60*1000, alarmIntent);
+            // mAlarmMgr.set(AlarmManager.RTC_WAKEUP, firstMillis + 10*1000, alarmIntent); // No repeat cast.
         } else {
             if (mAlarmMgr != null) {
                 mAlarmMgr.cancel(alarmIntent);

@@ -32,6 +32,10 @@
 
         </service>
 
+        <service android:name=".MyNotificationService" >
+
+        </service>
+
 
         <!-- Statically register MyReceiver  -->
         <receiver android:name=".MyReceiver">
