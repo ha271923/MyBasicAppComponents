@@ -36,6 +36,9 @@
 
         </service>
 
+        <service android:name=".MyJobSchedulerService"
+                 android:permission="android.permission.BIND_JOB_SERVICE" >
+        </service>
 
         <!-- Statically register MyReceiver  -->
         <receiver android:name=".MyReceiver">

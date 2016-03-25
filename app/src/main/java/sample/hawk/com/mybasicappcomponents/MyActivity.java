@@ -72,6 +72,7 @@ public class MyActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();SMLog.i();
         mState +="(D3)onDestroy->"; mStatus.setText(mState);
+        timer.cancel();
     }
 
     private Timer timer = null;

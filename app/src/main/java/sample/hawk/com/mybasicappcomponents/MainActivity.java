@@ -3,6 +3,8 @@ package sample.hawk.com.mybasicappcomponents;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -53,11 +55,14 @@ public class MainActivity extends Activity{
     public ToggleButton mMyIntentServiceToggleBtn;
     public ToggleButton mMyAlarmManagerToggleBtn;
     public ToggleButton mMyAsyncTaskToggleBtn;
+    public ToggleButton mMyJobSchedulerToggleBtn;
     public Button mMyReceiverBtn;public Button mMyBroadcastBtn;
     public TextView mMyOutputTextView;public TextView mMyTimeTextView;
     public Button mMyProviderBtn;
     public Button mMygetBindServiceResultBtn;
     private BroadcastReceiver mMyReceiver = new MyReceiver();
+
+    private JobScheduler mMyJobScheduler;
 
 
     // Application Model -----------------------------------------------------------------
@@ -106,6 +111,7 @@ public class MainActivity extends Activity{
         mMyIntentServiceToggleBtn= (ToggleButton) findViewById(R.id.IntentServiceToggleBtn);
         mMyAsyncTaskToggleBtn= (ToggleButton) findViewById(R.id.AsyncTaskToggleBtn);
         mMyAlarmManagerToggleBtn= (ToggleButton) findViewById(R.id.AlarmManagerToggleBtn);
+        mMyJobSchedulerToggleBtn= (ToggleButton) findViewById(R.id.JobSchedulerToggleBtn);
         mMyReceiverBtn = (Button) findViewById(R.id.ReceiverBtn);
         mMyBroadcastBtn = (Button) findViewById(R.id.BroadcastBtn);
         mMyProviderBtn = (Button) findViewById(R.id.ProviderBtn);
@@ -122,6 +128,7 @@ public class MainActivity extends Activity{
         mMygetBindServiceResultBtn.setOnClickListener(mMygetBindServiceResultBtnListener);
         mMyAsyncTaskToggleBtn.setOnClickListener(mMyAsyncTaskToggleBtnListener);
         mMyAlarmManagerToggleBtn.setOnClickListener(mMyAlarmManagerToggleBtnListener);
+        mMyJobSchedulerToggleBtn.setOnClickListener(mMyJobSchedulerToggleBtnListener);
         mMyReceiverBtn.setOnClickListener(mMyReceiverBtnListener);
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
@@ -296,6 +303,29 @@ public class MainActivity extends Activity{
             }
             else{
                 scheduleAlarm(false);
+            }
+        }
+    };
+    private OnClickListener mMyJobSchedulerToggleBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            if(mMyJobSchedulerToggleBtn.isChecked())
+            {
+                mMyJobScheduler = (JobScheduler) getSystemService( Context.JOB_SCHEDULER_SERVICE );
+                JobInfo.Builder builder = new JobInfo.Builder( 1,
+                                                            new ComponentName( getPackageName(),
+                                                            MyJobSchedulerService.class.getName() ) );
+                builder.setPeriodic( 3000 ); // Run Job every 3sec.
+                builder.setRequiresCharging(true);
+                builder.setRequiresDeviceIdle(true);
+                if( mMyJobScheduler.schedule( builder.build() ) <= 0 ) {
+                    SMLog.e("[Hawk]","mMyJobScheduler is failed!!");
+                }
+            }
+            else
+            {
+                mMyJobScheduler.cancelAll();
             }
         }
     };
