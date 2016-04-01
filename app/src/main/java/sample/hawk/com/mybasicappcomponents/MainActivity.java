@@ -36,12 +36,18 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MainActivity extends Activity{
     private static final String TAG = "[MainActivity]";
+
+    private Context mContext;
     // This don't defined in AndroidManifest.xml
     public static String UPDATE_MAINACTIVITY_ACTION = "sample.hawk.com.mybasicappcomponents.MainActivity.UPDATE_UI_ACTION";
     public static String UPDATE_MAINACTIVITY_PB_ACTION = "sample.hawk.com.mybasicappcomponents.MainActivity.UPDATE_PB_ACTION";
 
-    ProgressBar mMainActivityProgressBar;
-    private static int pa;
+    private MyThread mMyThread1;
+    private Thread mThread2;
+    private MyThread mMyThread3;
+
+    public static ProgressBar mMainActivityProgressBar;
+    public static int pa;
     public ProgressBar mMyServiceProgressBar;
     private static int ps;
     public ProgressBar mMyReceiverProgressBar;
@@ -56,6 +62,7 @@ public class MainActivity extends Activity{
     public ToggleButton mMyAlarmManagerToggleBtn;
     public ToggleButton mMyAsyncTaskToggleBtn;
     public ToggleButton mMyJobSchedulerToggleBtn;
+    public ToggleButton mMyThreadToggleBtn;
     public Button mMyReceiverBtn;public Button mMyBroadcastBtn;
     public TextView mMyOutputTextView;public TextView mMyTimeTextView;
     public Button mMyProviderBtn;
@@ -96,6 +103,7 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); SMLog.i();
+        mContext = this;
 
         // View
         setContentView(R.layout.mainactivity);
@@ -112,6 +120,7 @@ public class MainActivity extends Activity{
         mMyAsyncTaskToggleBtn= (ToggleButton) findViewById(R.id.AsyncTaskToggleBtn);
         mMyAlarmManagerToggleBtn= (ToggleButton) findViewById(R.id.AlarmManagerToggleBtn);
         mMyJobSchedulerToggleBtn= (ToggleButton) findViewById(R.id.JobSchedulerToggleBtn);
+        mMyThreadToggleBtn= (ToggleButton) findViewById(R.id.ThreadToggleBtn);
         mMyReceiverBtn = (Button) findViewById(R.id.ReceiverBtn);
         mMyBroadcastBtn = (Button) findViewById(R.id.BroadcastBtn);
         mMyProviderBtn = (Button) findViewById(R.id.ProviderBtn);
@@ -129,6 +138,7 @@ public class MainActivity extends Activity{
         mMyAsyncTaskToggleBtn.setOnClickListener(mMyAsyncTaskToggleBtnListener);
         mMyAlarmManagerToggleBtn.setOnClickListener(mMyAlarmManagerToggleBtnListener);
         mMyJobSchedulerToggleBtn.setOnClickListener(mMyJobSchedulerToggleBtnListener);
+        mMyThreadToggleBtn.setOnClickListener(mMyThreadToggleBtnListener);
         mMyReceiverBtn.setOnClickListener(mMyReceiverBtnListener);
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
@@ -330,6 +340,21 @@ public class MainActivity extends Activity{
         }
     };
 
+    private OnClickListener mMyThreadToggleBtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            if(mMyThreadToggleBtn.isChecked())
+            {
+                mMyThread1 = new MyThread();
+                mMyThread1.start();
+            }
+            else
+            {
+                mMyThread1.stopThread();
+            }
+        }
+    };
     //Only For BroadcastReceiver -------------------------------------------------------------------------
     private OnClickListener mMyReceiverBtnListener = new OnClickListener(){
         @Override
