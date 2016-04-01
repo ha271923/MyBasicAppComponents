@@ -16,7 +16,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.SystemClock;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,6 +58,7 @@ public class MainActivity extends Activity{
     private static int pc;
 
     public Button mMyActivityBtn;
+    public Button mSendMsg_fromUI_to_Thread_Btn;
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
     public ToggleButton mMyIntentServiceToggleBtn;
@@ -120,6 +123,7 @@ public class MainActivity extends Activity{
         mMyAsyncTaskToggleBtn= (ToggleButton) findViewById(R.id.AsyncTaskToggleBtn);
         mMyAlarmManagerToggleBtn= (ToggleButton) findViewById(R.id.AlarmManagerToggleBtn);
         mMyJobSchedulerToggleBtn= (ToggleButton) findViewById(R.id.JobSchedulerToggleBtn);
+        mSendMsg_fromUI_to_Thread_Btn = (Button) findViewById(R.id.SendMsg_fromUI_to_Thread_Btn);
         mMyThreadToggleBtn= (ToggleButton) findViewById(R.id.ThreadToggleBtn);
         mMyReceiverBtn = (Button) findViewById(R.id.ReceiverBtn);
         mMyBroadcastBtn = (Button) findViewById(R.id.BroadcastBtn);
@@ -139,6 +143,7 @@ public class MainActivity extends Activity{
         mMyAlarmManagerToggleBtn.setOnClickListener(mMyAlarmManagerToggleBtnListener);
         mMyJobSchedulerToggleBtn.setOnClickListener(mMyJobSchedulerToggleBtnListener);
         mMyThreadToggleBtn.setOnClickListener(mMyThreadToggleBtnListener);
+        mSendMsg_fromUI_to_Thread_Btn.setOnClickListener(mSendMsg_fromUI_to_Thread_BtnListener);
         mMyReceiverBtn.setOnClickListener(mMyReceiverBtnListener);
         mMyBroadcastBtn.setOnClickListener(mMyBroadcastBtnListener);
         mMyProviderBtn.setOnClickListener(mMyProviderBtnListener);
@@ -348,10 +353,33 @@ public class MainActivity extends Activity{
             {
                 mMyThread1 = new MyThread();
                 mMyThread1.start();
+                // CAUTION! mMyThread1.mFromUI_handler may not ready immediately, don't call it right now!
             }
             else
             {
                 mMyThread1.stopThread();
+            }
+        }
+    };
+
+    private OnClickListener mSendMsg_fromUI_to_Thread_BtnListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Message FromUI_msg;
+            if(mMyThread1.mFromUI_handler!=null)
+            {
+                // run JOB1 first
+                FromUI_msg=mMyThread1.mFromUI_handler.obtainMessage();
+                FromUI_msg.what=11111111;
+                mMyThread1.mFromUI_handler.sendMessage(FromUI_msg);
+                // if JOB1 not finish yet, msg will be QUEUE.
+                FromUI_msg=mMyThread1.mFromUI_handler.obtainMessage();
+                FromUI_msg.what=22222222;
+                mMyThread1.mFromUI_handler.sendMessage(FromUI_msg);
+            }
+            else
+            {
+                SMLog.e(TAG,"Worker thread's handler is not ready!");
             }
         }
     };
