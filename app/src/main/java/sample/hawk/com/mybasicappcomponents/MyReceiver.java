@@ -28,12 +28,15 @@ public class MyReceiver extends BroadcastReceiver { // Hawk: UI thread, however 
         i++;
         if("sample.hawk.com.mybasicappcomponents.broadcast1".equals(intent.getAction())){
             SMLog.i(TAG,"Received " + "sample.hawk.com.mybasicappcomponents.broadcast1 !!!!");
+            MainActivity.mReceiver_status.setText("Got broadcast1 !!");
         }
         if("sample.hawk.com.mybasicappcomponents.broadcast2".equals(intent.getAction())){
             SMLog.i(TAG,"Received " + "sample.hawk.com.mybasicappcomponents.broadcast2 !!!!");
+            MainActivity.mReceiver_status.setText("Got broadcast2 !!");
         }
         if("sample.hawk.com.mybasicappcomponents.alarmmanager".equals(intent.getAction())){
             SMLog.i(TAG,"Received " + "sample.hawk.com.mybasicappcomponents.alarmmanager !!!!");
+            MainActivity.mReceiver_status.setText("Got broadcast3 !!");
         }
 
 

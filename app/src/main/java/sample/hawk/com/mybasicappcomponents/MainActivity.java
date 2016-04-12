@@ -48,6 +48,11 @@ public class MainActivity extends Activity{
     private Thread mThread2;
     private MyThread mMyThread3;
 
+    public static TextView mActivity_status;
+    public static TextView mService_status;
+    public static TextView mReceiver_status;
+    public static TextView mContentprovider_status;
+
     public static ProgressBar mMainActivityProgressBar;
     public static int pa;
     public ProgressBar mMyServiceProgressBar;
@@ -111,6 +116,11 @@ public class MainActivity extends Activity{
 
         // View
         setContentView(R.layout.mainactivity);
+        mActivity_status= (TextView) findViewById(R.id.activity_status);
+        mService_status= (TextView) findViewById(R.id.service_status);
+        mReceiver_status= (TextView) findViewById(R.id.receiver_status);
+        mContentprovider_status= (TextView) findViewById(R.id.contentprovider_status);
+
         mMyTimeTextView= (TextView) findViewById(R.id.time_textView);
         mMainActivityProgressBar = (ProgressBar) findViewById(R.id.myainactivity_progressBar);
         mMyServiceProgressBar = (ProgressBar) findViewById(R.id.myservice_progressBar);
