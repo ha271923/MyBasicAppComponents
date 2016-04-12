@@ -11,6 +11,9 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 /**
  * Created by ha271 on 2016/3/31.
  */
+
+
+//region = 寫法0: Thread*1 + Handler*2(UI-->Worker,UI<--Worker),  更新UI與DATA
 public class MyThread extends Thread {
     private static final String TAG = "[MyThread]";
     private boolean mGo = true;
@@ -25,7 +28,8 @@ public class MyThread extends Thread {
     @Override
     public void run() { // TODO: In MyThread class, this is the only routine run on background.
         super.run();
-        Looper.prepare(); // For receive msg from UI thread.
+        // Hawk: 不想控制looper可以改用HandlerThread
+        Looper.prepare(); // // Hawk: UI thread --> MyThread , this prepare is for receiving msg from UI.
         mFromUI_handler = new android.os.Handler(){ // Hawk: In order to run on background, new it here.
             @Override
             public void handleMessage(Message msg) {
@@ -48,7 +52,7 @@ public class MyThread extends Thread {
                                 {
                                     e.printStackTrace();
                                 }
-                                mUpdateUI_Handler.sendMessage(FromWorkerT_msg);
+                                mUpdateUI_Handler.sendMessage(FromWorkerT_msg); // UI thread <-- MyThread
                             }
                             else // for stop condition:
                             {
@@ -72,10 +76,10 @@ public class MyThread extends Thread {
 
     public void stopThread()
     {
-        mGo = false;
+        mGo = false; // Hawk: If you want to stop the thread immediately, thread can support exception too.
     }
 
-    private android.os.Handler mUpdateUI_Handler = new android.os.Handler(){
+    private android.os.Handler mUpdateUI_Handler = new android.os.Handler(){ // Hawk: UI thread <-- MyThread
         @Override
         public void handleMessage(Message msg) {
             // This function is already running on UI thread now.
@@ -90,3 +94,4 @@ public class MyThread extends Thread {
         }
     };
 }
+//endregion

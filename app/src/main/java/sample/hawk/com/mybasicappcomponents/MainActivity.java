@@ -58,6 +58,7 @@ public class MainActivity extends Activity{
     private static int pc;
 
     public Button mMyActivityBtn;
+    public Button mHandlerThreadLooperBtn;
     public Button mSendMsg_fromUI_to_Thread_Btn;
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
@@ -117,6 +118,7 @@ public class MainActivity extends Activity{
         mMyContentProviderProgressBar = (ProgressBar) findViewById(R.id.mycontentprovider_progressBar);
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
+        mHandlerThreadLooperBtn = (Button) findViewById(R.id.HandlerThreadLooperBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
         mMyIntentServiceToggleBtn= (ToggleButton) findViewById(R.id.IntentServiceToggleBtn);
@@ -135,6 +137,7 @@ public class MainActivity extends Activity{
 
         // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
+        mHandlerThreadLooperBtn.setOnClickListener(mHandlerThreadLooperBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
         mMyIntentServiceToggleBtn.setOnClickListener(mMyIntentServiceToggleBtnListener);
@@ -171,6 +174,17 @@ public class MainActivity extends Activity{
             startActivity(intent);
         }
     };
+
+    private OnClickListener mHandlerThreadLooperBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, HandlerThreadLooper.class);
+            startActivity(intent);
+        }
+    };
+
 
     //Only For Service -------------------------------------------------------------------------
     // LocalService start/stop
