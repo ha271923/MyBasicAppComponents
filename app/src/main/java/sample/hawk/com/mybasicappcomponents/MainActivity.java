@@ -375,13 +375,14 @@ public class MainActivity extends Activity{
             SMLog.i();
             if(mMyThreadToggleBtn.isChecked())
             {
-                mMyThread1 = new MyThread();
+                mMyThread1 = new MyThread(mContext);
                 mMyThread1.start();
                 // CAUTION! mMyThread1.mFromUI_handler may not ready immediately, don't call it right now!
             }
             else
             {
-                mMyThread1.stopThread();
+                if(mMyThread1!=null)
+                    mMyThread1.stopThread();
             }
         }
     };

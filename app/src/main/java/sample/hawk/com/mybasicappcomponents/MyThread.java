@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -19,20 +20,27 @@ public class MyThread extends Thread {
     private boolean mGo = true;
     private final int MSG_UPDATE_UI=123454321;
     public android.os.Handler mFromUI_handler;
+    private Context mContext;
+    Looper mLooper;
 
-    public MyThread() {
+    public MyThread(Context context) {
         super();
         // Hawk: UI thread.
+        mContext = context;
     }
 
     @Override
     public void run() { // TODO: In MyThread class, this is the only routine run on background.
         super.run();
         // Hawk: 不想控制looper可以改用HandlerThread
+        SMLog.i(TAG,"Looper.prepare() ++++++++++++++++++++++++++ tID=" + Thread.currentThread().getId());
         Looper.prepare(); // // Hawk: UI thread --> MyThread , this prepare is for receiving msg from UI.
+        mLooper = Looper.myLooper();
+        SMLog.i(TAG,"Looper.prepare() --------------------------");
         mFromUI_handler = new android.os.Handler(){ // Hawk: In order to run on background, new it here.
             @Override
             public void handleMessage(Message msg) {
+                SMLog.i(TAG,"Handler A +++ tID=" + Thread.currentThread().getId());
                 switch(msg.what){
                     case 11111111:  // JOB1
                         SMLog.i();
@@ -66,8 +74,33 @@ public class MyThread extends Thread {
                         SMLog.i(TAG, "JOB2:  tID=" + Thread.currentThread().getId());
                         break;
                 }
+                SMLog.i(TAG,"Handler A ---");
             }
         };
+
+        new Handler().post(new Runnable(){
+            @Override
+            public void run() {
+                SMLog.i(TAG,"Handler B +++ tID=" + Thread.currentThread().getId());
+                SMLog.i(TAG,"Handler B ---");
+            }
+        });
+        new Handler().post(new Runnable(){
+            @Override
+            public void run() {
+                SMLog.i(TAG,"Handler C +++ tID=" + Thread.currentThread().getId());
+                SMLog.i(TAG,"Handler C ---");
+            }
+        });
+        ((Activity) mContext).runOnUiThread(new Runnable() {
+            public void run() {
+                SMLog.i(TAG,"Handler D +++ tID=" + Thread.currentThread().getId());
+                SMLog.i(TAG,"Handler D ---");
+            }
+        });
+        SMLog.i(TAG,"Handler E +++ tID=" + Thread.currentThread().getId());
+        SMLog.i(TAG,"Handler E ---");
+
         SMLog.i(TAG,"Looper.loop() ++++++++++++++++++++++++++");
         Looper.loop(); // Enter this API will never run the following code.
         SMLog.i(TAG,"Looper.loop() --------------------------");
@@ -77,6 +110,7 @@ public class MyThread extends Thread {
     public void stopThread()
     {
         mGo = false; // Hawk: If you want to stop the thread immediately, thread can support exception too.
+        mLooper.quit();  // Hawk: call it will exit Looper.loop().
     }
 
     private android.os.Handler mUpdateUI_Handler = new android.os.Handler(){ // Hawk: UI thread <-- MyThread
