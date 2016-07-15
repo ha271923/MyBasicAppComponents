@@ -90,9 +90,9 @@ public class HandlerThreadLooper extends Activity {
         public void run() {
             // TODO: put your background job at here
             try {
-                for (; count < 1000; ) {
+                for (; mCount < 1000; ) {
                     Thread.sleep(1000);
-                    count++;
+                    mCount++;
                     SMLog.i("TEST","updateData Runnable() tID="+Thread.currentThread().getId());
                     mHandler = new Handler(mContext.getMainLooper()); // KEY point: worker thread switch to UI looper
                     mHandler.post(updateUI);
@@ -109,7 +109,7 @@ public class HandlerThreadLooper extends Activity {
         @Override
         public void run() {
             SMLog.i("TEST","updateUI Runnable() tID="+Thread.currentThread().getId());
-            txtView.setText(Integer.toString(count));
+            txtView.setText(Integer.toString(mCount));
         }
     };
 */
@@ -137,9 +137,9 @@ public class HandlerThreadLooper extends Activity {
         public void run() {
             // TODO: put your background job at here
             try {
-                for (; count < 1000; ) {
+                for (; mCount < 1000; ) {
                     Thread.sleep(1000);
-                    count++;
+                    mCount++;
                     SMLog.i("TEST","updateData Runnable() tID="+Thread.currentThread().getId());
                     mMain_Handler.sendEmptyMessage(MSG_UPDATE_UI); // KEY POINT:
                 }
@@ -154,7 +154,7 @@ public class HandlerThreadLooper extends Activity {
             SMLog.i("TEST", "handleMessage() tID=" + Thread.currentThread().getId());
             switch(msg.what){
                 case MSG_UPDATE_UI:
-                    txtView.setText(Integer.toString(count));
+                    txtView.setText(Integer.toString(mCount));
                     break;
                 default:
                     break;
@@ -180,9 +180,9 @@ public class HandlerThreadLooper extends Activity {
         public void run() {
             // TODO: put your background job at here
             try {
-                for (; count < 1000; ) {
+                for (; mCount < 1000; ) {
                     Thread.sleep(1000);
-                    count++;
+                    mCount++;
                     SMLog.i("TEST","updateData workerThread tID="+Thread.currentThread().getId());
                     mMain_Handler.sendEmptyMessage(MSG_UPDATE_UI); // KEY POINT:
                 }
@@ -197,7 +197,7 @@ public class HandlerThreadLooper extends Activity {
             SMLog.i("TEST", "handleMessage() tID=" + Thread.currentThread().getId());
             switch(msg.what){
                 case MSG_UPDATE_UI:
-                    txtView.setText(Integer.toString(count));
+                    txtView.setText(Integer.toString(mCount));
                     break;
                 default:
                     break;
@@ -224,11 +224,11 @@ public class HandlerThreadLooper extends Activity {
         @Override
         public void run() {
             try {
-                for (; count < 1000; ) {
+                for (; mCount < 1000; ) {
                     Thread.sleep(1000);
-                    count++;
+                    mCount++;
                     SMLog.e("TEST","updateData Runnable() tID="+Thread.currentThread().getId());
-                    txtView.setText(Integer.toString(count));// ERROR: worker thread can't update UI.
+                    txtView.setText(Integer.toString(mCount));// ERROR: worker thread can't update UI.
                 }
             }
             catch (InterruptedException e) {

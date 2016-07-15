@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+        >
+        <TextView
+            android:text="time_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_textView"/>
+
+        <TextView
+            android:text="OutputTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/OutputTextView"/>
+
+    <!-- Activity -->
+        <TextView
+            android:text="activity_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_status"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:background="@color/colorAccent"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myainactivity_progressBar"/>
+        <Button
+            android:text="ActivityBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ActivityBtn"/>
+
+    <!-- Service -->
+
+        <TextView
+            android:text="service_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/service_status"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:background="@color/colorAccent"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myservice_progressBar"/>
+
+        <ToggleButton
+            android:text="ThreadToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP Thread"
+            android:textOn="Start Thread"
+            android:id="@+id/ThreadToggleBtn"/>
+
+        <Button
+            android:text="SendMsg_fromUI_to_Thread_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/SendMsg_fromUI_to_Thread_Btn"/>
+
+        <ToggleButton
+            android:text="LocalServiceToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP LocalService"
+            android:textOn="Start LocalService"
+            android:id="@+id/LocalServiceToggleBtn"/>
+        <ToggleButton
+            android:text="BindServiceToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP BindService"
+            android:textOn="Start BindService"
+            android:id="@+id/BindServiceToggleBtn"/>
+
+        <Button
+            android:text="getBindServiceResultBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/getBindServiceResultBtn"/>
+
+        <ToggleButton
+            android:text="IntentServiceToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP IntentService"
+            android:textOn="Start IntentService"
+            android:id="@+id/IntentServiceToggleBtn"/>
+        <ToggleButton
+            android:text="AsyncTaskToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP AsyncTask"
+            android:textOn="Start AsyncTask"
+            android:id="@+id/AsyncTaskToggleBtn"/>
+        <ToggleButton
+            android:text="AlarmManagerToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP AlarmManager"
+            android:textOn="Start AlarmManager"
+            android:id="@+id/AlarmManagerToggleBtn"/>
+        <ToggleButton
+            android:text="JobSchedulerToggleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="STOP JobScheduler"
+            android:textOn="Start JobScheduler"
+            android:id="@+id/JobSchedulerToggleBtn"/>
+        <Button
+            android:text="HandlerThreadLooperBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/HandlerThreadLooperBtn"/>
+
+        <!-- BroadReceiver -->
+        <TextView
+            android:text="receiver_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/receiver_status"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:background="@color/colorAccent"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myreceiver_progressBar"/>
+
+        <Button
+            android:text="ReceiverBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ReceiverBtn"/>
+        <Button
+            android:text="BroadcastBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/BroadcastBtn"/>
+
+    <!-- ContentProvider -->
+        <TextView
+            android:text="contentprovider_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contentprovider_status"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:background="@color/colorAccent"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mycontentprovider_progressBar"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add default data into MyProvider"
+            android:onClick="addDefaultBirthday"
+            android:id="@+id/ProviderBtn"/>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/name" />
+
+        <EditText
+            android:id="@+id/birthday"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/birthday" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addBirthday"
+            android:layout_marginTop="10dp"
+            android:text="@string/add" />
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="showAllBirthdays"
+            android:text="@string/show" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="deleteAllBirthdays"
+            android:text="@string/delete" />
+    </LinearLayout>
+</ScrollView>
