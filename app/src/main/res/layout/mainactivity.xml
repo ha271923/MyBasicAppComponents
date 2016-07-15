@@ -8,6 +8,14 @@
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
         >
+        <Button
+            android:id="@+id/SettingsBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="SettingsBtnClick"
+            android:layout_marginBottom="20dp"
+            android:text="Preference" />
+
         <TextView
             android:text="time_textView"
             android:layout_width="match_parent"

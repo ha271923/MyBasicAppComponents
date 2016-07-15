@@ -20,6 +20,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.SystemClock;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -81,6 +83,11 @@ public class MainActivity extends Activity{
 
     private JobScheduler mMyJobScheduler;
 
+
+    public void SettingsBtnClick(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
 
     // Application Model -----------------------------------------------------------------
     // UPDATE_UI WAY1B: an inner class for receive ui update event.
@@ -460,7 +467,6 @@ public class MainActivity extends Activity{
         Toast.makeText(getBaseContext(),countNum, Toast.LENGTH_LONG).show();
 
     }
-
     public void addBirthday(View view) {
         SMLog.i();
         // Add a new birthday record
