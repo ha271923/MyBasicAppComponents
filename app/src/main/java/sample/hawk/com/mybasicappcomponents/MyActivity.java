@@ -1,19 +1,27 @@
 package sample.hawk.com.mybasicappcomponents;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import sample.hawk.com.mybasicappcomponents.utils.PermissionUtil;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -98,6 +106,78 @@ public class MyActivity extends Activity {
                 });
             }
         }, 1000,1000); // time param at here!
+    }
+
+
+    public static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 234566;
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == WRITE_EXTERNAL_STORAGE_REQUEST_CODE) {
+            Log.i(TAG, "Received response for REQUEST_WRITE_EXTERNAL_STORAGE");
+            // We have requested multiple permissions for WRITE_EXTERNAL_STORAGE, so all of them need to be checked.
+            if (PermissionUtil.verifyPermissions(grantResults)) {
+                Log.i(TAG, "WRITE_EXTERNAL_STORAGE has been granted.");
+                onNewIntent(getIntent()); // Got the permissions from the dialog
+                //Toast.makeText(getContext(), "ALLOW: Help APP can access the database on the phone.", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.i(TAG, "WRITE_EXTERNAL_STORAGE were NOT granted.");
+                // Toast.makeText(this, "DENY: Help APP can NOT access the database on the phone.", Toast.LENGTH_LONG).show();
+                //Utils.showGuideHome(getContext());    //
+                finish();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+    public void onClickRequestPermissionButton(View view){
+        if (!PermissionUtil.hasSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            // The permission is NOT already granted.
+            // Check if the user has been asked about this permission already and denied
+            // it. If so, we want to give more explanation about why the permission is needed.
+            if (shouldShowRequestPermissionRationale(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                // Show our own UI to explain to the user why we need to read the contacts
+                // before actually requesting the permission and showing the default UI
+            }
+
+            // Fire off an async request to actually get the permission
+            // This will show the standard permission request dialog UI
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
+        }
+    }
+    public void onClickWriteLog(View view){
+        appendLog("AAAAA");
+    }
+    public void appendLog(String text)
+    {
+        File logFile = new File("sdcard/testlog.txt"); // Hawk: you can find log file at /mnt/sdcard/testlog.txt
+        if (!logFile.exists())
+        {
+            try
+            {
+                logFile.createNewFile();
+            }
+            catch (IOException e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        try
+        {
+            //BufferedWriter for performance, true to set append to file flag
+            BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+            buf.append(text);
+            buf.newLine();
+            buf.close();
+        }
+        catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

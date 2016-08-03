@@ -15,4 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/myactivity_progressBar"/>
+
+
+    <Button
+        android:text="requestPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickRequestPermissionButton"
+        android:id="@+id/button"/>
+
+
+    <Button
+        android:text="Write a test log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickWriteLog"
+        android:id="@+id/button2"/>
 </LinearLayout>
