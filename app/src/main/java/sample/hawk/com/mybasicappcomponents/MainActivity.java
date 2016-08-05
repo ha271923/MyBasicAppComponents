@@ -16,15 +16,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.SystemClock;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -32,13 +28,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
+import sample.hawk.com.mybasicappcomponents.oo.MyObjectClass;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity implements MyInterface {
     private static final String TAG = "[MainActivity]";
     public  static final int MY_REQUEST_CODE = 123456789;// Hawk: To Prvent two pendingIntent overwrite, you can define the diff REQUEST_CODE everytime.
 
@@ -121,6 +118,13 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); SMLog.i();
         mContext = this;
+
+        // Test abstract class and interface class
+        // MyAbstractClass AbObj = new MyAbstractClass(); // JAVA: you can't new a abstract class obj directly.
+        MyObjectClass Obj = new MyObjectClass(); // JAVA: OO Inheritance tech, MyAbstractClass->MyObjectClass
+        Obj.MyAbstractFunction(333);
+        Obj.MyRealFunction(55555);
+        MyInterfaceAPI(9999999); // JAVA: OO Composition tech
 
         // View
         setContentView(R.layout.mainactivity);
@@ -582,6 +586,10 @@ public class MainActivity extends Activity{
         }
     }
 
+    @Override
+    public void MyInterfaceAPI(int i) {
+        SMLog.i(TAG, "MyInterfaceAPI ="+i);
+    }
 
 
 }
