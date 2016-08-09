@@ -63,6 +63,7 @@ public class MainActivity extends Activity implements MyInterface {
     private static int pc;
 
     public Button mMyActivityBtn;
+    public Button mMyListViewBtn;
     public Button mHandlerThreadLooperBtn;
     public Button mSendMsg_fromUI_to_Thread_Btn;
     public ToggleButton mMyLocalServiceToggleBtn;
@@ -140,6 +141,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyContentProviderProgressBar = (ProgressBar) findViewById(R.id.mycontentprovider_progressBar);
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
+        mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
         mHandlerThreadLooperBtn = (Button) findViewById(R.id.HandlerThreadLooperBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
@@ -159,6 +161,7 @@ public class MainActivity extends Activity implements MyInterface {
 
         // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
+        mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
         mHandlerThreadLooperBtn.setOnClickListener(mHandlerThreadLooperBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
@@ -196,6 +199,18 @@ public class MainActivity extends Activity implements MyInterface {
             startActivity(intent);
         }
     };
+
+    private OnClickListener mMyListViewBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MyListViewActivity.class);
+            startActivity(intent);
+        }
+    };
+
+
 
     private OnClickListener mHandlerThreadLooperBtnListener =new OnClickListener() {
         @Override

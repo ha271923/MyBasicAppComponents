@@ -23,8 +23,9 @@
         <activity android:name=".SettingsActivity" />
 
         <activity android:name=".MyActivity">
-
         </activity>
+
+        <activity android:name=".MyListViewActivity"/>
 
         <activity android:name=".HandlerThreadLooper">
 

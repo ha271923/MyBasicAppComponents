@@ -48,6 +48,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/ActivityBtn"/>
 
+        <Button
+            android:text="ListViewBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ListViewBtn"/>
+
     <!-- Service -->
 
         <TextView
