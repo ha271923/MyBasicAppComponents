@@ -33,6 +33,7 @@ import java.util.TimerTask;
 
 import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
 import sample.hawk.com.mybasicappcomponents.oo.MyObjectClass;
+import sample.hawk.com.mybasicappcomponents.listview.MyListView3DActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MainActivity extends Activity implements MyInterface {
@@ -64,6 +65,7 @@ public class MainActivity extends Activity implements MyInterface {
 
     public Button mMyActivityBtn;
     public Button mMyListViewBtn;
+    public Button mMyListView3DBtn;
     public Button mHandlerThreadLooperBtn;
     public Button mSendMsg_fromUI_to_Thread_Btn;
     public ToggleButton mMyLocalServiceToggleBtn;
@@ -142,6 +144,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
+        mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
         mHandlerThreadLooperBtn = (Button) findViewById(R.id.HandlerThreadLooperBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
@@ -162,6 +165,7 @@ public class MainActivity extends Activity implements MyInterface {
         // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
+        mMyListView3DBtn.setOnClickListener(mMyListView3DBtnListener);
         mHandlerThreadLooperBtn.setOnClickListener(mHandlerThreadLooperBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
@@ -210,6 +214,15 @@ public class MainActivity extends Activity implements MyInterface {
         }
     };
 
+    private OnClickListener mMyListView3DBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MyListView3DActivity.class);
+            startActivity(intent);
+        }
+    };
 
 
     private OnClickListener mHandlerThreadLooperBtnListener =new OnClickListener() {

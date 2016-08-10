@@ -54,6 +54,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/ListViewBtn"/>
 
+        <Button
+            android:text="ListView3DBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ListView3DBtn"/>
+
     <!-- Service -->
 
         <TextView
