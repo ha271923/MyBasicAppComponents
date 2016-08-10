@@ -1,31 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_width="fill_parent"
+                android:layout_height="?android:attr/listPreferredItemHeight"
+                android:background="@color/colorPrimaryDark"
+                android:padding="0dip" >
 
     <ImageView
         android:id="@+id/photo"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="4px"
-        android:layout_marginRight="10px"
-        android:layout_marginTop="4px"
-        android:src="@drawable/gallery_photo_1" >
-    </ImageView>
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="2"
+        android:layout_marginRight="0dip"
+        android:contentDescription="TODO"
+        android:src="@drawable/gallery_photo_1" />
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:text="movie title"
+        android:textSize="22sp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_toRightOf="@+id/photo" />
+        android:layout_alignParentRight="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/photo"
+        android:gravity="center_vertical"/>
     <TextView
         android:id="@+id/time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_alignParentRight="true"
+        android:text="movie time"
+        android:textSize="22sp"
         android:layout_below="@+id/title"
-        android:layout_toRightOf="@+id/photo" />
-
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/photo"
+        android:ellipsize="marquee"
+        android:maxLines="1"
+        android:gravity="center_vertical"/>
 </RelativeLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="4px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="4px"
+            android:src="@drawable/gallery_photo_1" >
+        </ImageView>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_toRightOf="@+id/photo" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/title"
+            android:layout_toRightOf="@+id/photo" />
+
+    </RelativeLayout>-->
