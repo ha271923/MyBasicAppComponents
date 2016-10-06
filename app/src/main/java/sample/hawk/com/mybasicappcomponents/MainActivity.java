@@ -66,6 +66,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyActivityBtn;
     public Button mMyListViewBtn;
     public Button mMyListView3DBtn;
+    public Button mMyJavaActivityBtn;
     public Button mHandlerThreadLooperBtn;
     public Button mSendMsg_fromUI_to_Thread_Btn;
     public ToggleButton mMyLocalServiceToggleBtn;
@@ -145,6 +146,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
         mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
+        mMyJavaActivityBtn = (Button) findViewById(R.id.MyJavaActivityBtn);
         mHandlerThreadLooperBtn = (Button) findViewById(R.id.HandlerThreadLooperBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
@@ -166,6 +168,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
         mMyListView3DBtn.setOnClickListener(mMyListView3DBtnListener);
+        mMyJavaActivityBtn.setOnClickListener(mMyJavaActivityBtnListener);
         mHandlerThreadLooperBtn.setOnClickListener(mHandlerThreadLooperBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
@@ -220,6 +223,16 @@ public class MainActivity extends Activity implements MyInterface {
             SMLog.i();
             Intent  intent = new Intent();
             intent.setClass( MainActivity.this, MyListView3DActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private OnClickListener mMyJavaActivityBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MyJavaActivity.class);
             startActivity(intent);
         }
     };

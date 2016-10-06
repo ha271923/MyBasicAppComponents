@@ -25,9 +25,13 @@
         <activity android:name=".MyActivity">
         </activity>
 
+        <activity android:name=".MyJavaActivity"/>
+
         <activity android:name=".MyListViewActivity"/>
 
         <activity android:name=".listview.MyListView3DActivity"/>
+
+        <activity android:name=".MyBlinkFeedActivity"/>
 
         <activity android:name=".HandlerThreadLooper">
 
