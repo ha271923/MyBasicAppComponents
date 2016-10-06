@@ -128,7 +128,26 @@ public class MainActivity extends Activity implements MyInterface {
         MyObjectClass Obj = new MyObjectClass(); // JAVA: OO Inheritance tech, MyAbstractClass->MyObjectClass
         Obj.MyAbstractFunction(333);
         Obj.MyRealFunction(55555);
-        MyInterfaceAPI(9999999); // JAVA: OO Composition tech
+
+        MyInterfaceAPI(1111); // JAVA: OO Composition tech
+
+        // Java Anonymous class
+        new MyInterface(){
+            @Override
+            public void MyInterfaceAPI(int i) {
+                SMLog.i(TAG, "MyInterfaceAPI = Java Anonymous class" );
+            }
+        };
+
+        MyInterface ObjIf = new MyInterface(){
+            @Override
+            public void MyInterfaceAPI(int i) {
+                SMLog.i(TAG, "MyInterfaceAPI = Java Anonymous class" );
+            }
+        };
+        ObjIf.MyInterfaceAPI(4444);
+
+        MyInterfaceAPI(9999); // JAVA: OO Composition tech
 
         // View
         setContentView(R.layout.mainactivity);

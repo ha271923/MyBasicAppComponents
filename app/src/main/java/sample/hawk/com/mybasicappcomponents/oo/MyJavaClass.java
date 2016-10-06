@@ -1,16 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.oo;
-
-/**
- * Created by ha271 on 2016/10/6.
- */
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-
-/**
- * Created by ha271 on 2016/10/5.
- */
 
 public class MyJavaClass {
     // private static final String TAG = "[MyJavaClass]";
