@@ -32,4 +32,31 @@ public class MyJavaClass {
         Log.i(TAG,"call MyJavaClass::method_1()  API");
     }
 
+
+    public void cc_instanceof_keyword(ChildClass obj){
+        if( obj instanceof ParentClass ){
+            Log.i(TAG,"OBJ is instanceof ParentClass");
+        }
+        if( obj instanceof MyInterface ){
+            Log.i(TAG,"OBJ is instanceof MyInterface"); // ChildClass implements this interface
+        }
+        if( obj instanceof ChildClass ){
+            Log.i(TAG,"OBJ is instanceof ChildClass");
+        }
+    }
+
+    public void pc_instanceof_keyword(ParentClass obj){
+        if( obj instanceof ParentClass ){
+            Log.i(TAG,"OBJ is instanceof ParentClass");
+        }
+        if( obj instanceof MyInterface ){
+            Log.i(TAG,"OBJ is instanceof MyInterface"); // ChildClass implements this interface
+        }
+        if( obj instanceof ChildClass ){
+            Log.i(TAG,"OBJ is instanceof ChildClass");
+        }
+    }
+
+
+
 }

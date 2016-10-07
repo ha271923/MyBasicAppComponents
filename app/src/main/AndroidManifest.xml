@@ -27,21 +27,21 @@
 
         <activity android:name=".MyJavaActivity"/>
 
-        <activity android:name=".MyListViewActivity"/>
+        <activity android:name=".view.MyListViewActivity"/>
 
-        <activity android:name=".listview.MyListView3DActivity"/>
+        <activity android:name=".view.MyListView3DActivity"/>
 
         <activity android:name=".MyBlinkFeedActivity"/>
 
-        <activity android:name=".HandlerThreadLooper">
+        <activity android:name=".background.HandlerThreadLooper">
 
         </activity>
 
-        <service android:name=".MyLocalService">
+        <service android:name=".background.MyLocalService">
 
         </service>
 
-        <service android:name=".MyIntentService" >
+        <service android:name=".background.MyIntentService" >
 
         </service>
 
@@ -49,7 +49,7 @@
 
         </service>
 
-        <service android:name=".MyJobSchedulerService"
+        <service android:name=".background.MyJobSchedulerService"
                  android:permission="android.permission.BIND_JOB_SERVICE" >
         </service>
 

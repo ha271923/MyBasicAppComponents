@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import sample.hawk.com.mybasicappcomponents.oo.ChildClass;
 import sample.hawk.com.mybasicappcomponents.oo.MyJavaClass;
+import sample.hawk.com.mybasicappcomponents.oo.ParentClass;
 
 /**
  * Created by ha271 on 2016/10/6.
@@ -41,6 +43,8 @@ public class MyJavaActivity extends Activity{
     public void onClick_MyJavaClass(View view){
         MyJavaClass javaTest = new MyJavaClass();
         javaTest.method_1();
+        javaTest.cc_instanceof_keyword(new ChildClass("testObj"));
+        javaTest.pc_instanceof_keyword(new ParentClass());
 
     }
 }

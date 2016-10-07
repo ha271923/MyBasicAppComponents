@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class ChildClass extends ParentClass{
+public class ChildClass extends ParentClass implements MyInterface {
     // private static final String TAG = "[ChildClass]";
     private static final String TAG = "[Hawk]";
 
@@ -26,6 +26,11 @@ public class ChildClass extends ParentClass{
     private static String init_var(){
         Log.i(TAG,"ChildClass call <cinit> for all static variables");
         return  "ChildClass=====";
+    }
+
+    @Override
+    public void MyInterfaceAPI(int i) {
+        Log.i(TAG,"MyInterfaceAPI+++");
     }
 
 }

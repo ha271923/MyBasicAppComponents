@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.view;
 
 /**
  * Created by ha271 on 2016/8/8.

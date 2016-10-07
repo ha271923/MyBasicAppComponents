@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.view;
 
 import android.app.ListActivity;
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import sample.hawk.com.mybasicappcomponents.R;
+
 /**
  * Created by ha271 on 2016/8/8.
  */
@@ -30,7 +32,7 @@ public class MyListViewActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         // Create DB
         rowItems.add(new MyListRowDataItem(0, 0 , "HBO電影台","")); // Channel 1
-        rowItems.add(new MyListRowDataItem(1,R.drawable.gallery_photo_1, "綠光戰警","7:00"));
+        rowItems.add(new MyListRowDataItem(1, R.drawable.gallery_photo_1, "綠光戰警","7:00"));
         rowItems.add(new MyListRowDataItem(2,R.drawable.gallery_photo_2, "鋼鐵人","9:00"));
         rowItems.add(new MyListRowDataItem(1,R.drawable.gallery_photo_3, "蝙蝠俠:開戰時刻","11:00"));
         rowItems.add(new MyListRowDataItem(0,0,"Discovery","")); // Channel 2

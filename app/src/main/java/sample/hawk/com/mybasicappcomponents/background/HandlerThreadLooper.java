@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.background;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.widget.TextView;
 
+import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**

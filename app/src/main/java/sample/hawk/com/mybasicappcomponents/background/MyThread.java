@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.background;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.widget.ProgressBar;
 
+import sample.hawk.com.mybasicappcomponents.MainActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**

@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.listview;
+package sample.hawk.com.mybasicappcomponents.view;
 
 import android.app.Activity;
 import android.view.LayoutInflater;

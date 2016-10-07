@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.background;
 
 import android.app.Service;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +16,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import sample.hawk.com.mybasicappcomponents.MainActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 
@@ -73,7 +73,7 @@ public class MyLocalService extends Service { // Hawk: UI thread, however the re
     }
 
     public class LocalBinder extends Binder {
-        MyLocalService getService() {
+        public MyLocalService getService() {
             return MyLocalService.this;
         }
     }

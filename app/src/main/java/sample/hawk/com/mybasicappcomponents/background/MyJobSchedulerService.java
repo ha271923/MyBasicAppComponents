@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.background;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;
@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
+import sample.hawk.com.mybasicappcomponents.MainActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**

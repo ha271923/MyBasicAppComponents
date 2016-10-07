@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.listview;
+package sample.hawk.com.mybasicappcomponents.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

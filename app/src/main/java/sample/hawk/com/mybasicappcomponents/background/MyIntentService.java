@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.background;
 
 import android.app.IntentService;
 import android.content.Intent;
