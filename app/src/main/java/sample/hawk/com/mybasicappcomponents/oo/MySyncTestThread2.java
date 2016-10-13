@@ -10,7 +10,7 @@ public class MySyncTestThread2 implements Runnable{
     static String TAG = "[MySyncTestThread]";
     String mThreadName="";
     boolean mSync=false;
-    int var=0;
+    int var=0; // object_var
     static volatile int static_var;
 
     MySyncTestThread2(String name, boolean sync) {
@@ -19,10 +19,8 @@ public class MySyncTestThread2 implements Runnable{
         SMLog.i(TAG,mThreadName+"constructor");
     }
 
-
-
-
     public void run() {
+        int var=0; // stack_var
         mThreadName = Thread.currentThread().getName();
         SMLog.i(TAG, "mSync="+mSync+"  run +++    name=" + mThreadName);
         if(mSync) {
