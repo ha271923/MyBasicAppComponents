@@ -6,15 +6,15 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/10/7.
  */
 
-public class MySyncTestThread extends Thread{
+public class MySyncTestThread2 implements Runnable{
     static String TAG = "[MySyncTestThread]";
-    String mThreadName;
-    boolean mSync;
-    int var;
-    static int static_var;
+    String mThreadName="";
+    boolean mSync=false;
+    int var=0;
+    static volatile int static_var;
 
-    MySyncTestThread(String name, boolean sync) {
-        mThreadName = name;
+    MySyncTestThread2(String name, boolean sync) {
+        // mThreadName = Thread.currentThread().getName();
         mSync = sync;
         SMLog.i(TAG,mThreadName+"constructor");
     }
@@ -22,17 +22,16 @@ public class MySyncTestThread extends Thread{
 
 
 
-    @Override
     public void run() {
+        mThreadName = Thread.currentThread().getName();
         SMLog.i(TAG, "mSync="+mSync+"  run +++    name=" + mThreadName);
         if(mSync) {
             synchronized(this) { // synchronized +++
-                super.run();
                 for (int i = 0; i < 10; i++) {
                     try {
                         static_var++;var++;CommonResources.static_var++;CommonResources.StaticInnerClass.static_var++;
                         // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticInnerClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
-                        sleep(100); // Hawk: simulate context-switch
+                        Thread.sleep(100); // Hawk: simulate context-switch
                         //SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var);
                         SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
                         //SMLog.i(TAG, "run        name="+mThreadName+"  CommonResources.static_var="+CommonResources.static_var+"  CommonResources.StaticInnerClass.static_var="+CommonResources.StaticInnerClass.static_var);
@@ -43,12 +42,11 @@ public class MySyncTestThread extends Thread{
             } // synchronized ---
         }
         else {
-            super.run();
             for (int i = 0; i < 10; i++) {
                 try {
                     static_var++;var++;CommonResources.static_var++;
                     // CommonResources.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
-                    sleep(100); // Hawk: simulate context-switch
+                    Thread.sleep(100); // Hawk: simulate context-switch
                     //SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var);
                     SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
                     //SMLog.i(TAG, "run        name="+mThreadName+"  CommonResources.static_var="+CommonResources.static_var+"  CommonResources.StaticInnerClass.static_var="+CommonResources.StaticInnerClass.static_var);

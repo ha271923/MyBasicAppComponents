@@ -41,4 +41,20 @@
         android:id="@+id/button3"/>
 
 
+    <Button
+        android:text="without synchronized(this) keyword, Runnable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_NO_synchronized_keyword_runnable"
+        android:id="@+id/button4"/>
+
+
+    <Button
+        android:text="with synchronized(this) keyword, Runnable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_synchronized_keyword_runnable"
+        android:id="@+id/button5"/>
+
+
 </LinearLayout>

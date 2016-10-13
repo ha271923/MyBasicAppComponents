@@ -49,13 +49,18 @@ public class MyJavaActivity extends Activity{
 
     public void onClick_NO_synchronized_keyword(View view){
         MyJavaClass javaTest = new MyJavaClass(2); // no
-
     }
 
     public void onClick_synchronized_keyword(View view){
         MyJavaClass javaTest = new MyJavaClass(3);
-
     }
 
+    public void onClick_NO_synchronized_keyword_runnable(View view) {
+        MyJavaClass javaTest = new MyJavaClass(4); // no
+    }
+
+    public void onClick_synchronized_keyword_runnable(View view) {
+        MyJavaClass javaTest = new MyJavaClass(5);
+    }
 
 }
