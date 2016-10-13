@@ -26,7 +26,7 @@ public class MySyncTestThread extends Thread{
     public void run() {
         SMLog.i(TAG, "mSync="+mSync+"  run +++    name=" + mThreadName);
         if(mSync) {
-            synchronized(this) { // synchronized +++
+            synchronized(MySyncTestThread.class) { // synchronized +++
                 super.run();
                 for (int i = 0; i < 10; i++) {
                     try {
