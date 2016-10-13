@@ -11,10 +11,37 @@ public class MyJavaClass {
     ChildClass mObj1;
     ChildClass mObj2;
 
-    public MyJavaClass(){
+    public MyJavaClass(int param){
         Log.i(TAG,"MyJavaClass() constructor +++");
-        MyJavaDynamic();
-        MyJavaStaticRef();
+        switch(param){
+            case 1: // <init>,<cinit> condition
+                MyJavaDynamic();
+                MyJavaStaticRef();
+                break;
+            case 2: // NO synchronized, sychronized(this) keyword
+                MySyncTestThread t1= new MySyncTestThread("T[1]",false);t1.start();
+                MySyncTestThread t2= new MySyncTestThread("T[2]",false);t2.start();
+                MySyncTestThread t3= new MySyncTestThread("T[3]",false);t3.start();
+                MySyncTestThread t4= new MySyncTestThread("T[4]",false);t4.start();
+                MySyncTestThread t5= new MySyncTestThread("T[5]",false);t5.start();
+                MySyncTestThread t6= new MySyncTestThread("T[6]",false);t6.start();
+                MySyncTestThread t7= new MySyncTestThread("T[7]",false);t7.start();
+                break;
+
+            case 3: // synchronized, sychronized(this) keyword
+                MySyncTestThread t1sync= new MySyncTestThread("T[1]",true);t1sync.start();
+                MySyncTestThread t2sync= new MySyncTestThread("T[2]",true);t2sync.start();
+                MySyncTestThread t3sync= new MySyncTestThread("T[3]",true);t3sync.start();
+                MySyncTestThread t4sync= new MySyncTestThread("T[4]",true);t4sync.start();
+                MySyncTestThread t5sync= new MySyncTestThread("T[5]",true);t5sync.start();
+                MySyncTestThread t6sync= new MySyncTestThread("T[6]",true);t6sync.start();
+                MySyncTestThread t7sync= new MySyncTestThread("T[7]",true);t7sync.start();
+                break;
+
+            default:
+                ;
+
+        }
         Log.i(TAG,"MyJavaClass() constructor ---");
     }
 

@@ -40,11 +40,22 @@ public class MyJavaActivity extends Activity{
 
     */
 
-    public void onClick_MyJavaClass(View view){
-        MyJavaClass javaTest = new MyJavaClass();
+    public void onClick_cinit_sequence(View view){
+        MyJavaClass javaTest = new MyJavaClass(1);
         javaTest.method_1();
         javaTest.cc_instanceof_keyword(new ChildClass("testObj"));
         javaTest.pc_instanceof_keyword(new ParentClass());
+    }
+
+    public void onClick_NO_synchronized_keyword(View view){
+        MyJavaClass javaTest = new MyJavaClass(2); // no
 
     }
+
+    public void onClick_synchronized_keyword(View view){
+        MyJavaClass javaTest = new MyJavaClass(3);
+
+    }
+
+
 }

@@ -18,11 +18,27 @@
 
 
     <Button
-        android:text="MyJavaClass"
+        android:text="cinit,init,static sequence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick_MyJavaClass"
+        android:onClick="onClick_cinit_sequence"
         android:id="@+id/button"/>
+
+
+    <Button
+        android:text="without synchronized(this) keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_NO_synchronized_keyword"
+        android:id="@+id/button2"/>
+
+
+    <Button
+        android:text="with synchronized(this) keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_synchronized_keyword"
+        android:id="@+id/button3"/>
 
 
 </LinearLayout>
