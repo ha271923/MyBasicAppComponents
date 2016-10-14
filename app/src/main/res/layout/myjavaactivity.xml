@@ -17,44 +17,37 @@
         android:id="@+id/myjavaactivity_progressBar"/>
 
 
+    <!-- Many Buttons share a CallBack function -->
     <Button
         android:text="cinit,init,static sequence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick_cinit_sequence"
-        android:id="@+id/button"/>
-
-
+        android:tag="1"
+        android:onClick="onClick_MyJavaClass"/>
     <Button
         android:text="without synchronized(this) keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick_NO_synchronized_keyword"
-        android:id="@+id/button2"/>
-
-
+        android:tag="2"
+        android:onClick="onClick_MyJavaClass"/>
     <Button
         android:text="with synchronized(this) keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick_synchronized_keyword"
-        android:id="@+id/button3"/>
-
-
+        android:tag="3"
+        android:onClick="onClick_MyJavaClass"/>
     <Button
         android:text="without synchronized(this) keyword, Runnable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick_NO_synchronized_keyword_runnable"
-        android:id="@+id/button4"/>
-
-
+        android:tag="4"
+        android:onClick="onClick_MyJavaClass"/>
     <Button
         android:text="with synchronized(this) keyword, Runnable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick_synchronized_keyword_runnable"
-        android:id="@+id/button5"/>
+        android:tag="5"
+        android:onClick="onClick_MyJavaClass"/>
 
 
 </LinearLayout>

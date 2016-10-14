@@ -21,7 +21,7 @@ public class MyJavaActivity extends Activity{
 
     }
 
-    /* Test Result:
+    /* Test init Java class sequence Result:
 10-06 14:32:06.450 23637-23637/sample.hawk.com.mybasicappcomponents I/[Hawk]: MyJavaClass() constructor +++
 10-06 14:32:09.903 23637-23637/sample.hawk.com.mybasicappcomponents I/[Hawk]: ParentClass call <cinit> for all static variables
 10-06 14:32:09.904 23637-23637/sample.hawk.com.mybasicappcomponents I/[Hawk]: instance ParentClass class static
@@ -39,28 +39,20 @@ public class MyJavaActivity extends Activity{
 10-06 14:32:13.867 23637-23637/sample.hawk.com.mybasicappcomponents I/[Hawk]: call MyJavaClass::method_1()  API
 
     */
-
-    public void onClick_cinit_sequence(View view){
-        MyJavaClass javaTest = new MyJavaClass(1);
-        javaTest.method_1();
-        javaTest.cc_instanceof_keyword(new ChildClass("testObj"));
-        javaTest.pc_instanceof_keyword(new ParentClass());
-    }
-
-    public void onClick_NO_synchronized_keyword(View view){
-        MyJavaClass javaTest = new MyJavaClass(2); // no
-    }
-
-    public void onClick_synchronized_keyword(View view){
-        MyJavaClass javaTest = new MyJavaClass(3);
-    }
-
-    public void onClick_NO_synchronized_keyword_runnable(View view) {
-        MyJavaClass javaTest = new MyJavaClass(4); // no
-    }
-
-    public void onClick_synchronized_keyword_runnable(View view) {
-        MyJavaClass javaTest = new MyJavaClass(5);
+    public void onClick_MyJavaClass(View view){
+        String Tag = view.getTag().toString();
+        int tag = Integer.parseInt(Tag);
+        switch(tag){
+            case 1:
+                MyJavaClass javaTest = new MyJavaClass(tag);
+                javaTest.method_1();
+                javaTest.cc_instanceof_keyword(new ChildClass("testObj"));
+                javaTest.pc_instanceof_keyword(new ParentClass());
+                break;
+            default:
+                new MyJavaClass(tag);
+                break;
+        }
     }
 
 }
