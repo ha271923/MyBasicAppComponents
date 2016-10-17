@@ -6,14 +6,14 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/10/7.
  */
 
-public class MySyncTestThread2 implements Runnable{
-    static String TAG = "[MySyncTestThread]";
+public class MySyncRunnable implements Runnable{
+    static String TAG = "[MySyncRunnable]";
     String mThreadName="";
     boolean mSync=false;
     int var=0; // object_var
     static volatile int static_var;
 
-    MySyncTestThread2(String name, boolean sync) {
+    MySyncRunnable(String name, boolean sync) {
         // mThreadName = Thread.currentThread().getName();
         mSync = sync;
         // SMLog.i(TAG,mThreadName+"constructor");
