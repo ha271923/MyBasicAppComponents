@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaClass {
@@ -68,6 +69,13 @@ public class MyJavaClass {
             case 8:
                 MyPolymorphism mp3 = new MyPolymorphism();
                 mp3.MethodOverriding();
+                break;
+
+            case 9:
+                MemoryEater me = new MemoryEater();
+                me.waste_Variable(); // No leakage: variables for local_var, object_var, static_obj_var
+                // me.waste_Object();   // No leakage: class objects will be released if the caller Object is END.
+                // me.waste_Thread();      // No leakage: Thread objects will be released if its thread run() is END.
                 break;
 
             default:
