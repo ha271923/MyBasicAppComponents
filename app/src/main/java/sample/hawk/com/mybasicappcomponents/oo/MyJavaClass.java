@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
-import android.util.Log;
+
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaClass {
     // private static final String TAG = "[MyJavaClass]";
@@ -14,7 +15,7 @@ public class MyJavaClass {
 
     public MyJavaClass(int param){
         int idx=0;
-        Log.i(TAG,"MyJavaClass() constructor +++");
+        // SMLog.i(TAG,"MyJavaClass() constructor +++");
         switch(param){
             case 1: // <init>,<cinit> condition
                 MyJavaDynamic();
@@ -54,15 +55,26 @@ public class MyJavaClass {
                     idx++;
                 }
                 break;
+            case 6:
+                MyPolymorphism mp2 = new MyPolymorphism();
+                mp2.StaticPolymorphism();
+                break;
 
+            case 7:
+                MyPolymorphism mp1 = new MyPolymorphism();
+                mp1.DynamicPolymorphism();
+                break;
 
-
+            case 8:
+                MyPolymorphism mp3 = new MyPolymorphism();
+                mp3.MethodOverriding();
+                break;
 
             default:
                 ;
 
         }
-        Log.i(TAG,"MyJavaClass() constructor ---");
+        // SMLog.i(TAG,"MyJavaClass() constructor ---");
     }
 
     public void MyJavaDynamic(){
@@ -76,31 +88,31 @@ public class MyJavaClass {
     }
 
     public void method_1(){
-        Log.i(TAG,"call MyJavaClass::method_1()  API");
+        SMLog.i(TAG,"call MyJavaClass::method_1()  API");
     }
 
 
     public void cc_instanceof_keyword(ChildClass obj){
         if( obj instanceof ParentClass ){
-            Log.i(TAG,"OBJ is instanceof ParentClass");
+            SMLog.i(TAG,"OBJ is instanceof ParentClass");
         }
         if( obj instanceof MyInterface ){
-            Log.i(TAG,"OBJ is instanceof MyInterface"); // ChildClass implements this interface
+            SMLog.i(TAG,"OBJ is instanceof MyInterface"); // ChildClass implements this interface
         }
         if( obj instanceof ChildClass ){
-            Log.i(TAG,"OBJ is instanceof ChildClass");
+            SMLog.i(TAG,"OBJ is instanceof ChildClass");
         }
     }
 
     public void pc_instanceof_keyword(ParentClass obj){
         if( obj instanceof ParentClass ){
-            Log.i(TAG,"OBJ is instanceof ParentClass");
+            SMLog.i(TAG,"OBJ is instanceof ParentClass");
         }
         if( obj instanceof MyInterface ){
-            Log.i(TAG,"OBJ is instanceof MyInterface"); // ChildClass implements this interface
+            SMLog.i(TAG,"OBJ is instanceof MyInterface"); // ChildClass implements this interface
         }
         if( obj instanceof ChildClass ){
-            Log.i(TAG,"OBJ is instanceof ChildClass");
+            SMLog.i(TAG,"OBJ is instanceof ChildClass");
         }
     }
 

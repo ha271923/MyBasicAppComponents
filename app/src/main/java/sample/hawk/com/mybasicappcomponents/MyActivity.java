@@ -114,14 +114,14 @@ public class MyActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
         if (requestCode == WRITE_EXTERNAL_STORAGE_REQUEST_CODE) {
-            Log.i(TAG, "Received response for REQUEST_WRITE_EXTERNAL_STORAGE");
+            SMLog.i(TAG, "Received response for REQUEST_WRITE_EXTERNAL_STORAGE");
             // We have requested multiple permissions for WRITE_EXTERNAL_STORAGE, so all of them need to be checked.
             if (PermissionUtil.verifyPermissions(grantResults)) {
-                Log.i(TAG, "WRITE_EXTERNAL_STORAGE has been granted.");
+                SMLog.i(TAG, "WRITE_EXTERNAL_STORAGE has been granted.");
                 onNewIntent(getIntent()); // Got the permissions from the dialog
                 //Toast.makeText(getContext(), "ALLOW: Help APP can access the database on the phone.", Toast.LENGTH_SHORT).show();
             } else {
-                Log.i(TAG, "WRITE_EXTERNAL_STORAGE were NOT granted.");
+                SMLog.i(TAG, "WRITE_EXTERNAL_STORAGE were NOT granted.");
                 // Toast.makeText(this, "DENY: Help APP can NOT access the database on the phone.", Toast.LENGTH_LONG).show();
                 //Utils.showGuideHome(getContext());    //
                 finish();

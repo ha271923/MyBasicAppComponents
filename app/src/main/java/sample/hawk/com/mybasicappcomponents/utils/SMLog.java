@@ -5,110 +5,120 @@ package sample.hawk.com.mybasicappcomponents.utils;
  */
 public class SMLog {
 
-    public static final boolean DEBUG_LOG_ENABLED = false;
+    public static final boolean SHOW_CALLSTACK = true;
 
     private static final String TAG = "[Hawk]";
 
     public static void i() {
-        android.util.Log.i(TAG, getClassFunctionName());
+        if (SHOW_CALLSTACK)
+            android.util.Log.i(TAG, getClassFunctionName());
+        else
+            android.util.Log.i(TAG, "");
     }
 
-    public static void i(String tag) {
-        android.util.Log.i(TAG + tag, getClassFunctionName()+"");
+    public static void i(String msg) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.i(TAG, getClassFunctionName()+msg);
+        else
+            android.util.Log.i(TAG, msg);
     }
 
     public static void i(String tag, String msg) {
-        if (null == msg)
-        {
-            msg = "null log string";
-        }
-        android.util.Log.i(TAG + tag, getClassFunctionName()+msg);
+        if (SHOW_CALLSTACK)
+            android.util.Log.i(TAG + tag, getClassFunctionName()+msg);
+        else
+            android.util.Log.i(TAG + tag, msg);
     }
 
     public static void i(String tag, String msg, Throwable e) {
-        if (null == msg)
-        {
-            msg = "null log string";
-        }
-        android.util.Log.i(TAG + tag, getClassFunctionName()+msg, e);
+        if (SHOW_CALLSTACK)
+            android.util.Log.i(TAG + tag, getClassFunctionName()+msg, e);
+        else
+            android.util.Log.i(TAG + tag, msg, e);
     }
 
     public static void d() {
-        android.util.Log.d(TAG, getClassFunctionName());
+        if (SHOW_CALLSTACK)
+            android.util.Log.d(TAG, getClassFunctionName());
+        else
+            android.util.Log.d(TAG, "");
     }
 
-    public static void d(String tag) {
-        android.util.Log.i(TAG + tag, getClassFunctionName());
+    public static void d(String msg) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.d(TAG, getClassFunctionName()+msg);
+        else
+            android.util.Log.d(TAG, msg);
     }
-
 
     public static void d(String tag, String msg) {
-        if (DEBUG_LOG_ENABLED) {
-            if (null == msg)
-            {
-                msg = "null log string";
-            }
+        if (SHOW_CALLSTACK)
             android.util.Log.d(TAG + tag, getClassFunctionName()+msg);
-        }
+        else
+            android.util.Log.d(TAG + tag, msg);
     }
 
     public static void d(String tag, String msg, Throwable e) {
-        if (DEBUG_LOG_ENABLED) {
-            if (null == msg)
-            {
-                msg = "null log string";
-            }
+        if (SHOW_CALLSTACK)
             android.util.Log.d(TAG + tag, getClassFunctionName()+msg, e);
-        }
+        else
+            android.util.Log.d(TAG + tag, msg, e);
     }
 
     public static void w() {
-        android.util.Log.i(TAG, getClassFunctionName());
+        if (SHOW_CALLSTACK)
+            android.util.Log.w(TAG, getClassFunctionName());
+        else
+            android.util.Log.w(TAG, "");
     }
 
-    public static void w(String tag) {
-        android.util.Log.i(TAG + tag, getClassFunctionName());
+    public static void w(String msg) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.w(TAG, getClassFunctionName()+msg);
+        else
+            android.util.Log.w(TAG, msg);
     }
 
     public static void w(String tag, String msg) {
-        if (null == msg)
-        {
-            msg = "null log string";
-        }
-        android.util.Log.w(TAG + tag, getClassFunctionName()+msg);
+        if (SHOW_CALLSTACK)
+            android.util.Log.w(TAG + tag, getClassFunctionName()+msg);
+        else
+            android.util.Log.w(TAG + tag, msg);
     }
 
     public static void w(String tag, String msg, Throwable e) {
-        if (null == msg)
-        {
-            msg = "null log string";
-        }
-        android.util.Log.w(TAG + tag, getClassFunctionName()+msg, e);
+        if (SHOW_CALLSTACK)
+            android.util.Log.w(TAG + tag, getClassFunctionName()+msg, e);
+        else
+            android.util.Log.w(TAG + tag, msg, e);
     }
 
     public static void e() {
-        android.util.Log.i(TAG, getClassFunctionName());
+        if (SHOW_CALLSTACK)
+            android.util.Log.e(TAG, getClassFunctionName());
+        else
+            android.util.Log.e(TAG, "");
     }
 
-    public static void e(String tag) {
-        android.util.Log.i(TAG + tag, getClassFunctionName());
+    public static void e(String msg) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.e(TAG, getClassFunctionName()+msg);
+        else
+            android.util.Log.e(TAG, msg);
     }
-
 
     public static void e(String tag, String msg) {
-        if (null == msg)
-        {
-            msg = "null log string";
-        }
-        android.util.Log.e(TAG + tag, getClassFunctionName()+msg);
+        if (SHOW_CALLSTACK)
+            android.util.Log.e(TAG + tag, getClassFunctionName()+msg);
+        else
+            android.util.Log.e(TAG + tag, msg);
     }
 
     public static void e(String tag, String msg, Throwable e) {
-        if (null == msg)
-        {
-            msg = "null log string";
-        }
-        android.util.Log.e(TAG + tag, getClassFunctionName()+msg, e);
+        if (SHOW_CALLSTACK)
+            android.util.Log.e(TAG + tag, getClassFunctionName()+msg, e);
+        else
+            android.util.Log.e(TAG + tag, msg, e);
     }
 
     public static String getClassFunctionName(  )

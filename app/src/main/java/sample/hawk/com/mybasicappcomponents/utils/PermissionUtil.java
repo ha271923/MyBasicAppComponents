@@ -19,7 +19,7 @@ public abstract class PermissionUtil {
      * @see Activity#onRequestPermissionsResult(int, String[], int[])
      */
     public static boolean verifyPermissions(int[] grantResults) {
-        Log.i(TAG, "verifyPermissions");
+        SMLog.i(TAG, "verifyPermissions");
         // Verify that each required permission has been granted, otherwise return false.
         for (int result : grantResults) {
             if (result != PackageManager.PERMISSION_GRANTED) {
@@ -66,7 +66,7 @@ public abstract class PermissionUtil {
     }
 
     public static boolean isAPI23above() {
-        Log.i(TAG, "isAPI23above");
+        SMLog.i(TAG, "isAPI23above");
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 }

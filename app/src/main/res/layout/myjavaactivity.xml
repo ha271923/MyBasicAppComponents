@@ -48,6 +48,24 @@
         android:layout_height="wrap_content"
         android:tag="5"
         android:onClick="onClick_MyJavaClass"/>
+    <Button
+        android:text="Static PolyMorphism"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="6"
+        android:onClick="onClick_MyJavaClass"/>
+    <Button
+        android:text="Dynamic PolyMorphism"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="7"
+        android:onClick="onClick_MyJavaClass"/>
+    <Button
+        android:text="Method Overriding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="8"
+        android:onClick="onClick_MyJavaClass"/>
 
 
 </LinearLayout>
