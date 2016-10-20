@@ -20,4 +20,17 @@ public class CommonResources { // by default, java class is static class, expect
 
     }
 
+
+    public void function(String str){ // This is an API with inner class.
+
+        class InnerClassForThisAPI implements Runnable{
+            private String str;
+
+            @Override
+            public void run() {
+
+            }
+        }
+    }
+
 }

@@ -25,4 +25,12 @@ public class ParentClass {
         SMLog.i(TAG,"ParentClass call <cinit> for all static variables");
         return  "ParentClass-----";
     }
+
+    public int strong(){
+        return 88;
+    }
+
+    public int inteligent(){
+        return 55;
+    }
 }
