@@ -5,6 +5,8 @@ import android.graphics.Color;
 import sample.hawk.com.mybasicappcomponents.Polymorphism.Brian;
 import sample.hawk.com.mybasicappcomponents.Polymorphism.Head;
 import sample.hawk.com.mybasicappcomponents.Polymorphism.Human;
+import sample.hawk.com.mybasicappcomponents.Polymorphism.IHeadActions;
+import sample.hawk.com.mybasicappcomponents.Polymorphism.IIQActions;
 import sample.hawk.com.mybasicappcomponents.oo.ChildClass;
 import sample.hawk.com.mybasicappcomponents.oo.ParentClass;
 
@@ -43,6 +45,12 @@ public class MyPolymorphism {
         if( obj2 instanceof Head ){
             ((Head)obj2).see("Girls");// PASS : Brian ref 'CAST to' Head ref --> can access entire Head obj. *** Polymorphism!! ***
         }
+
+        Head obj3 = new Head();
+        if( obj3 instanceof IHeadActions ){ // PASS : Head ref can access entire Head interface included child class. *** Polymorphism!! ***
+            obj3.speak();
+        }
+
     }
 
     // Method Overriding in Child Class
