@@ -78,6 +78,13 @@ public class MyJavaClass {
                 // me.waste_Thread();      // No leakage: Thread objects will be released if its thread run() is END.
                 break;
 
+            case 10:
+                CallByValueOrRef cbv = new CallByValueOrRef();
+                cbv.P1();
+                break;
+
+
+
             default:
                 ;
 

@@ -72,6 +72,12 @@
         android:layout_height="wrap_content"
         android:tag="9"
         android:onClick="onClick_MyJavaClass"/>
+    <Button
+        android:text="Call by Value / Call by Ref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="10"
+        android:onClick="onClick_MyJavaClass"/>
 
 
 </LinearLayout>
