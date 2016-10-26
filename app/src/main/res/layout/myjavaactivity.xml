@@ -19,6 +19,12 @@
 
     <!-- Many Buttons share a CallBack function -->
     <Button
+        android:text="Variable test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="0"
+        android:onClick="onClick_MyJavaClass"/>
+    <Button
         android:text="cinit,init,static sequence"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

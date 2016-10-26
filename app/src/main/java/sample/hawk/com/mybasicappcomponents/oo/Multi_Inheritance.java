@@ -5,7 +5,7 @@ package sample.hawk.com.mybasicappcomponents.oo;
  */
 
 // Java with multiple inheritance
-public class SonClass {
+public class Multi_Inheritance {
 
     class Father_1 extends ParentClass{
         public int strong(){

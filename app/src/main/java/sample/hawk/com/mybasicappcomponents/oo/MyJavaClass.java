@@ -18,6 +18,10 @@ public class MyJavaClass {
         int idx=0;
         // SMLog.i(TAG,"MyJavaClass() constructor +++");
         switch(param){
+            case 0:
+                VariableClass vc = new VariableClass();
+                vc.ArrayObjTest();
+                break;
             case 1: // <init>,<cinit> condition
                 MyJavaDynamic();
                 MyJavaStaticRef();
@@ -96,9 +100,7 @@ public class MyJavaClass {
                 rft2.PhantomRef_lessRAM_Test();
                 break;
 
-
             default:
-                ;
 
         }
         // SMLog.i(TAG,"MyJavaClass() constructor ---");
