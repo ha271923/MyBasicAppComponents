@@ -78,6 +78,18 @@
         android:layout_height="wrap_content"
         android:tag="10"
         android:onClick="onClick_MyJavaClass"/>
+    <Button
+        android:text="Strong, Soft, Weak , Phantom NULL Reference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="11"
+        android:onClick="onClick_MyJavaClass"/>
+    <Button
+        android:text="Strong, Soft, Weak , Phantom less RAM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="12"
+        android:onClick="onClick_MyJavaClass"/>
 
 
 </LinearLayout>

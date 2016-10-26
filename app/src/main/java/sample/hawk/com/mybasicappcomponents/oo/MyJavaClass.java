@@ -77,12 +77,24 @@ public class MyJavaClass {
                 // me.waste_Object();   // No leakage: class objects will be released if the caller Object is END.
                 // me.waste_Thread();      // No leakage: Thread objects will be released if its thread run() is END.
                 break;
-
             case 10:
                 CallByValueOrRef cbv = new CallByValueOrRef();
                 cbv.P1();
                 break;
-
+            case 11:
+                References_Test rft = new References_Test();
+                rft.StrongRef_null_Test();
+                rft.SoftRef_null_Test();
+                rft.WeakRef_null_Test();
+                rft.PhantomRef_null_Test();
+                break;
+            case 12:
+                References_Test rft2 = new References_Test();
+                rft2.StrongRef_lessRAM_Test();
+                rft2.SoftRef_lessRAM_Test();
+                rft2.WeakRef_lessRAM_Test();
+                rft2.PhantomRef_lessRAM_Test();
+                break;
 
 
             default:
