@@ -1,6 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
+import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -111,7 +112,12 @@ public class MyJavaClass {
                 mal.show_by_foreach();
                 mal.show_by_iterator();
                 break;
-
+            case 15: // LinkedList
+                MyLinkedList mll = new MyLinkedList();
+                mll.show_by_listIF();
+                mll.show_by_foreach();
+                mll.show_by_iterator();
+                break;
 
             default:
 
