@@ -1,107 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView
-        android:text="status_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/status_textView"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/myjavaactivity_progressBar"/>
+        <TextView
+            android:text="status_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/status_textView"/>
 
-
-    <!-- Many Buttons share a CallBack function -->
-    <Button
-        android:text="Variable test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="0"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="cinit,init,static sequence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="1"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="without synchronized(this) keyword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="2"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="with synchronized(this) keyword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="3"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="without synchronized(this) keyword, Runnable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="4"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="with synchronized(this) keyword, Runnable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="5"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Static PolyMorphism"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="6"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Dynamic PolyMorphism"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="7"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Method Overriding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="8"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Memory Leakage Test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="9"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Call by Value / Call by Ref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="10"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Strong, Soft, Weak , Phantom NULL Reference"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="11"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Strong, Soft, Weak , Phantom less RAM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="12"
-        android:onClick="onClick_MyJavaClass"/>
-    <Button
-        android:text="Data Structure: List"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="13"
-        android:onClick="onClick_MyJavaClass"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myjavaactivity_progressBar"/>
 
 
-</LinearLayout>
+        <!-- Many Buttons share a CallBack function -->
+        <Button
+            android:text="Variable test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="0"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="cinit,init,static sequence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="1"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="without synchronized(this) keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="2"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="with synchronized(this) keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="3"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="without synchronized(this) keyword, Runnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="4"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="with synchronized(this) keyword, Runnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="5"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Static PolyMorphism"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="6"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Dynamic PolyMorphism"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="7"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Method Overriding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="8"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Memory Leakage Test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="9"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Call by Value / Call by Ref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="10"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Strong, Soft, Weak , Phantom NULL Reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="11"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Strong, Soft, Weak , Phantom less RAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="12"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Data Structure: List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="13"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Data Structure: ArrayList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="14"
+            android:onClick="onClick_MyJavaClass"/>
+
+
+    </LinearLayout>
+</ScrollView>

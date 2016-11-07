@@ -21,7 +21,7 @@ public class MyList {
         m_collector.addAll(numbers2);
         m_collector.add("5");
         m_collector.addAll(numbers1);
-        m_collector.remove(3);
+        m_collector.remove(4);
         Collections.sort(m_collector);
 
     }

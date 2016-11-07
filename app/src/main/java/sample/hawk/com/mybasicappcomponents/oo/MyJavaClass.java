@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -104,7 +105,12 @@ public class MyJavaClass {
                 MyList ml = new MyList();
                 ml.show();
                 break;
-
+            case 14: // ArrayList
+                MyArrayList mal = new MyArrayList();
+                mal.show_by_listIF();
+                mal.show_by_foreach();
+                mal.show_by_iterator();
+                break;
 
 
             default:
