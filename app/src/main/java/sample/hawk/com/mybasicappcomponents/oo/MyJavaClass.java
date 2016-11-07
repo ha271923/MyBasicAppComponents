@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -99,6 +100,12 @@ public class MyJavaClass {
                 rft2.WeakRef_lessRAM_Test();
                 rft2.PhantomRef_lessRAM_Test();
                 break;
+            case 13: // List structure
+                MyList ml = new MyList();
+                ml.show();
+                break;
+
+
 
             default:
 
