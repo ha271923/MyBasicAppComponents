@@ -10,7 +10,17 @@ import java.util.ListIterator;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
- * Created by ha271 on 2016/11/7.
+ LinkedList and ArrayList are two different implementations of the List interface. 
+ a. ArrayList implements it with a dynamically re-sizing array.
+ b. LinkedList implements it with a doubly-linked list. 
+     For LinkedList<E>
+     • get(int index) is O(n/4) average
+     • add(E element) is O(1)
+     • add(int index, E element) is O(n/4) average
+          but O(1) when index = 0 <--- main benefit of LinkedList<E>
+     • remove(int index) is O(n/4) average
+     • Iterator.remove() is O(1) <--- main benefit of LinkedList<E>
+     ListIterator.add(E element) is O(1) <--- main benefit of LinkedList<E>
  */
 
 public class MyArrayList {
@@ -20,7 +30,6 @@ public class MyArrayList {
         m_collector = new ArrayList<>();
         List<String> numbers2 = Arrays.asList( "9", "1", "8", "3", "2");
         List<String> numbers1 = Arrays.asList( "0", "7", "10", "6", "4");
-        m_collector = new ArrayList<>();
         m_collector.addAll(numbers2);
         m_collector.add("5");
         m_collector.addAll(numbers1);
