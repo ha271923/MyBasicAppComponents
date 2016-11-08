@@ -125,6 +125,12 @@
             android:layout_height="wrap_content"
             android:tag="16"
             android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Data Structure: Map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="17"
+            android:onClick="onClick_MyJavaClass"/>
 
     </LinearLayout>
 </ScrollView>

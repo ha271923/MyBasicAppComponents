@@ -3,6 +3,7 @@ package sample.hawk.com.mybasicappcomponents.oo;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
+import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySet;
 import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -105,27 +106,33 @@ public class MyJavaClass {
                 break;
             case 13: // List structure
                 MyList ml = new MyList();
-                ml.show_by_listIF();
+                ml.show_by_forloop();
                 ml.show_by_foreach();
                 ml.show_by_iterator();
                 break;
             case 14: // ArrayList
                 MyArrayList mal = new MyArrayList();
-                mal.show_by_listIF();
+                mal.show_by_forloop();
                 mal.show_by_foreach();
                 mal.show_by_iterator();
                 break;
             case 15: // LinkedList
                 MyLinkedList mll = new MyLinkedList();
-                mll.show_by_listIF();
+                mll.show_by_forloop();
                 mll.show_by_foreach();
                 mll.show_by_iterator();
                 break;
             case 16: // Set
                 MySet ms = new MySet();
-                ms.show_by_listIF();
+                ms.show_by_forloop();
                 ms.show_by_foreach();
                 ms.show_by_iterator();
+                break;
+            case 17: // Map
+                MyMap mm = new MyMap();
+                mm.show_by_forloop();
+                mm.show_by_foreach();
+                mm.show_by_iterator();
                 break;
 
             default:

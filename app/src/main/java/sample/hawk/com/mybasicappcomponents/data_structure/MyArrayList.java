@@ -23,7 +23,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
      ListIterator.add(E element) is O(1) <--- main benefit of LinkedList<E>
  */
 
-public class MyArrayList {
+public class MyArrayList implements AccessIF {
     List<String> m_collector;
 
     public MyArrayList(){
@@ -36,16 +36,16 @@ public class MyArrayList {
         m_collector.remove(4);
         Collections.sort(m_collector);
     }
-
-    public void show_by_listIF(){ //使用 List interface 中所提供的方法列出所有元素
-        SMLog.i("show_by_listIF ----");
+    @Override
+    public void show_by_forloop(){ //使用 for-loop 列出所有元素
+        SMLog.i("show_by_forloop ----");
         if(!m_collector.isEmpty()){
             for(int i=0;i<m_collector.size();i++){
                 SMLog.i("["+i+"]="+m_collector.get(i));
             }
         }
     }
-
+    @Override
     public void show_by_foreach(){ //使用 for each 列出所有元素
         int i=0;
         SMLog.i("show_by_foreach ----");
@@ -56,7 +56,7 @@ public class MyArrayList {
             }
         }
     }
-
+    @Override
     public void show_by_iterator(){  //使用 iterator 列出所有元素
         ListIterator iter = m_collector.listIterator();
         SMLog.i("show_by_iterator ----");

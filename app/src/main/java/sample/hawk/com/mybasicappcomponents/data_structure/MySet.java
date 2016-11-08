@@ -15,7 +15,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/11/7.
  */
 
-public class MySet {
+public class MySet implements AccessIF {
 
     Set<String> m_collector;
 
@@ -30,9 +30,9 @@ public class MySet {
         List m_collector_list = new ArrayList(m_collector); // for sort, you have to convert to List.
         Collections.sort(m_collector_list);
     }
-
-    public void show_by_listIF(){ //使用 List interface 中所提供的方法列出所有元素
-        SMLog.i("show_by_listIF ----");
+    @Override
+    public void show_by_forloop(){ //使用 for-loop 列出所有元素
+        SMLog.i("show_by_forloop ----");
         Object[] array = m_collector.toArray(); // for indexing, convert to array first.
         if(!m_collector.isEmpty()){
             for(int i=0;i<m_collector.size();i++){
@@ -40,7 +40,7 @@ public class MySet {
             }
         }
     }
-
+    @Override
     public void show_by_foreach(){ //使用 for each 列出所有元素
         int i=0;
         SMLog.i("show_by_foreach ----");
@@ -51,7 +51,7 @@ public class MySet {
             }
         }
     }
-
+    @Override
     public void show_by_iterator(){  //使用 iterator 列出所有元素
         int i=0;
         Iterator iter = m_collector.iterator();
