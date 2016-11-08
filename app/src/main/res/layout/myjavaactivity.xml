@@ -102,34 +102,40 @@
             android:tag="12"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Data Structure: List"
+            android:text="DS: List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="13"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Data Structure: ArrayList"
+            android:text="DS: ArrayList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="14"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Data Structure: LinkedList"
+            android:text="DS: LinkedList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="15"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Data Structure: Set"
+            android:text="DS: Set"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="16"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Data Structure: Map"
+            android:text="DS: Map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="17"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: Tree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="18"
             android:onClick="onClick_MyJavaClass"/>
 
     </LinearLayout>

@@ -1,10 +1,13 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import java.util.Collection;
+
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySet;
+import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
 import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -133,6 +136,19 @@ public class MyJavaClass {
                 mm.show_by_forloop();
                 mm.show_by_foreach();
                 mm.show_by_iterator();
+                break;
+            case 18: // Tree
+                Tree tr1= new Tree("1");
+                    Tree tr11=tr1.addLeaf("1.1");
+                        Tree tr111=tr11.addLeaf("1.1.1");
+                        Tree tr112=tr11.addLeaf("1.1.2");
+                    Tree tr12=tr1.addLeaf("1.2");
+                        Tree tr121=tr12.addLeaf("1.2.1");
+                        Tree tr122=tr12.addLeaf("1.2.2");
+                            Tree tr1221=tr122.addLeaf("1.2.2.1");
+                            Tree tr1222=tr122.addLeaf("1.2.2.2");
+                        Tree tr123=tr12.addLeaf("1.2.3");
+                tr1.show_by_forloop();
                 break;
 
             default:
