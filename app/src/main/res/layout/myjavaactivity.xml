@@ -132,10 +132,16 @@
             android:tag="17"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="DS: Tree"
+            android:text="DS: SparseArray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="18"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: Tree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="19"
             android:onClick="onClick_MyJavaClass"/>
 
     </LinearLayout>

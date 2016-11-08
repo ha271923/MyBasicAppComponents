@@ -10,6 +10,8 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public interface AccessIF {
 
+    public void show();
+
     public void show_by_forloop(); //使用 for-loop 列出所有元素
 
     public void show_by_foreach(); //使用 for each 列出所有元素

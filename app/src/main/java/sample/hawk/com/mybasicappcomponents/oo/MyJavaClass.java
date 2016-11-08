@@ -7,6 +7,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySet;
+import sample.hawk.com.mybasicappcomponents.data_structure.MySparseArray;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
 import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -72,12 +73,10 @@ public class MyJavaClass {
                 MyPolymorphism mp2 = new MyPolymorphism();
                 mp2.StaticPolymorphism();
                 break;
-
             case 7:
                 MyPolymorphism mp1 = new MyPolymorphism();
                 mp1.DynamicPolymorphism();
                 break;
-
             case 8:
                 MyPolymorphism mp3 = new MyPolymorphism();
                 mp3.MethodOverriding();
@@ -109,35 +108,29 @@ public class MyJavaClass {
                 break;
             case 13: // List structure
                 MyList ml = new MyList();
-                ml.show_by_forloop();
-                ml.show_by_foreach();
-                ml.show_by_iterator();
+                ml.show();
                 break;
             case 14: // ArrayList
                 MyArrayList mal = new MyArrayList();
-                mal.show_by_forloop();
-                mal.show_by_foreach();
-                mal.show_by_iterator();
+                mal.show();
                 break;
             case 15: // LinkedList
                 MyLinkedList mll = new MyLinkedList();
-                mll.show_by_forloop();
-                mll.show_by_foreach();
-                mll.show_by_iterator();
+                mll.show();
                 break;
             case 16: // Set
                 MySet ms = new MySet();
-                ms.show_by_forloop();
-                ms.show_by_foreach();
-                ms.show_by_iterator();
+                ms.show();
                 break;
             case 17: // Map
                 MyMap mm = new MyMap();
-                mm.show_by_forloop();
-                mm.show_by_foreach();
-                mm.show_by_iterator();
+                mm.show();
                 break;
-            case 18: // Tree
+            case 18: // SparseArray
+                MySparseArray msa = new MySparseArray();
+                msa.show();
+                break;
+            case 19: // Tree
                 Tree tr1= new Tree("1");
                     Tree tr11=tr1.addLeaf("1.1");
                         Tree tr111=tr11.addLeaf("1.1.1");
@@ -148,7 +141,7 @@ public class MyJavaClass {
                             Tree tr1221=tr122.addLeaf("1.2.2.1");
                             Tree tr1222=tr122.addLeaf("1.2.2.2");
                         Tree tr123=tr12.addLeaf("1.2.3");
-                tr1.show_by_forloop();
+                tr1.show();
                 break;
 
             default:

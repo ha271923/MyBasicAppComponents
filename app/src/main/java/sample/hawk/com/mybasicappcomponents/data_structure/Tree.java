@@ -69,17 +69,24 @@ public class Tree<T> implements AccessIF {
 
     @Override
     public void show_by_forloop() {
+        SMLog.i("show_by_forloop ----");
         SMLog.i(printTree(10));
     }
 
     @Override
     public void show_by_foreach() {
-
+        // Hawk: NOT support foreach
     }
 
     @Override
     public void show_by_iterator() {
-
+        // Hawk: NOT support iterator
+    }
+    @Override
+    public void show() {
+        show_by_forloop();
+        show_by_foreach();
+        show_by_iterator();
     }
 
 /*

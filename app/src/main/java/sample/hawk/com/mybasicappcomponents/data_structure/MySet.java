@@ -63,4 +63,10 @@ public class MySet implements AccessIF {
             }
         }
     }
+    @Override
+    public void show() {
+        show_by_forloop();
+        show_by_foreach();
+        show_by_iterator();
+    }
 }
