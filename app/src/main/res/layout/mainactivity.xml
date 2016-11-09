@@ -66,6 +66,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/MyJavaActivityBtn"/>
 
+        <Button
+            android:text="MyAnimationActivityBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/MyAnimationActivityBtn"/>
+
 
 
         <!-- Service -->

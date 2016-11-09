@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/lib/sample.hawk.com.mybasicappcomponents"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+        android:text="Move an Object"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="sample.hawk.com.mybasicappcomponents.animation.move"
+        android:onClick="onClick_NewActivity"/>
+    <Button
+        android:text="ValueAnimation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="sample.hawk.com.mybasicappcomponents.animation.ColorAnimView"
+        android:onClick="onClick_CurrentActivity"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/mainLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+        <ImageView
+            android:layout_width="143dp"
+            android:layout_height="76dp"
+            android:src="@drawable/android_robot"
+            android:onClick="onClick_Play"
+            android:id="@+id/android_robot"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -31,6 +31,7 @@ import android.widget.ToggleButton;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import sample.hawk.com.mybasicappcomponents.animation.AnimationActivity;
 import sample.hawk.com.mybasicappcomponents.background.HandlerThreadLooper;
 import sample.hawk.com.mybasicappcomponents.background.MyIntentService;
 import sample.hawk.com.mybasicappcomponents.background.MyJobSchedulerService;
@@ -73,6 +74,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyListViewBtn;
     public Button mMyListView3DBtn;
     public Button mMyJavaActivityBtn;
+    public Button mMyAnimationActivityBtn;
     public Button mHandlerThreadLooperBtn;
     public Button mSendMsg_fromUI_to_Thread_Btn;
     public ToggleButton mMyLocalServiceToggleBtn;
@@ -172,6 +174,8 @@ public class MainActivity extends Activity implements MyInterface {
         mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
         mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
         mMyJavaActivityBtn = (Button) findViewById(R.id.MyJavaActivityBtn);
+        mMyAnimationActivityBtn = (Button) findViewById(R.id.MyAnimationActivityBtn);
+
         mHandlerThreadLooperBtn = (Button) findViewById(R.id.HandlerThreadLooperBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
@@ -194,6 +198,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
         mMyListView3DBtn.setOnClickListener(mMyListView3DBtnListener);
         mMyJavaActivityBtn.setOnClickListener(mMyJavaActivityBtnListener);
+        mMyAnimationActivityBtn.setOnClickListener(mMyAnimationActivityBtnListener);
         mHandlerThreadLooperBtn.setOnClickListener(mHandlerThreadLooperBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
@@ -258,6 +263,16 @@ public class MainActivity extends Activity implements MyInterface {
             SMLog.i();
             Intent  intent = new Intent();
             intent.setClass( MainActivity.this, MyJavaActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private OnClickListener mMyAnimationActivityBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, AnimationActivity.class);
             startActivity(intent);
         }
     };
