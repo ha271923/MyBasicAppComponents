@@ -73,6 +73,13 @@
             android:id="@+id/MyViewGroupBtn"/>
 
         <Button
+            android:text="MySurfaceViewBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/MySurfaceViewBtn"/>
+
+
+        <Button
             android:text="MyJavaActivityBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

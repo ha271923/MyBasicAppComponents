@@ -27,6 +27,7 @@
         <activity android:name=".animation.move"/>
         <activity android:name=".view.MyViewActivity"/>
         <activity android:name=".view.MyViewGroupActivity"/>
+        <activity android:name=".view.MySurfaceViewActivity"/>
         <activity android:name=".view.MyListViewActivity"/>
         <activity android:name=".view.MyListView3DActivity"/>
         <activity android:name=".MyBlinkFeedActivity"/>

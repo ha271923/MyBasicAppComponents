@@ -42,6 +42,8 @@ import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
 import sample.hawk.com.mybasicappcomponents.oo.MyObjectClass;
 import sample.hawk.com.mybasicappcomponents.view.MyListView3DActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+import sample.hawk.com.mybasicappcomponents.view.MySurfaceView;
+import sample.hawk.com.mybasicappcomponents.view.MySurfaceViewActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewGroupActivity;
 
@@ -77,6 +79,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyListView3DBtn;
     public Button mMyViewBtn;
     public Button mMyViewGroupBtn;
+    public Button mMySurfaceViewBtn;
     public Button mMyJavaActivityBtn;
     public Button mMyAnimationActivityBtn;
     public Button mHandlerThreadLooperBtn;
@@ -177,6 +180,8 @@ public class MainActivity extends Activity implements MyInterface {
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyViewBtn = (Button) findViewById(R.id.MyViewBtn);
         mMyViewGroupBtn = (Button) findViewById(R.id.MyViewGroupBtn);
+        mMySurfaceViewBtn = (Button) findViewById(R.id.MySurfaceViewBtn);
+
         mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
         mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
         mMyJavaActivityBtn = (Button) findViewById(R.id.MyJavaActivityBtn);
@@ -204,6 +209,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
         mMyViewBtn.setOnClickListener(mMyViewBtnListener);
         mMyViewGroupBtn.setOnClickListener(mMyViewGroupBtnListener);
+        mMySurfaceViewBtn.setOnClickListener(mMySurfaceViewBtnListener);
 
         mMyListView3DBtn.setOnClickListener(mMyListView3DBtnListener);
         mMyJavaActivityBtn.setOnClickListener(mMyJavaActivityBtnListener);
@@ -272,6 +278,15 @@ public class MainActivity extends Activity implements MyInterface {
             SMLog.i();
             Intent  intent = new Intent();
             intent.setClass( MainActivity.this, MyViewGroupActivity.class);
+            startActivity(intent);
+        }
+    };
+    private OnClickListener mMySurfaceViewBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MySurfaceViewActivity.class);
             startActivity(intent);
         }
     };
