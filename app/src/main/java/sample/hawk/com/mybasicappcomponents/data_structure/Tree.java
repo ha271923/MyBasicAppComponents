@@ -88,7 +88,10 @@ public class Tree<T> implements AccessIF {
         show_by_foreach();
         show_by_iterator();
     }
+    @Override
+    public void use_case(){
 
+    }
 /*
     // Hawk: I don't understand how to use them.
     public void addLeaf(T root, T leaf) {

@@ -69,4 +69,24 @@ public class MySet implements AccessIF {
         show_by_foreach();
         show_by_iterator();
     }
+    @Override
+    public void use_case(){
+        Set<String> admins = new HashSet<>(Arrays.asList("Justin", "caterpillar"));
+        Set<String> users = new HashSet<>(Arrays.asList("momor", "hamini", "Justin"));
+        SMLog.i("Has Justin in the admin group? "+admins.contains("Justin")); // 是否在站長群? true
+        Set<String> intersection = new HashSet<>(admins);
+        intersection.retainAll(users); // 同時是站長群也是使用者群的?
+        SMLog.i("Who has admin AND usr account both? "+intersection);  // [Justin]
+        Set<String> union = new HashSet<>(admins);
+        union.addAll(users);  // 是站長群或是使用者群的?
+        SMLog.i("Who is  admin OR usr account? "+union);  // [momor, hamini, Justin, caterpillar]
+        Set<String> adminsButNotUsers = new HashSet<>(admins);
+        adminsButNotUsers.removeAll(users);  // 站長群但不使用者群的?
+        SMLog.i("Who has the ONLY account? "+adminsButNotUsers);  // [caterpillar]
+        Set<String> xor = new HashSet<>(union);
+        xor.removeAll(intersection);  // 只有站長群或使用者群唯一身分?
+        SMLog.i("Who has admin XOR usr account? "+xor); // [momor, hamini, caterpillar]
+        SMLog.i("Have all usr   accounts in the admin group? "+admins.containsAll(users));  //
+        SMLog.i("Have all admin accounts in the usr   group? "+users.containsAll(admins));  //
+    }
 }

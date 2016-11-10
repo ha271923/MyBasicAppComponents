@@ -18,4 +18,6 @@ public interface AccessIF {
 
     public void show_by_iterator();  //使用 iterator 列出所有元素
 
+    public void use_case();
+
 }

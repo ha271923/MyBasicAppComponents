@@ -76,4 +76,22 @@ public class MyMap implements AccessIF {
         show_by_foreach();
         show_by_iterator();
     }
+    @Override
+    public void use_case(){
+        Map<String, Integer> passwords = new HashMap<>();
+        passwords.put("Justin", 123456);
+        passwords.put("caterpillar", 93933);
+
+        SMLog.i("Justin's Password= "+passwords.get("Justin")); // 123456
+
+        passwords.put("Hamimi", 970221);  // 增加一對鍵值
+        SMLog.i("Hamimi's Password= "+passwords);  // {Justin=123456, caterpillar=93933, Hamimi=970221}
+
+        passwords.remove("caterpillar");  // 刪除一對鍵值
+        SMLog.i("caterpillar's Password= "+passwords);  // {Justin=123456, Hamimi=970221}
+
+        SMLog.i("Password.entrySet= "+passwords.entrySet()); // [Justin=123456, Hamimi=970221]
+        SMLog.i("Password.keySet= "+passwords.keySet());   // [Justin, Hamimi]
+        SMLog.i("Password.values= "+passwords.values());   // [123456, 970221]
+    }
 }

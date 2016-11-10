@@ -109,26 +109,32 @@ public class MyJavaClass {
             case 13: // List structure
                 MyList ml = new MyList();
                 ml.show();
+                ml.use_case();
                 break;
             case 14: // ArrayList
                 MyArrayList mal = new MyArrayList();
                 mal.show();
+                mal.use_case();
                 break;
             case 15: // LinkedList
                 MyLinkedList mll = new MyLinkedList();
                 mll.show();
+                mll.use_case();
                 break;
             case 16: // Set
                 MySet ms = new MySet();
                 ms.show();
+                ms.use_case();
                 break;
             case 17: // Map
                 MyMap mm = new MyMap();
                 mm.show();
+                mm.use_case();
                 break;
             case 18: // SparseArray
                 MySparseArray msa = new MySparseArray();
                 msa.show();
+                msa.use_case();
                 break;
             case 19: // Tree
                 Tree tr1= new Tree("1");
@@ -142,6 +148,7 @@ public class MyJavaClass {
                             Tree tr1222=tr122.addLeaf("1.2.2.2");
                         Tree tr123=tr12.addLeaf("1.2.3");
                 tr1.show();
+                tr1.use_case();
                 break;
 
             default:

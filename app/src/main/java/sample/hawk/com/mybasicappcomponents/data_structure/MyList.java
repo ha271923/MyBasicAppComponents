@@ -66,4 +66,8 @@ public class MyList implements AccessIF {
         show_by_foreach();
         show_by_iterator();
     }
+    @Override
+    public void use_case(){
+
+    }
 }
