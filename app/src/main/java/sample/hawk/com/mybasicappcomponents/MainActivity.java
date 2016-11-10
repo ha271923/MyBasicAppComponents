@@ -42,6 +42,7 @@ import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
 import sample.hawk.com.mybasicappcomponents.oo.MyObjectClass;
 import sample.hawk.com.mybasicappcomponents.view.MyListView3DActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+import sample.hawk.com.mybasicappcomponents.view.MyViewActivity;
 
 public class MainActivity extends Activity implements MyInterface {
     private static final String TAG = "[MainActivity]";
@@ -73,6 +74,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyActivityBtn;
     public Button mMyListViewBtn;
     public Button mMyListView3DBtn;
+    public Button mMyViewBtn;
     public Button mMyJavaActivityBtn;
     public Button mMyAnimationActivityBtn;
     public Button mHandlerThreadLooperBtn;
@@ -171,6 +173,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyContentProviderProgressBar = (ProgressBar) findViewById(R.id.mycontentprovider_progressBar);
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
+        mMyViewBtn = (Button) findViewById(R.id.MyViewBtn);
         mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
         mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
         mMyJavaActivityBtn = (Button) findViewById(R.id.MyJavaActivityBtn);
@@ -196,6 +199,7 @@ public class MainActivity extends Activity implements MyInterface {
         // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
+        mMyViewBtn.setOnClickListener(mMyViewBtnListener);
         mMyListView3DBtn.setOnClickListener(mMyListView3DBtnListener);
         mMyJavaActivityBtn.setOnClickListener(mMyJavaActivityBtnListener);
         mMyAnimationActivityBtn.setOnClickListener(mMyAnimationActivityBtnListener);
@@ -247,6 +251,15 @@ public class MainActivity extends Activity implements MyInterface {
         }
     };
 
+    private OnClickListener mMyViewBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MyViewActivity.class);
+            startActivity(intent);
+        }
+    };
     private OnClickListener mMyListView3DBtnListener =new OnClickListener() {
         @Override
         public void onClick(View v) {

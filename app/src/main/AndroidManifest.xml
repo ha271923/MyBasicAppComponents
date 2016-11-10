@@ -31,6 +31,8 @@
 
         <activity android:name=".animation.move"/>
 
+        <activity android:name=".view.MyViewActivity"/>
+
         <activity android:name=".view.MyListViewActivity"/>
 
         <activity android:name=".view.MyListView3DActivity"/>
