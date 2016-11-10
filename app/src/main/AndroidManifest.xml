@@ -21,40 +21,23 @@
         </activity>
 
         <activity android:name=".SettingsActivity" />
-
-        <activity android:name=".MyActivity">
-        </activity>
-
+        <activity android:name=".MyActivity"/>
         <activity android:name=".MyJavaActivity"/>
-
         <activity android:name=".animation.AnimationActivity"/>
-
         <activity android:name=".animation.move"/>
-
         <activity android:name=".view.MyViewActivity"/>
-
+        <activity android:name=".view.MyViewGroupActivity"/>
         <activity android:name=".view.MyListViewActivity"/>
-
         <activity android:name=".view.MyListView3DActivity"/>
-
         <activity android:name=".MyBlinkFeedActivity"/>
-
-        <activity android:name=".background.HandlerThreadLooper">
-
-        </activity>
+        <activity android:name=".background.HandlerThreadLooper"/>
 
         <service android:name=".background.MyLocalService">
-
         </service>
-
         <service android:name=".background.MyIntentService" >
-
         </service>
-
         <service android:name=".MyNotificationService" >
-
         </service>
-
         <service android:name=".background.MyJobSchedulerService"
                  android:permission="android.permission.BIND_JOB_SERVICE" >
         </service>
