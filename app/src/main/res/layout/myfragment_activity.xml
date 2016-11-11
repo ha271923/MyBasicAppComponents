@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="MyFragementActivity"
+        android:textColor="#0000FF" />
+
+    <fragment
+        android:id="@+id/MyActivity_Fragment1"
+        android:name="sample.hawk.com.mybasicappcomponents.view.MyFragment1"
+        android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_weight="2" />
+
+</LinearLayout>

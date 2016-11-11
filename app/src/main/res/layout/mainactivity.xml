@@ -78,6 +78,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/MySurfaceViewBtn"/>
 
+        <Button
+            android:text="MyFragmentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/MyFragmentBtn"/>
 
         <Button
             android:text="MyJavaActivityBtn"
