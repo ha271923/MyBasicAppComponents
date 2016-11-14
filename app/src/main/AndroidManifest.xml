@@ -33,6 +33,7 @@
         <activity android:name=".view.MyListView3DActivity"/>
         <activity android:name=".MyBlinkFeedActivity"/>
         <activity android:name=".background.HandlerThreadLooper"/>
+        <activity android:name=".view.SimpleListView"/>
 
         <service android:name=".background.MyLocalService">
         </service>

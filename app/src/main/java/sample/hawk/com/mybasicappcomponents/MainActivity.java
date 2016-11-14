@@ -47,6 +47,7 @@ import sample.hawk.com.mybasicappcomponents.view.MySurfaceView;
 import sample.hawk.com.mybasicappcomponents.view.MySurfaceViewActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewGroupActivity;
+import sample.hawk.com.mybasicappcomponents.view.SimpleListView;
 
 public class MainActivity extends Activity implements MyInterface {
     private static final String TAG = "[MainActivity]";
@@ -76,6 +77,7 @@ public class MainActivity extends Activity implements MyInterface {
     private static int pc;
 
     public Button mMyActivityBtn;
+    public Button mSimpleListViewBtn;
     public Button mMyListViewBtn;
     public Button mMyListView3DBtn;
     public Button mMyViewBtn;
@@ -186,6 +188,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyFragmentBtn = (Button) findViewById(R.id.MyFragmentBtn);
 
         mMyListViewBtn = (Button) findViewById(R.id.ListViewBtn);
+        mSimpleListViewBtn = (Button) findViewById(R.id.SimpleListViewBtn);
         mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
         mMyJavaActivityBtn = (Button) findViewById(R.id.MyJavaActivityBtn);
         mMyAnimationActivityBtn = (Button) findViewById(R.id.MyAnimationActivityBtn);
@@ -210,6 +213,7 @@ public class MainActivity extends Activity implements MyInterface {
         // Presenter
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
+        mSimpleListViewBtn.setOnClickListener(mSimpleListViewBtnListener);
         mMyViewBtn.setOnClickListener(mMyViewBtnListener);
         mMyViewGroupBtn.setOnClickListener(mMyViewGroupBtnListener);
         mMySurfaceViewBtn.setOnClickListener(mMySurfaceViewBtnListener);
@@ -263,6 +267,16 @@ public class MainActivity extends Activity implements MyInterface {
             SMLog.i();
             Intent  intent = new Intent();
             intent.setClass( MainActivity.this, MyListViewActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private OnClickListener mSimpleListViewBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, SimpleListView.class);
             startActivity(intent);
         }
     };
