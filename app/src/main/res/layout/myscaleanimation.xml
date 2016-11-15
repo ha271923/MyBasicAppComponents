@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/sound_control"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@color/colorAccent"
+              android:orientation="horizontal">
+
+    <View
+        android:id="@+id/bar1"
+        android:layout_width="80dp"
+        android:layout_height="500dp"
+        android:transformPivotY="14dp"
+        android:scaleY="0.1"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginRight="10dp"/>
+    <View
+        android:id="@+id/bar2"
+        android:layout_width="80dp"
+        android:layout_height="500dp"
+        android:transformPivotY="14dp"
+        android:scaleY="0.1"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginRight="10dp"/>
+    <View
+        android:id="@+id/bar3"
+        android:layout_width="80dp"
+        android:layout_height="500dp"
+        android:transformPivotY="14dp"
+        android:scaleY="0.1"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginRight="10dp"/>
+
+</LinearLayout>

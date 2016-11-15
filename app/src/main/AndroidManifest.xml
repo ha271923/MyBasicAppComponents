@@ -25,6 +25,7 @@
         <activity android:name=".MyJavaActivity"/>
         <activity android:name=".animation.AnimationActivity"/>
         <activity android:name=".animation.move"/>
+        <activity android:name=".animation.ScaleAnimationActivity"/>
         <activity android:name=".view.MyViewActivity"/>
         <activity android:name=".view.MyViewGroupActivity"/>
         <activity android:name=".view.MySurfaceViewActivity"/>
