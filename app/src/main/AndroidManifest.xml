@@ -36,6 +36,8 @@
         <activity android:name=".view.MyTabsActivity"/>
 
         <activity android:name=".MyBlinkFeedActivity"/>
+        <activity android:name=".misc.AnnotationActivity"/>
+
         <activity android:name=".background.HandlerThreadLooper"/>
 
         <service android:name=".background.MyLocalService">

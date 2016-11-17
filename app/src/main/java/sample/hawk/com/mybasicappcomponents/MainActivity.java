@@ -37,6 +37,7 @@ import sample.hawk.com.mybasicappcomponents.background.MyIntentService;
 import sample.hawk.com.mybasicappcomponents.background.MyJobSchedulerService;
 import sample.hawk.com.mybasicappcomponents.background.MyLocalService;
 import sample.hawk.com.mybasicappcomponents.background.MyThread;
+import sample.hawk.com.mybasicappcomponents.misc.AnnotationActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyFragmentActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyListViewActivity;
 import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
@@ -90,6 +91,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyAnimationActivityBtn;
     public Button mHandlerThreadLooperBtn;
     public Button mSendMsg_fromUI_to_Thread_Btn;
+    public Button MyAnnotationActivityBtn;
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
     public ToggleButton mMyIntentServiceToggleBtn;
@@ -195,6 +197,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyListView3DBtn = (Button) findViewById(R.id.ListView3DBtn);
         mMyJavaActivityBtn = (Button) findViewById(R.id.MyJavaActivityBtn);
         mMyAnimationActivityBtn = (Button) findViewById(R.id.MyAnimationActivityBtn);
+        MyAnnotationActivityBtn = (Button) findViewById(R.id.MyAnnotationActivityBtn);
 
         mHandlerThreadLooperBtn = (Button) findViewById(R.id.HandlerThreadLooperBtn);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
@@ -226,6 +229,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyListView3DBtn.setOnClickListener(mMyListView3DBtnListener);
         mMyJavaActivityBtn.setOnClickListener(mMyJavaActivityBtnListener);
         mMyAnimationActivityBtn.setOnClickListener(mMyAnimationActivityBtnListener);
+        MyAnnotationActivityBtn.setOnClickListener(MyAnnotationActivityBtnListener);
         mHandlerThreadLooperBtn.setOnClickListener(mHandlerThreadLooperBtnListener);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
@@ -361,7 +365,15 @@ public class MainActivity extends Activity implements MyInterface {
         }
     };
 
-
+    private OnClickListener MyAnnotationActivityBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, AnnotationActivity.class);
+            startActivity(intent);
+        }
+    };
     private OnClickListener mHandlerThreadLooperBtnListener =new OnClickListener() {
         @Override
         public void onClick(View v) {
