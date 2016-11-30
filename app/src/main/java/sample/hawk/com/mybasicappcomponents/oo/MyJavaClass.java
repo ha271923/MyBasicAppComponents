@@ -1,8 +1,11 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import android.graphics.Color;
+
 import java.util.Collection;
 
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
+import sample.hawk.com.mybasicappcomponents.data_structure.MyEnum;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
@@ -149,6 +152,13 @@ public class MyJavaClass {
                         Tree tr123=tr12.addLeaf("1.2.3");
                 tr1.show();
                 tr1.use_case();
+                break;
+            case 20: // Enum
+                MyEnum myenum = new MyEnum();
+                int color = myenum.switch_case(MyEnum.MyEnumList.YELLOW);
+                SMLog.i("Color="+color);
+                for(MyEnum.MyEnumList myenum_color : MyEnum.MyEnumList.values())
+                    SMLog.i("Color List="+myenum_color);
                 break;
 
             default:
