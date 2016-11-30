@@ -2,27 +2,27 @@ package sample.hawk.com.mybasicappcomponents;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import sample.hawk.com.mybasicappcomponents.utils.PermissionUtil;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+import sample.hawk.com.mybasicappcomponents.view.MyView;
 
 /**
  * Created by Hawk_Wei on 2016/3/16.
@@ -35,6 +35,24 @@ public class MyActivity extends Activity {
     ProgressBar mMyActivityProgressBar;
     private static int p;
 
+
+    private void AddAndroidRobotView(Context context){
+        final Window window = ((Activity)context).getWindow();
+        MyView mv = new MyView(context);
+        window.addContentView(mv, new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
+
+    private void remove_add_view(Context context){ // http://orzreynold.pixnet.net/blog/post/32590798-%E6%9B%B4%E6%94%B9view%E5%85%83%E4%BB%B6%E7%9A%84%E4%BD%8D%E7%BD%AE
+        SMLog.i("remove_add_view++");
+        RelativeLayout layout = (RelativeLayout)findViewById(R.id.my_relativelayout); //xml裡的layout
+        TextView tv = (TextView)findViewById(R.id.my_textView);  //layout裡的my_textView
+        layout.removeView(tv); // Hawk: to prevent the java.lang.IllegalStateException: The specified child already has a parent. You must call removeView() on the child's parent first.
+        layout.bringToFront();
+        layout.setGravity(Gravity.BOTTOM);
+        layout.addView(tv, new RelativeLayout.LayoutParams(200, 200));
+        SMLog.i("remove_add_view--");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);SMLog.i();
@@ -44,6 +62,8 @@ public class MyActivity extends Activity {
         mStatus = (TextView) findViewById(R.id.status_textView);
         mState +="(C1)onCreate->"; mStatus.setText(mState);
         my_update_PB_thread();
+        AddAndroidRobotView(this);
+        remove_add_view(this);
     }
 
     @Override
