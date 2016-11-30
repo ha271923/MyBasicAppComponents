@@ -38,6 +38,7 @@ import sample.hawk.com.mybasicappcomponents.background.MyJobSchedulerService;
 import sample.hawk.com.mybasicappcomponents.background.MyLocalService;
 import sample.hawk.com.mybasicappcomponents.background.MyThread;
 import sample.hawk.com.mybasicappcomponents.misc.AnnotationActivity;
+import sample.hawk.com.mybasicappcomponents.utils.Util;
 import sample.hawk.com.mybasicappcomponents.view.MyFragmentActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyListViewActivity;
 import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
@@ -100,7 +101,7 @@ public class MainActivity extends Activity implements MyInterface {
     public ToggleButton mMyJobSchedulerToggleBtn;
     public ToggleButton mMyThreadToggleBtn;
     public Button mMyReceiverBtn;public Button mMyBroadcastBtn;
-    public TextView mMyOutputTextView;public TextView mMyTimeTextView;
+    public TextView mMyOutputTextView;public TextView mMyTimeTextView;public TextView mAppVersionTextView;
     public Button mMyProviderBtn;
     public Button mMygetBindServiceResultBtn;
     private BroadcastReceiver mMyReceiver = new MyReceiver();
@@ -184,6 +185,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyServiceProgressBar = (ProgressBar) findViewById(R.id.myservice_progressBar);
         mMyReceiverProgressBar = (ProgressBar) findViewById(R.id.myreceiver_progressBar);
         mMyContentProviderProgressBar = (ProgressBar) findViewById(R.id.mycontentprovider_progressBar);
+        mAppVersionTextView = (TextView) findViewById(R.id.AppVersionTextView);
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyViewBtn = (Button) findViewById(R.id.MyViewBtn);
@@ -248,6 +250,13 @@ public class MainActivity extends Activity implements MyInterface {
         // main_update_PB_thread(); // only for demo runOnUiThread() API
 
         mMyTask= new  MyAsyncTask();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Util.getAppVersion(mContext, "com.google.android.webview");
+        mAppVersionTextView.setText("App version: " + Util.getAppVersion(mContext, this.getPackageName()));
     }
 
     @Override

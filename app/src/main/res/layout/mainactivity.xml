@@ -8,6 +8,12 @@
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
         >
+        <TextView
+            android:text="AppVersionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AppVersionTextView"/>
+
         <Button
             android:id="@+id/SettingsBtn"
             android:layout_width="fill_parent"
