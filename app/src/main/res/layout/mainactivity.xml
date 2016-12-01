@@ -73,6 +73,12 @@
             android:id="@+id/ListView3DBtn"/>
 
         <Button
+            android:text="MyLayoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/MyLayoutBtn"/>
+
+        <Button
             android:text="MyViewBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

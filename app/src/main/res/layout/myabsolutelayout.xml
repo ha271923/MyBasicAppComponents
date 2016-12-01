@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/my_absolutelayout"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="300dp"
+                android:layout_height="400dp">
+
+    <TextView
+        android:text="AbsoluteLayout inside"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:id="@+id/titleTv"/>
+
+    <Button
+        android:id="@+id/Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button1"
+        android:layout_x="40px"
+        android:layout_y="22px"/>
+    <Button
+        android:id="@+id/Button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button2"
+        android:layout_x="170px"
+        android:layout_y="83px"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/Button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button3"
+        android:layout_x="300px"
+        android:layout_y="242px"/>
+</AbsoluteLayout>

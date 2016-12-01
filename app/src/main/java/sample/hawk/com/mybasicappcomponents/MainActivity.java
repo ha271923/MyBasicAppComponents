@@ -40,6 +40,7 @@ import sample.hawk.com.mybasicappcomponents.background.MyThread;
 import sample.hawk.com.mybasicappcomponents.misc.AnnotationActivity;
 import sample.hawk.com.mybasicappcomponents.utils.Util;
 import sample.hawk.com.mybasicappcomponents.view.MyFragmentActivity;
+import sample.hawk.com.mybasicappcomponents.view.MyLayoutActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyListViewActivity;
 import sample.hawk.com.mybasicappcomponents.oo.MyInterface;
 import sample.hawk.com.mybasicappcomponents.oo.MyObjectClass;
@@ -84,6 +85,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyListViewBtn;
     public Button mMyListView3DBtn;
     public Button mMyViewBtn;
+    public Button mMyLayoutBtn;
     public Button mMyViewGroupBtn;
     public Button mMySurfaceViewBtn;
     public Button mMyFragmentBtn;
@@ -188,6 +190,7 @@ public class MainActivity extends Activity implements MyInterface {
         mAppVersionTextView = (TextView) findViewById(R.id.AppVersionTextView);
         mMyOutputTextView = (TextView) findViewById(R.id.OutputTextView);
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
+        mMyLayoutBtn = (Button) findViewById(R.id.MyLayoutBtn);
         mMyViewBtn = (Button) findViewById(R.id.MyViewBtn);
         mMyViewGroupBtn = (Button) findViewById(R.id.MyViewGroupBtn);
         mMySurfaceViewBtn = (Button) findViewById(R.id.MySurfaceViewBtn);
@@ -222,6 +225,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyActivityBtn.setOnClickListener(mMyActivityBtnListener);
         mMyListViewBtn.setOnClickListener(mMyListViewBtnListener);
         mSimpleListViewBtn.setOnClickListener(mSimpleListViewBtnListener);
+        mMyLayoutBtn.setOnClickListener(mMyLayoutBtnListener);
         mMyViewBtn.setOnClickListener(mMyViewBtnListener);
         mMyViewGroupBtn.setOnClickListener(mMyViewGroupBtnListener);
         mMySurfaceViewBtn.setOnClickListener(mMySurfaceViewBtnListener);
@@ -293,6 +297,17 @@ public class MainActivity extends Activity implements MyInterface {
             SMLog.i();
             Intent  intent = new Intent();
             intent.setClass( MainActivity.this, SimpleListView.class);
+            startActivity(intent);
+        }
+    };
+
+
+    private OnClickListener mMyLayoutBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MyLayoutActivity.class);
             startActivity(intent);
         }
     };

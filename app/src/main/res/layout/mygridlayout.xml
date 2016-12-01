@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/my_gridlayout"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_width="300dp"
+            android:layout_height="400dp">
+
+    <TextView
+        android:text="GridLayout inside"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:id="@+id/titleTv"
+        android:layout_row="0"
+        android:layout_column="0"/>
+    <Button
+        android:text="[0,1]"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button01"
+        android:layout_row="0"
+        android:layout_column="1"/>
+
+    <Button
+        android:text="[1,0]"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button10"
+        android:layout_row="1"
+        android:layout_column="0"/>
+
+    <Button
+        android:text="[5,2]"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button52"
+        android:layout_row="5"
+        android:layout_column="2"/>
+
+    <Button
+        android:text="[6,1]"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button61"
+        android:layout_row="6"
+        android:layout_column="1"/>
+
+</GridLayout>

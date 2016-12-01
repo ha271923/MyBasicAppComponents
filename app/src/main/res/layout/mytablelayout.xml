@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/my_tablelayout"
+             android:background="@color/colorPrimaryDark"
+             android:layout_marginTop="30dp"
+             android:layout_marginLeft="30dp"
+             android:layout_width="300dp"
+             android:layout_height="400dp">
+
+    <TextView
+        android:text="TableLayout inside"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:id="@+id/titleTv"/>
+
+    <TableRow>
+        <Button
+            android:id="@+id/Button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1-1"
+            android:layout_span="2"/>
+        <Button
+            android:id="@+id/Button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1-2"/>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/Button21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2-1"/>
+        <Button
+            android:id="@+id/Button22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2-2"/>
+        <Button
+            android:id="@+id/Button23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2-3"/>
+    </TableRow>
+</TableLayout>
