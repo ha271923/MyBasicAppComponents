@@ -60,7 +60,7 @@ public class MyActivity extends Activity {
         setContentView(R.layout.myactivity);
         mMyActivityProgressBar= (ProgressBar)findViewById(R.id.myactivity_progressBar);
         mStatus = (TextView) findViewById(R.id.status_textView);
-        mState +="(C1)onCreate->"; mStatus.setText(mState);
+        mState +="(C1/D1-1/D2-2)onCreate->"; mStatus.setText(mState);
         my_update_PB_thread();
         AddAndroidRobotView(this);
         remove_add_view(this);
@@ -75,31 +75,31 @@ public class MyActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();SMLog.i();
-        mState +="(C3)onResume->"; mStatus.setText(mState);
+        mState +="(C3/D1-1)onResume->"; mStatus.setText(mState);
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause() { // If user back to UI, state will goto onResume.
         super.onPause();SMLog.i();
-        mState +="(D1)onPause->"; mStatus.setText(mState);
+        mState +="(D1-0)onPause->"; mStatus.setText(mState);
     }
 
     @Override
-    protected void onStop() {
+    protected void onStop() {  // If user back to UI, state will goto onRestart. If process has been killed, the state will goto onCreate.
         super.onStop();SMLog.i();
-        mState +="(D2)onStop->"; mStatus.setText(mState);
+        mState +="(D2-0)onStop->"; mStatus.setText(mState);
     }
 
     @Override
-    protected void onRestart() {
+    protected void onRestart() { // the next state is onStart.
         super.onRestart();SMLog.i();
-        mState +="(D3-1)onRestart->"; mStatus.setText(mState);
+        mState +="(D2-1)onRestart->"; mStatus.setText(mState);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();SMLog.i();
-        mState +="(D3)onDestroy->"; mStatus.setText(mState);
+        mState +="(D2-0)onDestroy->"; mStatus.setText(mState);
         timer.cancel();
     }
 

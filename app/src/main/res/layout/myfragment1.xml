@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/MyFragment1"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:gravity="center_vertical|center_horizontal"
-          android:text="myfragment1.xml"
-          android:layout_weight="1"
-          android:background="@color/colorPrimaryDark"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/MyFragment1"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+    <TextView
+        android:id="@+id/MyFragment1_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="myfragment1.xml"
+        android:layout_weight="1"
+        android:background="@color/colorPrimaryDark"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/MyFragment1_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:text="myfragment1_subtitle"
+        android:layout_weight="1"
+        android:background="@color/colorPrimaryDark"/>
+</LinearLayout>
