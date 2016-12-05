@@ -27,6 +27,11 @@ public class AnimationActivity extends Activity {
             container.addView(new ColorAnimView(this));
         }
 
+        if(Tag.equals("sample.hawk.com.mybasicappcomponents.animation.MyViewAnimation")){
+            RelativeLayout container = (RelativeLayout) findViewById(R.id.mainLayout);
+            container.addView(new MyViewAnimation(this));
+        }
+
     }
 
     public void onClick_NewActivity(View view){
