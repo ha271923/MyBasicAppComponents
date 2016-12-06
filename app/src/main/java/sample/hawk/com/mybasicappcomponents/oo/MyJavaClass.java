@@ -160,7 +160,10 @@ public class MyJavaClass {
                 for(MyEnum.MyEnumList myenum_color : MyEnum.MyEnumList.values())
                     SMLog.i("Color List="+myenum_color);
                 break;
-
+            case 21: // sleep, wait
+                sleep_VS_wait svt = new sleep_VS_wait();
+                svt.start_tests();
+                break;
             default:
 
         }

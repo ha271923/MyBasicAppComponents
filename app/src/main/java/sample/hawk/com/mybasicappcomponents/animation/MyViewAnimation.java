@@ -24,16 +24,26 @@ import sample.hawk.com.mybasicappcomponents.R;
 public class MyViewAnimation extends View {
     private ImageView m_imgv;
     Context m_context;
-    public MyViewAnimation(Context context){
+    public MyViewAnimation(Context context,AnimationActivity.MyViewAnimations anim){
         super(context);
         m_context = context;
         m_imgv = create_android_robots(context);
 
-        //alpha(m_imgv);
-        alpha_by_xml(m_imgv);
-        //scale(m_imgv);
-        //rotate(m_imgv);
-        //translate(m_imgv);
+        switch(anim){
+            case ALPHA:
+                //alpha(m_imgv);
+                alpha_by_xml(m_imgv);
+                break;
+            case SCALE:
+                scale(m_imgv);
+                break;
+            case ROTATE:
+                rotate(m_imgv);
+                break;
+            case TRANSLATE:
+                translate(m_imgv);
+                break;
+        }
 
     }
 

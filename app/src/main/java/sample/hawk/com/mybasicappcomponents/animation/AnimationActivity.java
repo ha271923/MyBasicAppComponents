@@ -13,6 +13,11 @@ import sample.hawk.com.mybasicappcomponents.R;
  */
 
 public class AnimationActivity extends Activity {
+
+    public enum MyViewAnimations{
+        ALPHA, SCALE, ROTATE, TRANSLATE
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +34,10 @@ public class AnimationActivity extends Activity {
 
         if(Tag.equals("sample.hawk.com.mybasicappcomponents.animation.MyViewAnimation")){
             RelativeLayout container = (RelativeLayout) findViewById(R.id.mainLayout);
-            container.addView(new MyViewAnimation(this));
+            container.addView(new MyViewAnimation(this,MyViewAnimations.ALPHA));
+            container.addView(new MyViewAnimation(this,MyViewAnimations.SCALE));
+            container.addView(new MyViewAnimation(this,MyViewAnimations.ROTATE));
+            container.addView(new MyViewAnimation(this,MyViewAnimations.TRANSLATE)); // Hawk: ONLY this animation will be executed whatever new many animations.
         }
 
     }
