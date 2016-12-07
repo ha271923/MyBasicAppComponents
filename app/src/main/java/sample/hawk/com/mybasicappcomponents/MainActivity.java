@@ -50,6 +50,7 @@ import sample.hawk.com.mybasicappcomponents.view.MySurfaceView;
 import sample.hawk.com.mybasicappcomponents.view.MySurfaceViewActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyTabsActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewActivity;
+import sample.hawk.com.mybasicappcomponents.view.MyViewActivity2;
 import sample.hawk.com.mybasicappcomponents.view.MyViewGroupActivity;
 import sample.hawk.com.mybasicappcomponents.view.SimpleListView;
 
@@ -85,6 +86,7 @@ public class MainActivity extends Activity implements MyInterface {
     public Button mMyListViewBtn;
     public Button mMyListView3DBtn;
     public Button mMyViewBtn;
+    public Button mMyViewVBarBtn;
     public Button mMyLayoutBtn;
     public Button mMyViewGroupBtn;
     public Button mMySurfaceViewBtn;
@@ -192,6 +194,7 @@ public class MainActivity extends Activity implements MyInterface {
         mMyActivityBtn = (Button) findViewById(R.id.ActivityBtn);
         mMyLayoutBtn = (Button) findViewById(R.id.MyLayoutBtn);
         mMyViewBtn = (Button) findViewById(R.id.MyViewBtn);
+        mMyViewVBarBtn = (Button) findViewById(R.id.MyViewVBarBtn);
         mMyViewGroupBtn = (Button) findViewById(R.id.MyViewGroupBtn);
         mMySurfaceViewBtn = (Button) findViewById(R.id.MySurfaceViewBtn);
         mMyFragmentBtn = (Button) findViewById(R.id.MyFragmentBtn);
@@ -227,6 +230,7 @@ public class MainActivity extends Activity implements MyInterface {
         mSimpleListViewBtn.setOnClickListener(mSimpleListViewBtnListener);
         mMyLayoutBtn.setOnClickListener(mMyLayoutBtnListener);
         mMyViewBtn.setOnClickListener(mMyViewBtnListener);
+        mMyViewVBarBtn.setOnClickListener(mMyViewVBarBtnListener);
         mMyViewGroupBtn.setOnClickListener(mMyViewGroupBtnListener);
         mMySurfaceViewBtn.setOnClickListener(mMySurfaceViewBtnListener);
         mMyFragmentBtn.setOnClickListener(mMyFragmentBtnListener);
@@ -322,6 +326,15 @@ public class MainActivity extends Activity implements MyInterface {
         }
     };
 
+    private OnClickListener mMyViewVBarBtnListener =new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            Intent  intent = new Intent();
+            intent.setClass( MainActivity.this, MyViewActivity2.class);
+            startActivity(intent);
+        }
+    };
     private OnClickListener mMyViewGroupBtnListener =new OnClickListener() {
         @Override
         public void onClick(View v) {

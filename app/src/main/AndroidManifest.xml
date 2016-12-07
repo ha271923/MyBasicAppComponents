@@ -28,6 +28,7 @@
         <activity android:name=".animation.ScaleAnimationActivity"/>
         <activity android:name=".view.MyLayoutActivity" android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".view.MyViewActivity"/>
+        <activity android:name=".view.MyViewActivity2"/>
         <activity android:name=".view.MyViewGroupActivity"/>
         <activity android:name=".view.MySurfaceViewActivity"/>
         <activity android:name=".view.MyFragmentActivity"/>

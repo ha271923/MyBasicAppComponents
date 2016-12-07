@@ -85,6 +85,12 @@
             android:id="@+id/MyViewBtn"/>
 
         <Button
+            android:text="MyViewVBarBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/MyViewVBarBtn"/>
+
+        <Button
             android:text="MyViewGroupBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
