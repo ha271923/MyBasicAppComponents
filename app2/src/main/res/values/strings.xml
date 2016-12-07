@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">app2</string>
+    <string name="valueSelector_label">VALUE</string>
+    <string name="valueBarLabel">CURRENT VALUE</string>
 </resources>
