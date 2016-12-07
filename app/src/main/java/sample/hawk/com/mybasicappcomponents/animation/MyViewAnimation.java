@@ -2,9 +2,7 @@ package sample.hawk.com.mybasicappcomponents.animation;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,8 +10,6 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import sample.hawk.com.mybasicappcomponents.R;
 
@@ -22,34 +18,37 @@ import sample.hawk.com.mybasicappcomponents.R;
  */
 
 public class MyViewAnimation extends View {
-    private ImageView m_imgv;
+    private ImageView[] m_imgv;
     Context m_context;
     public MyViewAnimation(Context context,AnimationActivity.MyViewAnimations anim){
         super(context);
+        m_imgv = new ImageView[4];
         m_context = context;
         m_imgv = create_android_robots(context);
-
+        int enum_to_int = anim.ordinal();
         switch(anim){
             case ALPHA:
                 //alpha(m_imgv);
-                alpha_by_xml(m_imgv);
+                alpha_by_xml(m_imgv[enum_to_int]);
                 break;
             case SCALE:
-                scale(m_imgv);
+                scale(m_imgv[enum_to_int]);
                 break;
             case ROTATE:
-                rotate(m_imgv);
+                rotate(m_imgv[enum_to_int]);
                 break;
             case TRANSLATE:
-                translate(m_imgv);
+                translate(m_imgv[enum_to_int]);
                 break;
         }
-
     }
 
-    ImageView create_android_robots(Context context){
-        ImageView imgv =(ImageView) ((Activity)context).findViewById(R.id.android_robot);
-        return imgv;
+    ImageView[] create_android_robots(Context context){
+        m_imgv[0]=(ImageView) ((Activity)context).findViewById(R.id.android_robot0);
+        m_imgv[1]=(ImageView) ((Activity)context).findViewById(R.id.android_robot1);
+        m_imgv[2]=(ImageView) ((Activity)context).findViewById(R.id.android_robot2);
+        m_imgv[3]=(ImageView) ((Activity)context).findViewById(R.id.android_robot3);
+        return m_imgv;
     }
 
     // AlphaAnimation WAY1: control by code
@@ -81,6 +80,7 @@ public class MyViewAnimation extends View {
         ScaleAnimation scale = new ScaleAnimation(fromX, toX, fromY, toY, pivotXType, pivotXValue, pivotYType, pivotYValue);
         scale.setDuration(3000);
         scale.setFillAfter(true);    //顯示動畫結束時View的樣子,上面是2.0f倍放大,那麼顯示就會是那麼大
+        scale.setRepeatCount(10);
         view.startAnimation(scale);
     }
 
@@ -94,6 +94,7 @@ public class MyViewAnimation extends View {
         float pivotYValue = 0.5f;//取值範圍0~1之間,相對的y軸位置,相對於物件就是物件的寬度中間,相對於屏幕就是屏幕中間
         RotateAnimation rotate = new RotateAnimation(fromDegrees, toDegrees, pivotXType, pivotXValue, pivotYType, pivotYValue);
         rotate.setDuration(3000);
+        rotate.setRepeatCount(10);
         view.startAnimation(rotate);
     }
 
@@ -108,6 +109,7 @@ public class MyViewAnimation extends View {
         float toYValue = 0f;    //y移動
         TranslateAnimation translate = new TranslateAnimation(fromXType, fromXValue, toXType, toXValue, fromYType, fromYValue, toYType, toYValue);
         translate.setDuration(3000);
+        translate.setRepeatCount(10);
         view.startAnimation(translate);
     }
 

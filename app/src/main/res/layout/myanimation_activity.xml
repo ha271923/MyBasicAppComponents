@@ -39,6 +39,28 @@
             android:layout_height="76dp"
             android:src="@drawable/android_robot"
             android:onClick="onClick_Play"
-            android:id="@+id/android_robot"/>
+            android:id="@+id/android_robot0"/>
+        <ImageView
+            android:layout_width="143dp"
+            android:layout_height="76dp"
+            android:src="@drawable/android_robot"
+            android:onClick="onClick_Play"
+            android:layout_below="@+id/android_robot0"
+            android:id="@+id/android_robot1"/>
+        <ImageView
+            android:layout_width="143dp"
+            android:layout_height="76dp"
+            android:src="@drawable/android_robot"
+            android:onClick="onClick_Play"
+            android:layout_below="@+id/android_robot1"
+            android:id="@+id/android_robot2"/>
+        <ImageView
+            android:layout_width="143dp"
+            android:layout_height="76dp"
+            android:src="@drawable/android_robot"
+            android:onClick="onClick_Play"
+            android:layout_below="@+id/android_robot2"
+            android:id="@+id/android_robot3"/>
+
     </RelativeLayout>
 </LinearLayout>
