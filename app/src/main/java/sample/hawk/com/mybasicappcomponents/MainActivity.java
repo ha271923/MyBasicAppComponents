@@ -50,7 +50,7 @@ import sample.hawk.com.mybasicappcomponents.view.MySurfaceView;
 import sample.hawk.com.mybasicappcomponents.view.MySurfaceViewActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyTabsActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewActivity;
-import sample.hawk.com.mybasicappcomponents.view.MyViewActivity2;
+import sample.hawk.com.mybasicappcomponents.view.MyVBarActivity;
 import sample.hawk.com.mybasicappcomponents.view.MyViewGroupActivity;
 import sample.hawk.com.mybasicappcomponents.view.SimpleListView;
 
@@ -331,7 +331,7 @@ public class MainActivity extends Activity implements MyInterface {
         public void onClick(View v) {
             SMLog.i();
             Intent  intent = new Intent();
-            intent.setClass( MainActivity.this, MyViewActivity2.class);
+            intent.setClass( MainActivity.this, MyVBarActivity.class);
             startActivity(intent);
         }
     };

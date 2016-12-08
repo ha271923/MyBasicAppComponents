@@ -10,14 +10,14 @@ import com.hawk.app2.ValueSelector;
 
 import sample.hawk.com.mybasicappcomponents.R;
 
-public class MyViewActivity2 extends Activity {
+public class MyVBarActivity extends Activity {
     ValueBar valueBar;
     ValueSelector valueSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.myviewactivity2);
+        setContentView(R.layout.myvbaractivity);
 
         valueSelector = (ValueSelector) findViewById(com.hawk.app2.R.id.valueSelector);
         valueSelector.setMinValue(0);
