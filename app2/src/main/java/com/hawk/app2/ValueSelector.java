@@ -17,7 +17,7 @@ import android.widget.TextView;
  * </p>
  *
  */
-public class ValueSelector extends RelativeLayout {
+public class ValueSelector extends RelativeLayout implements IValueBarListener{
 
     private int minValue = Integer.MIN_VALUE;
     private int maxValue = Integer.MAX_VALUE;
@@ -30,7 +30,7 @@ public class ValueSelector extends RelativeLayout {
     TextView valueTextView;
     View minusButton;
     View plusButton;
-
+    ValueBar mVbar;
     Handler handler = new Handler();
 
     public ValueSelector(Context context) {
@@ -175,6 +175,7 @@ public class ValueSelector extends RelativeLayout {
         int currentVal = Integer.valueOf(valueTextView.getText().toString());
         if(currentVal < maxValue) {
             valueTextView.setText(String.valueOf(currentVal + 1));
+            mVbar.setValue(currentVal + 1);
         }
     }
 
@@ -182,6 +183,7 @@ public class ValueSelector extends RelativeLayout {
         int currentVal = Integer.valueOf(valueTextView.getText().toString());
         if(currentVal > minValue) {
             valueTextView.setText(String.valueOf(currentVal - 1));
+            mVbar.setValue(currentVal - 1);
         }
     }
 
@@ -202,5 +204,9 @@ public class ValueSelector extends RelativeLayout {
                 handler.postDelayed(new AutoDecrementer(), REPEAT_INTERVAL_MS);
             }
         }
+    }
+    @Override
+    public void setOnValueBarUpdateListener(ValueBar vbar){
+        mVbar = vbar;
     }
 }

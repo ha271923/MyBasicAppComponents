@@ -6,17 +6,19 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    ValueBar valueBar;
+    ValueSelector valueSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainactivity);
 
-        final ValueSelector valueSelector = (ValueSelector) findViewById(R.id.valueSelector);
+        valueSelector = (ValueSelector) findViewById(R.id.valueSelector);
         valueSelector.setMinValue(0);
         valueSelector.setMaxValue(100);
-
-        final ValueBar valueBar = (ValueBar) findViewById(R.id.valueBar);
+        valueBar = (ValueBar) findViewById(R.id.valueBar);
+        valueSelector.setOnValueBarUpdateListener(valueBar);
         valueBar.setMaxValue(100);
         valueBar.setAnimated(true);
         valueBar.setAnimationDuration(4000l);

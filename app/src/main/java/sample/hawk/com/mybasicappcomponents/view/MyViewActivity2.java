@@ -10,21 +10,20 @@ import com.hawk.app2.ValueSelector;
 
 import sample.hawk.com.mybasicappcomponents.R;
 
-/**
- * Created by ha271 on 2016/12/7.
- */
+public class MyViewActivity2 extends Activity {
+    ValueBar valueBar;
+    ValueSelector valueSelector;
 
-public class MyViewActivity2 extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myviewactivity2);
 
-        final ValueSelector valueSelector = (ValueSelector) findViewById(com.hawk.app2.R.id.valueSelector);
+        valueSelector = (ValueSelector) findViewById(com.hawk.app2.R.id.valueSelector);
         valueSelector.setMinValue(0);
         valueSelector.setMaxValue(100);
-
-        final ValueBar valueBar = (ValueBar) findViewById(com.hawk.app2.R.id.valueBar);
+        valueBar = (ValueBar) findViewById(com.hawk.app2.R.id.valueBar);
+        valueSelector.setOnValueBarUpdateListener(valueBar);
         valueBar.setMaxValue(100);
         valueBar.setAnimated(true);
         valueBar.setAnimationDuration(4000l);
