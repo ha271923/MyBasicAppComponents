@@ -8,6 +8,7 @@ import android.os.Message;
 import android.widget.ProgressBar;
 
 import sample.hawk.com.mybasicappcomponents.MainActivity;
+
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -121,7 +122,7 @@ public class MyThread extends Thread {
             Object obj = msg.obj;
             switch (msg.what){
                 case MSG_UPDATE_UI:
-                    MainActivity.mMainActivityProgressBar.setProgress((int)obj);
+                    MyThreadActivity.mMainActivityProgressBar.setProgress((int)obj);
                     break;
                 default:
                     break;

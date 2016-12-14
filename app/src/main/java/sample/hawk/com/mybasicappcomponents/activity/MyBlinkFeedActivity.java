@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

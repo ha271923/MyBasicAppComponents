@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.provider;
 
 import java.util.HashMap;
 import android.content.ContentProvider;
@@ -159,13 +159,13 @@ public class MyContentProvider extends ContentProvider { // Hawk: UI thread, how
     // fields for my content provider
     static final String PROVIDER_NAME = "sample.hawk.com.mybasicappcomponents.provider.Birthday";
     static final String URL = "content://" + PROVIDER_NAME + "/friends";
-    static final Uri CONTENT_URI = Uri.parse(URL);
+    public static final Uri CONTENT_URI = Uri.parse(URL);
 
     // column name for the database
     public static class columnConst{
-        static final String ID = "id";
-        static final String NAME = "name";
-        static final String BIRTHDAY = "birthday";
+        public static final String ID = "id";
+        public static final String NAME = "name";
+        public static final String BIRTHDAY = "birthday";
     }
     // Excel-like table
     //     |   A    |    B    |     C    |

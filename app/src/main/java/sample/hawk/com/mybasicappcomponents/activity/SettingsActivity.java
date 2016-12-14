@@ -1,8 +1,10 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.activity;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+
+import sample.hawk.com.mybasicappcomponents.R;
 
 
 /**

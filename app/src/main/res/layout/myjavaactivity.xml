@@ -156,5 +156,19 @@
             android:tag="21"
             android:onClick="onClick_MyJavaClass"/>
 
+        <Button
+            android:text="interface test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="22"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="abstract class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="23"
+            android:onClick="onClick_MyJavaClass"/>
+
     </LinearLayout>
 </ScrollView>

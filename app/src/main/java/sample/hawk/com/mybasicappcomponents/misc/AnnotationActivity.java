@@ -225,4 +225,11 @@ public class AnnotationActivity extends Activity implements AnnotationInterface 
     private void workerAPI(){
         SMLog.i(TAG,"calling workerAPI()"); // No warning, because no any UI element call in API.
     }
+
+//region MYCODE1 +++++++++++++++++
+    void test1(){}
+    void test2(){}
+    void test3(){}
+    void test4(){}
+//endregion
 }

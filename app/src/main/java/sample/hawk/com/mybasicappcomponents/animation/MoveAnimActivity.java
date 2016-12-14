@@ -15,7 +15,7 @@ import sample.hawk.com.mybasicappcomponents.R;
  * Created by ha271 on 2016/10/27.
  */
 
-public class move extends Activity{
+public class MoveAnimActivity extends Activity{
 
     private RelativeLayout mainLayout;
     private ImageView m_img;

@@ -1,9 +1,5 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
-import android.graphics.Color;
-
-import java.util.Collection;
-
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyEnum;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
@@ -12,7 +8,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySet;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySparseArray;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
-import sample.hawk.com.mybasicappcomponents.debug.MemoryEater;
+import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaClass {
@@ -164,6 +160,16 @@ public class MyJavaClass {
                 sleep_VS_wait svt = new sleep_VS_wait();
                 svt.start_tests();
                 break;
+            case 22:
+                MyInterfaceUsage mifu = new MyInterfaceUsage();
+                mifu.MyInterfaceUsageTest();
+                mifu.MyInterfaceAPI(55555);
+                break;
+            case 23:
+                MyAbstractUsage mau = new MyAbstractUsage();
+                mau.MyAbstractTest();
+                break;
+
             default:
 
         }

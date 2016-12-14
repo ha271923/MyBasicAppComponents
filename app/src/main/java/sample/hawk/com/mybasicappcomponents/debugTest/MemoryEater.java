@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.debug;
+package sample.hawk.com.mybasicappcomponents.debugTest;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 

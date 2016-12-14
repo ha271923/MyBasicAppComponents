@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
-import sample.hawk.com.mybasicappcomponents.MainActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -30,8 +29,8 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
                     SMLog.e("MyJobSchedulerService", "Unrecognised message received.");
                     break;
             }
-            if(MainActivity.mService_status!=null) // Exception occur if activity was killed by OS.
-                MainActivity.mService_status.setText("JobService handleMessage");
+            if(JobSchedulerActivity.mJob_status !=null) // Exception occur if activity was killed by OS.
+                JobSchedulerActivity.mJob_status.setText("JobService handleMessage");
             jobFinished( (JobParameters) msg.obj, false );
             return true;
         }
@@ -40,8 +39,8 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
     @Override
     public boolean onStartJob(JobParameters params ) {
         SMLog.i();
-        if(MainActivity.mService_status!=null)
-            MainActivity.mService_status.setText("JobService onStartJob"); // UpdateUI in JobService directly
+        if(JobSchedulerActivity.mJob_status !=null)
+            JobSchedulerActivity.mJob_status.setText("JobService onStartJob"); // UpdateUI in JobService directly
         Toast.makeText( getApplicationContext(), "MyJobSchedulerService onStartJob mCount="+(mCount++), Toast.LENGTH_SHORT ).show();
         mJobHandler.sendMessage( Message.obtain( mJobHandler, 1, params ) );
         return true;
@@ -50,8 +49,8 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
     @Override
     public boolean onStopJob( JobParameters params ) {
         SMLog.i();
-        if(MainActivity.mService_status!=null)
-            MainActivity.mService_status.setText("JobService onStopJob!!"); // UpdateUI in JobService
+        if(JobSchedulerActivity.mJob_status !=null)
+            JobSchedulerActivity.mJob_status.setText("JobService onStopJob!!"); // UpdateUI in JobService
         mCount =0;
         Toast.makeText( getApplicationContext(), "MyJobSchedulerService onStopJob!! ", Toast.LENGTH_SHORT ).show();
         mJobHandler.removeMessages( 1 );

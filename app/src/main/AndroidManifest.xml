@@ -4,6 +4,7 @@
 
     <!-- For ContenProvider to get contact data -->
     <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -20,40 +21,212 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".MyActivity"/>
-        <activity android:name=".MyJavaActivity"/>
-        <activity android:name=".animation.AnimationActivity"/>
-        <activity android:name=".animation.move"/>
-        <activity android:name=".animation.ScaleAnimationActivity"/>
-        <activity android:name=".view.MyLayoutActivity" android:configChanges="orientation|screenSize|keyboardHidden" />
-        <activity android:name=".view.MyViewActivity"/>
-        <activity android:name=".view.MyVBarActivity"/>
-        <activity android:name=".view.MyViewGroupActivity"/>
-        <activity android:name=".view.MySurfaceViewActivity"/>
-        <activity android:name=".view.MyFragmentActivity"/>
-        <activity android:name=".view.MyListViewActivity"/>
-        <activity android:name=".view.MyListView3DActivity"/>
-        <activity android:name=".view.SimpleListView"/>
-        <activity android:name=".view.MyTabsActivity"/>
+        <activity android:name=".activity.SettingsActivity"
+            android:label="activity/SettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.GetPermissionActivity"
+                  android:label="activity/GetPermissionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
-        <activity android:name=".MyBlinkFeedActivity"/>
-        <activity android:name=".misc.AnnotationActivity"/>
-
-        <activity android:name=".background.HandlerThreadLooper"/>
+        <activity android:name=".activity.LifeCycleActivity"
+                  android:label="activity/LifeCycleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".oo.MyJavaActivity"
+                  android:label="oo/MyJavaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".animation.AnimationActivity"
+                  android:label="animation/AnimationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".animation.MoveAnimActivity"
+                  android:label="animation/MoveAnimActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".animation.ScaleAnimationActivity"
+                  android:label="animation/ScaleAnimationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyLayoutActivity"
+                  android:label="view/MyLayoutActivity"
+                  android:configChanges="orientation|screenSize|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyViewActivity"
+                  android:label="view/MyViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyVBarActivity"
+                  android:label="view/MyVBarActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyViewGroupActivity"
+                  android:label="view/MyViewGroupActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MySurfaceViewActivity"
+                  android:label="view/MySurfaceViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyFragmentActivity"
+                  android:label="view/MyFragmentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyListViewActivity"
+                  android:label="view/MyListViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyListView3DActivity"
+                  android:label="view/MyListView3DActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.SimpleListViewActivity"
+                  android:label="view/SimpleListViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MyTabsActivity"
+                  android:label="view/MyTabsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MyBlinkFeedActivity"
+                  android:label="activity/MyBlinkFeedActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".misc.AnnotationActivity"
+                  android:label="misc/AnnotationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.HandlerThreadLooperActivity"
+                  android:label="background/HandlerThreadLooperActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".background.MyLocalService">
         </service>
         <service android:name=".background.MyIntentService" >
         </service>
-        <service android:name=".MyNotificationService" >
+        <service android:name=".background.MyNotificationService" >
         </service>
         <service android:name=".background.MyJobSchedulerService"
                  android:permission="android.permission.BIND_JOB_SERVICE" >
         </service>
+        <activity android:name=".background.AlarmManagerActivity"
+                  android:label="background/AlarmManagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.JobSchedulerActivity"
+                  android:label="background/JobSchedulerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.MyAsyncTaskActivity"
+                  android:label="background/MyAsyncTaskActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.MyThreadActivity"
+                  android:label="background/MyThreadActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.MyIntentServiceActivity"
+                  android:label="background/MyIntentServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.MyLocalServiceActivity"
+                  android:label="background/MyLocalServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
         <!-- Statically register MyReceiver  -->
-        <receiver android:name=".MyReceiver">
+
+        <activity android:name=".receiver.ReceiverTestActivity"
+                  android:label="receiver/ReceiverTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".receiver.MyReceiver">
             <intent-filter>
                 <action android:name="sample.hawk.com.mybasicappcomponents.broadcast1"/>
             </intent-filter>
@@ -65,9 +238,17 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name=".provider.SimpleProviderActivity"
+                  android:label="provider/SimpleProviderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <provider
             android:authorities="sample.hawk.com.mybasicappcomponents.provider.Birthday"
-            android:name=".MyContentProvider">
+            android:name=".provider.MyContentProvider">
 
         </provider>
     </application>

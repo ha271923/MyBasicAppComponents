@@ -14,7 +14,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 /**
  * Created by ha271 on 2016/4/7.
  */
-public class HandlerThreadLooper extends Activity {
+public class HandlerThreadLooperActivity extends Activity {
 
     private TextView txtView;
     private static int count = 0; // Hawk: static variable to keep this variable whatever BACK or HOME key pressed.

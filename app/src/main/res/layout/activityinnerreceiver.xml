@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <!-- BroadReceiver -->
+    <TextView
+        android:text="receiver_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/receiver_status"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:background="@color/colorAccent"/>
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/myreceiver_progressBar"/>
+
+    <TextView
+        android:text="xml static MyReceiver(broadcast1,2,3)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:text="DynamicRegisterAReceiverBtn(broadcast1)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DynamicRegisterAReceiverBtn"/>
+
+    <Button
+        android:text="ReceiverBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ReceiverBtn"/>
+
+    <Button
+        android:text="BroadcastBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BroadcastBtn"/>
+
+</LinearLayout>

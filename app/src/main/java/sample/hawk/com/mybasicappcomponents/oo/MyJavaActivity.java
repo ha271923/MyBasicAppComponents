@@ -1,9 +1,10 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.oo;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.oo.ChildClass;
 import sample.hawk.com.mybasicappcomponents.oo.MyJavaClass;
 import sample.hawk.com.mybasicappcomponents.oo.ParentClass;

@@ -1,26 +1,25 @@
-package sample.hawk.com.mybasicappcomponents;
+package sample.hawk.com.mybasicappcomponents.background;
 
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import java.lang.reflect.Field;
+import sample.hawk.com.mybasicappcomponents.MainActivity;
+import sample.hawk.com.mybasicappcomponents.R;
 
 /**
  * Created by ha271 on 2016/7/13.
  */
 
 public class MyNotificationService extends Service {
-    private static final int MY_NOTIFICATION_ID= MainActivity.MY_REQUEST_CODE;
+    private static final int MY_NOTIFICATION_ID= AlarmManagerActivity.MY_REQUEST_CODE;
     private static int count;
     NotificationManager mNM;
 

@@ -15,7 +15,7 @@ import sample.hawk.com.mybasicappcomponents.R;
  * Created by ha271 on 2016/11/14.
  */
 
-public class SimpleListView extends Activity {
+public class SimpleListViewActivity extends Activity {
     private ListView listView;
     private String[] list = {"ITEM 1","ITEM 2","ITEM 3","ITEM 4","ITEM 5"};
     private ArrayAdapter<String> listAdapter;

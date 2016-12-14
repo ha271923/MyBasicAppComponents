@@ -17,6 +17,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import sample.hawk.com.mybasicappcomponents.MainActivity;
+
+import sample.hawk.com.mybasicappcomponents.receiver.ReceiverTestActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 
@@ -100,7 +102,7 @@ public class MyLocalService extends Service { // Hawk: UI thread, however the re
                 SMLog.i(TAG,"my_update_time_thread  run1() ThreadId="+Thread.currentThread().getId());
                 bundle.putString("To_mMyOutputView", sdf.format(new Date()));
                 timeIntent.putExtras(bundle);
-                timeIntent.setAction(MainActivity.UPDATE_MAINACTIVITY_ACTION); // Hawk: you don't need to define MainActivity's constant again at here!
+                timeIntent.setAction(ReceiverTestActivity.UPDATE_ACTIVITY_ACTION); // Hawk: you don't need to define MainActivity's constant again at here!
                 // UPDATE_UI WAY1A: send a broadcast to MainActivity
                 sendBroadcast(timeIntent);
             }
@@ -145,7 +147,7 @@ public class MyLocalService extends Service { // Hawk: UI thread, however the re
             switch(msg.what){
                 case MSG_UPDATE_UI:
                     ps = count%100;
-                    MainActivity.mMainActivityProgressBar.setProgress(ps);
+                    MyLocalServiceActivity.mMainActivityProgressBar.setProgress(ps);
                     break;
                 default:
                     break;

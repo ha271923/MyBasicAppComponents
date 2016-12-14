@@ -48,90 +48,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/myainactivity_progressBar"/>
-        <Button
-            android:text="ActivityBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ActivityBtn"/>
-
-        <Button
-            android:text="ListViewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ListViewBtn"/>
-
-        <Button
-            android:text="SimpleListViewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/SimpleListViewBtn"/>
-
-        <Button
-            android:text="ListView3DBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ListView3DBtn"/>
-
-        <Button
-            android:text="MyLayoutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyLayoutBtn"/>
-
-        <Button
-            android:text="MyViewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyViewBtn"/>
-
-        <Button
-            android:text="MyViewVBarBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyViewVBarBtn"/>
-
-        <Button
-            android:text="MyViewGroupBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyViewGroupBtn"/>
-
-        <Button
-            android:text="MySurfaceViewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MySurfaceViewBtn"/>
-
-        <Button
-            android:text="MyFragmentBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyFragmentBtn"/>
-
-        <Button
-            android:text="MyTabsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyTabsBtn"/>
-
-        <Button
-            android:text="MyJavaActivityBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyJavaActivityBtn"/>
-
-        <Button
-            android:text="MyAnimationActivityBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyAnimationActivityBtn"/>
-
-        <Button
-            android:text="MyAnnotationActivityBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/MyAnnotationActivityBtn"/>
-
 
         <!-- Service -->
 
@@ -198,109 +114,13 @@
             android:textOff="STOP AsyncTask"
             android:textOn="Start AsyncTask"
             android:id="@+id/AsyncTaskToggleBtn"/>
-        <ToggleButton
-            android:text="AlarmManagerToggleBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOff="STOP AlarmManager"
-            android:textOn="Start AlarmManager"
-            android:id="@+id/AlarmManagerToggleBtn"/>
-        <ToggleButton
-            android:text="JobSchedulerToggleBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOff="STOP JobScheduler"
-            android:textOn="Start JobScheduler"
-            android:id="@+id/JobSchedulerToggleBtn"/>
+
         <Button
             android:text="HandlerThreadLooperBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/HandlerThreadLooperBtn"/>
 
-        <!-- BroadReceiver -->
-        <TextView
-            android:text="receiver_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/receiver_status"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:background="@color/colorAccent"/>
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/myreceiver_progressBar"/>
 
-        <Button
-            android:text="ReceiverBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ReceiverBtn"/>
-        <Button
-            android:text="BroadcastBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/BroadcastBtn"/>
-
-    <!-- ContentProvider -->
-        <TextView
-            android:text="contentprovider_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/contentprovider_status"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:background="@color/colorAccent"/>
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mycontentprovider_progressBar"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add default data into MyProvider"
-            android:onClick="addDefaultBirthday"
-            android:id="@+id/ProviderBtn"/>
-
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/name" />
-
-        <EditText
-            android:id="@+id/birthday"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/birthday" />
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="addBirthday"
-            android:layout_marginTop="10dp"
-            android:text="@string/add" />
-
-        <Button
-            android:id="@+id/btnShow"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:onClick="showAllBirthdays"
-            android:text="@string/show" />
-
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:onClick="deleteAllBirthdays"
-            android:text="@string/delete" />
     </LinearLayout>
 </ScrollView>
