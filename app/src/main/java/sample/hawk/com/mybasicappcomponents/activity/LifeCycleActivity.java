@@ -1,30 +1,16 @@
 package sample.hawk.com.mybasicappcomponents.activity;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.utils.PermissionUtil;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
-import sample.hawk.com.mybasicappcomponents.utils.Util;
-import sample.hawk.com.mybasicappcomponents.view.MyView;
+
 
 /**
  * Created by Hawk_Wei on 2016/3/16.
@@ -49,6 +35,7 @@ public class LifeCycleActivity extends Activity {
         my_update_PB_thread();
         // AddAndroidRobotView(this);
         // remove_add_view(this);
+
     }
 
     @Override
