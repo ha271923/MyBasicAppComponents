@@ -1,23 +1,5 @@
 apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
-
-    defaultConfig {
-        applicationId "sample.hawk.com.mybasicappcomponents"
-        minSdkVersion 23
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.789_Hawk"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply from: '../shared-build.gradle'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
