@@ -292,8 +292,17 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
-
+        <!-- https://developers.facebook.com/docs/audience-network/android-native -->
+        <activity android:name=".ad.Facebook_NativeAD_Activity"
+                  android:label="ad/Facebook_NativeAD_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.ads.AudienceNetworkActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
 
         <provider
             android:authorities="sample.hawk.com.mybasicappcomponents.provider.Birthday"
