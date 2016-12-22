@@ -12,5 +12,8 @@ dependencies {
 
     // ADs
     compile 'com.facebook.android:audience-network-sdk:4.17.0'  // Facebook
+    compile('com.mopub:mopub-sdk:4.9.0@aar') {  // https://mvnrepository.com/ doesn't upload it, so AAR.
+        transitive = true
+    }
 
 }
