@@ -5,6 +5,7 @@ import android.test.ApplicationTestCase;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ * <b href="https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests.html">Building Instrumented Unit Tests</b>
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
