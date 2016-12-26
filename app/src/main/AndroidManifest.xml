@@ -111,6 +111,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".jni.AccelerometerGraphActivity"
+                  android:label="jni/AccelerometerGraphActivity"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:launchMode="singleTask"
+                  android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".view.MyLayoutActivity"
                   android:label="view/MyLayoutActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden" >
