@@ -23,7 +23,7 @@
             android:layout_marginTop="21dp"
             android:id="@+id/titleTv"/>
 
-        <!-- FOR inflate in mylayout.java -->
+        <!-- FOR inflate in mylayout_activity.java -->
 
     </LinearLayout>
 </ScrollView>

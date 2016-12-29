@@ -23,6 +23,7 @@ public class MyLayout extends LinearLayout implements OnTouchFeedbackListener {
     public MyLayout(Context context, AttributeSet atts){ // If support XML, this is constructor.
         super(context, atts);
         SMLog.i("MyLayout(context, atts)");
+
     }
 
     //////////////////////////// Custom Interface ////////////////////////////////
@@ -38,7 +39,14 @@ public class MyLayout extends LinearLayout implements OnTouchFeedbackListener {
         invalidate();
     }
 
-    //////////////////////////// LinearLayout ////////////////////////////////
+    ////////////////////////////  View  ////////////////////////////////
+
+    @Override
+    public void setOnTouchListener(OnTouchListener l) {
+        super.setOnTouchListener(l);
+    }
+
+    ////////////////////////////  Layout  ////////////////////////////////
 
     @Override
     protected void onFinishInflate() {

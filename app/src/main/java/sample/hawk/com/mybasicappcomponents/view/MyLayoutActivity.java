@@ -20,7 +20,7 @@ public class MyLayoutActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mylayout);
+        setContentView(R.layout.mylayout_activity);
         layout();
     }
 
@@ -36,6 +36,7 @@ public class MyLayoutActivity extends Activity {
             getLayoutInflater().inflate(R.layout.myscrollview_horizontal, m_rootLayout);
             m_layer2Layout = (LinearLayout) findViewById(R.id.my_scrolllist_horizontal);
         }
+            getLayoutInflater().inflate(R.layout.mylayout, m_layer2Layout);
             getLayoutInflater().inflate(R.layout.mylinearlayout, m_layer2Layout);
             getLayoutInflater().inflate(R.layout.myrelativelayout, m_layer2Layout);
             getLayoutInflater().inflate(R.layout.myframelayout, m_layer2Layout);
