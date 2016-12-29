@@ -36,6 +36,7 @@ public class MyLayoutActivity extends Activity {
             getLayoutInflater().inflate(R.layout.myscrollview_horizontal, m_rootLayout);
             m_layer2Layout = (LinearLayout) findViewById(R.id.my_scrolllist_horizontal);
         }
+            getLayoutInflater().inflate(R.layout.specific_feedgridview_mopub_native_ads_two_column, m_layer2Layout);
             getLayoutInflater().inflate(R.layout.mylayout, m_layer2Layout);
             getLayoutInflater().inflate(R.layout.mylinearlayout, m_layer2Layout);
             getLayoutInflater().inflate(R.layout.myrelativelayout, m_layer2Layout);

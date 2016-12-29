@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sample.hawk.com.mybasicappcomponents.view.FeedGridViewMopubNativeAds_TwoColumn
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                                                    android:orientation="vertical"
+                                                    android:background="@color/colorPrimaryDark"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent">
+    <TextView
+        android:text="FeedGridViewMopubNativeAds_TwoColumn inside"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:id="@+id/titleTv"/>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                        android:id="@+id/native_card_view"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        card_view:cardCornerRadius="20dp"
+                                        card_view:cardElevation="0dp"
+                                        card_view:cardMaxElevation="1dp"
+                                        card_view:cardPreventCornerOverlap="false">
+        <!-- card_view:cardMaxElevation must be 1dp -->
+
+        <ImageView
+            android:id="@+id/native_main_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:id="@+id/feed_ads_section_content_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/native_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="13.75dp"
+                android:layout_marginRight="13.75dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="left|center_vertical"
+                android:maxLines="1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#33ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:orientation="horizontal"
+                android:paddingLeft="13.75dp"
+                android:paddingRight="13.75dp">
+
+                <ImageView
+                    android:id="@+id/native_icon_image"
+                    android:layout_width="27.5dp"
+                    android:layout_height="27.5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="13.75dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:scaleType="centerCrop" />
+
+
+                <LinearLayout
+                    android:id="@+id/feed_ads_title"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/native_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="left|center_vertical"
+                        android:maxLines="1" />
+
+                    <LinearLayout
+                        android:id="@+id/social_text_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/native_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:ellipsize="end"
+                            android:gravity="left|center_vertical"
+                            android:maxLines="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:id="@+id/native_social_context"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ellipsize="end"
+                            android:gravity="left|center_vertical"
+                            android:maxLines="1" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/feed_ads_sponsored_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="left|center_vertical"
+                        android:maxLines="1" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/native_call_to_action_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="13.75dp"
+                    android:layout_weight="0"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="8.75dp"
+                    android:paddingRight="8.75dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</sample.hawk.com.mybasicappcomponents.view.FeedGridViewMopubNativeAds_TwoColumn>
