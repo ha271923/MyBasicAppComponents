@@ -172,6 +172,13 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.MyListActivity2"
+                  android:label="view/MyListViewActivity2">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.MyListView3DActivity"
                   android:label="view/MyListView3DActivity">
             <intent-filter>
