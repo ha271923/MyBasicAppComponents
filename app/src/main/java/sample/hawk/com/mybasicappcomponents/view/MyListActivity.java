@@ -21,7 +21,7 @@ import sample.hawk.com.mybasicappcomponents.R;
  * Created by ha271 on 2016/8/8.
  */
 
-public class MyListViewActivity extends ListActivity {
+public class MyListActivity extends ListActivity {
 
     private ListView listV;
     List<MyListRowDataItem> rowItems = new ArrayList<MyListRowDataItem>();
