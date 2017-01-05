@@ -5,8 +5,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import sample.hawk.com.mybasicappcomponents.R;
 
@@ -18,6 +20,7 @@ public class MyListViewActivity extends Activity {
     final static int ELEMENT_COUNT = 400;
     MyAdapter adapter;
     static String[] elements;
+    static private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,15 @@ public class MyListViewActivity extends Activity {
         final ListView list = (ListView) findViewById(R.id.mylistview);
         list.setDivider( null );
         list.setAdapter(adapter);
+        mContext = this;
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
+                String result = "index: "+index;
+                Toast.makeText(mContext, result, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         AddButton(this);
     }
