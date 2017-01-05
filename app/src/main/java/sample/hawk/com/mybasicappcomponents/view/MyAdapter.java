@@ -104,7 +104,7 @@ public class MyAdapter extends BaseAdapter {
         switch (type)
         {
             case TYPE_TEXT:
-                holder1.textView.setText("position: "+position);
+                holder1.textView.setText("mItems["+position+"]="+mItems[position]);
                 break;
             case TYPE_IMAGE:
                 holder2.imageView.setBackgroundColor(colors[position%3]);
