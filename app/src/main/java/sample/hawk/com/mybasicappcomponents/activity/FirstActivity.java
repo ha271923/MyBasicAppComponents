@@ -35,6 +35,12 @@ public class FirstActivity extends Activity {
                 //建立 Intent 物件，意圖開啟其他 Activity。
                 Intent goOtherActivity = new Intent(activity, SecondActivity.class);
                 goOtherActivity.putExtras(argument); //將包裹放入 Intent 中。
+
+                // Pass data by Extra
+                goOtherActivity.putExtra("ExtraName1", "Extra Text");
+                goOtherActivity.putExtra("ExtraName2", 77);
+                goOtherActivity.putExtra("ExtraName3", 321.654F);
+
                 activity.startActivity(goOtherActivity);
             }
         });

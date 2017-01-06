@@ -18,11 +18,22 @@ public class SecondActivity extends Activity {
         int valueInt = argument.getInt("KeyNameTwo"); //透過 key 取出整數
         float valueFloat = argument.getFloat("KeyNameThree"); //透過 key 取出浮點數
 
+        String ext1 = (String) argument.get("ExtraName1");
+        int    ext2 = (Integer) argument.get("ExtraName2");
+        Float  ext3 = (Float) argument.get("ExtraName3");
+
         TextView showText = new TextView(this);
         showText.setText(
+                "   ----- Bundle -----" +
                 "\n String = " + valueStr +
                 "\n Integer= " + valueInt +
-                "\n Float  = " + valueFloat);
+                "\n Float  = " + valueFloat +
+                "\n ----- Extra -----" +
+                "\n ExtString = "+ ext1 +
+                "\n ExtInteger = "+ ext2 +
+                "\n ExtFloat = "+ ext3
+        );
+
         setContentView(showText);
     }
 }
