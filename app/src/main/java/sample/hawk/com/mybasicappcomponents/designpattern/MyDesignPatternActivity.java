@@ -8,6 +8,10 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.MyCallBack;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.SupportCallBack;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
+import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
+import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
+import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
+import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -42,6 +46,22 @@ public class MyDesignPatternActivity extends Activity{
             case 1:
                 Teacher teacher = new Teacher(); // 有位老師
                 teacher.onClass(); // 這位老師正在上課
+                break;
+
+            case 2: // Observer: 定義對象間的一對多的依賴關係，當一個對象狀態發生改變時，所有依賴他的對像都得到通知並被自動更新。
+                Subject subject =  new Subject();
+                subject.setTitle("0000");
+                Observer observer1 = new Person1();
+                Observer observer2 = new Person2();
+                subject.setTitle("1111");
+                subject.register(observer1);
+                subject.register(observer2);
+                subject._notifyAll();
+                SMLog.i("title= "+ subject.getTitle());
+                subject.setTitle("2222");
+                subject.unRegister(observer1); //取消觀察者1的註冊
+                subject._notifyAll();
+                SMLog.i("title= "+ subject.getTitle());
                 break;
             default:
 
