@@ -7,6 +7,7 @@ import android.view.View;
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.MyCallBack;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.SupportCallBack;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -38,7 +39,10 @@ public class MyDesignPatternActivity extends Activity{
                 });
                 scb.api(); // Call scb's call_api() will callback onCall_API.
                 break;
-
+            case 1:
+                Teacher teacher = new Teacher(); // 有位老師
+                teacher.onClass(); // 這位老師正在上課
+                break;
             default:
 
         }

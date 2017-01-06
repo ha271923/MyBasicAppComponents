@@ -24,10 +24,16 @@
 
         <!-- Many Buttons share a CallBack function -->
         <Button
-            android:text="callback"
+            android:text="callback in caller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="0"
+            android:onClick="onClick_MyDesignPatternClass"/>
+        <Button
+            android:text="callback in callee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="1"
             android:onClick="onClick_MyDesignPatternClass"/>
 
     </LinearLayout>
