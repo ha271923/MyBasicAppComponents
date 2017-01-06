@@ -38,12 +38,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SecondActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.HAWK_UI" />
-                <category android:name="android.intent.category.HAWK_CODE" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.SecondActivity"/>
 
         <activity android:name=".activity.SettingsActivity"
             android:label="activity/SettingsActivity">
@@ -215,6 +210,14 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.MyListViewHActivity"
+                  android:label="view/MyListViewHActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".view.SimpleListViewActivity"
                   android:label="view/SimpleListViewActivity">
             <intent-filter>
