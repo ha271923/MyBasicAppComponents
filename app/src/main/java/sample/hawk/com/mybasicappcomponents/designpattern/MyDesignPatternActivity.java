@@ -8,9 +8,10 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.MyCallBack;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.SupportCallBack;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.ProductFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -62,6 +63,15 @@ public class MyDesignPatternActivity extends Activity{
                 subject.unRegister(observer1); //取消觀察者1的註冊
                 subject._notifyAll();
                 SMLog.i("title= "+ subject.getTitle());
+                break;
+
+            case 3:
+                ProductFactory pf = new ProductFactory();
+                pf.createProduct(ProductFactory.Tea.Cafe);
+                pf.createProduct(ProductFactory.Tea.GreenTea);
+                pf.createProduct(ProductFactory.Tea.RedTea);
+                pf.createProduct(ProductFactory.Tea.BlackTea);
+                pf.createProduct(ProductFactory.Tea.MilkTea);
                 break;
             default:
 
