@@ -80,6 +80,13 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".designpattern.MyDesignPatternActivity"
+                  android:label="designpattern/MyDesignPatternActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".animation.AnimationActivity"
                   android:label="animation/AnimationActivity">
             <intent-filter>
