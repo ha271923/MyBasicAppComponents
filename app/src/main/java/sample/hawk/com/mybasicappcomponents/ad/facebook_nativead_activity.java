@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /*
     FB SDK native AD sample:
@@ -32,6 +31,13 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
     private LinearLayout nativeAdContainer;
     private LinearLayout adView;
 
+    ImageView nativeAdIcon;
+    TextView nativeAdTitle;
+    MediaView nativeAdMedia;
+    TextView nativeAdSocialContext;
+    TextView nativeAdBody;
+    Button nativeAdCallToAction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +45,42 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
         showNativeAd();
     }
 
+    public void onClick_RefreshAD(View view){
+        nativeAd.destroy();
+        showNativeAd();
+    }
+
+    public void onCreateAdView(Ad ad){
+
+        // Add the Ad view into the ad container.
+        nativeAdContainer = (LinearLayout) findViewById(R.id.native_ad_container);
+        LayoutInflater inflater = LayoutInflater.from(Facebook_NativeAD_Activity.this);
+        adView = (LinearLayout) inflater.inflate(R.layout.fb_native_ad_layout, nativeAdContainer, false);
+        nativeAdContainer.addView(adView);
+
+        // Create native UI using the ad metadata.
+        nativeAdIcon = (ImageView) adView.findViewById(R.id.native_ad_icon);
+        nativeAdTitle = (TextView) adView.findViewById(R.id.native_ad_title);
+        nativeAdMedia = (MediaView) adView.findViewById(R.id.native_ad_media);
+
+        nativeAdMedia.setAutoplay(true);
+        nativeAdMedia.setAutoplayOnMobile(true);
+        nativeAd.setMediaViewAutoplay(true);
+
+/*
+        boolean isNativeConfigEnabled = nativeAd.isNativeConfigEnabled();
+        Log.i("Hawk","+++ isNativeConfigEnabled="+isNativeConfigEnabled);
+        NativeAdViewAttributes AdViewAttributes = nativeAd.getAdViewAttributes();
+        Log.i("Hawk","--- isNativeConfigEnabled="+isNativeConfigEnabled);
+*/
+        nativeAdSocialContext = (TextView) adView.findViewById(R.id.native_ad_social_context);
+        nativeAdBody = (TextView) adView.findViewById(R.id.native_ad_body);
+        nativeAdCallToAction = (Button) adView.findViewById(R.id.native_ad_call_to_action);
+    }
+
     private void showNativeAd() {
-        // String placement_id=  "YOUR_PLACEMENT_ID"; // Original FB sample code
-        String placement_id= "834287756621964_1222830741100995"; // HTC AD test placement-1
+        // String placement_id=  "YOUR_PLACEMENT_ID"; // FB sample code
+        String placement_id= "834287756621964_1222830741100995"; // HTC test placement
 
         nativeAd = new NativeAd(this, placement_id);
         nativeAd.setAdListener(new AdListener() {
@@ -49,34 +88,13 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
             @Override
             public void onError(Ad ad, AdError error) {
                 // Ad error callback
-                SMLog.i("onError");
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
 
-                // Add the Ad view into the ad container.
-                nativeAdContainer = (LinearLayout) findViewById(R.id.native_ad_container);
-                LayoutInflater inflater = LayoutInflater.from(Facebook_NativeAD_Activity.this);
-                adView = (LinearLayout) inflater.inflate(R.layout.fb_native_ad_layout, nativeAdContainer, false);
-                nativeAdContainer.addView(adView);
-
-                // Create native UI using the ad metadata.
-                ImageView nativeAdIcon = (ImageView) adView.findViewById(R.id.native_ad_icon);
-                TextView nativeAdTitle = (TextView) adView.findViewById(R.id.native_ad_title);
-                MediaView nativeAdMedia = (MediaView) adView.findViewById(R.id.native_ad_media);
-/*
-                boolean isNativeConfigEnabled = nativeAd.isNativeConfigEnabled();
-                Log.i("Hawk","+++ isNativeConfigEnabled="+isNativeConfigEnabled);
-                nativeAdMedia.setAutoplay(true);
-                nativeAdMedia.setAutoplayOnMobile(true);
-                nativeAd.setMediaViewAutoplay(true);
-                NativeAdViewAttributes AdViewAttributes = nativeAd.getAdViewAttributes();
-                Log.i("Hawk","--- isNativeConfigEnabled="+isNativeConfigEnabled);
-*/
-                TextView nativeAdSocialContext = (TextView) adView.findViewById(R.id.native_ad_social_context);
-                TextView nativeAdBody = (TextView) adView.findViewById(R.id.native_ad_body);
-                Button nativeAdCallToAction = (Button) adView.findViewById(R.id.native_ad_call_to_action);
+                if(nativeAdContainer==null)
+                    onCreateAdView(nativeAd);
 
                 // Set the Text.
                 nativeAdTitle.setText(nativeAd.getAdTitle());
@@ -106,14 +124,11 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
             @Override
             public void onAdClicked(Ad ad) {
                 // Ad clicked callback
-                SMLog.i("onAdClicked");
             }
-
-
         });
 
         // Request an ad
-        nativeAd.loadAd();
-        //nativeAd.loadAd(NativeAd.MediaCacheFlag.ALL); // enables the MediaView to play videos immediately after nativeAd finishes loading.
+        //nativeAd.loadAd();
+        nativeAd.loadAd(NativeAd.MediaCacheFlag.ALL);
     }
 }
