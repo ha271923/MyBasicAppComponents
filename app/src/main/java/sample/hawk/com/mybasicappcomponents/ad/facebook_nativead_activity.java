@@ -14,12 +14,14 @@ import com.facebook.ads.AdChoicesView;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdListener;
 import com.facebook.ads.MediaView;
+import com.facebook.ads.MediaViewListener;
 import com.facebook.ads.NativeAd;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /*
     FB SDK native AD sample:
@@ -66,12 +68,43 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
         nativeAdMedia.setAutoplay(true);
         nativeAdMedia.setAutoplayOnMobile(true);
         nativeAd.setMediaViewAutoplay(true);
+        nativeAdMedia.setListener(new MediaViewListener() {
+            @Override
+            public void onVolumeChange(MediaView mediaView, float v) {
+                SMLog.i("onVolumeChange");
+            }
+
+            @Override
+            public void onPause(MediaView mediaView) {
+                SMLog.i("onPause");
+            }
+
+            @Override
+            public void onPlay(MediaView mediaView) {
+                SMLog.i("onPlay");
+            }
+
+            @Override
+            public void onExitFullscreen(MediaView mediaView) {
+                SMLog.i("onExitFullscreen");
+            }
+
+            @Override
+            public void onEnterFullscreen(MediaView mediaView) {
+                SMLog.i("onEnterFullscreen");
+            }
+
+            @Override
+            public void onComplete(MediaView mediaView) {
+                SMLog.i("onComplete");
+            }
+        });
 
 /*
         boolean isNativeConfigEnabled = nativeAd.isNativeConfigEnabled();
-        Log.i("Hawk","+++ isNativeConfigEnabled="+isNativeConfigEnabled);
+        SMLog.i("+++ isNativeConfigEnabled="+isNativeConfigEnabled);
         NativeAdViewAttributes AdViewAttributes = nativeAd.getAdViewAttributes();
-        Log.i("Hawk","--- isNativeConfigEnabled="+isNativeConfigEnabled);
+        SMLog.i("--- isNativeConfigEnabled="+isNativeConfigEnabled);
 */
         nativeAdSocialContext = (TextView) adView.findViewById(R.id.native_ad_social_context);
         nativeAdBody = (TextView) adView.findViewById(R.id.native_ad_body);
