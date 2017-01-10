@@ -9,7 +9,7 @@
         android:text="Move an Object"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tag="sample.hawk.com.mybasicappcomponents.animation.move"
+        android:tag="sample.hawk.com.mybasicappcomponents.animation.MoveAnimActivity"
         android:onClick="onClick_NewActivity"/>
     <Button
         android:text="ValueAnimation"
