@@ -2,6 +2,8 @@ package sample.hawk.com.mybasicappcomponents.oo;
 
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyEnum;
+import sample.hawk.com.mybasicappcomponents.data_structure.MyHashSet1;
+import sample.hawk.com.mybasicappcomponents.data_structure.MyHashSet2;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
@@ -124,6 +126,16 @@ public class MyJavaClass {
                 MySet ms = new MySet();
                 ms.show();
                 ms.use_case();
+                break;
+            case 161: // HashSet
+                MyHashSet1 mhs = new MyHashSet1();
+                // String
+                mhs.show();
+                mhs.use_case();
+                // Student <-- String與Student 兩種用法對比重複資料是如何發生的!
+                MyHashSet2 mhs2 = new MyHashSet2();
+                mhs2.show();
+                mhs2.use_case();
                 break;
             case 17: // Map
                 MyMap mm = new MyMap();

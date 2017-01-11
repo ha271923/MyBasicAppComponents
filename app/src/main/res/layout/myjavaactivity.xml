@@ -126,6 +126,12 @@
             android:tag="16"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="DS: HashSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="161"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
             android:text="DS: Map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
