@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Looper;
 
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
 
@@ -80,4 +81,7 @@ public class Util {
                 + ") " + "ExoPlayerLib/" + ExoPlayerLibraryInfo.VERSION;
     }
 
+    public static boolean isUiThread() {
+        return Looper.myLooper() == Looper.getMainLooper();
+    }
 }
