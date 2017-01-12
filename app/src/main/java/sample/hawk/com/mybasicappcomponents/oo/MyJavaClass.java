@@ -9,6 +9,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySet;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySparseArray;
+import sample.hawk.com.mybasicappcomponents.data_structure.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
 import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -141,6 +142,12 @@ public class MyJavaClass {
                 MyMap mm = new MyMap();
                 mm.show();
                 mm.use_case();
+
+                MyWeakHashMap whm = new MyWeakHashMap();
+                whm.show();
+                whm.use_case();
+                whm.test();
+
                 break;
             case 18: // SparseArray
                 MySparseArray msa = new MySparseArray();

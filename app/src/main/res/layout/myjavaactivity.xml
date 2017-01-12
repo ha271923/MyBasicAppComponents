@@ -132,7 +132,7 @@
             android:tag="161"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="DS: Map"
+            android:text="DS: Map , WeakHashMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="17"
