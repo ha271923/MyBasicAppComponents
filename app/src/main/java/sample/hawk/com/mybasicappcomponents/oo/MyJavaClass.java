@@ -12,6 +12,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MySparseArray;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
 import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
+import sample.hawk.com.mybasicappcomponents.debugTest.ReferenceLeakage;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaClass {
@@ -30,6 +31,14 @@ public class MyJavaClass {
         // SMLog.i(TAG,"MyJavaClass() constructor +++");
         switch(param){
             case 0:
+                for(int i=0;i<10;i++){
+                    VariableClass vc = new VariableClass();
+                    vc.VariableTest();
+                }
+                for(int i=0;i<10;i++){
+                    VariableClass vc = new VariableClass();
+                    vc.IncreaseTest();
+                }
                 VariableClass vc = new VariableClass();
                 vc.ArrayObjTest();
                 break;
@@ -86,9 +95,13 @@ public class MyJavaClass {
 
             case 9:
                 MemoryEater me = new MemoryEater();
-                me.waste_Variable(); // No leakage: variables for local_var, object_var, static_obj_var
-                // me.waste_Object();   // No leakage: class objects will be released if the caller Object is END.
-                // me.waste_Thread();      // No leakage: Thread objects will be released if its thread run() is END.
+                me.waste_Variable();     // No leakage: variables for local_var, object_var, static_class_var
+                // me.waste_Object();    // No leakage: JAVA will release this objects if this object destroy.
+                // me.waste_Thread();    // No leakage: Thread objects will be released if its thread run() is END.
+                break;
+            case 91:
+                ReferenceLeakage refleak = new ReferenceLeakage();
+                refleak.create(1);
                 break;
             case 10:
                 CallByValueOrRef cbv = new CallByValueOrRef();
