@@ -190,5 +190,12 @@
             android:tag="24"
             android:onClick="onClick_MyJavaClass"/>
 
+        <Button
+            android:text="Layer tests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="25"
+            android:onClick="onClick_MyJavaClass"/>
+
     </LinearLayout>
 </ScrollView>
