@@ -13,6 +13,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
 import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.debugTest.ReferenceLeakage;
+import sample.hawk.com.mybasicappcomponents.oo.Objects.Caller_Test;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaClass {
@@ -202,6 +203,10 @@ public class MyJavaClass {
                 mau.MyAbstractTest();
                 break;
 
+            case 24:
+                Caller_Test.static_test();
+                Caller_Test.object_test();
+                break;
             default:
 
         }
