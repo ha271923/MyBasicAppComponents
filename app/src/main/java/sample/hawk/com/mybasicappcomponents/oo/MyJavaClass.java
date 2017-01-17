@@ -12,9 +12,9 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MySparseArray;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
 import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
-import sample.hawk.com.mybasicappcomponents.debugTest.ReferenceLeakage;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Caller_Test;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Layer_Test;
+import sample.hawk.com.mybasicappcomponents.oo.Objects.Reference_Test;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaClass {
@@ -97,13 +97,10 @@ public class MyJavaClass {
 
             case 9:
                 MemoryEater me = new MemoryEater();
-                me.waste_Variable();     // No leakage: variables for local_var, object_var, static_class_var
-                // me.waste_Object();    // No leakage: JAVA will release this objects if this object destroy.
-                // me.waste_Thread();    // No leakage: Thread objects will be released if its thread run() is END.
+                me.waste_Memory(MemoryEater.TYPE.STATIC_VAR, 10*1024*1024);
                 break;
             case 91:
-                ReferenceLeakage refleak = new ReferenceLeakage();
-                refleak.create(1);
+                Reference_Test.ReferenceLeak();
                 break;
             case 10:
                 CallByValueOrRef cbv = new CallByValueOrRef();
