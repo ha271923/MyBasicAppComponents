@@ -102,6 +102,10 @@ public class MyJavaClass {
             case 91:
                 Reference_Test.ReferenceLeak();
                 break;
+            case 92:
+                Reference_Test.with_WeakReference(true);
+                Reference_Test.with_WeakReference(false);
+                break;
             case 10:
                 CallByValueOrRef cbv = new CallByValueOrRef();
                 cbv.P1();

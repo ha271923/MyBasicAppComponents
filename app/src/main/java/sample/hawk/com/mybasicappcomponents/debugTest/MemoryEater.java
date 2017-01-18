@@ -2,6 +2,7 @@ package sample.hawk.com.mybasicappcomponents.debugTest;
 
 import java.util.Map;
 
+import sample.hawk.com.mybasicappcomponents.utils.MemoryUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -144,6 +145,8 @@ public class MemoryEater {
             for(;;) {
                 Map map = System.getProperties();
                 map.put(new MemoryEater("key"), "value");
+                if(MemoryUtils.getMemoryUse()>524288000)
+                    break;
             }
         } catch(OutOfMemoryError e) { // It's not an exception; it's an error: java.lang.OutOfMemoryError
             SMLog.i(e.toString());

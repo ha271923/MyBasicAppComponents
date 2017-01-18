@@ -15,10 +15,11 @@ public class Reference_1_1_1 implements RefMemLeakActions {
 
     @Override
     protected void finalize() throws Throwable { // During GC(), this callback will be called.
-        if(s_memoryEater!=null)
-            s_memoryEater = null;   // B2: fix B1 memory leak
-        if(leak_static_class_var!=null)
-            leak_static_class_var = null; // C2: fix C1 memory leak
+        // remark the following code to create a memory leakage
+        //if(s_memoryEater!=null)
+        //    s_memoryEater = null;   // B2: fix B1 memory leak
+        //if(leak_static_class_var!=null)
+        //    leak_static_class_var = null; // C2: fix C1 memory leak
     }
 
     @Override

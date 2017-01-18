@@ -89,7 +89,12 @@
             android:layout_height="wrap_content"
             android:tag="91"
             android:onClick="onClick_MyJavaClass"/>
-
+        <Button
+            android:text="Memory Leakage Test - WeakReference and Memory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="92"
+            android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="Call by Value / Call by Ref"
             android:layout_width="wrap_content"
