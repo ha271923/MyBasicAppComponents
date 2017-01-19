@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Thread Policy"/>
+    <Button
+        android:text="Disk Reads by detectDiskReads()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectDiskReads"
+        android:onClick="onClick_CurrentActivity"/>
+    <Button
+        android:text="Disk Writes by detectDiskWrites()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectDiskWrites"
+        android:onClick="onClick_CurrentActivity"/>
+    <Button
+        android:text="Network access by detectNetwork()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectNetwork"
+        android:onClick="onClick_CurrentActivity"/>
+    <Button
+        android:text="Custom Slow Code by detectCustomSlowCalls()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectCustomSlowCalls"
+        android:onClick="onClick_CurrentActivity"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="VM Policy"/>
+
+    <Button
+        android:text="Leaked Activity objects by detectActivityLeaks()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectActivityLeaks"
+        android:onClick="onClick_NewActivity"/>
+    <Button
+        android:text="Leaked SQLite objects by detectLeakedSqlLiteObjects()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectLeakedSqlLiteObjects"
+        android:onClick="onClick_CurrentActivity"/>
+    <Button
+        android:text="Leaked Closable objects by detectLeakedClosableObjects()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".detectLeakedClosableObjects"
+        android:onClick="onClick_CurrentActivity"/>
+    <Button
+        android:text="Leaked Instance by setClassInstanceLimit()"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".setClassInstanceLimit"
+        android:onClick="onClick_NewActivity"/>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/OutputLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+    </RelativeLayout>
+
+</LinearLayout>
