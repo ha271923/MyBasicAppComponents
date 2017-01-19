@@ -14,4 +14,22 @@
         <item name="android:windowBackground">@android:color/black</item>
     </style>
 
+    <!-- DisplayBitmaps Sample -->
+    <!-- Dynamic style change is not currently supported by Android. You must set the style before the view is create (in xml). -->
+    <style name="BitmapsThemeDark" parent="@android:style/Theme.Holo">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:actionBarStyle">@style/TranslucentDarkActionBar</item>
+    </style>
+
+    <style name="BitmapsThemeDark.FullScreen" />
+
+    <style name="TranslucentDarkActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">#99000000</item>
+    </style>
+
+    <!--<style name="PhotoGridLayout">-->
+    <!--<item name="android:drawSelectorOnTop">true</item>-->
+    <!--</style>-->
+
 </resources>

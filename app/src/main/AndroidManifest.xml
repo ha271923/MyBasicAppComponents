@@ -146,6 +146,24 @@
             </intent-filter>
         </activity>
 
+                <activity android:name=".cache.DisplayingBitmaps.ui.ImageGridActivity"
+                  android:theme="@style/BitmapsThemeDark"
+                  android:label="cache/DisplayingBitmaps">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI"  />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".cache.DisplayingBitmaps.ui.ImageDetailActivity"
+            android:theme="@style/BitmapsThemeDark.FullScreen"
+            android:parentActivityName=".cache.DisplayingBitmaps.ui.ImageGridActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                       android:value=".cache.DisplayingBitmaps.ui.ImageGridActivity" />
+        </activity>
+
+
         <activity android:name=".view.MyLayoutActivity"
                   android:label="view/MyLayoutActivity"
                   android:configChanges="orientation|screenSize|keyboardHidden" >
