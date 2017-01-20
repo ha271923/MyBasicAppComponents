@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Android Memory Tests on Activitys"/>
+
+    <Button
+        android:text="Using handler and anonymous runnable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".MemLeak_handler_anonymous_runnable_Activity"
+        android:onClick="onClick_NewActivity"/>
+    <Button
+        android:text="using AsyncTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".MemLeak_AsyncTask_Activity"
+        android:onClick="onClick_NewActivity"/>
+    <Button
+        android:text="using Listener"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag=".MemLeak_Listener_Activity"
+        android:onClick="onClick_NewActivity"/>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/OutputLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+    </RelativeLayout>
+
+</LinearLayout>
