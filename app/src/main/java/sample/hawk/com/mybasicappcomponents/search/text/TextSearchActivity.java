@@ -5,18 +5,19 @@ package sample.hawk.com.mybasicappcomponents.search.text;
  */
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import sample.hawk.com.mybasicappcomponents.R;
 
-public class TextSearchActivity extends ActionBarActivity {
+public class TextSearchActivity extends AppCompatActivity {
     String[] items;
     ArrayList<String> listItems;
     ArrayAdapter<String> adapter;

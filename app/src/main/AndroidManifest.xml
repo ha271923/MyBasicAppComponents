@@ -283,6 +283,15 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.ToolBarActivity"
+            android:label="view/ToolBarActivity"
+            android:theme="@style/MyToolBarStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".activity.MyBlinkFeedActivity"
                   android:label="activity/MyBlinkFeedActivity">
@@ -299,7 +308,6 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-
         <activity android:name=".misc.AnnotationActivity"
                   android:label="misc/AnnotationActivity">
             <intent-filter>
