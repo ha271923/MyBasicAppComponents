@@ -477,6 +477,36 @@
             android:name=".provider.MyContentProvider">
 
         </provider>
+
+
+        <!-- SearchableDictionary START -->
+            <activity android:name=".search.dictionary.SearchableDictionaryActivity"
+                      android:label="search/dictionary/SearchableDictionaryActivity"
+                      android:theme="@style/DictTheme"
+                      android:launchMode="singleTop">
+                <intent-filter>
+                    <action android:name="android.intent.action.HAWK_UI" />
+                    <category android:name="android.intent.category.HAWK_CODE" />
+                </intent-filter>
+                <!-- Receives the search request. -->
+                <intent-filter>
+                    <action android:name="android.intent.action.SEARCH" />
+                    <!-- No category needed, because the Intent will specify this class component-->
+                </intent-filter>
+                <!-- Points to searchable meta data. -->
+                <meta-data android:name="android.app.searchable"
+                           android:resource="@xml/searchable" />
+            </activity>
+
+            <!-- Displays the definition of a worddetail_activity. -->
+            <activity android:name=".search.dictionary.WordDetailActivity" />
+            <!-- Provides search suggestions for words and their definitions. -->
+            <provider android:name=".search.dictionary.DictionaryProvider"
+                      android:authorities="sample.hawk.com.mybasicappcomponents.search.dictionary.DictionaryProvider" />
+            <!-- Points to searchable activity so the whole app can invoke search. -->
+            <meta-data android:name="android.app.default_searchable"
+                       android:value=".SearchableDictionary" />
+        <!-- SearchableDictionary END -->
     </application>
 
 </manifest>
