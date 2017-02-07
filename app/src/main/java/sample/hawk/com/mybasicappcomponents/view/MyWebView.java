@@ -35,8 +35,11 @@ public class MyWebView extends Activity{
 //        mWebView.loadUrl("file:///android_asset/simple/index.html"); // (B) offline web site from Asset
 
         // (C) load offline web site from Asset\zipfile
-        ZippedAssetToWeb("tips_help.zip");
-        String webpath = "file://" + getFilesDir().toString() + "/unzipped/"+"tips_help/faq/index.html";
+        //ZippedAssetToWeb("tips_help.zip");
+        //String webpath = "file://" + getFilesDir().toString() + "/unzipped/"+"tips_help/faq/index.html";
+        ConfigWebViewSettings(mWebView,"sample.hawk.com.mybasicappcomponents");
+        ZippedAssetToWeb("demo_en.zip");
+        String webpath = "file://" + getFilesDir().toString() + "/unzipped/"+"demo_en/index.html";
         mWebView.loadUrl(webpath);
     }
 
@@ -82,8 +85,8 @@ public class MyWebView extends Activity{
         String packageName = packagename;
         WebSettings settings = wv.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setDatabaseEnabled(true);
-        settings.setDatabasePath("/data/data/"+packageName+"/databases");
-        settings.setDomStorageEnabled(true);
+        //settings.setDatabaseEnabled(true);
+        //settings.setDatabasePath("/data/data/"+packageName+"/databases");
+        //settings.setDomStorageEnabled(true);
     }
 }
