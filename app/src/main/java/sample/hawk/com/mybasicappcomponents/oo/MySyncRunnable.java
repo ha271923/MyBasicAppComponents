@@ -177,12 +177,13 @@ public class MySyncRunnable implements Runnable{
             synchronized(this) { // synchronized +++
                 for (int i = 0; i < 10; i++) {
                     try {
-                        static_var++;var++;CommonResources.static_var++;CommonResources.StaticInnerClass.static_var++;
-                        // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticInnerClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
+                        static_var++;var++;CommonResources.static_var++;
+                        CommonResources.StaticNestedClass.static_var++;
+                        // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticNestedClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
                         Thread.sleep(100); // Hawk: simulate context-switch
                         //SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var);
                         SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
-                        //SMLog.i(TAG, "run        name="+ThreadName+"  CommonResources.static_var="+CommonResources.static_var+"  CommonResources.StaticInnerClass.static_var="+CommonResources.StaticInnerClass.static_var);
+                        //SMLog.i(TAG, "run        name="+ThreadName+"  CommonResources.static_var="+CommonResources.static_var+"  CommonResources.StaticNestedClass.static_var="+CommonResources.StaticNestedClass.static_var);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -197,7 +198,7 @@ public class MySyncRunnable implements Runnable{
                     Thread.sleep(100); // Hawk: simulate context-switch
                     //SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var);
                     SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
-                    //SMLog.i(TAG, "run        name="+ThreadName+"  CommonResources.static_var="+CommonResources.static_var+"  CommonResources.StaticInnerClass.static_var="+CommonResources.StaticInnerClass.static_var);
+                    //SMLog.i(TAG, "run        name="+ThreadName+"  CommonResources.static_var="+CommonResources.static_var+"  CommonResources.StaticNestedClass.static_var="+CommonResources.StaticNestedClass.static_var);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
