@@ -77,10 +77,10 @@ public class MyDynamicListViewActivity extends Activity {
                 elements.add(8,"更改過字串 8"); // ImageView
                 elements.add(9,"更改過字串 9"); // TextView
 
-                // ModifyAdapterData(true); // Adapter can only be modified in UI thread.
-                 ModifyAdapterData(false);   // java.lang.IllegalStateException: The content of the adapter has changed but ListView did not receive a notification. Make sure the content of your adapter is not modified from a background thread, but only from the UI thread.
+                ModifyAdapterData(true); // Adapter can only be modified in UI thread.
+                // ModifyAdapterData(false);   // java.lang.IllegalStateException: The content of the adapter has changed but ListView did not receive a notification. Make sure the content of your adapter is not modified from a background thread, but only from the UI thread.
                 // 通知資料被變動，更新 ListView 顯示內容。
-                // adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
         });
         // Add a new button into the layout.
