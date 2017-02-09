@@ -262,6 +262,13 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.MyDynamicListViewActivity"
+                  android:label="view/MyDynamicListViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.MyListViewHActivity"
                   android:label="view/MyListViewHActivity">
             <intent-filter>
@@ -269,7 +276,6 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-
         <activity android:name=".view.SimpleListViewActivity"
                   android:label="view/SimpleListViewActivity">
             <intent-filter>
