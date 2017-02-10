@@ -4,6 +4,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyEnum;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyHashSet1;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyHashSet2;
+import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
@@ -214,6 +215,10 @@ public class MyJavaClass {
                 Layer_Test.API_Test();
                 break;
 
+            case 26: // JSON data
+                MyJson myjson = new MyJson();
+                myjson.show();
+                break;
 
             default:
 
