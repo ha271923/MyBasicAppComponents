@@ -8,6 +8,7 @@ import android.widget.TextView;
 import java.util.Date;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
 
@@ -28,15 +29,26 @@ public class MemLeak_AsyncTask_Activity extends Activity {
         setContentView(R.layout.memleaksample_activity);
         tvText = (TextView) findViewById(R.id.tv_async);
 
-        new SampleTask().execute();
+        TestAsyncTask();
     }
+
+
+    private void TestAsyncTask(){
+        SMLog.i("STEP_1: ");
+        new SampleTask().execute(); // Code sequence: STEP_1,2,3-1,3-2....
+        SMLog.i("STEP_2: ");
+
+    }
+
 
     private class SampleTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
             try {
+                SMLog.i("STEP_3: Async_3-1: ");
                 Thread.sleep(1000 * 10);
+                SMLog.i("STEP_3: Async_3-2: ");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -46,6 +58,7 @@ public class MemLeak_AsyncTask_Activity extends Activity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            SMLog.i("STEP_3: Async_3-3: ");
             tvText.setText("Done " + new Date().getTime());
         }
     }

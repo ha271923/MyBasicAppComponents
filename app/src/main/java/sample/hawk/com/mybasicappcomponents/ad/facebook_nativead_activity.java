@@ -113,7 +113,7 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
 
     private void showNativeAd() {
         // String placement_id=  "YOUR_PLACEMENT_ID"; // FB sample code
-        String placement_id= "834287756621964_1222830741100995"; // HTC test placement
+        String placement_id= "834287756621964_1222830741100995"; // Hawk test placement
 
         nativeAd = new NativeAd(this, placement_id);
         nativeAd.setAdListener(new AdListener() {
