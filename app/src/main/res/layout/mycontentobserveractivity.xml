@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:text="tvAirplane"
+        android:textSize="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/tvAirplane"/>
+    <TextView
+        android:text="tvWiFi_status"
+        android:textSize="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/textView"/>
+    <EditText
+        android:text="EditText"
+        android:textSize="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/editText"/>
+</LinearLayout>
