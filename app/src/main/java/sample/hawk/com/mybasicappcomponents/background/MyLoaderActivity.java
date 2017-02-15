@@ -39,6 +39,9 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
             }
             requestPermissions(new String[]{PERMISSION}, READ_CONTACT_REQUEST_CODE);
         }
+        else{
+            initMyLoader();
+        }
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -97,6 +100,7 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
     @Override
     protected void onStart() {
         super.onStart();
+        SMLog.i();
         getPermission(Manifest.permission.READ_CONTACTS);
     }
 
@@ -115,22 +119,29 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
 
     @Override
     public void afterTextChanged(Editable s) {
+        SMLog.i();
         String filter = editText.getText().toString();
-        Bundle args = new Bundle();
-        args.putString("filter", filter);
+
         LoaderManager lm = getLoaderManager();
-        lm.restartLoader(CURSOR_LOADER_ID, args, this);
+        Bundle args = new Bundle();
+        if(filter.equals("")){
+            lm.restartLoader(CURSOR_LOADER_ID, null, this);
+        }
+        else {
+            args.putString("filter", filter);
+            lm.restartLoader(CURSOR_LOADER_ID, args, this);
+        }
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        SMLog.i();
         Uri uri;
         String filter = args != null ? args.getString("filter") : null;
         if(filter != null){
             //根据用户指定的filter过滤显示
             uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_FILTER_URI, Uri.encode(filter));
         }else{
-
             uri = ContactsContract.Contacts.CONTENT_URI; //显示全部
         }
         String[] projection = new String[]{
@@ -147,11 +158,13 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        SMLog.i();
         adapter.swapCursor(data);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        SMLog.i();
         adapter.swapCursor(null);
     }
 }
