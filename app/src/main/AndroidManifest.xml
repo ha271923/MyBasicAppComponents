@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="sample.hawk.com.mybasicappcomponents"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
     <!-- For ContenProvider to get contact data -->
     <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
@@ -508,6 +509,21 @@
 
         </provider>
 
+        <!-- https://github.com/slightfoot/android-crash-reporting -->
+        <activity android:name=".debugTest.crashreport.MyCrashReportActivity"
+                  android:label="debugTest/crashreport/MyCrashReportActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".debugTest.crashreport.ReportActivity" android:label="Report Activity"
+                  android:noHistory="true" android:process=":report_process"
+                  android:theme="@android:style/Theme.NoDisplay"/>
+
+        <provider android:name=".debugTest.crashreport.ReportFilesProvider" android:process=":report_process"
+                  android:authorities="sample.hawk.com.mybasicappcomponents.debugTest.crashreport.FilesProvider"
+                  android:exported="true" tools:ignore="ExportedContentProvider"/>
 
         <!-- SearchableDictionary START -->
             <activity android:name=".search.dictionary.SearchableDictionaryActivity"
