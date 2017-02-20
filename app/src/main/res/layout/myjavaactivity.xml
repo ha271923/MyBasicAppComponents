@@ -126,6 +126,12 @@
             android:tag="14"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="DS: Array"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="141"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
             android:text="DS: LinkedList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

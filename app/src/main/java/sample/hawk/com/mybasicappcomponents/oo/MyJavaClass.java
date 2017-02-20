@@ -1,10 +1,11 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.data_structure.MyArray;
+import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyEnum;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyHashSet1;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyHashSet2;
-import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyLinkedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyList;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyMap;
@@ -134,6 +135,10 @@ public class MyJavaClass {
                 MyArrayList mal = new MyArrayList();
                 mal.show();
                 mal.use_case();
+                break;
+            case 141:
+                MyArray ae = new MyArray();
+                ae.show();
                 break;
             case 15: // LinkedList
                 MyLinkedList mll = new MyLinkedList();
