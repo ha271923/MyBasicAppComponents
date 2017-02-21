@@ -2,6 +2,7 @@ package sample.hawk.com.mybasicappcomponents.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,20 @@ public class MyAdapter_ArrayList extends BaseAdapter {
         mContext = context;
         mInflater = ((Activity)context).getLayoutInflater();
         mItems = objects;
+
+        this.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                SMLog.i("onChanged !!!");
+            }
+
+            @Override
+            public void onInvalidated() {
+                super.onInvalidated();
+                SMLog.i("onInvalidated");
+            }
+        });
     }
 
     @Override
