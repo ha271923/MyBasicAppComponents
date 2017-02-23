@@ -16,6 +16,7 @@
 
 package sample.hawk.com.mybasicappcomponents;
 
+import android.Manifest;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,6 +26,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -34,11 +36,41 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sample.hawk.com.mybasicappcomponents.utils.PermissionUtil;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.utils.Util;
 
 public class MainActivity extends ListActivity {
     String mAppVersion;
+    private static final int PERMISSIONS_REQUEST_CODE = 1234;
+    private static final String[] RequiredPermissions= {Manifest.permission.READ_CONTACTS,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+    public void getPermission(String[] permissions){
+        if (!PermissionUtil.hasSelfPermission(this, permissions)){
+            if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)) {
+                Toast.makeText(this, "READ_CONTACTS is required!", Toast.LENGTH_SHORT).show();
+            }
+            requestPermissions(permissions, PERMISSIONS_REQUEST_CODE);
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == PERMISSIONS_REQUEST_CODE) {
+            // We have requested multiple permissions, so all of them need to be checked.
+            if (PermissionUtil.verifyPermissions(grantResults)) {
+                SMLog.i( permissions[0] + " has been granted.");
+                onNewIntent(getIntent()); // Got the permissions from the dialog
+                Toast.makeText(this, "ALLOW:" + permissions[0], Toast.LENGTH_SHORT).show();
+            } else {
+                SMLog.i( permissions[0] + " were NOT granted.");
+                Toast.makeText(this, "DENY:" + permissions[0], Toast.LENGTH_LONG).show();
+                finish();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +90,12 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_1, new String[] { "title" },
                 new int[] { android.R.id.text1 }));
         getListView().setTextFilterEnabled(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getPermission(RequiredPermissions);
     }
 
     protected List<Map<String, Object>> getData(String prefix) {

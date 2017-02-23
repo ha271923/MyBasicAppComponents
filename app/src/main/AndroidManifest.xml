@@ -104,7 +104,13 @@
         <meta-data android:name="com.google.android.gms.version"
                    android:value="@integer/google_play_services_version" />
         <!-- END Mopub AD sample -->
-
+        <activity android:name=".ad.MyAdAdapter.MyListAd_Activity"
+                  android:label="ad/MyAdAdapter/MyListAd_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".oo.MyJavaActivity"
                   android:label="oo/MyJavaActivity">
             <intent-filter>
