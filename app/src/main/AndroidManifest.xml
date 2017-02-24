@@ -126,6 +126,8 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".oo.MyJavaActivity2" />
+
         <activity android:name=".designpattern.MyDesignPatternActivity"
                   android:label="designpattern/MyDesignPatternActivity">
             <intent-filter>
