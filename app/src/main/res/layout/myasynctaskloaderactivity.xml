@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/myainactivity_progressBar"/>
+    <TextView
+        android:text="Please check Logcat"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/OutputTextView"/>
+
+    <TextView
+        android:text="Consumer"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvConsumer"/>
+
+    <TextView
+        android:text="Seller"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mTvSeller"/>
+
+    <ToggleButton
+        android:text="AsyncTaskToggleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="STOP AsyncTaskLoader"
+        android:textOn="Start AsyncTaskLoader"
+        android:id="@+id/AsyncTaskToggleBtn" android:checked="true"/>
+
+</LinearLayout>

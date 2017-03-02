@@ -430,7 +430,13 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".background.MyAsyncTaskLoaderActivity"
+                  android:label="background/MyAsyncTaskLoaderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <!-- Statically register MyReceiver  -->
 
         <activity android:name=".receiver.ReceiverTestActivity"
