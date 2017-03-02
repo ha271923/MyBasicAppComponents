@@ -224,7 +224,11 @@ public class MyJavaClass {
                 MyJson myjson = new MyJson();
                 myjson.show();
                 break;
-
+            case 27: // Inner Class
+                CommonResources cs = new CommonResources();
+                CommonResources.InnerClass inc = cs.new InnerClass(); // this is right!
+                inc.function();
+                break;
             default:
 
         }

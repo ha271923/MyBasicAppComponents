@@ -214,6 +214,14 @@
             android:layout_height="wrap_content"
             android:tag="26"
             android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="Inner Class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="27"
+            android:onClick="onClick_MyJavaClass"/>
+
         <Button
             android:text="Compare: Serial Data Object"
             android:layout_width="wrap_content"
