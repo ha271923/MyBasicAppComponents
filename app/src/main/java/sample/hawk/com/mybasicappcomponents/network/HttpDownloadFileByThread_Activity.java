@@ -33,7 +33,7 @@ import static android.view.View.VISIBLE;
  * http://stackoverflow.com/questions/3028306/download-a-file-with-android-and-showing-the-progress-in-a-progressdialog
  * */
 
-public class HttpDownloadFile_Activity extends Activity {
+public class HttpDownloadFileByThread_Activity extends Activity {
     Context mContext;
     ProgressBar mProgressBar;
     Dialog mDialog;

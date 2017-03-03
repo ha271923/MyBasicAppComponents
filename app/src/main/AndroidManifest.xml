@@ -15,6 +15,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- network -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -438,13 +440,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".network.HttpDownloadFile_Activity"
-                  android:label="network/DownloadFileUseHttpURLConnection">
+        <activity android:name=".network.HttpDownloadFileByThread_Activity"
+                  android:label="network/HttpDownloadFileByThread_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".network.HttpDownloadFileByAsyncTask_Activity"
+                  android:label="network/HttpDownloadFileByAsyncTask_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <!-- Statically register MyReceiver  -->
 
         <activity android:name=".receiver.ReceiverTestActivity"
