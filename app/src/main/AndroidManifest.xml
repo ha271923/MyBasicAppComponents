@@ -456,6 +456,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".network.DownloadManager_Activity"
+                  android:label="network/DownloadManager_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <!-- Statically register MyReceiver  -->
 
         <activity android:name=".receiver.ReceiverTestActivity"
