@@ -447,7 +447,6 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-
         <activity android:name=".network.HttpDownloadFileByAsyncTask_Activity"
                   android:label="network/HttpDownloadFileByAsyncTask_Activity">
             <intent-filter>
@@ -455,6 +454,14 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".network.HttpDownloadFileByIntentService_Activity"
+                  android:label="network/HttpDownloadFileByIntentService_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:name=".network.HttpDownloadFileByIntentService" />
 
         <activity android:name=".network.DownloadManager_Activity"
                   android:label="network/DownloadManager_Activity">
