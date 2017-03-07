@@ -84,4 +84,31 @@ public class Constants {
             "", // Empty link
             "http://wrong.site.com/corruptedLink", // Wrong link
     };
+
+    /**
+        URI for ContentResolver
+        < Contact >
+             ContactsContract.CommonDataKinds.Phone.CONTENT_URI 管理聯繫人的電話的Uri
+             ContactsContract.CommonDataKinds.Email.CONTENT_URI 管理聯繫人的Email的Uri
+             ContactsContract.Contacts.CONTENT_URI              管理聯繫人的Uri
+             （注：Contacts有兩個表，分別是rawContact和Data，rawContact記錄了用戶的id和name，
+             其中id欄名稱為：ContactsContract.Contacts._ID，name名稱欄為ContactContract.Contracts.DISPLAY_NAME，
+             電話信息表的外鍵id為ContactsContract.CommonDataKinds.Phone.CONTACT_ID，
+             電話號碼欄名稱為：ContactsContract.CommonDataKinds.Phone.NUMBER。
+             data表中Email地址欄名稱為：ContactsContract.CommonDataKinds.Email.DATA
+             其外鍵欄為：ContactsContract.CommonDataKinds.Email.CONTACT_ID)
+
+        < MediaStore >
+             MediaStore.Audio.Media.EXTERNAL_CONTENT_URI    存儲在sd卡上的音頻文件
+             MediaStore.Audio.Media.INTERNAL_CONTENT_URI    存儲在手機內部存儲器上的音頻文件
+             MediaStore.Audio.Images.EXTERNAL_CONTENT_URI   SD卡上的圖片文件內容
+             MediaStore.Audio.Images.INTERNAL_CONTENT_URI   手機內部存儲器上的圖片
+             MediaStore.Audio.Video.EXTERNAL_CONTENT_URI    SD卡上的視頻
+             MediaStore.Audio.Video.INTERNAL_CONTENT_URI    手機內部存儲器上的視頻
+             (注：圖片的顯示名欄：Media.DISPLAY_NAME，圖片的詳細描述欄為：Media.DESCRIPTION 圖片的保存位置：Media.DATA
+        < SMS >
+             Content://sms
+             Content://sms/outbox
+     */
+
 }

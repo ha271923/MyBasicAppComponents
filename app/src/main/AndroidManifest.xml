@@ -440,6 +440,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".provider.DB.DB_Manager_Activity"
+                  android:label="provider/DB/DB_Manager_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".provider.DB.MySQL_Activity"
                   android:label="provider/DB/MySQL_Activity">
             <intent-filter>
@@ -447,7 +455,6 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-
 
         <activity android:name=".network.HttpDownloadFileByThread_Activity"
                   android:label="network/HttpDownloadFileByThread_Activity">
