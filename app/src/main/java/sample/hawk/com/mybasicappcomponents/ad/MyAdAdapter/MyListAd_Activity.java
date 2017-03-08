@@ -71,4 +71,9 @@ public class MyListAd_Activity extends Activity {
         mMyListAd_Adapter.LoadAd();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mMyListAd_Adapter.destroy();
+    }
 }

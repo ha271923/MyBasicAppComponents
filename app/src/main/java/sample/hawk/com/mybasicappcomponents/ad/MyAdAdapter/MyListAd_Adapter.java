@@ -11,9 +11,12 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
+import static sample.hawk.com.mybasicappcomponents.ad.MyAdAdapter.VisibilityTracker.VisibilityTrackerListener;
 
 /**
  * Created by ha271 on 2017/2/21.
@@ -25,6 +28,8 @@ public class MyListAd_Adapter extends BaseAdapter{
     private Cursor mCursor=null;
     private ArrayList<Contact> mContacts;
     private MyListAd_Loader mAd_loader;
+    @NonNull private final VisibilityTracker mVisibilityTracker;
+
     // demo for callback initialization
     private IMyListAd_CallBack EMPTY_LISTENER =
             new IMyListAd_CallBack() {
@@ -68,6 +73,16 @@ public class MyListAd_Adapter extends BaseAdapter{
         mAd_loader = new MyListAd_Loader(context);
         mAd_loader.setClassListener(mMyListAd_Loader_Listener);
         ((MyListAd_Activity)mContext).setClassListener(mMyListAd_Activity_Listener);
+
+        mVisibilityTracker = new VisibilityTracker((MyListAd_Activity)mContext);
+        mVisibilityTracker.setVisibilityTrackerListener(new VisibilityTrackerListener() {
+            @Override
+            public void onVisibilityChanged(@NonNull final List<View> visibleViews,
+                                            final List<View> invisibleViews) {
+
+                SMLog.i("VisibilityTracker's onVisibilityChanged()");
+            }
+        });
     }
 
     public void LoadAd(){
@@ -115,7 +130,17 @@ public class MyListAd_Adapter extends BaseAdapter{
             viewHolder.tvPhone=(TextView)convertView.findViewById(R.id.tvPhone);
             viewHolder.tvPhone.setText(mContacts.get(position).Phone);
         }
+
+        // Tracker Item21
+        if(viewHolder.tvPhone.getText().equals("21")) {
+            mVisibilityTracker.addView(convertView, 50); // minPercentageViewed >= 50%
+            SMLog.i("VisibilityTracker is tracking Phone="+viewHolder.tvPhone.getText());
+        }
         return convertView;
+    }
+
+    public void destroy() {
+        mVisibilityTracker.destroy();
     }
 
 }
