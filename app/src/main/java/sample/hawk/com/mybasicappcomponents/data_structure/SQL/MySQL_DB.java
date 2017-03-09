@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.provider.DB;
+package sample.hawk.com.mybasicappcomponents.data_structure.SQL;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -22,8 +22,8 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 public class MySQL_DB {
     private Context mContext = null;
     public SQLiteDatabase db = null;
-    private final static String DATABASE_NAME = "db1.db";
-    private final static String TABLE_NAME = "table01";
+    public final static String DATABASE_NAME = "MySQL_DB.db";
+    public final static String TABLE_NAME = "table01";
     private final static String _ID = "_id";
     private final static String NAME = "name";
     private final static String PRICE = "price";

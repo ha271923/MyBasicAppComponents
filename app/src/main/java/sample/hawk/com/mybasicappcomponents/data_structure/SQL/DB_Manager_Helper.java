@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.provider.DB;
+package sample.hawk.com.mybasicappcomponents.data_structure.SQL;
 
 /**
  * Created by ha271 on 2017/3/7.

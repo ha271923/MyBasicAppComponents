@@ -7,7 +7,13 @@
               android:paddingLeft="@dimen/activity_horizontal_margin"
               android:paddingRight="@dimen/activity_horizontal_margin"
               android:paddingTop="@dimen/activity_vertical_margin"
-              tools:context=".provider.DB.MySQL_Activity" >
+              tools:context=".data_structure.SQL.MySQL_Activity" >
+
+    <TextView
+        android:id="@+id/tablename"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
 
     <TableLayout
         android:layout_width="wrap_content"

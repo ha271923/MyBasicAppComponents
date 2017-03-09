@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.provider.DB;
+package sample.hawk.com.mybasicappcomponents.data_structure.SQL;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -12,11 +12,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import sample.hawk.com.mybasicappcomponents.R;
 
+import static sample.hawk.com.mybasicappcomponents.data_structure.SQL.MySQL_DB.DATABASE_NAME;
+import static sample.hawk.com.mybasicappcomponents.data_structure.SQL.MySQL_DB.TABLE_NAME;
+
 public class MySQL_Activity extends Activity {
-    // Buuton res in R.menu.mysql_menu
+    // Button res in R.menu.mysql_menu
     private Button add , edit, del, clear, end;
     private EditText edname , edprice;
     private MySQL_DB db = null;
@@ -28,6 +32,7 @@ public class MySQL_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mysql_activity);
+        ((TextView) findViewById(R.id.tablename)).setText("DB:"+DATABASE_NAME + "  Table:"+TABLE_NAME);
         add = (Button) findViewById(R.id.add); add.setOnClickListener(Buttonslistener);
         edit = (Button) findViewById(R.id.edit); edit.setOnClickListener(Buttonslistener);
         del = (Button) findViewById(R.id.del); del.setOnClickListener(Buttonslistener);

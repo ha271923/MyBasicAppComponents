@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.provider.DB;
+package sample.hawk.com.mybasicappcomponents.data_structure.SQL;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
