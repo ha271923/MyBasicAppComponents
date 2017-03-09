@@ -5,8 +5,15 @@
               android:layout_height="match_parent">
 
     <Button
-        android:text="Query"
+        android:text="Query Table1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" android:id="@+id/button6"
-        android:onClick="onClick_QueryBtn"/>
+        android:onClick="onClick_QueryTable1Btn"/>
+    <Button
+        android:text="Query Table2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button7"
+        android:onClick="onClick_QueryTable2Btn"/>
+
+
 </LinearLayout>

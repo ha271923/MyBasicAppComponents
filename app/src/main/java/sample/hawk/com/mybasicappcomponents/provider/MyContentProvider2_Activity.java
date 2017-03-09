@@ -11,14 +11,15 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 
 public class MyContentProvider2_Activity extends Activity {
-    /** Called when the activity is first created. */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mycontentprovider2_activity);
     }
 
-    public void onClick_QueryBtn(View view){
+    // "vnd.android.cursor.item/vnd." + AUTHORITY + "." + MyDBHelper._DB_TABLE1; // one row
+    public void onClick_QueryTable1Btn(View view){
         Cursor c = getContentResolver().query(
                 Uri.parse("content://sample.hawk.com.mybasicappcomponents.provider.MyContentProvider2/MyTable1"),
                 null,null,null,null ); // get all
@@ -29,10 +30,15 @@ public class MyContentProvider2_Activity extends Activity {
                 c.moveToNext();
             }
             c.close();
+        }
+    }
 
-            c = getContentResolver().query(
-                    Uri.parse("content://sample.hawk.com.mybasicappcomponents.provider.MyContentProvider2/MyTable2"),
-                    null,null,null,null ); // get all
+    // "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + MyDBHelper._DB_TABLE2; // multiple rows
+    public void onClick_QueryTable2Btn(View view){
+        Cursor c = getContentResolver().query(
+                Uri.parse("content://sample.hawk.com.mybasicappcomponents.provider.MyContentProvider2/MyTable2"),
+                null,null,null,null ); // get all
+        if( c != null ) {
             c.moveToFirst();
             while(c.isAfterLast()==false) {
                 SMLog.i("MyTalbe2 field1:"+c.getString(0)+", field2:"+c.getString(1));
