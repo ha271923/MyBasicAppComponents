@@ -3,15 +3,20 @@ package sample.hawk.com.mybasicappcomponents.utils;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Build;
 import android.os.Looper;
+import android.view.View;
 
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * Created by ha271 on 2016/11/23.
@@ -79,6 +84,43 @@ public class Util {
         }
         return applicationName + "/" + versionName + " (Linux;Android " + Build.VERSION.RELEASE
                 + ") " + "ExoPlayerLib/" + ExoPlayerLibraryInfo.VERSION;
+    }
+
+
+
+
+ /**
+  *  Find the saved thumbnail at:
+  *    data/data/sample.hawk.com.mybasicappcomponents/files/thumbs/private.png
+  *    data/user/0/sample.hawk.com.mybasicappcomponents/files/thumbs/private.png
+  *
+  * */
+    public void Test_saveThumbnail(Context context){
+        // Save a thumbnail to file
+        final File thumbsDir = new File(context.getFilesDir(), "thumbs");
+        thumbsDir.mkdirs();
+        final File file = new File(thumbsDir, "private.png");
+    }
+
+    /**
+     * Save thumbnail of given {@link View} to {@link File}.
+     */
+    static public void saveThumbnailFile(View view, File file) {
+        final Bitmap bitmap = Bitmap.createBitmap(
+                view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+
+        try {
+            final OutputStream os = new FileOutputStream(file);
+            try {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+            } finally {
+                os.close();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static boolean isUiThread() {

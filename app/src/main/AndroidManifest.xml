@@ -604,7 +604,23 @@
             android:name=".provider.MyContentProvider2">
         </provider>
 
-
+        <!-- File Provider -->
+        <activity android:name=".provider.ShareFile_Activity"
+                  android:label="provider/ShareFile_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="sample.hawk.com.mybasicappcomponents.provider.share_files"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <!-- https://github.com/slightfoot/android-crash-reporting -->
         <activity android:name=".debugTest.crashreport.MyCrashReportActivity"
                   android:label="debugTest/crashreport/MyCrashReportActivity">
