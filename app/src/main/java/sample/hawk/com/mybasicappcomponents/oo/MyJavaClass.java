@@ -229,6 +229,13 @@ public class MyJavaClass {
                 CommonResources.InnerClass inc = cs.new InnerClass(); // this is right!
                 inc.function();
                 break;
+            case 28:
+                try_catch ty = new try_catch();
+                ty.catch_any();
+                ty.catch_right();
+                ty.catch_wrong();
+                ty.no_catch();
+                break;
             default:
 
         }
