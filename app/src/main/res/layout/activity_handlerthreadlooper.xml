@@ -10,4 +10,59 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/myValue"/>
+    <Button
+        android:text="Button1"
+        android:tag="1"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button1"/>
+    <Button
+        android:text="Button2"
+        android:tag="2"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button2"/>
+    <Button
+        android:text="Button3"
+        android:tag="3"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button3"/>
+    <Button
+        android:text="Button4"
+        android:tag="4"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button4"/>
+    <Button
+        android:text="Button5"
+        android:tag="5"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button5"/>
+    <Button
+        android:text="Button6"
+        android:tag="6"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button6"/>
+    <Button
+        android:text="Button7"
+        android:tag="7"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button7"/>
+    <Button
+        android:text="Button8"
+        android:tag="8"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button8"/>
+    <Button
+        android:text="Button9"
+        android:tag="9"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button9"/>
+
 </LinearLayout>

@@ -5,14 +5,25 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.widget.ProgressBar;
-
-import sample.hawk.com.mybasicappcomponents.MainActivity;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
- * Created by ha271 on 2016/3/31.
+ SMLog() shows log as following.
+ .background.MyThread :: run() Looper.loop() --------------------------
+ .background.MyThreadActivity$1 :: onClick()
+ .background.MyThread :: run() Looper.prepare() ++++++++++++++++++++++++++ tID=20072
+ .background.MyThread :: run() Looper.prepare() --------------------------
+ .background.MyThread :: run() Handler E +++ tID=20072
+ .background.MyThread :: run() Handler E ---
+ .background.MyThread :: run() Looper.loop() ++++++++++++++++++++++++++
+ .background.MyThread$2 :: run() Handler B +++ tID=20072
+ .background.MyThread$2 :: run() Handler B ---
+ .background.MyThread$3 :: run() Handler C +++ tID=20072
+ .background.MyThread$3 :: run() Handler C ---
+ .background.MyThread$4 :: run() Handler D +++ tID=1 ( UI thread )
+ .background.MyThread$4 :: run() Handler D ---
+
  */
 
 
