@@ -53,6 +53,7 @@
         <activity android:name=".debugTest.MemLeak_handler_anonymous_runnable_Activity"/>
         <activity android:name=".debugTest.MemLeak_AsyncTask_Activity"/>
         <activity android:name=".debugTest.MemLeak_Listener_Activity"/>
+        <activity android:name=".debugTest.MemLeak_Anonymous_Callback_Activity"/>
 
         <activity android:name=".activity.FirstActivity"
                   android:label="activity/Data between Two Activitys">
