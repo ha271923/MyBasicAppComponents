@@ -62,7 +62,6 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.SecondActivity"/>
 
         <activity android:name=".activity.SettingsActivity"
@@ -187,7 +186,29 @@
             </intent-filter>
         </activity>
 
-                <activity android:name=".cache.DisplayingBitmaps.ui.ImageGridActivity"
+        <activity android:name=".controls.SingleTouchActivity"
+                  android:label="controls/SingleTouchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".controls.MultiTouchActivity"
+                  android:label="controls/MultiTouchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".controls.GestureActivity"
+                  android:label="controls/GestureActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".cache.DisplayingBitmaps.ui.ImageGridActivity"
                   android:theme="@style/BitmapsThemeDark"
                   android:label="cache/DisplayingBitmaps">
             <intent-filter>

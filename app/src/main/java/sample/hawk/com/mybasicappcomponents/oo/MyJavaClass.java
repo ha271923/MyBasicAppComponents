@@ -201,10 +201,15 @@ public class MyJavaClass {
                 sleep_VS_wait svt = new sleep_VS_wait();
                 svt.start_tests();
                 break;
-            case 22:
+            case 22: // Object pointer to its object
                 MyInterfaceUsage mifu = new MyInterfaceUsage();
                 mifu.MyInterfaceUsageTest();
                 mifu.MyInterfaceAPI(55555);
+                break;
+            case 221: // Interface pointer to its parent object
+                MyInterface mif = new MyInterfaceUsage();
+                // mif.MyInterfaceUsageTest();  // ERROR: No Way
+                mif.MyInterfaceAPI(55555);
                 break;
             case 23:
                 MyAbstractUsage mau = new MyAbstractUsage();
