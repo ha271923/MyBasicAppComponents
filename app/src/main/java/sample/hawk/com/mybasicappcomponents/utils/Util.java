@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.utils;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -125,5 +126,16 @@ public class Util {
 
     public static boolean isUiThread() {
         return Looper.myLooper() == Looper.getMainLooper();
+    }
+
+    /* check if service is running */
+    public static boolean isServiceRunning(Context context, Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -17,6 +17,14 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- network -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- DebugMsgProxy -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission-sdk-23 android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
 
     <application
         android:allowBackup="true"
@@ -658,6 +666,29 @@
         <provider android:name=".debugTest.crashreport.ReportFilesProvider" android:process=":report_process"
                   android:authorities="sample.hawk.com.mybasicappcomponents.debugTest.crashreport.FilesProvider"
                   android:exported="true" tools:ignore="ExportedContentProvider"/>
+
+        <!-- DebugMsgProxy -->
+        <activity android:name=".debugTest.DebugMsgProxy.DebugMsgActivity"
+                  android:label="debugTest/DebugMsgProxy/DebugMsgActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".debugTest.DebugMsgProxy.DebugStaticReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".debugTest.DebugMsgProxy.DebugMsgService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+
+        <service android:name=".debugTest.DebugMsgProxy.MyAccessibilityService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibilityservicedescription" />
+        </service>
 
         <!-- SearchableDictionary START -->
             <activity android:name=".search.dictionary.SearchableDictionaryActivity"

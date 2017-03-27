@@ -50,4 +50,7 @@
         <!-- Search failure message. -->
         <string name="no_results">No results found for \"%s\"</string>
 
+    <!-- DebugMsg -->
+    <string name="accessibility_description">this app needs accessibility service for Go Back and Pull Down Notification on Samsung Lollipop system</string>
+
 </resources>

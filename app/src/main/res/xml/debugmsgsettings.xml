@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="SETTINGS">
+        <CheckBoxPreference android:title="Enable" android:key="prefEnable" android:summary="Enable DebugMsg Service from now" android:defaultValue="true" />
+        <CheckBoxPreference android:title="Auto Start" android:key="prefAutoStart" android:summary="Auto Start DebugMsg Service" android:defaultValue="true" />
+        <CheckBoxPreference android:title="Show" android:key="prefTransparentIcon" android:summary="Show or Hide at Notification" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="More...">
+        <PreferenceScreen android:title="Advance Settings" android:summary="Adjust more details">
+            <Preference android:title="string/pref_areatransparent" android:key="prefDetectAreaTransparent" android:summary="string/pref_areatransparent_summary" />
+            <Preference android:title="areaheight" android:key="prefDetectAreaHeight" android:summary="pref_areaheight_summary" />
+            <CheckBoxPreference android:title="extend_areawidth" android:key="prefExtendWidth" android:summary="pref_extend_areawidth_summary" android:defaultValue="false" />
+            <CheckBoxPreference android:title="forcenotification" android:key="prefForceNotification" android:summary="pref_forcenotification_summary" android:defaultValue="false" />
+            <CheckBoxPreference android:title="tapnotice" android:key="prefTapNotice" android:summary="pref_tapnotice_summary" android:defaultValue="true" />
+            <CheckBoxPreference android:title="tapvibrate" android:key="prefTapVibrate" android:summary="pref_tapvibrate_summary" android:defaultValue="true" />
+            <CheckBoxPreference android:title="vibrate" android:key="prefVibrate" android:summary="pref_vibrate_summary" android:defaultValue="true" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

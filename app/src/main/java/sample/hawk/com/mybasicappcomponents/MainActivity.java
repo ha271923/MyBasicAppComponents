@@ -201,8 +201,20 @@ public class MainActivity extends ListActivity {
         String RootClassName = "sample.hawk.com.mybasicappcomponents.MainActivity";
         if(NowClassName.equals(RootClassName))
             ;
-        else
+        else{
             Log.e("Hawk:" , NowClassName);
+            broadcast_to_DebugMsgReceiver(NowClassName);
+        }
     }
+
+    private void broadcast_to_DebugMsgReceiver(String className){
+        SMLog.d("Broadcasting message");
+        Intent intent = new Intent("sample.hawk.com.mybasicappcomponents.debugmsg");
+        // You can also include some extra data.
+        intent.putExtra("ClassName", className);
+        sendBroadcast(intent);
+        // LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+    }
+
 
 }
