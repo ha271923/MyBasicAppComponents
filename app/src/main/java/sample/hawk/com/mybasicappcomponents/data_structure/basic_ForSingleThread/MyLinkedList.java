@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.data_structure;
+package sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -3,7 +3,7 @@ package sample.hawk.com.mybasicappcomponents.data_structure.Json;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import sample.hawk.com.mybasicappcomponents.data_structure.AccessIF;
+import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.AccessIF;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**

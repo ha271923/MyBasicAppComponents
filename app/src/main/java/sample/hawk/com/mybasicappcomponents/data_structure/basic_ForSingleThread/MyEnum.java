@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.data_structure;
+package sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread;
 
 import android.graphics.Color;
 

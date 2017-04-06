@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.data_structure;
+package sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread;
 /*
  * Copyright 2007 Google Inc.
  *
@@ -16,7 +16,6 @@ package sample.hawk.com.mybasicappcomponents.data_structure;
  */
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;

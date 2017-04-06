@@ -1,9 +1,8 @@
-package sample.hawk.com.mybasicappcomponents.data_structure;
+package sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
