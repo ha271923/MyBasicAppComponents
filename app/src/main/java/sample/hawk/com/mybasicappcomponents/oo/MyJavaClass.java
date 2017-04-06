@@ -13,11 +13,14 @@ import sample.hawk.com.mybasicappcomponents.data_structure.MySet;
 import sample.hawk.com.mybasicappcomponents.data_structure.MySparseArray;
 import sample.hawk.com.mybasicappcomponents.data_structure.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.Tree;
+import sample.hawk.com.mybasicappcomponents.debugTest.Exceptions.JavaExceptions;
 import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Caller_Test;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Layer_Test;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Reference_Test;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
+import static sample.hawk.com.mybasicappcomponents.debugTest.Exceptions.JavaExceptions.Exceptions.ConcurrentModificationException;
 
 public class MyJavaClass {
     // private static final String TAG = "[MyJavaClass]";
@@ -234,12 +237,16 @@ public class MyJavaClass {
                 CommonResources.InnerClass inc = cs.new InnerClass(); // this is right!
                 inc.function();
                 break;
-            case 28:
+            case 28: // try-catch
                 try_catch ty = new try_catch();
                 ty.catch_any();
                 ty.catch_right();
                 ty.catch_wrong();
                 ty.no_catch();
+                break;
+            case 8001: // ConcurrentModificationException
+                JavaExceptions je = new JavaExceptions();
+                je.Test(ConcurrentModificationException);
                 break;
             default:
 
