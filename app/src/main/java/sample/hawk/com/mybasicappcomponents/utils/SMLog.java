@@ -5,7 +5,7 @@ package sample.hawk.com.mybasicappcomponents.utils;
  */
 public class SMLog {
 
-    public static final boolean SHOW_CALLSTACK = true;
+    public static final boolean SHOW_CALLSTACK = false;
 
     private static final String TAG = "[Hawk]";
 

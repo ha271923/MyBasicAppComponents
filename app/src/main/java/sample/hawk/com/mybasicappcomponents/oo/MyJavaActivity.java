@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.gson.Gson;
 
@@ -15,6 +16,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.My
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Author;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Book;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MySerializable;
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
  * Created by ha271 on 2016/10/6.
@@ -48,6 +50,7 @@ public class MyJavaActivity extends Activity{
 
     */
     public void onClick_MyJavaClass(View view){
+        SMLog.e("JAVA class: "+((Button)view).getText());
         String Tag = view.getTag().toString();
         Intent intent;
         int tag = Integer.parseInt(Tag);

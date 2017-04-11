@@ -1,6 +1,14 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedCollection;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedList;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedMap;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedSet;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyConcurrentHashMap;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyConcurrentLinkedQueue;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyCopyOnWriteArrayList;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyCopyOnWriteArraySet;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyArray;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyArrayList;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyEnum;
@@ -129,7 +137,12 @@ public class MyJavaClass {
                 rft2.WeakRef_lessRAM_Test();
                 rft2.PhantomRef_lessRAM_Test();
                 break;
-            case 13: // List structure
+            case 13: // Collection structure
+                MysynchronizedCollection msc = new MysynchronizedCollection();
+                msc.error_case(false);
+                //msc.error_case(true);
+                break;
+            case 131: // List
                 MyList ml = new MyList();
                 ml.show();
                 ml.use_case();
@@ -143,10 +156,26 @@ public class MyJavaClass {
                 MyArray ae = new MyArray();
                 ae.show();
                 break;
+            case 142:
+                MysynchronizedList msl = new MysynchronizedList();
+                msl.error_case(false);
+                //msl.error_case(true);
+                break;
+            case 143:
+                MyCopyOnWriteArrayList mcowal = new MyCopyOnWriteArrayList();
+                mcowal.error_case(false);
+                //mcowal.error_case(true);
+                break;
+
             case 15: // LinkedList
                 MyLinkedList mll = new MyLinkedList();
                 mll.show();
                 mll.use_case();
+                break;
+            case 151:
+                MyConcurrentLinkedQueue mcclq = new MyConcurrentLinkedQueue();
+                mcclq.error_case(false);
+                // mcclq.error_case(true);
                 break;
             case 16: // Set
                 MySet ms = new MySet();
@@ -163,6 +192,16 @@ public class MyJavaClass {
                 mhs2.show();
                 mhs2.use_case();
                 break;
+            case 162:
+                MysynchronizedSet mss = new MysynchronizedSet();
+                mss.error_case(false);
+                //mss.error_case(true);
+                break;
+            case 163:
+                MyCopyOnWriteArraySet mcowas = new MyCopyOnWriteArraySet();
+                mcowas.error_case(false);
+                //mcowas.error_case(true);
+                break;
             case 17: // Map
                 MyMap mm = new MyMap();
                 mm.show();
@@ -172,7 +211,16 @@ public class MyJavaClass {
                 whm.show();
                 whm.use_case();
                 whm.test();
-
+                break;
+            case 171:
+                MysynchronizedMap msm = new MysynchronizedMap();
+                msm.error_case(false);
+                //msm.error_case(true);
+                break;
+            case 172:
+                MyConcurrentHashMap mcchm = new MyConcurrentHashMap();
+                mcchm.error_case(false);
+                // mcchm.error_case(true);
                 break;
             case 18: // SparseArray
                 MySparseArray msa = new MySparseArray();

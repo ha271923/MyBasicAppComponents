@@ -114,11 +114,18 @@
             android:tag="12"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="DS: List"
+            android:text="DS: synchronizedCollection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="13"
             android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="131"
+            android:onClick="onClick_MyJavaClass"/>
+
         <Button
             android:text="DS: ArrayList"
             android:layout_width="wrap_content"
@@ -132,11 +139,31 @@
             android:tag="141"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="DS: synchronized ArrayList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="142"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: CopyOnWriteArrayList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="143"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
             android:text="DS: LinkedList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="15"
             android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: ConcurrentLinkedQueue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="151"
+            android:onClick="onClick_MyJavaClass"/>
+
         <Button
             android:text="DS: Set"
             android:layout_width="wrap_content"
@@ -150,10 +177,35 @@
             android:tag="161"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="DS: synchronizedSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="162"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: CopyOnWriteArraySet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="163"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
             android:text="DS: Map , WeakHashMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="17"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: synchronizedMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="171"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: ConcurrentHashMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="172"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: SparseArray"
