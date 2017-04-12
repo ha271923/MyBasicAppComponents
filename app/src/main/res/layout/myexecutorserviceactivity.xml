@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <Button
+        android:text="Process 100 jobs by ExecuteService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/ExecuteServiceButton"
+        android:onClick="onClickExecuteServiceButton"/>
+    <Button
+        android:text="Process 100 jobs by Thread"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/ThreadButton"
+        android:onClick="onClickThreadButton"/>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/myexecutorserviceactivity_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/myexecutorserviceactivity_progressBarText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:gravity="center_horizontal"
+            android:layout_alignLeft="@id/myexecutorserviceactivity_progressBar"
+            android:layout_alignTop="@id/myexecutorserviceactivity_progressBar"
+            android:layout_alignRight="@id/myexecutorserviceactivity_progressBar"
+            android:layout_alignBottom="@id/myexecutorserviceactivity_progressBar"/>
+    </RelativeLayout>
+</LinearLayout>
