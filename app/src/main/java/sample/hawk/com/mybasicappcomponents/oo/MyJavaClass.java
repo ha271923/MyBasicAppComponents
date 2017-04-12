@@ -1,6 +1,9 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyStack;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyVector;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedCollection;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedMap;
@@ -159,14 +162,23 @@ public class MyJavaClass {
             case 142:
                 MysynchronizedList msl = new MysynchronizedList();
                 msl.error_case(false);
-                //msl.error_case(true);
+                msl.error_case(true);
                 break;
             case 143:
                 MyCopyOnWriteArrayList mcowal = new MyCopyOnWriteArrayList();
                 mcowal.error_case(false);
                 //mcowal.error_case(true);
                 break;
-
+            case 144:
+                MyVector mv = new MyVector();
+                mv.error_case(false);
+                // mv.error_case(true);
+                break;
+            case 145:
+                MyStack mstk = new MyStack();
+                mstk.error_case(false);
+                // ms.error_case(true);
+                break;
             case 15: // LinkedList
                 MyLinkedList mll = new MyLinkedList();
                 mll.show();
@@ -222,6 +234,12 @@ public class MyJavaClass {
                 mcchm.error_case(false);
                 // mcchm.error_case(true);
                 break;
+            case 173:
+                MyHashTable mht = new MyHashTable();
+                mht.error_case(false);
+                //mht.error_case(true);
+                break;
+
             case 18: // SparseArray
                 MySparseArray msa = new MySparseArray();
                 msa.show();

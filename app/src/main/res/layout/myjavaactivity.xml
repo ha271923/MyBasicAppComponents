@@ -150,7 +150,18 @@
             android:layout_height="wrap_content"
             android:tag="143"
             android:onClick="onClick_MyJavaClass"/>
-
+        <Button
+            android:text="DS: Vector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="144"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: Stack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="145"
+            android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: LinkedList"
             android:layout_width="wrap_content"
@@ -206,6 +217,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="172"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: HashTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="173"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: SparseArray"
