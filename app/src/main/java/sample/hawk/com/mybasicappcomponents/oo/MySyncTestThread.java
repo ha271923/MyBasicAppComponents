@@ -33,10 +33,10 @@ public class MySyncTestThread extends Thread{
                         static_var++;var++;
                         CommonResources.static_var++;
                         CommonResources.StaticNestedClass.static_var++;
-                        CommonResources.StaticNestedClass.static_function();
+                        CommonResources.StaticNestedClass.static_function(i);
                         CommonResources.StaticNestedClass snc = new CommonResources.StaticNestedClass();
-                        snc.function();
-                        snc.var++;
+                        snc.function(i);
+                        snc.static_var++;
                         // CommonResources.InnerClass inner = new CommonResources.InnerClass(); // ERROR: This class is not an enclosing class.
 
                         // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticNestedClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.

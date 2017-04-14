@@ -180,10 +180,10 @@ public class MySyncRunnable implements Runnable{
                         static_var++;var++;
                         CommonResources.static_var++;
                         CommonResources.StaticNestedClass.static_var++;
-                        CommonResources.StaticNestedClass.static_function();
+                        CommonResources.StaticNestedClass.static_function(static_var);
                         CommonResources.StaticNestedClass snc = new CommonResources.StaticNestedClass();
-                        snc.function();
-                        snc.var++;
+                        snc.function(snc.var5);
+                        snc.var5++;
                         // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticNestedClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
                         Thread.sleep(100); // Hawk: simulate context-switch
                         //SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var);

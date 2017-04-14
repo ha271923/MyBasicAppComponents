@@ -299,9 +299,22 @@ public class MyJavaClass {
                 myjson.show();
                 break;
             case 27: // Inner Class
+                // A. inner class
+                CommonResources.InnerClass incA = new CommonResources().new InnerClass(); // this is right!
+                incA.function(27);
+                // A. inner class
                 CommonResources cs = new CommonResources();
-                CommonResources.InnerClass inc = cs.new InnerClass(); // this is right!
-                inc.function();
+                CommonResources.InnerClass incB = cs.new InnerClass(); // this is right!
+                incB.function(27);
+                // B. static nested class
+                CommonResources.StaticNestedClass cs_snC = new CommonResources.StaticNestedClass();
+                cs_snC.static_function(27);
+                cs_snC.function(27);
+
+                // CommonResources
+                CommonResources cres = new CommonResources();
+                cres.function("InnerClass inside API");
+
                 break;
             case 28: // try-catch
                 try_catch ty = new try_catch();
