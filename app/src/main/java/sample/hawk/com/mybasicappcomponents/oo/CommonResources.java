@@ -62,6 +62,20 @@ public class CommonResources { // by default, java class is static class, expect
         final int var0=0;
         int var1=1;
         mVar0++;
+        new MyCallBack(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
+            // static int svar; // ERROR: Inner classes cannot have static declarations.
+            int var3=3;
+            @Override
+            public void onCall_API() {
+                // var0++; // ERROR: cannot assign a value to final variable 'var0'.
+                // var1++; // ERROR: Variable 'var1' is accessed from within inner class, need to be declared final.
+                var3++;
+                int cb_var=5;cb_var++;
+                mVar0++;
+                SMLog.i("AnonymousInnerClass.function().onCall_API() "+"    mVar0="+mVar0+"    cb_var="+cb_var );
+            }
+        };
+
         class InnerClassWithinAPI implements Runnable{ // (2) Member inner class: This is an API with inner class.
             private String str;
             int var2=2;
