@@ -37,6 +37,34 @@ public class SMLog {
             android.util.Log.i(TAG + tag, msg, e);
     }
 
+    public static void v() {
+        if (SHOW_CALLSTACK)
+            android.util.Log.v(TAG, getClassFunctionName());
+        else
+            android.util.Log.v(TAG, "");
+    }
+
+    public static void v(String msg) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.v(TAG, getClassFunctionName()+msg);
+        else
+            android.util.Log.v(TAG, msg);
+    }
+
+    public static void v(String tag, String msg) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.i(TAG + tag, getClassFunctionName()+msg);
+        else
+            android.util.Log.i(TAG + tag, msg);
+    }
+
+    public static void v(String tag, String msg, Throwable e) {
+        if (SHOW_CALLSTACK)
+            android.util.Log.i(TAG + tag, getClassFunctionName()+msg, e);
+        else
+            android.util.Log.i(TAG + tag, msg, e);
+    }
+
     public static void d() {
         if (SHOW_CALLSTACK)
             android.util.Log.d(TAG, getClassFunctionName());

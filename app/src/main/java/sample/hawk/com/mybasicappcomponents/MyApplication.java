@@ -19,6 +19,15 @@ public class MyApplication extends Application {
         super.onCreate();
         userAgent = Util.getUserAgent(this, "MyBasicAppComponents");
         SMLog.i("userAgent: "+userAgent);
+        CheckLogLevel();
         ReportHandler.install(this, "ha271923@yahoo.com.tw");
+    }
+
+    void CheckLogLevel(){
+        SMLog.v("1. SMLog.v() == Verbose -- OK! ");
+        SMLog.d("2. SMLog.d() == Debug   -- OK! ");
+        SMLog.i("3. SMLog.i() == info    -- OK! ");
+        SMLog.w("4. SMLog.w() == Warn    -- OK! ");
+        SMLog.e("5. SMLog.e() == Error   -- OK! ");
     }
 }
