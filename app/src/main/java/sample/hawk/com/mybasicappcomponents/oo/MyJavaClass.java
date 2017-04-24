@@ -323,6 +323,12 @@ public class MyJavaClass {
                 ty.catch_wrong();
                 ty.no_catch();
                 break;
+            case 29: // break, continue
+                MyBreakContinue mbc = new MyBreakContinue();
+                mbc.test_break();
+                mbc.test_continue();
+                mbc.test_break_continue();
+                break;
             case 8001: // ConcurrentModificationException
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);

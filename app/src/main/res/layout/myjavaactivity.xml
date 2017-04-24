@@ -307,6 +307,13 @@
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
+            android:text="break, continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="29"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
             android:text="Exception: ConcurrentModificationException"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
