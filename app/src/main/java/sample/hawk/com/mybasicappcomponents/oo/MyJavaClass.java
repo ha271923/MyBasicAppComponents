@@ -1,5 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import com.sample.hawk.mylibrary.MyLibClass1;
+
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyStack;
@@ -332,6 +334,25 @@ public class MyJavaClass {
             case 8001: // ConcurrentModificationException
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);
+                break;
+            case 9001: // MyLibrary
+                MyLibClass1.static_var = 9001;
+                MyLibClass1 mlc = new MyLibClass1();
+                mlc.mVar0 = 9001;
+                // A. inner class
+                MyLibClass1.InnerClass LincA = new MyLibClass1().new InnerClass(); // this is right!
+                LincA.function(9001);
+                // A. inner class
+                MyLibClass1 Lcs = new MyLibClass1();
+                MyLibClass1.InnerClass LincB = Lcs.new InnerClass(); // this is right!
+                LincB.function(9001);
+                // B. static nested class
+                MyLibClass1.StaticNestedClass Lcs_snC = new MyLibClass1.StaticNestedClass();
+                Lcs_snC.static_function(9001);
+                Lcs_snC.function(9001);
+                // MyLibClass1
+                MyLibClass1 Lcres = new MyLibClass1();
+                Lcres.function("MyLibrary's InnerClass inside API");
                 break;
             default:
 
