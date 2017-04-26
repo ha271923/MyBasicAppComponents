@@ -1,9 +1,11 @@
 package sample.hawk.com.mybasicappcomponents.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.util.Log;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 
 
 /**
@@ -27,6 +29,13 @@ public abstract class PermissionUtil {
             }
         }
         return true;
+    }
+
+
+    public static boolean isPermissionGranted(@NonNull final Context context,
+                                              @NonNull final String permission) {
+        return ContextCompat.checkSelfPermission(context, permission) ==
+                PackageManager.PERMISSION_GRANTED;
     }
 
     /**

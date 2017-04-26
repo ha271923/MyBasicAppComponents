@@ -80,7 +80,7 @@ public class MyDynamicListViewActivity extends Activity {
                 ModifyAdapterData(true); // Adapter can only be modified in UI thread.
                 // ModifyAdapterData(false);   // java.lang.IllegalStateException: The content of the adapter has changed but ListView did not receive a notification. Make sure the content of your adapter is not modified from a background thread, but only from the UI thread.
                 // 通知資料被變動，更新 ListView 顯示內容。
-                adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged(); // MUST call notifyDataSetChanged() api, even the data was modified in UI thread.
             }
         });
         // Add a new button into the layout.
