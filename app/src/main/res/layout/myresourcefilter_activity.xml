@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_screen_orientation"
+            android:text="Screen Orientation:"
+            android:textSize="26dp"
+            android:textColor="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText android:id="@+id/et_input"
+                  android:textSize="18dp"
+                  android:background="@color/yellow"
+                  android:textColor="@color/green"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_display_name"
+            android:text="Display Name"
+            android:textSize="26dp"
+            android:textColor="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_device_width_pixel"
+            android:text="Screen Width="
+            android:textSize="26dp"
+            android:textColor="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_device_height_pixel"
+            android:text="Screen Height="
+            android:textSize="26dp"
+            android:textColor="@color/blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_device_density"
+            android:text="Screen Density="
+            android:textSize="26dp"
+            android:textColor="@color/red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_device_densityDpi"
+            android:text="Screen DensityDPI="
+            android:textSize="26dp"
+            android:textColor="@color/red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_device_screenSize"
+            android:text="Screen Size="
+            android:textSize="26dp"
+            android:textColor="@color/red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="mipmap"
+            android:textSize="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/iv_mipmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="res_value_folder"
+            android:textSize="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_res_value_folder"
+            android:text="res_value_folder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="values_integer_value1"
+            android:textSize="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_values_integer_value1"
+            android:text="values_integer_value1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="screen_portrait"
+            android:textSize="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_screen_portrait"
+            android:text="screen_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="drawable"
+            android:textSize="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/iv_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+</ScrollView>

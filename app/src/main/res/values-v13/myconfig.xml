@@ -1,0 +1,4 @@
+<resources>
+    <!-- True if API >= API_13 -->
+    <bool name="VER_large_V13">true</bool>
+</resources>
