@@ -373,6 +373,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".search.file.MyFileSearchActivity"
+                  android:label="search/file/MyFileSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".search.text.TextSearchActivity"
                   android:label="search/text/TextSearchActivity">
             <intent-filter>
