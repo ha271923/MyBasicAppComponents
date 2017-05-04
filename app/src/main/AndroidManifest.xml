@@ -43,6 +43,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".debugTest.autoTest.MyAutoClickActivity"
+                  android:label="debugTest/MyAutoClickActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".debugTest.strictmode.StrictModeActivity"
                   android:label="debugTest/StrictModeActivity">
             <intent-filter>
