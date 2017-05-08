@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/wakelocklayout"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ToggleButton
+        android:text="FLAG_KEEP_SCREEN_ON"
+        android:textOn="FLAG_KEEP_SCREEN_ON"
+        android:textOff="FLAG_KEEP_SCREEN_ON"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_FLAG_KEEP_SCREEN_ON_btn"/>
+    <ToggleButton
+        android:text="LayoutParam android:keepScreenOn"
+        android:textOn="LayoutParam android:keepScreenOn"
+        android:textOff="LayoutParam android:keepScreenOn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_LayoutParam_keepScreenOn_btn"/>
+
+    <ToggleButton
+        android:text="Auto Count"
+        android:textOn="Auto Count"
+        android:textOff="Auto Count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_AutoCount"/>
+    <TextView
+        android:id="@+id/showCounter"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ToggleButton
+        android:text="WakeLock0"
+        android:textOn="WakeLock0"
+        android:textOff="WakeLock0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_WakeLock0"/>
+    <ToggleButton
+        android:text="WakeLock1"
+        android:textOn="WakeLock1"
+        android:textOff="WakeLock1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_WakeLock1"/>
+    <ToggleButton
+        android:text="WakeLock2"
+        android:textOn="WakeLock2"
+        android:textOff="WakeLock2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_WakeLock2"/>
+    <ToggleButton
+        android:text="WakeLock3"
+        android:textOn="WakeLock3"
+        android:textOff="WakeLock3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_WakeLock3"/>
+
+
+</LinearLayout>
