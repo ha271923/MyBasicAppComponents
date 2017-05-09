@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,21 +22,47 @@ import sample.hawk.com.mybasicappcomponents.R;
 
 public class MyRecycleCardViewActivity extends AppCompatActivity {
     RecycleCardViewAdapter mAdapter;
+    ArrayList<String> mDataset;
+    RecyclerView mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myrecyclecardview_activity);
-        ArrayList<String> myDataset = new ArrayList<>();
+        mDataset = new ArrayList<>();
         for(int i = 0; i < 100; i++){
-            myDataset.add(i + "");
+            mDataset.add(i + "");
         }
-        mAdapter = new RecycleCardViewAdapter(myDataset);
-        RecyclerView mList = (RecyclerView) findViewById(R.id.list_view);
+        mAdapter = new RecycleCardViewAdapter(mDataset);
+        mList = (RecyclerView) findViewById(R.id.list_view);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mList.setLayoutManager(layoutManager);
         mList.setAdapter(mAdapter);
+
+        ItemTouchHelper.Callback mCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP|ItemTouchHelper.DOWN,ItemTouchHelper.START| ItemTouchHelper.END) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                int fromPosition = viewHolder.getAdapterPosition();
+                int toPosition = target.getAdapterPosition();
+                mAdapter.notifyItemMoved(fromPosition, toPosition);
+                return true;
+            }
+
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                return makeMovementFlags(getDragDirs(recyclerView, viewHolder), getSwipeDirs(recyclerView, viewHolder));
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                mDataset.remove(position);
+                mAdapter.notifyItemRemoved(position);
+            }
+        };
+        ItemTouchHelper mItemTouchHelper = new ItemTouchHelper(mCallback);
+        mItemTouchHelper.attachToRecyclerView(mList);
     }
     public class RecycleCardViewAdapter extends RecyclerView.Adapter<RecycleCardViewAdapter.ViewHolder> {
         private List<String> mData;
