@@ -1,6 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.view;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,7 +29,7 @@ public class MyRecycleCardViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.myrecyclecardview_activity);
+        setContentView(R.layout.myrecyclecardview_activity_root);
         mDataset = new ArrayList<>();
         for(int i = 0; i < 100; i++){
             mDataset.add(i + "");
@@ -39,7 +40,7 @@ public class MyRecycleCardViewActivity extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mList.setLayoutManager(layoutManager);
         mList.setAdapter(mAdapter);
-
+        // Support swipe card remove action
         ItemTouchHelper.Callback mCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP|ItemTouchHelper.DOWN,ItemTouchHelper.START| ItemTouchHelper.END) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -63,6 +64,17 @@ public class MyRecycleCardViewActivity extends AppCompatActivity {
         };
         ItemTouchHelper mItemTouchHelper = new ItemTouchHelper(mCallback);
         mItemTouchHelper.attachToRecyclerView(mList);
+
+        // support Add button
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDataset.add(1, String.valueOf(mDataset.size() + 1));
+                mAdapter.notifyItemInserted(1);
+            }
+        });
+
     }
     public class RecycleCardViewAdapter extends RecyclerView.Adapter<RecycleCardViewAdapter.ViewHolder> {
         private List<String> mData;
