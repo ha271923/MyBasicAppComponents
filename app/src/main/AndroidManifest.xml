@@ -306,6 +306,14 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.MyLayoutActivity2"
+                  android:label="view/MyLayoutActivity2"
+                  android:configChanges="orientation|screenSize|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.MyViewActivity"
                   android:label="view/MyViewActivity">
             <intent-filter>

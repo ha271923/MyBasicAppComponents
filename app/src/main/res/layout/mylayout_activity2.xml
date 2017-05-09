@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+        <include android:id="@+id/layout1"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 layout="@layout/specific_feedgridview_mopub_native_ads_two_column"/>
+        <include android:id="@+id/layout2"
+                 layout="@layout/mylayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout1"/>
+        <include android:id="@+id/layout3"
+                 layout="@layout/mylinearlayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout2"/>
+        <include android:id="@+id/layout4"
+                 layout="@layout/myrelativelayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout3"/>
+        <include android:id="@+id/layout5"
+                 layout="@layout/myframelayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout4"/>
+        <include android:id="@+id/layout6"
+                 layout="@layout/mytablelayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout5"/>
+        <include android:id="@+id/layout7"
+                 layout="@layout/mygridlayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout6"/>
+        <include android:id="@+id/layout8"
+                 layout="@layout/myabsolutelayout"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_below="@id/layout7"/>
+    </RelativeLayout>
+</ScrollView>
