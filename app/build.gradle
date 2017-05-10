@@ -2,28 +2,28 @@ apply plugin: 'com.android.application'
 apply from: '../shared-build.gradle'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:support-annotations:23.1.1'
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:cardview-v7:+'
-    compile 'com.google.android.exoplayer:exoplayer:r2.1.0'     // http://google.github.io/ExoPlayer/guide.html#add-exoplayer-as-a-dependency
+    compile 'com.google.android.exoplayer:exoplayer:r2.1.0'
+    // http://google.github.io/ExoPlayer/guide.html#add-exoplayer-as-a-dependency
     compile project(':app2')
     compile project(':mylibrary')
     // compile project('../libs/gif-library')
     compile project(':gif-library')
-
     // MyLayout
     compile 'com.android.support:cardview-v7:+'
-
     // ADs
-    compile 'com.facebook.android:audience-network-sdk:4.17.0'  // Facebook
-    compile('com.mopub:mopub-sdk:4.9.0@aar') {  // https://mvnrepository.com/ doesn't upload it, so AAR.
+    compile 'com.facebook.android:audience-network-sdk:4.17.0'
+    // Facebook
+    compile('com.mopub:mopub-sdk:4.9.0@aar') {
+        // https://mvnrepository.com/ doesn't upload it, so AAR.
         transitive = true
     }
-
     // Android test ++++++++++++++++++ https://developer.android.com/training/testing/start/index.html
     // Required for local unit tests (JUnit 4 framework), A JUnit 4-compatible test runner for JAVA.
     testCompile 'junit:junit:4.12'
@@ -37,8 +37,7 @@ dependencies {
     // androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
     // Optional -- UI testing with UI Automator, A UI testing framework suitable for cross-app functional UI testing between both system and installed apps
     // androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
-
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+    compile 'com.google.code.gson:gson:2.8.0'
 }
 
 android {
@@ -61,4 +60,17 @@ android {
         }
     }
 */
+    signingConfigs {
+        HawkAPP {
+            keyAlias 'HawkAPP'
+            keyPassword 'aasssp'
+            storeFile file('D:/APP/_Tools/_SignKey/Hawk-release.jks')
+            storePassword 'aasssp'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.HawkAPP
+        }
+    }
 }

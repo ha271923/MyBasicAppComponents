@@ -1,7 +1,5 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
-import com.sample.hawk.mylibrary.MyLibClass1;
-
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyStack;
@@ -335,7 +333,9 @@ public class MyJavaClass {
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);
                 break;
+/*
             case 9001: // MyLibrary
+                // remarked these code, since it's always failed at building the signed release key APP.
                 MyLibClass1.static_var = 9001;
                 MyLibClass1 mlc = new MyLibClass1();
                 mlc.mVar0 = 9001;
@@ -354,6 +354,7 @@ public class MyJavaClass {
                 MyLibClass1 Lcres = new MyLibClass1();
                 Lcres.function("MyLibrary's InnerClass inside API");
                 break;
+*/
             default:
 
         }

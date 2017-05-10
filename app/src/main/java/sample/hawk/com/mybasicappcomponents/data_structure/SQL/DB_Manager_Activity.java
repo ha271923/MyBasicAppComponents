@@ -1,7 +1,5 @@
 package sample.hawk.com.mybasicappcomponents.data_structure.SQL;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,6 +11,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,14 +21,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 /**
  為了Debug Android SQL database, 這個範例提供一個通用列表視覺化的顯示,
  只需要針對所需要Debug的DB定義 SQLiteOpenHelper(EX: DB_Manager_Helper.java)
@@ -843,7 +843,8 @@ public class DB_Manager_Activity extends Activity implements OnItemClickListener
         crudadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         crud_dropdown.setAdapter(crudadapter);
-        lcrud.setId(299);
+        //lcrud.setId(299);
+        lcrud.setId(View.generateViewId());
         lcrud.addView(crud_dropdown,paramcrudtext);
 
         RelativeLayout.LayoutParams rlcrudparam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
