@@ -19,9 +19,6 @@ public class MySyncTestThread extends Thread{
         SMLog.i(TAG,mThreadName+"constructor");
     }
 
-
-
-
     @Override
     public void run() {
         SMLog.i(TAG, "mSync="+mSync+"  run +++    name=" + mThreadName);
@@ -38,8 +35,7 @@ public class MySyncTestThread extends Thread{
                         snc.function(i);
                         snc.static_var++;
                         // CommonResources.InnerClass inner = new CommonResources.InnerClass(); // ERROR: This class is not an enclosing class.
-
-                        // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticNestedClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
+                        // CommonResources.mVar0++; CommonResources.InnerClass.var++; CommonResources.StaticNestedClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
                         sleep(100); // Hawk: simulate context-switch
                         //SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var);
                         SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
@@ -56,7 +52,13 @@ public class MySyncTestThread extends Thread{
                 try {
                     static_var++;var++;
                     CommonResources.static_var++;
-                    // CommonResources.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
+                    CommonResources.StaticNestedClass.static_var++;
+                    CommonResources.StaticNestedClass.static_function(i);
+                    CommonResources.StaticNestedClass snc = new CommonResources.StaticNestedClass();
+                    snc.function(i);
+                    snc.static_var++;
+                    // CommonResources.InnerClass inner = new CommonResources.InnerClass(); // ERROR: This class is not an enclosing class.
+                    // CommonResources.mVar0++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
                     sleep(100); // Hawk: simulate context-switch
                     //SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var);
                     SMLog.i(TAG, "run        name="+mThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);

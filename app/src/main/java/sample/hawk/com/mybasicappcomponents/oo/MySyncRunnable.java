@@ -158,12 +158,11 @@ synchronized keyword 可以確保資料的順序性, 但是代價將是效能的
 
 public class MySyncRunnable implements Runnable{
     static String TAG = "[MySyncRunnable]";
-    String mThreadName="";
     boolean mSync=false;
     int var=0; // object_var
     static volatile int static_var;
 
-    MySyncRunnable(String name, boolean sync) {
+    public MySyncRunnable(String name, boolean sync) {
         // mThreadName = Thread.currentThread().getName();
         mSync = sync;
         // SMLog.i(TAG,mThreadName+"constructor");
@@ -184,7 +183,7 @@ public class MySyncRunnable implements Runnable{
                         CommonResources.StaticNestedClass snc = new CommonResources.StaticNestedClass();
                         snc.function(snc.var5);
                         snc.var5++;
-                        // CommonResources.var++; CommonResources.InnerClass.var++; CommonResources.StaticNestedClass.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
+                        // CommonResources.mVar0++; CommonResources.InnerClass.mVar1++; CommonResources.StaticNestedClass.var5++; // ERROR: Non-static field var 'mVar1' cannot be reference from a static context.
                         Thread.sleep(100); // Hawk: simulate context-switch
                         //SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var);
                         SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
@@ -198,8 +197,14 @@ public class MySyncRunnable implements Runnable{
         else {
             for (int i = 0; i < 10; i++) {
                 try {
-                    static_var++;var++;CommonResources.static_var++;
-                    // CommonResources.var++; // ERROR: Non-static field var 'var' cannot be reference from a static context.
+                    static_var++;var++;
+                    CommonResources.static_var++;
+                    CommonResources.StaticNestedClass.static_var++;
+                    CommonResources.StaticNestedClass.static_function(static_var);
+                    CommonResources.StaticNestedClass snc = new CommonResources.StaticNestedClass();
+                    snc.function(snc.var5);
+                    snc.var5++;
+                    // CommonResources.mVar0++; CommonResources.InnerClass.mVar1++; CommonResources.StaticNestedClass.var5++; // ERROR: Non-static field var 'mVar1' cannot be reference from a static context.
                     Thread.sleep(100); // Hawk: simulate context-switch
                     //SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var);
                     SMLog.i(TAG, "run        name="+ThreadName+"  var="+ var+"  static_var="+ static_var+"  CommonResources.static_var="+CommonResources.static_var);
