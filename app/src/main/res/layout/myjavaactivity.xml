@@ -327,6 +327,18 @@
             android:tag="7777"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="WITH Volatile, Sync, Atomic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="7015"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="WITHOUT Volatile, Sync, Atomic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="7016"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
             android:text="Compare: Json Data Object"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

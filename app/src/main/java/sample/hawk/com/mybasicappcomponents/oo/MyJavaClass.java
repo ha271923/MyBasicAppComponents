@@ -8,6 +8,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThrea
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedList;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MysynchronizedSet;
+import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.MyMultiThreadTest;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyConcurrentHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyConcurrentLinkedQueue;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.concerent.MyCopyOnWriteArrayList;
@@ -333,6 +334,17 @@ public class MyJavaClass {
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);
                 break;
+            case 7015:
+                MyMultiThreadTest mmtt = new MyMultiThreadTest();
+                mmtt.Test(true);
+                break;
+
+            case 7016:
+                MyMultiThreadTest mmtt2 = new MyMultiThreadTest();
+                mmtt2.Test(false);
+                break;
+
+
 /*
             case 9001: // MyLibrary
                 // remarked these code, since it's always failed at building the signed release key APP.
