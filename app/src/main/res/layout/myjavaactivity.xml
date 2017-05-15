@@ -338,6 +338,14 @@
             android:layout_height="wrap_content"
             android:tag="7016"
             android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="Thread vs Runnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="7019"
+            android:onClick="onClick_MyJavaClass"/>
+
         <Button
             android:text="Compare: Json Data Object"
             android:layout_width="wrap_content"

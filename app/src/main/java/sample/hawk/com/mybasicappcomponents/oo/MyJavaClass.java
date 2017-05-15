@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.background.Thread_vs_Runnable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyStack;
@@ -334,14 +335,20 @@ public class MyJavaClass {
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);
                 break;
-            case 7015:
+            case 7015: // WITH volatile, synchronized, Atom
                 MyMultiThreadTest mmtt = new MyMultiThreadTest();
                 mmtt.Test(true);
                 break;
 
-            case 7016:
+            case 7016: // WITHOUT volatile, synchronized, Atom
                 MyMultiThreadTest mmtt2 = new MyMultiThreadTest();
                 mmtt2.Test(false);
+                break;
+
+            case 7019:
+                Thread_vs_Runnable tvr = new Thread_vs_Runnable();
+                tvr.UseExtRunnable();
+                tvr.UseExtThread();
                 break;
 
 
