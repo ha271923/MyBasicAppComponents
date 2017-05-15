@@ -345,6 +345,12 @@
             android:layout_height="wrap_content"
             android:tag="7019"
             android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="ThreadGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="7020"
+            android:onClick="onClick_MyJavaClass"/>
 
         <Button
             android:text="Compare: Json Data Object"

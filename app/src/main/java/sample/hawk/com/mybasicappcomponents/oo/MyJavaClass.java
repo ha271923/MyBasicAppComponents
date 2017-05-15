@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.background.MyThreadGroup;
 import sample.hawk.com.mybasicappcomponents.background.Thread_vs_Runnable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
@@ -350,8 +351,10 @@ public class MyJavaClass {
                 tvr.UseExtRunnable();
                 tvr.UseExtThread();
                 break;
-
-
+            case 7020:
+                MyThreadGroup ntg = new MyThreadGroup();
+                ntg.test();
+                break;
 /*
             case 9001: // MyLibrary
                 // remarked these code, since it's always failed at building the signed release key APP.
