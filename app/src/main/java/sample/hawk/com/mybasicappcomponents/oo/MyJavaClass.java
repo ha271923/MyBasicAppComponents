@@ -1,6 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
 import sample.hawk.com.mybasicappcomponents.background.MyThreadGroup;
+import sample.hawk.com.mybasicappcomponents.background.MyThreadPoolExecutor;
 import sample.hawk.com.mybasicappcomponents.background.Thread_vs_Runnable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
@@ -355,6 +356,11 @@ public class MyJavaClass {
                 MyThreadGroup ntg = new MyThreadGroup();
                 ntg.test();
                 break;
+            case 7021:
+                MyThreadPoolExecutor mtpe = new MyThreadPoolExecutor();
+                mtpe.test();
+                break;
+
 /*
             case 9001: // MyLibrary
                 // remarked these code, since it's always failed at building the signed release key APP.
