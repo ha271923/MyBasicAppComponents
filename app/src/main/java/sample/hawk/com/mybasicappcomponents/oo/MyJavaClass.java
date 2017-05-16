@@ -1,5 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import sample.hawk.com.mybasicappcomponents.background.MyScheduledThreadPoolExecutor;
 import sample.hawk.com.mybasicappcomponents.background.MyThreadGroup;
 import sample.hawk.com.mybasicappcomponents.background.MyThreadPoolExecutor;
 import sample.hawk.com.mybasicappcomponents.background.Thread_vs_Runnable;
@@ -359,6 +360,10 @@ public class MyJavaClass {
             case 7021:
                 MyThreadPoolExecutor mtpe = new MyThreadPoolExecutor();
                 mtpe.test();
+                break;
+            case 7022:
+                MyScheduledThreadPoolExecutor mstpe = new MyScheduledThreadPoolExecutor();
+                mstpe.test();
                 break;
 
 /*
