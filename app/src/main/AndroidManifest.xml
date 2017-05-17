@@ -525,7 +525,7 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".background.JobSchedulerActivity"
+        <activity android:name=".background.MyJobSchedulerActivity"
                   android:label="background/JobSchedulerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />

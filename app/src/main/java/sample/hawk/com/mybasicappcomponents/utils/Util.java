@@ -2,10 +2,13 @@ package sample.hawk.com.mybasicappcomponents.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Looper;
 import android.view.View;
@@ -138,4 +141,26 @@ public class Util {
         }
         return false;
     }
+
+    public static boolean isPhonePluggedIn(Context context){
+        boolean charging = false;
+
+        final Intent batteryIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        int status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+        boolean batteryCharge = status==BatteryManager.BATTERY_STATUS_CHARGING;
+
+        int chargePlug = batteryIntent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
+        boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
+
+        if (batteryCharge)
+            charging=true;
+        if (usbCharge)
+            charging=true;
+        if (acCharge)
+            charging=true;
+
+        return charging;
+    }
+
 }

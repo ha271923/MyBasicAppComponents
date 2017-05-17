@@ -17,7 +17,7 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
     private Handler mJobHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage( Message msg ) {
-            SMLog.i();
+            SMLog.i("JobHandler msg="+msg.what+"   TID="+Thread.currentThread().getId());
             switch (msg.what) {
                 case 0: // MSG_EXECUTE_JOB:
                     break;
@@ -29,8 +29,8 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
                     SMLog.e("MyJobSchedulerService", "Unrecognised message received.");
                     break;
             }
-            if(JobSchedulerActivity.mJob_status !=null) // Exception occur if activity was killed by OS.
-                JobSchedulerActivity.mJob_status.setText("JobService handleMessage");
+            if(MyJobSchedulerActivity.mJob_status !=null) // Exception occur if activity was killed by OS.
+                MyJobSchedulerActivity.mJob_status.setText("JobService handleMessage");
             jobFinished( (JobParameters) msg.obj, false );
             return true;
         }
@@ -38,9 +38,9 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
 
     @Override
     public boolean onStartJob(JobParameters params ) {
-        SMLog.i();
-        if(JobSchedulerActivity.mJob_status !=null)
-            JobSchedulerActivity.mJob_status.setText("JobService onStartJob"); // UpdateUI in JobService directly
+        SMLog.i("onStartJob +++");
+        if(MyJobSchedulerActivity.mJob_status !=null)
+            MyJobSchedulerActivity.mJob_status.setText("JobService onStartJob"); // UpdateUI in JobService directly
         Toast.makeText( getApplicationContext(), "MyJobSchedulerService onStartJob mCount="+(mCount++), Toast.LENGTH_SHORT ).show();
         mJobHandler.sendMessage( Message.obtain( mJobHandler, 1, params ) );
         return true;
@@ -48,9 +48,9 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
 
     @Override
     public boolean onStopJob( JobParameters params ) {
-        SMLog.i();
-        if(JobSchedulerActivity.mJob_status !=null)
-            JobSchedulerActivity.mJob_status.setText("JobService onStopJob!!"); // UpdateUI in JobService
+        SMLog.i("onStopJob ---");
+        if(MyJobSchedulerActivity.mJob_status !=null)
+            MyJobSchedulerActivity.mJob_status.setText("JobService onStopJob!!"); // UpdateUI in JobService
         mCount =0;
         Toast.makeText( getApplicationContext(), "MyJobSchedulerService onStopJob!! ", Toast.LENGTH_SHORT ).show();
         mJobHandler.removeMessages( 1 );
