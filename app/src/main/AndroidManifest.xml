@@ -560,8 +560,22 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".background.MyLoaderActivity"
-                  android:label="background/MyLoaderActivity">
+        <activity android:name=".background.MyCursorLoaderActivity"
+                  android:label="background/MyCursorLoaderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.MyStringLoaderActivity"
+                  android:label="background/MyStringLoaderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".background.MyStringLoaderActivity2"
+                  android:label="background/MyStringLoaderActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
