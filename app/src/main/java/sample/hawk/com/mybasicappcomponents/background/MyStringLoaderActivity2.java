@@ -44,7 +44,7 @@ public class MyStringLoaderActivity2 extends AppCompatActivity {
             @Override
             public Loader<String> onCreateLoader(int arg0, Bundle arg1) {
                 SMLog.i("  onLoadFinished() TID="+ Thread.currentThread().getId()+"    arg0="+arg0+"    arg1="+arg1);
-                mAsyncTaskLoader = new MyLoader(MyStringLoaderActivity2.this);
+                mAsyncTaskLoader = new StringDataLoader(MyStringLoaderActivity2.this);
                 return mAsyncTaskLoader;
             }
             @Override
@@ -66,9 +66,9 @@ public class MyStringLoaderActivity2 extends AppCompatActivity {
         loadData();
     }
 
-    static class MyLoader extends AsyncTaskLoader<String> {
+    static class StringDataLoader extends AsyncTaskLoader<String> {
         private String mLoadData;
-        public MyLoader(Context context) {
+        public StringDataLoader(Context context) {
             super(context);
         }
 

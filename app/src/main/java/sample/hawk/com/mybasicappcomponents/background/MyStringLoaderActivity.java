@@ -47,7 +47,7 @@ public class MyStringLoaderActivity extends AppCompatActivity implements LoaderM
     @Override
     public Loader<String> onCreateLoader(int id, Bundle bundle) {
         SMLog.i("  LoaderCallbacks::onCreateLoader()  TID="+Thread.currentThread().getId()+"    bundle="+bundle);
-        return new FetchString(this);
+        return new WebDataLoader(this);
     }
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
@@ -59,9 +59,9 @@ public class MyStringLoaderActivity extends AppCompatActivity implements LoaderM
         SMLog.i("  LoaderCallbacks::onLoaderReset()  TID="+Thread.currentThread().getId());
     }
 
-    private static class FetchString extends AsyncTaskLoader<String> {
+    private static class WebDataLoader extends AsyncTaskLoader<String> {
 
-        public FetchString(Context context) {
+        public WebDataLoader(Context context) {
             super(context);
             SMLog.i("    FetchString::constructor()  TID="+Thread.currentThread().getId());
         }
