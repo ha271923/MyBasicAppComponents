@@ -468,6 +468,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".background.FileChooser.FileChooserLauncherActivity"
+                  android:label="background/FileChooser/FileChooserLauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".background.HandlerThreadLooperActivity"
                   android:label="background/HandlerThreadLooperActivity">
