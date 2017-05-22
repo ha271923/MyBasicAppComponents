@@ -26,7 +26,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2017/2/15.
  */
 
-public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCallbacks<Cursor>, TextWatcher {
+public class MyCursorLoaderActivity extends Activity implements LoaderManager.LoaderCallbacks<Cursor>, TextWatcher {
     private EditText editText = null;
     private ListView listView = null;
     private SimpleCursorAdapter adapter = null;
@@ -94,6 +94,7 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
         Bundle args = new Bundle();
         args.putString("filter", null);
         LoaderManager lm = getLoaderManager();
+        SMLog.i("LoaderManager.initLoader()");
         lm.initLoader(CURSOR_LOADER_ID, args, this);
     }
 
@@ -138,6 +139,7 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
         SMLog.i();
         Uri uri;
         String filter = args != null ? args.getString("filter") : null;
+        SMLog.i("    querying SQL db ++++ TID="+Thread.currentThread().getId());
         if(filter != null){
             //根据用户指定的filter过滤显示
             uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_FILTER_URI, Uri.encode(filter));
@@ -153,7 +155,9 @@ public class MyLoaderActivity extends Activity implements LoaderManager.LoaderCa
                 "(" + ContactsContract.Contacts.HAS_PHONE_NUMBER + " =1) AND "+
                 "(" + ContactsContract.Contacts.DISPLAY_NAME + " != ''))";
         String sortOrder = ContactsContract.Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC";
-        return new CursorLoader(this, uri, projection, selection, null, sortOrder);
+        CursorLoader cursorLoader = new CursorLoader(this, uri, projection, selection, null, sortOrder);
+        SMLog.i("    querying SQL db --- TID="+Thread.currentThread().getId());
+        return cursorLoader; // return value is Loader<Cursor>, Not Cursor!!!! CursorLoader extends AsyncTaskLoader<Cursor> extends Loader<Cursor>
     }
 
     @Override
