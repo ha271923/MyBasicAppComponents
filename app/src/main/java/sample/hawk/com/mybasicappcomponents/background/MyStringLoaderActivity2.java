@@ -63,7 +63,7 @@ public class MyStringLoaderActivity2 extends AppCompatActivity {
     }
     public void onRefreshButton_Click(View view){
         SMLog.i("onRefreshButton_Click()");
-        loadData();
+        mAsyncTaskLoader.onContentChanged();
     }
 
     static class StringDataLoader extends AsyncTaskLoader<String> {
