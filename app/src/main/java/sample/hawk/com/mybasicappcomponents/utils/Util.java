@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.BatteryManager;
@@ -161,6 +162,25 @@ public class Util {
             charging=true;
 
         return charging;
+    }
+
+    public static void ListActivityConfigurations(Configuration config){
+        SMLog.i("fontScale="+config.fontScale);
+        SMLog.i("mcc="+config.mcc);
+        SMLog.i("mnc="+config.mnc);
+        SMLog.i("locale="+config.locale);
+        SMLog.i("screenLayout="+config.screenLayout);
+        SMLog.i("keyboard="+config.keyboard);
+        SMLog.i("keyboardHidden="+config.keyboardHidden);
+        SMLog.i("hardKeyboardHidden="+config.hardKeyboardHidden);
+        SMLog.i("navigation="+config.navigation);
+        SMLog.i("navigationHidden="+config.navigationHidden);
+        SMLog.i("orientation="+config.orientation);
+        SMLog.i("uiMode="+config.uiMode);
+        SMLog.i("screenWidthDp="+config.screenWidthDp);
+        SMLog.i("screenHeightDp="+config.screenHeightDp);
+        SMLog.i("smallestScreenWidthDp="+config.smallestScreenWidthDp);
+        SMLog.i("densityDpi="+config.densityDpi);
     }
 
 }

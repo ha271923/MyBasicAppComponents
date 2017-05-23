@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/MyActivity_Fragment1"
-        android:name="sample.hawk.com.mybasicappcomponents.view.MyFragment1"
+        android:name="sample.hawk.com.mybasicappcomponents.activity.MyFragment1"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"

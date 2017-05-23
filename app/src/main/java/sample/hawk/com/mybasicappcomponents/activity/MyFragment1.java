@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.activity;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -16,12 +16,30 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  */
 
 public class MyFragment1 extends Fragment{
+
+    class MyDataObject {
+        int var1;
+        boolean var2;
+        String  var3;
+        public MyDataObject(String str){
+            var1 = 1;
+            var2 = true;
+            var3 = str;
+        }
+    }
+    // data object we want to retain
+    public MyDataObject data1,data2;
+
     String   mState;
     TextView mStatus;
 
     @Override   // Fragment only
     public void onAttach(Context context) {
         super.onAttach(context);SMLog.i();
+        // retain this fragment
+        setRetainInstance(true);
+        this.data1 = new MyDataObject("data1");
+        this.data2 = new MyDataObject("data2");
         mState +="(C0)onAttach->";
     }
 

@@ -128,6 +128,50 @@
             </intent-filter>
         </activity>
 
+        <!--
+          Support on the new API level
+          android:resizeableActivity="false"
+          android:supportsPictureInPicture="false"
+          android:directBootAware="false"
+        -->
+        <activity android:name=".activity.ConfigChangeActivity"
+                  android:label="activity/ConfigChangeActivity"
+                  android:allowEmbedded="false"
+                  android:allowTaskReparenting="false"
+                  android:alwaysRetainTaskState="false"
+                  android:autoRemoveFromRecents="false"
+                  android:banner="@+id/android_robot"
+                  android:clearTaskOnLaunch="false"
+                  android:enabled="true"
+                  android:excludeFromRecents="false"
+                  android:exported="false"
+                  android:finishOnTaskLaunch="false"
+                  android:hardwareAccelerated="false"
+                  android:icon="@+id/android_robot"
+                  android:launchMode="standard"
+                  android:maxRecents="16"
+                  android:multiprocess="false"
+                  android:noHistory="false"
+                  android:parentActivityName=".MainActivity"
+                  android:persistableMode="persistRootOnly"
+                  android:permission="string"
+                  android:process="sample.hawk.com.mybasicappcomponents"
+                  android:relinquishTaskIdentity= "false"
+                  android:screenOrientation="unspecified"
+                  android:showForAllUsers="true"
+                  android:stateNotNeeded="false"
+                  android:taskAffinity="sample.hawk.com.mybasicappcomponents"
+                  android:theme="@android:style/Theme.Light"
+                  android:uiOptions="none"
+                  android:windowSoftInputMode="stateUnspecified"
+                  android:documentLaunchMode="none"
+                  android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize"
+                >
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <!-- START MoPub AD sample -->
         <activity android:name=".ad.MoPub.Mopub_NativeAD_Activity"
                   android:label="ad/Mopub_NativeAD_Activity">
@@ -350,8 +394,8 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyFragmentActivity"
-                  android:label="view/MyFragmentActivity">
+        <activity android:name=".activity.MyFragmentActivity"
+                  android:label="activity/MyFragmentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
