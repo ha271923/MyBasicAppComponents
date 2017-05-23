@@ -18,7 +18,7 @@ public class MyFragmentActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);SMLog.i();
         setContentView(R.layout.myfragment_activity); // this xml's viewgroup included fragment1
         addFragment(); // dynamic add fragment2
     }
@@ -33,12 +33,42 @@ public class MyFragmentActivity extends Activity {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        SMLog.i("onConfigurationChanged");
+        super.onConfigurationChanged(newConfig);SMLog.i();
         Configuration config = this.getResources().getConfiguration();
         if(config.equals(newConfig ))
             SMLog.i("newConfig == getConfiguration()");
         Util.ListActivityConfigurations(newConfig);
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();SMLog.i();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();SMLog.i();
+    }
+
+    @Override
+    protected void onPause() { // If user back to UI, state will goto onResume.
+        super.onPause();SMLog.i();
+    }
+
+    @Override
+    protected void onStop() {  // If user back to UI, state will goto onRestart. If process has been killed, the state will goto onCreate.
+        super.onStop();SMLog.i();
+    }
+
+    @Override
+    protected void onRestart() { // the next state is onStart.
+        super.onRestart();SMLog.i();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();SMLog.i();
+    }
+
 }

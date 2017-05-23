@@ -37,7 +37,7 @@ public class MyFragment1 extends Fragment{
     public void onAttach(Context context) {
         super.onAttach(context);SMLog.i();
         // retain this fragment
-        setRetainInstance(true);
+        // setRetainInstance(true);
         this.data1 = new MyDataObject("data1");
         this.data2 = new MyDataObject("data2");
         mState +="(C0)onAttach->";
