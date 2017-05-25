@@ -23,20 +23,20 @@ public class MyQuickSort implements IAlgorithm {
      */
 
     public void algorithm(){
+        long begin = System.currentTimeMillis();
         Sort();
+        long end = System.currentTimeMillis();
+        long elapsed = end-begin;
+        SMLog.i("Algorithm elapsed = "+elapsed +"ms");
     }
 
     private void Sort() {
-        long begin = System.currentTimeMillis();
         List<Integer> list = new ArrayList<Integer>();
         for (int n : mIntArray)
             list.add(n);
         list = Sort(list);
         for (int i = 0;i < mIntArray.length;++i)
             mIntArray[i] = list.get(i);
-        long end = System.currentTimeMillis();
-        long elapsed = end-begin;
-        SMLog.i("Sort algorithm elapsed = "+elapsed +"ms");
     }
 
     public List<Integer> Sort(List<Integer> list)

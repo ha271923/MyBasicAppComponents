@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.oo.sort.MyMergeSort;
 import sample.hawk.com.mybasicappcomponents.oo.sort.MyQuickSort;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.view.MyListRowDataItem;
@@ -77,17 +78,23 @@ public class MyJavaAlgorithmActivity extends ListActivity {
 
     void startClassByName(String classname){
         // Sort Algorithm
-        if(classname.equals("QuickSort")){
+        if(classname.contains("Sort")==true) {
             int[] IntArray = new int[1000];
             CreateRandomData(IntArray);
-            MyQuickSort quicksort = new MyQuickSort(IntArray);
-            SMLog.i("Before "+classname+" +++");
+            SMLog.i("Before " + classname + " +++");
             show_data(IntArray);
-            SMLog.i("Before "+classname+" ---");
-            quicksort.algorithm();
-            SMLog.i("After "+classname+" +++");
+            SMLog.i("Before " + classname + " ---");
+            if (classname.equals("QuickSort")) {
+                MyQuickSort quicksort = new MyQuickSort(IntArray);
+                quicksort.algorithm();
+            }
+            if (classname.equals("MergeSort")) {
+                MyMergeSort mergesort = new MyMergeSort(IntArray);
+                mergesort.algorithm();
+            }
+            SMLog.i("After " + classname + " +++");
             show_data(IntArray);
-            SMLog.i("After "+classname+" ---");
+            SMLog.i("After " + classname + " ---");
         }
     }
 
