@@ -205,6 +205,13 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".oo.MyJavaAlgorithmActivity"
+                  android:label="oo/MyJavaAlgorithmActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".oo.MyJavaActivity2" />
 
         <activity android:name=".designpattern.MyDesignPatternActivity"
