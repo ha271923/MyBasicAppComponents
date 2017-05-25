@@ -3,10 +3,10 @@ package sample.hawk.com.mybasicappcomponents.oo.sort;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
- * QuickSort Algorithm
+ * MergeSort Algorithm
  *   OmegaO = nlog(n)
  *   Theta  = nlog(n)
- *   BigO   = n^2
+ *   BigO   = nlog(n)
  */
 
 public class MyMergeSort implements IAlgorithm {

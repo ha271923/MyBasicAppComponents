@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.oo.sort.MyHeapSort;
 import sample.hawk.com.mybasicappcomponents.oo.sort.MyMergeSort;
 import sample.hawk.com.mybasicappcomponents.oo.sort.MyQuickSort;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -91,6 +92,10 @@ public class MyJavaAlgorithmActivity extends ListActivity {
             if (classname.equals("MergeSort")) {
                 MyMergeSort mergesort = new MyMergeSort(IntArray);
                 mergesort.algorithm();
+            }
+            if (classname.equals("HeapSort")) {
+                MyHeapSort heapsort = new MyHeapSort(IntArray);
+                heapsort.algorithm();
             }
             SMLog.i("After " + classname + " +++");
             show_data(IntArray);
