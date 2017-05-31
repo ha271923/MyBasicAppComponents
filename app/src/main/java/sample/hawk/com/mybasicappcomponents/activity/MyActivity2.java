@@ -1,6 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -8,7 +9,7 @@ import android.widget.TextView;
  * Created by ha271 on 2017/1/6.
  */
 
-public class SecondActivity extends Activity {
+public class MyActivity2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +36,18 @@ public class SecondActivity extends Activity {
         );
 
         setContentView(showText);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // You also can return the result in OnClickListener() by a button
+        // for startActivityForResult() API called in the previous Activity
+        Intent intent=new Intent();
+        Bundle bundle=new Bundle();
+        bundle.putString("SecondActivity_Result", "BBBBBBBBBBBBBBBBBBBBBBB");
+        intent.putExtras(bundle);
+        setResult(RESULT_OK,intent);
     }
 }
