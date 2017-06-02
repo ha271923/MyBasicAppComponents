@@ -56,4 +56,9 @@
     <!-- DebugMsg -->
     <string name="accessibility_description">this app needs accessibility service for Go Back and Pull Down Notification on Samsung Lollipop system</string>
 
+
+    <string name="my_text_string">Hello world!</string>
+    <string name="my_button_default">Set Default</string>
+    <string name="my_button_apply_mytheme">Apply My Theme</string>
+
 </resources>

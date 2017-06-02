@@ -43,4 +43,38 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- Custom Style defined for Global -->
+    <color name="custom_theme_color">#b0b0ff</color>
+
+    <!-- Custom Style defined for Theme. -->
+    <style name="MyThemeStyle" parent="AppTheme">
+        <item name="colorPrimary">#673AB7</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">#FF4081</item>
+        <item name="android:textColor">#00FF00</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:windowBackground">@color/custom_theme_color</item>
+        <item name="android:colorBackground">@color/custom_theme_color</item>
+    </style>
+
+    <!-- Custom Style defined for Button -->
+    <style name="CustomButtonStyle">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:colorBackground">@color/yellow</item>
+    </style>
+
+    <!-- Custom Style defined for EditBox -->
+    <style name="Numbers">
+        <item name="android:inputType">number</item>
+    </style>
+
+    <!-- Custom Style defined for CustomView -->
+    <declare-styleable name="MyTimeView">
+        <attr name="timeText" format="string" />
+        <attr name="timeColor" format="boolean"/>
+    </declare-styleable>
+
 </resources>

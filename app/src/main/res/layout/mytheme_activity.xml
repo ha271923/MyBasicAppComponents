@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:id="@+id/mythemeactivity_layout">
+    <sample.hawk.com.mybasicappcomponents.view.MyTimeView
+        android:id="@+id/mytimeview_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="40sp"
+        custom:timeText="My Time View"
+        custom:timeColor="true" />
+
+
+    <Button
+        android:id="@+id/button_set_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_button_default"/>
+
+    <Button
+        android:id="@+id/button_apply_mytheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_button_apply_mytheme"/>
+
+    <CheckBox
+        android:text="set Background Image"
+        android:checked="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/cb_backgroundImage"/>
+
+    <CheckBox
+        android:text="UI element Alpha"
+        android:checked="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/cb_uielement_alpha"/>
+    <CheckBox
+        android:text="ColorPrimary Alpha"
+        android:checked="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/cb_colorprimary_alpha"/>
+    <CheckBox
+        android:text="Activity Background Alpha"
+        android:checked="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/cb_activitybackground_alpha"/>
+
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:capitalize="characters"
+        android:text="@string/my_text_string" />
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/toggleButton"/>
+
+    <RadioButton
+        android:text="RadioButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/radioButton"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/spinner"/>
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"/>
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"/>
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/seekBar"/>
+    <SeekBar
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="3"
+        android:id="@+id/seekBar2"/>
+    <RatingBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/ratingBar"/>
+    <Switch
+        android:text="Switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/switch1"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:focusable="false"
+        android:id="@+id/editText2"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

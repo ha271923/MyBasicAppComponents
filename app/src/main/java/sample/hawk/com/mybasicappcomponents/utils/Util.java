@@ -12,6 +12,7 @@ import android.graphics.Canvas;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Looper;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
@@ -22,6 +23,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Created by ha271 on 2016/11/23.
@@ -183,4 +186,23 @@ public class Util {
         SMLog.i("densityDpi="+config.densityDpi);
     }
 
+    // access the API with @hide annotation.
+    public static Object CallHideAPI(Context context, String ApiName){
+        Object result = null;
+        try {
+            Class<?> clazz = ContextThemeWrapper.class;
+            Method method = clazz.getMethod(ApiName);
+            method.setAccessible(true);
+            result = method.invoke(context);
+        } catch (NoSuchMethodException e) {
+            SMLog.e("NoSuchMethodException! Err="+ e);
+        } catch (IllegalAccessException e) {
+            SMLog.e("IllegalAccessException! Err="+ e);
+        } catch (IllegalArgumentException e) {
+            SMLog.e("IllegalArgumentException! Err="+ e);
+        } catch (InvocationTargetException e) {
+            SMLog.e("InvocationTargetException! Err="+ e);
+        }
+        return result;
+    }
 }
