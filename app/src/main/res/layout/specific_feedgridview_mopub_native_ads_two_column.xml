@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sample.hawk.com.mybasicappcomponents.view.FeedGridViewMopubNativeAds_TwoColumn
                         xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/twocolumn_layout"
                                                     android:orientation="vertical"
                                                     android:background="@color/colorPrimaryDark"
                                                     android:layout_width="match_parent"

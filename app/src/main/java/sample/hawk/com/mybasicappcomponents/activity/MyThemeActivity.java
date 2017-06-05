@@ -143,17 +143,19 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     }
 
     private void setAlpha_ColorPrimary(boolean enable){
+        setAlpha_ColorPrimary(enable,findViewById(R.id.toggleButton));
+        setAlpha_ColorPrimary(enable,findViewById(R.id.mytimeview_id));
+    }
+
+    private void setAlpha_ColorPrimary(boolean enable, View v){
         TypedValue typedValueDrawerSelected = new TypedValue();
         getTheme().resolveAttribute(R.attr.colorPrimary, typedValueDrawerSelected, true);
         int colorDrawerItemSelected = typedValueDrawerSelected.data;
-        if(enable == true) {
+        if(enable == true)
             colorDrawerItemSelected = (colorDrawerItemSelected & 0x00FFFFFF) | 0x40000000;
-            getWindow().setStatusBarColor(colorDrawerItemSelected);
-        }
-        else{
-            getWindow().setStatusBarColor(colorDrawerItemSelected);
-        }
+        v.setBackgroundColor(colorDrawerItemSelected);
     }
+
 
     @Override
     protected void onApplyThemeResource(Resources.Theme theme, int resid, boolean first) {
