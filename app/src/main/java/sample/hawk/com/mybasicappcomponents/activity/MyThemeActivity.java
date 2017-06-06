@@ -1,12 +1,19 @@
 package sample.hawk.com.mybasicappcomponents.activity;
 
 import android.app.Activity;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.annotation.AttrRes;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
@@ -19,6 +26,9 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.view.MyTimeView;
 
+import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.drawableToBitmap;
+import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.fastblur;
+import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.getResizedBitmap;
 import static sample.hawk.com.mybasicappcomponents.utils.Util.CallHideAPI;
 
 /**
@@ -52,6 +62,26 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
         cb_uielement_alpha.setOnClickListener(this);
         cb_colorprimary_alpha.setOnClickListener(this);
         cb_activitybackground_alpha.setOnClickListener(this);
+
+        int[] ThemeColors = new int[]{
+                getThemeAttrColor(mContext, R.attr.colorPrimary),
+                getThemeAttrColor(mContext, R.attr.colorAccent),
+        };
+
+
+    }
+
+    void getThemeParameters(Context context){
+        int colorPrimary = getThemeAttrColor(context, R.attr.colorPrimary);
+        SMLog.i("colorPrimary= "+ colorPrimary );
+    }
+    private static int getThemeAttrColor(Context context, @AttrRes int colorAttr) {
+        TypedArray array = context.obtainStyledAttributes(null, new int[]{colorAttr});
+        try {
+            return array.getColor(0, 0);
+        } finally {
+            array.recycle();
+        }
     }
 
     @Override
@@ -85,9 +115,9 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.cb_backgroundImage:
                 if(((CheckBox)v).isChecked())
-                    set_BackgroundImage(true);
+                    set_BackgroundImage_Blur(true);
                 else
-                    set_BackgroundImage(false);
+                    set_BackgroundImage_Blur(false);
                 break;
         }
     }
@@ -101,12 +131,9 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
 
     }
 
-    private void setAlpha_views() {
-        setAlpha_ColorPrimary(true);
-        if(mCurrentThemeId != mDefaultThemeId){ // not default theme
-            // setAlpha_ActivityBackground(true);
-            setAlpha_UiElement(true);
-        }
+    private Drawable getWallPaper() {
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+        return wallpaperManager.getDrawable();
     }
 
     private void setAlpha_UiElement(boolean enable){
@@ -122,10 +149,61 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
 
     private void set_BackgroundImage(boolean enable) {
         LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
-        if(enable == true)
-            RootView.setBackground(getResources().getDrawable(R.drawable.android_robot));
-        else
+        if(enable == true){
+            RootView.setBackground(getWallPaper());
+            //RootView.setBackground(getResources().getDrawable(R.drawable.android_robot));
+        }
+        else {
             RootView.setBackground(null);
+        }
+    }
+
+
+    private Bitmap BlurAlgorithms(Bitmap bmp, int algorithmID){
+        long start_time = SystemClock.uptimeMillis();
+        switch(algorithmID){
+            case 1: // 66.5s
+                bmp = fastblur( bmp, 0.5f, 50);
+                break;
+            case 2: // 7.6s
+                bmp = fastblur( bmp, 0.2f, 10);
+                break;
+            case 3: // 2.1s
+                bmp = getResizedBitmap(bmp, bmp.getWidth()/2, bmp.getHeight()/2);
+                bmp = fastblur( bmp, 0.2f, 10);
+                break;
+            case 4: // 1.1s
+                bmp = getResizedBitmap(bmp, bmp.getWidth()/3, bmp.getHeight()/3);
+                bmp = fastblur( bmp, 0.2f, 10);
+                break;
+            case 5: // 0.74s
+                bmp = getResizedBitmap(bmp, bmp.getWidth()/4, bmp.getHeight()/4);
+                bmp = fastblur( bmp, 0.2f, 10);
+                break;
+            case 6: // 0.175s
+                bmp = getResizedBitmap(bmp, bmp.getWidth()/10, bmp.getHeight()/10);
+                bmp = fastblur( bmp, 0.2f, 10);
+                break;
+        }
+        long  end_time = SystemClock.uptimeMillis();
+        SMLog.i("Blur Algorithm ID= "+algorithmID+"     TimeCost = " + (end_time-start_time));
+        return bmp;
+    }
+
+    private void set_BackgroundImage_Blur(boolean enable) {
+        SMLog.i();
+        LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
+        if(enable == true){
+            Drawable wallpaper = getWallPaper();
+            Bitmap bmp = drawableToBitmap(wallpaper);
+            bmp = BlurAlgorithms( bmp, 6);
+            wallpaper = new BitmapDrawable(getResources(), bmp);
+            RootView.setBackground(wallpaper);
+            //RootView.setBackground(getResources().getDrawable(R.drawable.android_robot));
+        }
+        else {
+            RootView.setBackground(null);
+        }
     }
 
     private void setAlpha_ActivityBackground(boolean enable){
