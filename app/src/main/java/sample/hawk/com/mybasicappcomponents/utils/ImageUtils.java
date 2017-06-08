@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 
 /**
  * Created by ha271 on 2017/6/6.
@@ -63,7 +64,7 @@ public class ImageUtils {
      * Stack Blur Algorithm by Mario Klingemann <mario@quasimondo.com>
      */
 
-    public static Bitmap fastblur(Bitmap sentBitmap, float scale, int radius) {
+    public static Bitmap javaBlur(Bitmap sentBitmap, float scale, int radius) {
         int width = Math.round(sentBitmap.getWidth() * scale);
         int height = Math.round(sentBitmap.getHeight() * scale);
         sentBitmap = Bitmap.createScaledBitmap(sentBitmap, width, height, false);
@@ -284,6 +285,15 @@ public class ImageUtils {
                 bm, 0, 0, width, height, matrix, false);
         bm.recycle();
         return resizedBitmap;
+    }
+
+
+    public static Bitmap getScreenshot(View v) {
+        Bitmap b = Bitmap.createBitmap(v.getMeasuredWidth(),
+                v.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(b);
+        v.draw(c);
+        return b;
     }
 
 }

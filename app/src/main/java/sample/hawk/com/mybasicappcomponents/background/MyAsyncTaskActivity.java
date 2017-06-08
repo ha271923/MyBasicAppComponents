@@ -78,9 +78,9 @@ public class MyAsyncTaskActivity extends Activity {
             SMLog.i();
             String pre = params[0]; // params[0]="Start MyAsyncTask job!"
             // TODO: WORKTHREAD at here for implement your job!
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 1000; i++) {
                 publishProgress(pre+i/*param2*/); // Hawk: related with onProgressUpdate()
-                SystemClock.sleep(1000);
+                SystemClock.sleep(10);
                 SMLog.i("["+i+"]  AsyncTask::doInBackground"); // Hawk: Activity BACK or TaskSwitch does NOT stop this Job.
             }
             return "AsyncTask finish!";

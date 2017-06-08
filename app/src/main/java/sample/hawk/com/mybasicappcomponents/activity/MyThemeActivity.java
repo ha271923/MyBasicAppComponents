@@ -23,11 +23,12 @@ import android.widget.LinearLayout;
 import android.widget.ToggleButton;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.utils.BlurBuilder;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.view.MyTimeView;
 
 import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.drawableToBitmap;
-import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.fastblur;
+import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.javaBlur;
 import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.getResizedBitmap;
 import static sample.hawk.com.mybasicappcomponents.utils.Util.CallHideAPI;
 
@@ -113,11 +114,19 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
                 else
                     setAlpha_ActivityBackground(false);
                 break;
+/*
             case R.id.cb_backgroundImage:
                 if(((CheckBox)v).isChecked())
                     set_BackgroundImage_Blur(true);
                 else
                     set_BackgroundImage_Blur(false);
+                break;
+*/
+            case R.id.cb_backgroundImage:
+                if(((CheckBox)v).isChecked())
+                    set_BackgroundImage_HwBlur(true);
+                else
+                    set_BackgroundImage_HwBlur(false);
                 break;
         }
     }
@@ -159,35 +168,60 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     }
 
 
-    private Bitmap BlurAlgorithms(Bitmap bmp, int algorithmID){
+    private Bitmap JavaBlur(Bitmap bmp, int paramCase){
         long start_time = SystemClock.uptimeMillis();
-        switch(algorithmID){
+        switch(paramCase){
             case 1: // 66.5s
-                bmp = fastblur( bmp, 0.5f, 50);
+                bmp = javaBlur( bmp, 0.5f, 50);
                 break;
             case 2: // 7.6s
-                bmp = fastblur( bmp, 0.2f, 10);
+                bmp = javaBlur( bmp, 0.2f, 10);
                 break;
             case 3: // 2.1s
                 bmp = getResizedBitmap(bmp, bmp.getWidth()/2, bmp.getHeight()/2);
-                bmp = fastblur( bmp, 0.2f, 10);
+                bmp = javaBlur( bmp, 0.2f, 10);
                 break;
             case 4: // 1.1s
                 bmp = getResizedBitmap(bmp, bmp.getWidth()/3, bmp.getHeight()/3);
-                bmp = fastblur( bmp, 0.2f, 10);
+                bmp = javaBlur( bmp, 0.2f, 10);
                 break;
             case 5: // 0.74s
                 bmp = getResizedBitmap(bmp, bmp.getWidth()/4, bmp.getHeight()/4);
-                bmp = fastblur( bmp, 0.2f, 10);
+                bmp = javaBlur( bmp, 0.2f, 10);
                 break;
             case 6: // 0.175s
                 bmp = getResizedBitmap(bmp, bmp.getWidth()/10, bmp.getHeight()/10);
-                bmp = fastblur( bmp, 0.2f, 10);
+                bmp = javaBlur( bmp, 0.2f, 10);
+                break;
+            case 7: // 1.2s
+                bmp = getResizedBitmap(bmp, bmp.getWidth()/10, bmp.getHeight()/10);
+                bmp = javaBlur( bmp, 0.55f, 20);
                 break;
         }
         long  end_time = SystemClock.uptimeMillis();
-        SMLog.i("Blur Algorithm ID= "+algorithmID+"     TimeCost = " + (end_time-start_time));
+        SMLog.i("Blur paramCase ID= "+paramCase+"     TimeCost = " + (end_time-start_time));
         return bmp;
+    }
+    // 0.12s , Best Performance, API17+ supported
+    private void set_BackgroundImage_HwBlur(boolean enable){
+        final LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
+        if(enable == true) {
+            final Drawable wallpaper = getWallPaper();
+            Bitmap bmp = drawableToBitmap(wallpaper);
+            final long start_time = SystemClock.uptimeMillis();
+            BlurBuilder.asyncBlur(mContext, bmp, new BlurBuilder.AsyncResponse() {
+                @Override
+                public void processFinish(Bitmap processedbmp) {
+                    long end_time = SystemClock.uptimeMillis();
+                    SMLog.i("Blur HW Algorithm    TimeCost = " + (end_time-start_time));
+                    BitmapDrawable processedBitmapDrawable = new BitmapDrawable(getResources(), processedbmp);
+                    RootView.setBackground(processedBitmapDrawable);
+                }
+            });
+        }
+        else {
+            RootView.setBackground(null);
+        }
     }
 
     private void set_BackgroundImage_Blur(boolean enable) {
@@ -196,7 +230,7 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
         if(enable == true){
             Drawable wallpaper = getWallPaper();
             Bitmap bmp = drawableToBitmap(wallpaper);
-            bmp = BlurAlgorithms( bmp, 6);
+            bmp = JavaBlur( bmp, 7);
             wallpaper = new BitmapDrawable(getResources(), bmp);
             RootView.setBackground(wallpaper);
             //RootView.setBackground(getResources().getDrawable(R.drawable.android_robot));
@@ -205,7 +239,6 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
             RootView.setBackground(null);
         }
     }
-
     private void setAlpha_ActivityBackground(boolean enable){
         LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
         Window wnd = getWindow();
