@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="8dp"
+              tools:background="@drawable/bg_layout_1">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Layout_1" />
+
+    <GridLayout
+                android:id="@+id/progressbars"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:rowCount="8"
+                android:columnCount="8" >
+        <ProgressBar android:id="@+id/id0" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id1" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id2" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id3" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id4" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id5" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id6" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id7" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id8" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id9" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id10" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id11" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id12" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id13" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id14" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id15" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id16" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id17" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id18" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id19" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id20" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id21" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id22" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id23" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id24" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id25" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id26" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id27" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id28" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id29" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id30" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id31" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id32" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id33" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id34" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id35" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id36" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id37" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id38" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id39" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id40" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id41" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id42" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id43" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id44" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id45" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id46" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id47" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id48" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id49" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id50" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id51" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id52" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id53" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id54" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id55" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id56" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id57" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id58" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id59" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id60" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id61" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id62" android:alpha="0.5"/>
+        <ProgressBar android:id="@+id/id63" android:alpha="0.5"/>
+    </GridLayout>
+
+
+</LinearLayout>

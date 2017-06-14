@@ -13,10 +13,12 @@ import sample.hawk.com.mybasicappcomponents.utils.Util;
 public class MyApplication extends Application {
 
     protected String userAgent;
+    public static Application mApplication;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mApplication = this;
         userAgent = Util.getUserAgent(this, "MyBasicAppComponents");
         SMLog.i("userAgent: "+userAgent);
         CheckLogLevel();

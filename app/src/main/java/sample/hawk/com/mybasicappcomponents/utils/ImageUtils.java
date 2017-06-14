@@ -1,11 +1,18 @@
 package sample.hawk.com.mybasicappcomponents.utils;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 /**
  * Created by ha271 on 2017/6/6.
@@ -294,6 +301,75 @@ public class ImageUtils {
         Canvas c = new Canvas(b);
         v.draw(c);
         return b;
+    }
+
+
+    public static boolean isHardwareAccelerated(Application app) {
+        // Has HW acceleration been enabled in the manifest?
+        ApplicationInfo info = app.getApplicationInfo();
+        if ((info.flags & ApplicationInfo.FLAG_HARDWARE_ACCELERATED) != 0) {
+            SMLog.i("1. App Accelerator = ENABLED");
+            return true;
+        }
+        else{
+            SMLog.i("1. App Accelerator = disable");
+        }
+        return false;
+    }
+
+    // Has HW acceleration been enabled in the manifest?
+    public static boolean isHardwareAccelerated(Activity activity) {
+        try {
+            ActivityInfo info = activity.getPackageManager().getActivityInfo(
+                    activity.getComponentName(), 0);
+            if ((info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0) {
+                SMLog.i("2. Activity Accelerator = ENABLED");
+                return true;
+            }
+            else{
+                SMLog.i("2. Activity Accelerator = disable");
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            SMLog.e("Hawk", "getActivityInfo(self) should not fail");
+        }
+        return false;
+    }
+
+    // Has HW acceleration been enabled in the manifest?
+    public static boolean isHardwareAccelerated(Window window) {
+        if (window != null) {
+            if ((window.getAttributes().flags
+                    & WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED) != 0) {
+                SMLog.i("3. Window Accelerator = ENABLED");
+                return true;
+            }
+            else{
+                SMLog.i("3. Window Accelerator = disable");
+            }
+        }
+        return false;
+    }
+
+    public static boolean isHardwareAccelerated(View view) {
+        if(view.isHardwareAccelerated()==true){
+            SMLog.i("4. View Accelerator = ENABLED");
+            return true;
+        }
+        else{
+            SMLog.i("4. View Accelerator = disable");
+        }
+        return false;
+    }
+
+    public static boolean isHardwareAccelerated(Canvas canvas) {
+        if(canvas.isHardwareAccelerated()==true){
+            SMLog.i("5. Canvas Accelerator = ENABLED");
+            return true;
+        }
+        else{
+            SMLog.i("5. Canvas Accelerator = disable");
+        }
+        return false;
     }
 
 }
