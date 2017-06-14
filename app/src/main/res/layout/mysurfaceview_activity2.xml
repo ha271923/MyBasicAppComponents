@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity" >
+    <sample.hawk.com.mybasicappcomponents.view.MyPaintSurface
+        android:id="@+id/paint_surface"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+    <TextView    android:id="@+id/title3"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textColor="@color/yellow"
+                 android:text="Draw Something on full AREA"/>
+    <ProgressBar android:id="@+id/pbar"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/title3" />
+    <LinearLayout android:id="@+id/buttons"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/pbar" >
+        <Button android:id="@+id/getBMP" android:text="getBMP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClick_MySurfaceViewActivity"/>
+        <Button android:id="@+id/getJPG" android:text="getJPG" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClick_MySurfaceViewActivity"/>
+        <Button android:id="@+id/SetBitmap" android:text="SetBitmap"  android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClick_MySurfaceViewActivity"/>
+        <Button android:id="@+id/CLEAR" android:text="CLEAR"  android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="onClick_MySurfaceViewActivity"/>
+    </LinearLayout>
+
+</RelativeLayout>
