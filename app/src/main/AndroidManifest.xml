@@ -317,8 +317,15 @@
                        android:value=".cache.DisplayingBitmaps.ui.ImageGridActivity" />
         </activity>
 
-        <activity android:name=".view.GraphicAccerlatorActivity"
-                  android:label="view/GraphicAccerlatorActivity">
+        <activity android:name=".view.GraphicAcceleratorActivity"
+                  android:label="view/GraphicAcceleratorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.GraphicAcceleratorActivity2"
+                  android:label="view/GraphicAcceleratorActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />

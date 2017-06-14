@@ -50,7 +50,7 @@ import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.isHardwareAc
  *      myView . setLayerType ( View.LAYER_TYPE_HARDWARE , null );
  *
  * */
-public class GraphicAccerlatorActivity extends Activity implements View.OnClickListener {
+public class GraphicAcceleratorActivity extends Activity implements View.OnClickListener {
     private Context mContext;
     private View mRootLayout;
     private View mLayout1;
@@ -69,10 +69,10 @@ public class GraphicAccerlatorActivity extends Activity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.graphicaccelator_activity);
+        mWind = getWindow();
         isHardwareAccelerated(MyApplication.mApplication); // 1. Application Level Accelerator
         isHardwareAccelerated(this);  // 2. Activity Level Accelerator
         isHardwareAccelerated(mWind); // 3. Window Level Accelerator
-        mWind = getWindow();
         mContext = this;
         mRootLayout = (LinearLayout) findViewById(R.id.viewlayer_root);
         // mAppBoostCB = (CheckBox) findViewById(R.id.app_boost_checkbox);
