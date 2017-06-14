@@ -14,6 +14,10 @@ import android.view.SurfaceView;
 
 import java.io.ByteArrayOutputStream;
 
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
+import static sample.hawk.com.mybasicappcomponents.utils.Util.isUiThread;
+
 /**
  * SurfaceView V.S View
  * surfaceView can be updated on the background thread.
@@ -97,7 +101,8 @@ public class MyPaintSurface extends SurfaceView {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) { // draw in UiThread
+        SMLog.i("tId="+Thread.currentThread()  + "  UiThread="+isUiThread());
         if (mSignature != null) {
             canvas.drawBitmap(mSignature, null, new Rect(0, 0, getWidth(), getHeight()), null);
         } else {

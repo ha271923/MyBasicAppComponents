@@ -6,6 +6,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.SurfaceHolder;
 
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
+import static sample.hawk.com.mybasicappcomponents.utils.Util.isUiThread;
+
 /**
  * Created by ha271 on 2016/11/10.
  */
@@ -32,8 +36,10 @@ public class MyDrawThread extends Thread
     }
 
     @Override
-    public void run()
+    public void run() // draw in non-UiThread
     {
+        SMLog.i("tId="+Thread.currentThread()  + "  UiThread="+isUiThread());
+
         int counter = 0;
         Canvas canvas = null;
         while(run) // 具體繪製工作
