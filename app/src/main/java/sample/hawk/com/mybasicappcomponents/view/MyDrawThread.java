@@ -11,36 +11,46 @@ import android.view.SurfaceHolder;
  */
 
 // 繪製Thread
-public class  MyDrawThread  extends  Thread
+public class MyDrawThread extends Thread
 {
     private SurfaceHolder holder;
-    private boolean  run;
+    private MySurfaceView surfaceView;
+    private boolean run;
+    public int mX = 100, mY =100;
 
-    public  MyDrawThread(SurfaceHolder holder)
+    public MyDrawThread(SurfaceHolder holder, MySurfaceView surfaceView)
     {
-        this .holder = holder;
-        run =  true ;
+        this.holder = holder;
+        this.surfaceView = surfaceView;
+        run = true;
+    }
+
+    public void updateTouchPosition(){
+        // force type convert will lose the data accuracy.
+        mX = (int)this.surfaceView.mX;
+        mY = (int)this.surfaceView.mY;
     }
 
     @Override
-    public void  run()
+    public void run()
     {
-        int  counter =  0 ;
-        Canvas canvas =  null ;
-        while (run) // 具體繪製工作
+        int counter = 0;
+        Canvas canvas = null;
+        while(run) // 具體繪製工作
         {
             try
             {
                 canvas= holder.lockCanvas(); // 獲取Canvas對象，並鎖定之
-                canvas.drawColor(Color.WHITE); // 設定Canvas對象的背景顏色
-                Paint p =  new  Paint(); // 創建畫筆
-                p.setColor(Color.RED); // 設置畫筆顏色
-                p.setTextSize( 30 ); // 設置文字大小
-                Rect rect =  new  Rect( 100 ,  50 ,  380 ,  330 ); // 創建一個Rect對象rect
+                canvas.drawColor(Color.YELLOW); // 設定Canvas對象的背景顏色
+                Paint p = new Paint(); // 創建畫筆
+                int color = Color.RED|(counter*100);
+                p.setColor(color); // 設置畫筆顏色, 漸變色彩
+                p.setTextSize(60); // 設置文字大小
+                Rect rect = new Rect(mX,mY,mX+380,mY+330); // 創建一個Rect對象rect
                 canvas.drawRect(rect,p); // 在canvas上繪製rect
                 // 在canvas上顯示時間
-                canvas.drawText( "Interval = "  + (counter++) +  " seconds." ,  100 ,  410 , p);
-                Thread.sleep( 1000 );
+                canvas.drawText("Interval = " + (counter++) + " seconds.", 0, 60, p);
+                Thread.sleep(1000); // this limit the view refresh, so it can't response in time.
             }
             catch (Exception e)
             {
@@ -48,7 +58,7 @@ public class  MyDrawThread  extends  Thread
             }
             finally
             {
-                if (canvas !=  null )
+                if (canvas != null)
                 {
                     holder.unlockCanvasAndPost(canvas); // 解除鎖定，並提交修改內容
                 }
@@ -56,13 +66,12 @@ public class  MyDrawThread  extends  Thread
         }
     }
 
-    public boolean  isRun()
+    public boolean isRun()
     {
-        return  run;
+        return run;
     }
 
-    public void  setRun( boolean  run)
-    {
-        this .run = run;
+    public void setRun(boolean  run)    {
+        this.run = run;
     }
 }

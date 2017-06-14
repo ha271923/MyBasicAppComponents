@@ -9,10 +9,11 @@ import android.os.Bundle;
 
 public class MySurfaceViewActivity extends Activity{
     @Override
-    public void  onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
-        super .onCreate(savedInstanceState);
-        //setContentView(R.layout.main);
-        setContentView( new  MySurfaceView( this ));
+        super.onCreate(savedInstanceState);
+        MySurfaceView mySurfaceView = new MySurfaceView(this);
+        mySurfaceView.setOnTouchListener(mySurfaceView);
+        setContentView(mySurfaceView);
     }
 }
