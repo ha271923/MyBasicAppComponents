@@ -14,9 +14,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.AttrRes;
+import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -28,8 +30,8 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.view.MyTimeView;
 
 import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.drawableToBitmap;
-import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.javaBlur;
 import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.getResizedBitmap;
+import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.javaBlur;
 import static sample.hawk.com.mybasicappcomponents.utils.Util.CallHideAPI;
 
 /**
@@ -40,8 +42,9 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     private static int mCurrentThemeId;
     private static int mDefaultThemeId;
     private static String mDefaultThemeName;
-    Context mContext;
-
+    private Context mContext;
+    private Window  mWind;
+    private View mDecorView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,41 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
                 getThemeAttrColor(mContext, R.attr.colorAccent),
         };
 
+        mWind= this.getWindow();
+        setStatusBarTransparent(mWind, true);
 
+        mDecorView = this.getWindow().getDecorView();
+        // showSystemUI();
+    }
+
+    void setStatusBarTransparent(Window wind, boolean enable){
+        wind.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        wind.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        if(enable==true){
+            wind.setStatusBarColor(ContextCompat.getColor(this, android.R.color.transparent));
+        }else{
+            TypedValue typedValueDrawerSelected = new TypedValue();
+            getTheme().resolveAttribute(R.attr.colorPrimary, typedValueDrawerSelected, true);
+            int colorDrawerItemSelected = typedValueDrawerSelected.data;
+            wind.setStatusBarColor(ContextCompat.getColor(this, colorDrawerItemSelected));
+        }
+    }
+
+    private void hideSystemUI() {
+        mDecorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
+    }
+
+    private void showSystemUI() {
+        mDecorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN); // extend activity to status bar
     }
 
     void getThemeParameters(Context context){
@@ -124,9 +161,9 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
 */
             case R.id.cb_backgroundImage:
                 if(((CheckBox)v).isChecked())
-                    set_BackgroundImage_HwBlur(true);
+                    set_BackgroundImage_NoneBlur(true);
                 else
-                    set_BackgroundImage_HwBlur(false);
+                    set_BackgroundImage_NoneBlur(false);
                 break;
         }
     }
@@ -142,7 +179,8 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
 
     private Drawable getWallPaper() {
         final WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
-        return wallpaperManager.getDrawable();
+        return wallpaperManager.getFastDrawable();
+        //return wallpaperManager.getDrawable();
     }
 
     private void setAlpha_UiElement(boolean enable){
@@ -193,7 +231,7 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
                 bmp = getResizedBitmap(bmp, bmp.getWidth()/10, bmp.getHeight()/10);
                 bmp = javaBlur( bmp, 0.2f, 10);
                 break;
-            case 7: // 1.2s
+            case 7: // 0.116s
                 bmp = getResizedBitmap(bmp, bmp.getWidth()/10, bmp.getHeight()/10);
                 bmp = javaBlur( bmp, 0.55f, 20);
                 break;
@@ -218,6 +256,20 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
                     RootView.setBackground(processedBitmapDrawable);
                 }
             });
+        }
+        else {
+            RootView.setBackground(null);
+        }
+    }
+
+    // 0.12s , Best Performance, API17+ supported
+    private void set_BackgroundImage_NoneBlur(boolean enable){
+        final LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
+        if(enable == true) {
+            final Drawable wallpaper = getWallPaper();
+            Bitmap bmp = drawableToBitmap(wallpaper);
+            BitmapDrawable processedBitmapDrawable = new BitmapDrawable(getResources(), bmp);
+            RootView.setBackground(processedBitmapDrawable);
         }
         else {
             RootView.setBackground(null);
