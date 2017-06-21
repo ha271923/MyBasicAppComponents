@@ -11,10 +11,12 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.AttrRes;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
@@ -33,6 +35,7 @@ import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.drawableToBi
 import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.getResizedBitmap;
 import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.javaBlur;
 import static sample.hawk.com.mybasicappcomponents.utils.Util.CallHideAPI;
+import static sample.hawk.com.mybasicappcomponents.utils.Util.hideSystemUI;
 
 /**
  * Created by ha271 on 2017/5/31.
@@ -45,6 +48,9 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     private Context mContext;
     private Window  mWind;
     private View mDecorView;
+    private LayerDrawable mWindowBkg = null;
+    private static final int STATUS_BAR_BKG_ID = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +82,7 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
         setStatusBarTransparent(mWind, true);
 
         mDecorView = this.getWindow().getDecorView();
-        // showSystemUI();
+        hideSystemUI(true, this);
     }
 
     void setStatusBarTransparent(Window wind, boolean enable){
@@ -134,19 +140,20 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
                 else
                     setAlpha_ActivityBackground(false);
                 break;
-/*
             case R.id.cb_backgroundImage:
-                if(((CheckBox)v).isChecked())
-                    set_BackgroundImage_Blur(true);
-                else
-                    set_BackgroundImage_Blur(false);
-                break;
-*/
-            case R.id.cb_backgroundImage:
-                if(((CheckBox)v).isChecked())
-                    set_BackgroundImage_NoneBlur(true);
-                else
-                    set_BackgroundImage_NoneBlur(false);
+                if(((CheckBox)v).isChecked()) {
+                    // set_BackgroundImage_NoneBlur(true);
+                    set_BackgroundImage_HwBlur(true);
+                    // set_BackgroundImage_Blur(true);
+
+                    //set_statusbarBackground((Activity)mContext);
+                }
+                else {
+                    // set_BackgroundImage_NoneBlur(false);
+                    set_BackgroundImage_HwBlur(false);
+                    // set_BackgroundImage_Blur(false);
+                    //set_statusbarBackground((Activity)mContext);
+                }
                 break;
         }
     }
@@ -160,11 +167,146 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
 
     }
 
+    private Drawable getStatusBarBackground() {
+        return geStatusBarDrawable();
+    }
+
+    private void set_statusbarBackground(Activity activity){
+        Window window = activity.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setBackgroundDrawable(getStatusBarBackground());
+    }
+/*
+    private void setStatusBarBackground() {
+        View v = findViewById(android.R.id.primary);
+        if (v != null) {
+            v.setFitsSystemWindows(true);
+        }
+
+        Window win = getWindow();
+        if (win != null) {
+            // enable translucent mode for status bar
+            win.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            // setup the window background color
+            if (mWindowBkg == null) {
+                Drawable[] drawables = {getThemeColorForWindow(),
+                        getResources().getDrawable(R.drawable.common_app_bkg)};
+                mWindowBkg = new LayerDrawable(drawables);
+                mWindowBkg.setLayerInset(1, 0,
+                        getResources().getDimensionPixelSize(R.dimen.status_bar_height), 0, 0);
+                win.setBackgroundDrawable(mWindowBkg);
+                mWindowBkg.setId(0, STATUS_BAR_BKG_ID);
+            }
+
+        }
+        switchStatusBarBkg(getResources().getConfiguration().orientation);
+    }
+
+    private void switchStatusBarBkg(int orientation) {
+        if (mWindowBkg == null)
+            return;
+        Resources res = getResources();
+        mWindowBkg.setLayerInset(0, 0, 0, 0,
+                res.getDisplayMetrics().heightPixels - res.getDimensionPixelSize(R.dimen.status_bar_height));
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            //Show color
+            mWindowBkg.setDrawableByLayerId(STATUS_BAR_BKG_ID, getThemeColorForWindow());
+        } else {
+            //Show the textture
+            Drawable texture = getStatusBarTexture();
+            if (texture != null) {
+                mWindowBkg.setDrawableByLayerId(STATUS_BAR_BKG_ID, texture);
+            }
+        }
+    }
+*/
     private Drawable getWallPaper() {
         final WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
-        return wallpaperManager.getFastDrawable();
-        //return wallpaperManager.getDrawable();
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int screen_Width = metrics.widthPixels;
+        int screen_Height = metrics.heightPixels;
+
+        Drawable sourceDrawable = wallpaperManager.getDrawable();
+
+        //int minimumWidth  = sourceDrawable.getMinimumWidth();
+        //int minimumHeight = sourceDrawable.getMinimumHeight();
+
+        int intrinsicWidth  = sourceDrawable.getIntrinsicWidth();
+        int intrinsicHeight = sourceDrawable.getIntrinsicHeight();
+
+
+        // diff
+        int offsetWidth  = 0;
+        int offsetHeight = 0;
+        if(intrinsicWidth - screen_Width > 0 ) // image > screen
+            offsetWidth = (intrinsicWidth - screen_Width);
+        if(intrinsicHeight - screen_Height > 0 ) // image > screen
+            offsetHeight = (intrinsicHeight - screen_Height);
+
+        int cropedWidth  = intrinsicWidth-offsetWidth;
+        int cropedHeight = intrinsicHeight-offsetHeight;
+
+        int imageOffset_x = 0;
+        int imageOffset_y = 0;
+        if(offsetWidth>0)
+            imageOffset_x = offsetWidth/2;
+        if(offsetHeight>0)
+            imageOffset_y = offsetHeight/2;
+
+        Bitmap sourceBitmap = drawableToBitmap(sourceDrawable);
+        Bitmap targetBitmap = Bitmap.createBitmap(sourceBitmap, imageOffset_x, imageOffset_y, cropedWidth, cropedHeight);
+        BitmapDrawable targetDrawable = new BitmapDrawable(getResources(), targetBitmap);
+
+        return targetDrawable;
     }
+
+    private Drawable geStatusBarDrawable() {
+        final int statusHeight = 96;
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int screen_Width = metrics.widthPixels;
+        int screen_Height = metrics.heightPixels;
+
+        Drawable sourceDrawable = wallpaperManager.getDrawable();
+
+        //int minimumWidth  = sourceDrawable.getMinimumWidth();
+        //int minimumHeight = sourceDrawable.getMinimumHeight();
+
+        int intrinsicWidth  = sourceDrawable.getIntrinsicWidth();
+        int intrinsicHeight = sourceDrawable.getIntrinsicHeight();
+
+
+        // diff
+        int offsetWidth  = 0;
+        int offsetHeight = 0;
+        if(intrinsicWidth - screen_Width > 0 ) // image > screen
+            offsetWidth = (intrinsicWidth - screen_Width);
+        if(intrinsicHeight - screen_Height > 0 ) // image > screen
+            offsetHeight = (intrinsicHeight - screen_Height);
+
+        int cropedWidth  = intrinsicWidth-offsetWidth;
+        int cropedHeight = intrinsicHeight-offsetHeight;
+
+        int imageOffset_x = 0;
+        int imageOffset_y = 0;
+        if(offsetWidth>0)
+            imageOffset_x = offsetWidth/2;
+        if(offsetHeight>0)
+            imageOffset_y = offsetHeight/2;
+
+        Bitmap sourceBitmap = drawableToBitmap(sourceDrawable);
+        Bitmap targetBitmap = Bitmap.createBitmap(sourceBitmap, imageOffset_x, imageOffset_y, cropedWidth, statusHeight);
+        BitmapDrawable targetDrawable = new BitmapDrawable(getResources(), targetBitmap);
+
+        return targetDrawable;
+    }
+
 
     private void setAlpha_UiElement(boolean enable){
         if(enable == true) {
