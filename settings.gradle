@@ -1,1 +1,1 @@
-include ':app', ':app2', ':mylibrary', ':libraries:gif-library'
+include ':app', ':app2', ':mylibrary', ':libs:gif-library'
