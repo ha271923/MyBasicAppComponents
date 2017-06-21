@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.MyCallBack;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.SupportCallBack;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.ProductFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
@@ -35,14 +35,14 @@ public class MyDesignPatternActivity extends Activity{
     public void MyDesignPattern(int pattern_type){
         switch(pattern_type){
             case 0:
-                SupportCallBack scb = new SupportCallBack();
-                scb.register(new MyCallBack() {
+                CallBack1 mcb = new CallBack1();
+                mcb.register(new ICallBack1() {
                     @Override
                     public void onCall_API() {
                         SMLog.i("***  api()'s callback was defined by caller. ***");
                     }
                 });
-                scb.api(); // Call scb's call_api() will callback onCall_API.
+                mcb.api(); // Call scb's call_api() will callback onCall_API.
                 break;
             case 1:
                 Teacher teacher = new Teacher(); // 有位老師

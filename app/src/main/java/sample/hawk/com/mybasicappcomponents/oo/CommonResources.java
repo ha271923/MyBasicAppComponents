@@ -1,7 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.MyCallBack;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.SupportCallBack;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -62,7 +62,7 @@ public class CommonResources { // by default, java class is static class, expect
         final int var0=0;
         int var1=1;
         mVar0++;
-        new MyCallBack(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
+        new ICallBack1(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
             // static int svar; // ERROR: Inner classes cannot have static declarations.
             int var3=3;
             @Override
@@ -88,7 +88,7 @@ public class CommonResources { // by default, java class is static class, expect
             }
 
             int function(int param){
-                new SupportCallBack().register(new MyCallBack(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
+                new CallBack1().register(new ICallBack1(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
                     // static int svar; // ERROR: Inner classes cannot have static declarations.
                     int var3=3;
                     @Override

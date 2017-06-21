@@ -3,8 +3,8 @@ package sample.hawk.com.mybasicappcomponents.debugTest;
 import android.app.Activity;
 import android.os.Bundle;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.MyCallBack;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.SupportCallBack;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 
 /**
  * How does it release the Anonymous object's memory allocate?
@@ -61,7 +61,7 @@ public class MemLeak_Anonymous_Callback_Activity extends Activity {
                 // Type2 - class with callback condition, two Anonymous object condition.
                 // Q. If OS release this Anonymous object, how can other process call the callback API without handle?
                 // Q. When to release this memory of SupportCallBack object?
-                new SupportCallBack().register(new MyCallBack() {  // <-- JAVA has an implicit reference to its surrounding class.
+                new CallBack1().register(new ICallBack1() {  // <-- JAVA has an implicit reference to its surrounding class.
                     @Override
                     public void onCall_API() {
                         mMemoryEater.waste_StaticVar(20*1024*1024);  // no caller, no waste
