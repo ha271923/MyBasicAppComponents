@@ -25,7 +25,7 @@ import sample.hawk.com.mybasicappcomponents.oo.sort.MyHeapSort;
 import sample.hawk.com.mybasicappcomponents.oo.sort.MyMergeSort;
 import sample.hawk.com.mybasicappcomponents.oo.sort.MyQuickSort;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
-import sample.hawk.com.mybasicappcomponents.view.MyListRowDataItem;
+import sample.hawk.com.mybasicappcomponents.view.ListView.MyListRowDataItem;
 
 /**
  * Created by ha271 on 2017/5/24.

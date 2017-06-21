@@ -362,16 +362,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.MyCustomViewActivity"
-                  android:label="view/MyCustomViewActivity">
+        <activity android:name=".view.CustomView.MyCustomViewActivity"
+                  android:label="view/CustomView/MyCustomViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.MyGifViewActivity"
-                  android:label="view/MyGifViewActivity">
+        <activity android:name=".view.CustomView.MyGifViewActivity"
+                  android:label="view/CustomView/MyGifViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
@@ -402,8 +402,8 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyViewActivity"
-                  android:label="view/MyViewActivity">
+        <activity android:name=".view.CustomView.MyViewActivity"
+                  android:label="view/CustomView/MyViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
@@ -416,8 +416,8 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyViewGroupActivity"
-                  android:label="view/MyViewGroupActivity">
+        <activity android:name=".view.CustomView.MyViewGroupActivity"
+                  android:label="view/CustomView/MyViewGroupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
@@ -444,65 +444,65 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyListActivity"
-                  android:label="view/MyListActivity">
+        <activity android:name=".view.ListView.MyListActivity"
+                  android:label="view/ListView/MyListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyListActivity2"
-                  android:label="view/MyListActivity2">
+        <activity android:name=".view.ListView.MyListActivity2"
+                  android:label="view/ListView/MyListActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyListView3DActivity"
-                  android:label="view/MyListView3DActivity">
+        <activity android:name=".view.ListView.MyListView3DActivity"
+                  android:label="view/ListView/MyListView3DActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyListViewActivity"
-                  android:label="view/MyListViewActivity">
+        <activity android:name=".view.ListView.MyListViewActivity"
+                  android:label="view/ListView/MyListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyDynamicListViewActivity"
-                  android:label="view/MyDynamicListViewActivity">
+        <activity android:name=".view.ListView.MyDynamicListViewActivity"
+                  android:label="view/ListView/MyDynamicListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyListViewHActivity"
-                  android:label="view/MyListViewHActivity">
+        <activity android:name=".view.ListView.MyListViewHActivity"
+                  android:label="view/ListView/MyListViewHActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyExpandableListViewActivity"
-                  android:label="view/MyExpandableListViewActivity">
+        <activity android:name=".view.ListView.MyExpandableListViewActivity"
+                  android:label="view/ListView/MyExpandableListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MyExpandableListViewActivity1"
-                  android:label="view/MyExpandableListViewActivity1">
+        <activity android:name=".view.ListView.MyExpandableListViewActivity1"
+                  android:label="view/ListView/MyExpandableListViewActivity1">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.SimpleListViewActivity"
-                  android:label="view/SimpleListViewActivity">
+        <activity android:name=".view.ListView.SimpleListViewActivity"
+                  android:label="view/ListView/SimpleListViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
@@ -799,7 +799,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ExoPlayerListActivity"
+        <activity android:name=".view.ExoPlayer.ExoPlayerListActivity"
                   android:label="view/ExoPlayerListActivity"
                   android:configChanges="keyboardHidden">
             <intent-filter>
@@ -820,7 +820,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ExoPlayerActivity"
+        <activity android:name=".view.ExoPlayer.ExoPlayerActivity"
                   android:label="view/ExoPlayerActivity"
                   android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
                   android:theme="@style/ExoPlayerTheme">

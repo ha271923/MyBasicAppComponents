@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" />
-        <sample.hawk.com.mybasicappcomponents.view.MyView2
+        <sample.hawk.com.mybasicappcomponents.view.CustomView.MyView2
             android:id="@+id/myview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

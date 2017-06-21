@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.ListView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,16 +8,18 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+import sample.hawk.com.mybasicappcomponents.view.MyAdapter;
 
 /**
  * Created by ha271 on 2017/1/4.
  */
 
-public class MyListViewHActivity extends Activity {
+public class MyListViewActivity extends Activity {
     final static int ELEMENT_COUNT = 400;
     MyAdapter adapter;
     static String[] elements;
@@ -26,7 +28,7 @@ public class MyListViewHActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mylistviewh_activity); // your listview page layout
+        setContentView(R.layout.mylistview_activity); // your listview page layout
         elements = new String[ELEMENT_COUNT];
         // create an DB
         for (int i = 0; i< ELEMENT_COUNT; i++) {
@@ -34,7 +36,7 @@ public class MyListViewHActivity extends Activity {
         }
         // link DB
         adapter = new MyAdapter(this,elements);
-        final MyListViewH list = (MyListViewH) findViewById(R.id.mylistview);
+        final ListView list = (ListView) findViewById(R.id.mylistview);
         list.setDivider( null );
         list.setAdapter(adapter);
         // Actions

@@ -18,7 +18,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 >
-    <sample.hawk.com.mybasicappcomponents.view.MyCustomView
+    <sample.hawk.com.mybasicappcomponents.view.CustomView.MyCustomView
         android:id="@+id/Pie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

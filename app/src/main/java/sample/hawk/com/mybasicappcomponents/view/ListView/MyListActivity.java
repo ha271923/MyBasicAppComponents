@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.ListView;
 
 import android.app.ListActivity;
 import android.content.Context;

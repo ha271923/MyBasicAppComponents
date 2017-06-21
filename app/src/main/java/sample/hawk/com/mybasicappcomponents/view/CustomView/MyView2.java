@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.CustomView;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import sample.hawk.com.mybasicappcomponents.utils.ImageUtils;
+import sample.hawk.com.mybasicappcomponents.view.GraphicAcceleratorActivity2;
+import sample.hawk.com.mybasicappcomponents.view.MyPolygonShape;
 
 import static sample.hawk.com.mybasicappcomponents.MyApplication.mApplication;
 

@@ -1,2 +1,1 @@
-include ':app', ':app2', ':mylibrary', ':gif-library'
-project(':gif-library').projectDir = new File('libs/gif-library')
+include ':app', ':app2', ':mylibrary', ':libraries:gif-library'

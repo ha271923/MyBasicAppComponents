@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.ListView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,38 +8,34 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
-
-import static sample.hawk.com.mybasicappcomponents.utils.Util.isUiThread;
+import sample.hawk.com.mybasicappcomponents.view.MyAdapter;
 
 /**
  * Created by ha271 on 2017/1/4.
  */
 
-public class MyDynamicListViewActivity extends Activity {
-    final static int ELEMENT_COUNT = 20;
-    MyAdapter_ArrayList adapter;
-    static ArrayList<String> elements;
+public class MyListViewHActivity extends Activity {
+    final static int ELEMENT_COUNT = 400;
+    MyAdapter adapter;
+    static String[] elements;
     static private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mylistview_activity); // your listview page layout
-        elements = new ArrayList<String>();
+        setContentView(R.layout.mylistviewh_activity); // your listview page layout
+        elements = new String[ELEMENT_COUNT];
         // create an DB
         for (int i = 0; i< ELEMENT_COUNT; i++) {
-            elements.add(Integer.toString(i));
+            elements[i] = String.valueOf(i);
         }
         // link DB
-        adapter = new MyAdapter_ArrayList(this,elements);
-        final ListView list = (ListView) findViewById(R.id.mylistview);
+        adapter = new MyAdapter(this,elements);
+        final MyListViewH list = (MyListViewH) findViewById(R.id.mylistview);
         list.setDivider( null );
         list.setAdapter(adapter);
         // Actions
@@ -66,21 +62,15 @@ public class MyDynamicListViewActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // 修改陣列data內容
-                // String in Java is immutable, do not modify the existing one.
-                elements.remove(9);
-                elements.remove(8);
-                elements.remove(7);
-                elements.remove(6);
+                elements[10] = "更改過字串 10"; // image
+                elements[11] = "更改過字串 11";
+                elements[12] = "更改過字串 12"; // image
+                elements[13] = "更改過字串 13";
+                elements[14] = "更改過字串 14"; // image
 
-                elements.add(6,"更改過字串 6"); // ImageView
-                elements.add(7,"更改過字串 7"); // TextView
-                elements.add(8,"更改過字串 8"); // ImageView
-                elements.add(9,"更改過字串 9"); // TextView
 
-                ModifyAdapterData(true); // Adapter can only be modified in UI thread.
-                // ModifyAdapterData(false);   // java.lang.IllegalStateException: The content of the adapter has changed but ListView did not receive a notification. Make sure the content of your adapter is not modified from a background thread, but only from the UI thread.
                 // 通知資料被變動，更新 ListView 顯示內容。
-                adapter.notifyDataSetChanged(); // MUST call notifyDataSetChanged() api, even the data was modified in UI thread.
+                adapter.notifyDataSetChanged();
             }
         });
         // Add a new button into the layout.
@@ -114,37 +104,6 @@ public class MyDynamicListViewActivity extends Activity {
                 SMLog.i("view is .onWindowDetached");
             }
         });
-
-
-    }
-
-
-    /*
-        Android EXCEPTION code:
-        ...
-        else if (mItemCount != mAdapter.getCount()) {
-        throw new IllegalStateException("The content of the adapter has changed but "
-        + "ListView did not receive a notification. Make sure the content of "
-        + "your adapter is not modified from a background thread, but only from "
-        + "the UI thread. Make sure your adapter calls notifyDataSetChanged() "
-        + "when its content changes. [in ListView(" + getId() + ", " + getClass()
-        + ") with Adapter(" + mAdapter.getClass() + ")]");
-        }
-    */
-    void ModifyAdapterData(boolean InUIThread){
-        //
-        if(InUIThread == true && isUiThread()){
-            elements.add(elements.size(),"新增字串 "+elements.size());
-        }
-        else // ERROR: java.lang.IllegalStateException: The content of the adapter has changed but ListView did not receive a notification. Make sure the content of your adapter is not modified from a background thread, but only from the UI thread.
-        {
-            new Thread("Modify Adapter data in worker Thread"){
-                @Override
-                public void run() {
-                    elements.add(elements.size(),"新增字串 "+elements.size());
-                }
-            }.start();
-        }
 
 
     }

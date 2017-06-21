@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.CustomView;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;

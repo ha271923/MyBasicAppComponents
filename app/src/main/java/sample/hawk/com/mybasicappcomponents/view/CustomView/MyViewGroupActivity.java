@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.CustomView;
 
 import android.app.Activity;
 import android.os.Bundle;

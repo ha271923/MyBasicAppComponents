@@ -1,10 +1,11 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.ListView;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.view.MyAdapter3D;
 
 public class MyListView3DActivity extends Activity {
 	final static int ELEMENT_COUNT = 400;
