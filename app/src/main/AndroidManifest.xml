@@ -840,7 +840,7 @@
         </activity>
         <!-- https://developers.facebook.com/docs/audience-network/android-native -->
         <activity android:name=".ad.Facebook_NativeADActivity"
-                  android:label="ad/Facebook_NativeAD_Activity">
+                  android:label="ad/Facebook_NativeADActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />

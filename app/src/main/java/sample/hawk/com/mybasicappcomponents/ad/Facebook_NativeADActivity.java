@@ -28,7 +28,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
     https://developers.facebook.com/docs/audience-network/android-native
 */
 
-public class Facebook_NativeAD_Activity extends AppCompatActivity {
+public class Facebook_NativeADActivity extends AppCompatActivity {
     private NativeAd nativeAd;
     private LinearLayout nativeAdContainer;
     private LinearLayout adView;
@@ -56,7 +56,7 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
 
         // Add the Ad view into the ad container.
         nativeAdContainer = (LinearLayout) findViewById(R.id.native_ad_container);
-        LayoutInflater inflater = LayoutInflater.from(Facebook_NativeAD_Activity.this);
+        LayoutInflater inflater = LayoutInflater.from(Facebook_NativeADActivity.this);
         adView = (LinearLayout) inflater.inflate(R.layout.fb_native_ad_layout, nativeAdContainer, false);
         nativeAdContainer.addView(adView);
 
@@ -144,7 +144,7 @@ public class Facebook_NativeAD_Activity extends AppCompatActivity {
 
                 // Add the AdChoices icon
                 LinearLayout adChoicesContainer = (LinearLayout) findViewById(R.id.ad_choices_container);
-                AdChoicesView adChoicesView = new AdChoicesView(Facebook_NativeAD_Activity.this, nativeAd, true);
+                AdChoicesView adChoicesView = new AdChoicesView(Facebook_NativeADActivity.this, nativeAd, true);
                 adChoicesContainer.addView(adChoicesView);
 
                 // Register the Title and CTA button to listen for clicks.
