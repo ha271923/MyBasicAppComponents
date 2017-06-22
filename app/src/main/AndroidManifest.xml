@@ -308,6 +308,14 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                        android:value=".cache.DisplayingBitmaps.ui.ImageGridActivity" />
         </activity>
+
+        <activity android:name=".view.MyViewLayerActivity"
+                  android:label="view/MyViewLayerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.game.GameActivity"
                   android:label="view/GameActivity">
             <intent-filter>
