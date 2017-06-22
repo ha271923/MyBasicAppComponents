@@ -6,10 +6,18 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Book;
+import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MySerializable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.Student;
 
 /**
  * Created by ha271 on 2017/1/6.
+ *
+ * IPS Performance Compare:
+ *   Parcel > Serializable > Json
+ *
+ *   Parcel is Android only for IPC easily.
+ *   Serializable is Java classic for normal serialize data.
+ *   Json was developed for SQL, DB, Web.
  */
 
 public class MyActivity2 extends Activity {
@@ -66,12 +74,18 @@ public class MyActivity2 extends Activity {
             String name = argument.getString("json.mBook.Author.name");
             int id = argument.getInt("json.mBook.Author.id");
             String title = argument.getString("json.mBook.Title");
-
             showText.setText(
-                    "   ----- Bundle -----" +
+                    "   ----- Book by Json->Bundle -----" +
                     "\n name = " + name +
                     "\n id= " + id +
                     "\n title  = " + title
+            );
+        } else if(mFrom.equals("startActivity_with_Serial")) {
+            MySerializable.Book book = (MySerializable.Book)getIntent().getSerializableExtra("book");
+            showText.setText(
+                    "   ----- Book by Serializable -----" +
+                    "\n title = " + book.getTitle() +
+                    "\n name= " + book.getAuthor().getName()
             );
         }
         setContentView(showText);

@@ -9,9 +9,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyJson;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Author;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Book;
+import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MySerializable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.Student;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -52,6 +55,10 @@ public class MyActivity1 extends Activity {
         Button toNextPageWithJson = new Button(this);
         toNextPageWithJson.setText("toNextPageWithJson");
         myRoot.addView(toNextPageWithJson);
+
+        Button toNextPageWithSerializable = new Button(this);
+        toNextPageWithSerializable.setText("toNextPageWithSerializable");
+        myRoot.addView(toNextPageWithSerializable);
 
         setContentView(myRoot);
 
@@ -148,7 +155,18 @@ public class MyActivity1 extends Activity {
             }
         });
 
-
+        toNextPageWithSerializable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MySerializable myserial = new MySerializable();
+                myserial.mBook.setTitle("Java編程思想");
+                myserial.mBook.getAuthor().setId(7777);
+                myserial.mBook.getAuthor().setName("Hawk Wei");
+                goOtherActivity.putExtra("from","startActivity_with_Serial");
+                goOtherActivity.putExtra("book",(Serializable)myserial.mBook);
+                startActivity(goOtherActivity);
+            }
+        });
     }
 
     @Override
