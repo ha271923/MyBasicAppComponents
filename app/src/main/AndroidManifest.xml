@@ -111,14 +111,6 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Parcel.Send_StudentObject"
-                  android:label="activity/ParcelData_between_Two_Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.HAWK_UI" />
-                <category android:name="android.intent.category.HAWK_CODE" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.Parcel.Receive_StudentObject" />
 
         <activity android:name=".activity.LifeCycleActivity"
                   android:label="activity/LifeCycleActivity">

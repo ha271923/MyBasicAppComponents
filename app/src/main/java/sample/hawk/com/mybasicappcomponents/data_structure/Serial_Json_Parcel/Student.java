@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.activity.Parcel;
+package sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -22,7 +22,7 @@ public class Student implements Parcelable {
     public int sex;
     public int age;
 
-    Student(){
+    public Student(){
     }
 
     Student (Parcel p){

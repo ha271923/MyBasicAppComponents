@@ -13,6 +13,7 @@ public class MyJson {
     public class Author {
         private int id;
         private String name;
+        public Author(){}
         // setter & getter
         public void setName(String arg) { name = arg; }
         public String getName() { return name; }

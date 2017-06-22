@@ -4,7 +4,7 @@ import sample.hawk.com.mybasicappcomponents.background.MyScheduledThreadPoolExec
 import sample.hawk.com.mybasicappcomponents.background.MyThreadGroup;
 import sample.hawk.com.mybasicappcomponents.background.MyThreadPoolExecutor;
 import sample.hawk.com.mybasicappcomponents.background.Thread_vs_Runnable;
-import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJson;
+import sample.hawk.com.mybasicappcomponents.data_structure.Json.MyJsonObj;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyHashTable;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyStack;
 import sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThread.Collections.MyVector;
@@ -300,7 +300,7 @@ public class MyJavaClass {
                 break;
 
             case 26: // JSON data
-                MyJson myjson = new MyJson();
+                MyJsonObj myjson = new MyJsonObj();
                 myjson.show();
                 break;
             case 27: // Inner Class
