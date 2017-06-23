@@ -455,14 +455,14 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MySurfaceViewActivity"
+        <activity android:name=".view.SurfaceView.MySurfaceViewActivity"
                   android:label="view/MySurfaceViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MySurfaceViewActivity2"
+        <activity android:name=".view.SurfaceView.MySurfaceViewActivity2"
                   android:label="view/MySurfaceViewActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />

@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context=".MainActivity" >
-    <sample.hawk.com.mybasicappcomponents.view.MyPaintSurface
+    <sample.hawk.com.mybasicappcomponents.view.SurfaceView.MySurfaceView_PaintSurface
         android:id="@+id/paint_surface"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"/>

@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.SurfaceView;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,14 +15,14 @@ import static sample.hawk.com.mybasicappcomponents.utils.Util.isUiThread;
  */
 
 // 繪製Thread
-public class MyDrawThread extends Thread
+public class MySurfaceViewDrawThread extends Thread
 {
     private SurfaceHolder holder;
     private MySurfaceView surfaceView;
     private boolean run;
     public int mX = 100, mY =100;
 
-    public MyDrawThread(SurfaceHolder holder, MySurfaceView surfaceView)
+    public MySurfaceViewDrawThread(SurfaceHolder holder, MySurfaceView surfaceView)
     {
         this.holder = holder;
         this.surfaceView = surfaceView;

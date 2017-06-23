@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.SurfaceView;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -45,7 +45,7 @@ import static sample.hawk.com.mybasicappcomponents.utils.Util.isUiThread;
  *
  *    This TOUCH performance is better than OnTouchListener.
  * */
-public class MyPaintSurface extends SurfaceView {
+public class MySurfaceView_PaintSurface extends SurfaceView {
     private final String LOG_TAG = this.getClass().getSimpleName();
 
     //定義繪圖的基本參數：線的width, color；是否擷取狀態；簽名圖示bitmap
@@ -72,17 +72,17 @@ public class MyPaintSurface extends SurfaceView {
 
     private int mInvalidateExtraBorder = 10;
 
-    public MyPaintSurface(Context context, AttributeSet attrs, int defStyle) {
+    public MySurfaceView_PaintSurface(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
 
-    public MyPaintSurface(Context context) {
+    public MySurfaceView_PaintSurface(Context context) {
         super(context);
         init();
     }
 
-    public MyPaintSurface(Context context, AttributeSet attrs) {
+    public MySurfaceView_PaintSurface(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }

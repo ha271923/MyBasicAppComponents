@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.SurfaceView;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -16,13 +16,13 @@ import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.drawableToBi
 
 public class MySurfaceViewActivity2 extends Activity {
 
-    MyPaintSurface mMyPaintSurface;
+    MySurfaceView_PaintSurface mMyPaintSurface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mysurfaceview_activity2);
-        mMyPaintSurface = (MyPaintSurface)findViewById(R.id.paint_surface);
+        mMyPaintSurface = (MySurfaceView_PaintSurface)findViewById(R.id.paint_surface);
 
     }
 

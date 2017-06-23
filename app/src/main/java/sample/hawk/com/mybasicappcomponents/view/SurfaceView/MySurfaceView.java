@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view;
+package sample.hawk.com.mybasicappcomponents.view.SurfaceView;
 
 import android.content.Context;
 import android.view.MotionEvent;
@@ -7,12 +7,19 @@ import android.view.SurfaceView;
 import android.view.View;
 
 /**
- * Created by ha271 on 2016/11/10.
+ *
+ *    java.lang.Object
+ *      android.graphics.SurfaceTexture
+ *      android.view.View
+ *                       .TextureView
+ *                       .SurfaceView
+ *                                   .GLSurfaceView
+ *
  */
 
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback, View.OnTouchListener {
     private SurfaceHolder holder;
-    private MyDrawThread mMyDrawThread;
+    private MySurfaceViewDrawThread mMyDrawThread;
     public float mX, mY;
 
     public MySurfaceView(Context context)
@@ -22,7 +29,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         holder.addCallback(this); // 為holder添加Callback
         // 創建一個繪製Thread，將holder對像作為參數傳入，這樣在繪製Thread中就可以獲得holder
         // 對象，進而在繪製Thread中可以通過holder對象獲得Canvas對象，並在Canvas上進行繪製
-        mMyDrawThread = new MyDrawThread(holder, this);
+        mMyDrawThread = new MySurfaceViewDrawThread(holder, this);
     }
 
     /**
