@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply from: '../shared-build.gradle'
 
+apply plugin: 'android-apt' // For GoogleMap
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
@@ -24,6 +26,14 @@ dependencies {
         // https://mvnrepository.com/ doesn't upload it, so AAR.
         transitive = true
     }
+
+    // Google Map
+    compile 'com.google.android.gms:play-services-maps:9.8.0'
+    compile 'com.google.android.gms:play-services-location:9.8.0'
+    compile 'com.github.hotchemi:permissionsdispatcher:2.2.0'
+    // CODE at https://github.com/hotchemi/PermissionsDispatcher
+    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.2.0'
+
     // Android test ++++++++++++++++++ https://developer.android.com/training/testing/start/index.html
     // Required for local unit tests (JUnit 4 framework), A JUnit 4-compatible test runner for JAVA.
     testCompile 'junit:junit:4.12'

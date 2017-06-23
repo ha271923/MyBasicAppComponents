@@ -61,4 +61,6 @@
     <string name="my_button_default">Set Default</string>
     <string name="my_button_apply_mytheme">Apply My Theme</string>
 
+    <string name="google_maps_api_key">AIzaSyCRQUH9qSXGslHFRv-SsOjOomgF4gdXllI</string>
+
 </resources>

@@ -11,6 +11,8 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.789_Hawk"
+
+        // multiDexEnabled true // If method over 65k, you need to uncomment this line. I add it for verifying GoogleMapActivity.
     }
     buildTypes {
         release {
