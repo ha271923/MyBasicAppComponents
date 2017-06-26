@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".cache.SQL_Image.SQL_Image_Activity">
+    <item android:id="@+id/select_image1" android:title="Smile man"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/select_image2" android:title="Doctor"
+          android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/select_image3" android:title="Scarlett"
+          android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/select_image4" android:title="null"
+          android:orderInCategory="100" app:showAsAction="never" />
+</menu>
