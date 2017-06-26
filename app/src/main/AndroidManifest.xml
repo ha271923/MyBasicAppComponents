@@ -355,6 +355,23 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".view.Video.VideoView_VideoControllerActivity"
+                  android:label="view/VideoViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".view.Video.MediaPlayerActivity"
+                  android:label="view/MediaPlayerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".view.GraphicAcceleratorActivity"
                   android:label="view/GraphicAcceleratorActivity">
             <intent-filter>
@@ -831,7 +848,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ExoPlayer.ExoPlayerListActivity"
+        <activity android:name=".view.Video.ExoPlayerListActivity"
                   android:label="view/ExoPlayerListActivity"
                   android:configChanges="keyboardHidden">
             <intent-filter>
@@ -852,7 +869,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ExoPlayer.ExoPlayerActivity"
+        <activity android:name=".view.Video.ExoPlayerActivity"
                   android:label="view/ExoPlayerActivity"
                   android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
                   android:theme="@style/ExoPlayerTheme">
