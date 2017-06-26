@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sample.hawk.com.mybasicappcomponents.view.ExoPlayer;
+package sample.hawk.com.mybasicappcomponents.view.Video;
 
 import android.os.SystemClock;
 import android.util.Log;
