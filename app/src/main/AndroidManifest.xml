@@ -856,6 +856,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".provider.SQL_provider.SQL_provider_Loader_Activity"
+                  android:label="provider/SQL_provider_Loader_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <provider android:name=".provider.SQL_provider.ProductProvider"
+                  android:authorities="sample.hawk.com.mybasicappcomponents.provider.SQL_provider" />
+
         <activity android:name=".view.Video.ExoPlayerListActivity"
                   android:label="view/ExoPlayerListActivity"
                   android:configChanges="keyboardHidden">
