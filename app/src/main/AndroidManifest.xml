@@ -126,6 +126,15 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.Tips.ToolTipsActivity"
+                  android:label="activity/ToolTipsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <!-- GoogleMap START -->
         <activity
             android:name=".activity.GoogleMapActivity"
