@@ -373,6 +373,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.OpenGLES2.OpenGLES20Activity"
+                  android:label="view/OpenGLES20Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".view.Video.VideoView_VideoControllerActivity"
                   android:label="view/VideoViewActivity">
             <intent-filter>
