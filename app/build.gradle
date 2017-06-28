@@ -34,6 +34,10 @@ dependencies {
     // CODE at https://github.com/hotchemi/PermissionsDispatcher
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.2.0'
 
+
+    //compile 'com.google.android.gms:play-services-analytics:8.4.0'
+    compile 'com.google.android.gms:play-services-analytics:9.8.0'
+
     // Android test ++++++++++++++++++ https://developer.android.com/training/testing/start/index.html
     // Required for local unit tests (JUnit 4 framework), A JUnit 4-compatible test runner for JAVA.
     testCompile 'junit:junit:4.12'

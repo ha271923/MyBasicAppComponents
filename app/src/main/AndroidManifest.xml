@@ -204,6 +204,14 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ad.GoogleAnalytics.GoogleAnalyticsActivity"
+                  android:label="ad/GoogleAnalyticsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <!-- START MoPub AD sample -->
         <activity android:name=".ad.MoPub.Mopub_NativeAD_Activity"
                   android:label="ad/Mopub_NativeAD_Activity">
