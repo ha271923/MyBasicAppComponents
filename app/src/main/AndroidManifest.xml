@@ -42,6 +42,9 @@
         android:glEsVersion="0x00020000"
         android:required="true" />
 
+    <!-- Bluetooth -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
 
     <application
         android:allowBackup="true"
@@ -261,6 +264,22 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".hardware.bt_chat.BtChatActivityActivityBt"
+                  android:label="hardware/BtChatActivity"
+                  android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                  android:configChanges="orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".hardware.bt_chat.DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Holo.Dialog"/>
+
         <activity android:name=".animation.AnimationActivity"
                   android:label="animation/AnimationActivity">
             <intent-filter>
