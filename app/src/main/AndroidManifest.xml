@@ -885,6 +885,36 @@
             </intent-filter>
         </receiver>
 
+        <!-- BluetoothDebug.apk -->
+        <receiver android:name=".receiver.BtDebugMsgReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.SCAN_MODE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.DISCOVERY_STARTED" />
+                <action android:name="android.bluetooth.adapter.action.DISCOVERY_FINISHED" />
+                <action android:name="android.bluetooth.adapter.action.LOCAL_NAME_CHANGED" />
+
+                <action android:name="android.bluetooth.device.action.FOUND" />
+                <action android:name="android.bluetooth.device.action.DISAPPEARED" />
+                <action android:name="android.bluetooth.device.action.CLASS_CHANGED" />
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+                <action android:name="android.bluetooth.device.action.NAME_CHANGED" />
+                <action android:name="android.bluetooth.device.action.BOND_STATE_CHANGED" />
+                <action android:name="android.bluetooth.device.action.NAME_FAILED" />
+                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
+                <action android:name="android.bluetooth.device.action.PAIRING_CANCEL" />
+                <action android:name="android.bluetooth.device.action.UUID" />
+
+                <action android:name="android.bluetooth.headset.action.STATE_CHANGED" />
+                <action android:name="android.bluetooth.headset.action.AUDIO_STATE_CHANGED" />
+
+                <action android:name="android.bluetooth.devicepicker.action.LAUNCH" />
+                <action android:name="android.bluetooth.devicepicker.action.DEVICE_SELECTED" />
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".provider.SimpleProviderActivity"
                   android:label="provider/SimpleProviderActivity">
             <intent-filter>
