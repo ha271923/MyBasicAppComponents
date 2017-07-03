@@ -26,6 +26,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Collection;
 
 /**
  * Created by ha271 on 2016/11/23.
@@ -225,4 +228,41 @@ public class Util {
         }
     }
 
+    // extracted from Facebook SDK source code
+    private static final String HASH_ALGORITHM_MD5 = "MD5";
+    private static final String HASH_ALGORITHM_SHA1 = "SHA-1";
+
+    public static String md5hash(String key) {
+        return hashWithAlgorithm(HASH_ALGORITHM_MD5, key);
+    }
+    private static String hashWithAlgorithm(String algorithm, String key) {
+        return hashWithAlgorithm(algorithm, key.getBytes());
+    }
+    private static String hashWithAlgorithm(String algorithm, byte[] bytes) {
+        MessageDigest hash;
+        try {
+            hash = MessageDigest.getInstance(algorithm);
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
+        return hashBytes(hash, bytes);
+    }
+    private static String hashBytes(MessageDigest hash, byte[] bytes) {
+        hash.update(bytes);
+        byte[] digest = hash.digest();
+        StringBuilder builder = new StringBuilder();
+        for (int b : digest) {
+            builder.append(Integer.toHexString((b >> 4) & 0xf));
+            builder.append(Integer.toHexString((b >> 0) & 0xf));
+        }
+        return builder.toString();
+    }
+
+    public static <T> boolean isNullOrEmpty(Collection<T> c) {
+        return (c == null) || (c.size() == 0);
+    }
+
+    public static boolean isNullOrEmpty(String s) {
+        return (s == null) || (s.length() == 0);
+    }
 }

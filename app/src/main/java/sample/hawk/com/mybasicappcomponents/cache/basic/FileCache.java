@@ -14,7 +14,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  */
 
 public class FileCache {
-    private static final String TAG = "MemoryCache";
+    private static final String TAG = "FileCache";
 
     private File cacheDir;	//the directory to save images
 
@@ -50,6 +50,17 @@ public class FileCache {
         }
 
         return null;
+    }
+
+    public boolean isFileCached(String key){
+        File f = new File(cacheDir, key);
+        if (f.exists()){
+            SMLog.i(TAG, "the file you wanted exists " + f.getAbsolutePath());
+            return true;
+        }else{
+            SMLog.w(TAG, "the file you wanted does not exists: " + f.getAbsolutePath());
+            return false;
+        }
     }
 
     public File createFile(String key) {

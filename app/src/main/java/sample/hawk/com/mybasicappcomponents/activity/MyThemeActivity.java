@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -26,7 +27,10 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ToggleButton;
 
+import java.io.File;
+
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.cache.basic.FileCache;
 import sample.hawk.com.mybasicappcomponents.utils.BlurBuilder;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.view.MyTimeView;
@@ -50,6 +54,7 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     private View mDecorView;
     private LayerDrawable mWindowBkg = null;
     private static final int STATUS_BAR_BKG_ID = -1;
+    FileCache mFileCache;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,9 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
         setTheme(mCurrentThemeId);
         setContentView(R.layout.mytheme_activity);
         // setAlpha_views();
+        mFileCache = new FileCache(mContext);
+        if(!mFileCache.isFileCached("bluredWallpaper"))
+            createBackgroundImage_HwBlur();
 
         Button button_set_default = (Button) findViewById(R.id.button_set_default);
         Button button_apply_mytheme = (Button) findViewById(R.id.button_apply_mytheme);
@@ -369,23 +377,56 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     private void set_BackgroundImage_HwBlur(boolean enable){
         final LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
         if(enable == true) {
-            final Drawable wallpaper = getWallPaper();
-            Bitmap bmp = drawableToBitmap(wallpaper);
-            final long start_time = SystemClock.uptimeMillis();
-            BlurBuilder.asyncBlur(mContext, bmp, new BlurBuilder.AsyncResponse() {
-                @Override
-                public void processFinish(Bitmap processedbmp) {
-                    long end_time = SystemClock.uptimeMillis();
-                    SMLog.i("Blur HW Algorithm    TimeCost = " + (end_time-start_time));
-                    BitmapDrawable processedBitmapDrawable = new BitmapDrawable(getResources(), processedbmp);
-                    RootView.setBackground(processedBitmapDrawable);
-                }
-            });
+            long start_time = SystemClock.uptimeMillis();
+            File bluredWallpaper = mFileCache.getFile("bluredWallpaper");
+            if( bluredWallpaper != null ) {
+                String imagePath = bluredWallpaper.getPath();
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
+                RootView.setBackground(new BitmapDrawable(getResources(), bitmap));
+                long end_time = SystemClock.uptimeMillis();
+                SMLog.i("Apply cached wallpaper     TimeCost = " + (end_time-start_time));
+            } else {
+                SMLog.i("No cached blurred image for wallpaper");
+            }
         }
         else {
             RootView.setBackground(null);
         }
     }
+
+    private void getBackgroundImage_HwBlur(){
+        final LinearLayout RootView = (LinearLayout)findViewById(R.id.mythemeactivity_layout);
+        long start_time = SystemClock.uptimeMillis();
+        File bluredWallpaper = mFileCache.getFile("bluredWallpaper");
+        String imagePath = bluredWallpaper.getPath();
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
+        RootView.setBackground(new BitmapDrawable(getResources(), bitmap));
+        long end_time = SystemClock.uptimeMillis();
+        SMLog.i("Apply cached wallpaper     TimeCost = " + (end_time-start_time));
+    }
+
+    private void createBackgroundImage_HwBlur(){
+        final Drawable wallpaper = getWallPaper();
+        Bitmap bmp = drawableToBitmap(wallpaper);
+        final long start_time = SystemClock.uptimeMillis();
+        BlurBuilder.asyncBlur(mContext, bmp, new BlurBuilder.AsyncResponse() {
+            @Override
+            public void processFinish(Bitmap processedbmp) {
+                long end_time = SystemClock.uptimeMillis();
+                SMLog.i("Blur HW Algorithm    TimeCost = " + (end_time-start_time));
+                BitmapDrawable processedBitmapDrawable = new BitmapDrawable(getResources(), processedbmp);
+                Bitmap processedBitmap = drawableToBitmap(processedBitmapDrawable);
+                if( mFileCache != null )
+                    mFileCache.put("bluredWallpaper", processedBitmap);
+                // RootView.setBackground(processedBitmapDrawable);
+            }
+        });
+    }
+
 
     // 0.12s , Best Performance, API17+ supported
     private void set_BackgroundImage_NoneBlur(boolean enable){
@@ -445,7 +486,7 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
     }
 
 
-    @Override
+    @Override // onApplyThemeResource == onThemeChange, Android has no callback named onThemeChange.
     protected void onApplyThemeResource(Resources.Theme theme, int resid, boolean first) {
         super.onApplyThemeResource(theme, resid, first);
         if(mDefaultThemeId == 0 ) { // run only first-enter activity
@@ -455,6 +496,8 @@ public class MyThemeActivity extends Activity implements View.OnClickListener {
             mCurrentThemeId = mDefaultThemeId;
         }
         SMLog.i("Current Theme Name = " + getResources().getResourceName(resid));
+        if(mContext!=null) // this callback may early than onCreate()
+            createBackgroundImage_HwBlur();
     }
 
     int getCurrentThemeId(){
