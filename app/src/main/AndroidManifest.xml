@@ -272,6 +272,17 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".hardware.bt_basic.BT_GenericActivity"
+            android:label="hardware/BT_GenericActivity"
+            android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".hardware.bt_chat.BtChatActivityActivityBt"
                   android:label="hardware/BtChatActivity"
                   android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
