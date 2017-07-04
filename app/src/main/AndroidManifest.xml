@@ -299,6 +299,25 @@
                   android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
         <service android:name=".hardware.bt_legatt.BLE_Service" android:enabled="true"/>
 
+        <!-- Bluetooth BluetoothAdvertisements -->
+        <activity
+            android:name=".hardware.bt_advertisements.BLE_AdvertisementsActivity"
+            android:label="hardware/BLE_AdvertisementsActivity"
+            android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <!-- Service to handle BLE Advertising - Using a service allows advertising to continue
+             when the app is no longer on screen in a reliable manner.  -->
+        <service
+            android:name=".hardware.bt_advertisements.BLE_AdvertiserService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
+
         <activity android:name=".animation.AnimationActivity"
                   android:label="animation/AnimationActivity">
             <intent-filter>
