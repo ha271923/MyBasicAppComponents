@@ -5,12 +5,20 @@
               android:layout_height="match_parent">
 
     <TextView
+        android:text="job_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/job_type"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:background="@color/colorAccent"/>
+
+    <TextView
         android:text="job_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/job_status"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorPrimary"/>
 
     <ToggleButton
         android:text="JobSchedulerToggleBtn"

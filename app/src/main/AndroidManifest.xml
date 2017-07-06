@@ -774,6 +774,7 @@
         </service>
         <service android:name=".background.MyNotificationService" >
         </service>
+
         <service android:name=".background.MyJobSchedulerService"
                  android:permission="android.permission.BIND_JOB_SERVICE" >
         </service>
@@ -785,12 +786,25 @@
             </intent-filter>
         </activity>
         <activity android:name=".background.MyJobSchedulerActivity"
-                  android:label="background/JobSchedulerActivity">
+                  android:label="background/MyJobSchedulerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".background.MyJobSchedulerActivity2"
+              android:label="background/MyJobSchedulerActivity2">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".background.MyJobSchedulerService2"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"/>
+
         <activity android:name=".background.MyAsyncTaskActivity"
                   android:label="background/MyAsyncTaskActivity">
             <intent-filter>
