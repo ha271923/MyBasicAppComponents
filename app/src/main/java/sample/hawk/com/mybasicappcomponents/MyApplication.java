@@ -23,6 +23,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        registerActivityLifecycleCallbacks(new MyAppLifecycleHandler());
         mApplication = this;
         userAgent = Util.getUserAgent(this, "MyBasicAppComponents");
         SMLog.i("userAgent: "+userAgent);
