@@ -122,13 +122,22 @@
         </activity>
         <activity android:name=".activity.MyActivity2"/>
 
-        <activity android:name=".activity.SettingsActivity"
-            android:label="activity/SettingsActivity">
+        <activity android:name=".activity.preference.MyXmlPreferenceActivity"
+            android:label="activity/MyXmlPreferenceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.preference.MySharedPreferenceActivity"
+                  android:label="activity/MySharedPreferenceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activity.GetPermissionActivity"
                   android:label="activity/GetPermissionActivity">
             <intent-filter>

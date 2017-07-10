@@ -1,6 +1,7 @@
 package sample.hawk.com.mybasicappcomponents;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -38,6 +39,11 @@ public class MyApplication extends Application {
         SMLog.i("3. SMLog.i() == info    -- OK! ");
         SMLog.w("4. SMLog.w() == Warn    -- OK! ");
         SMLog.e("5. SMLog.e() == Error   -- OK! ");
+        Log.wtf("[Hawk]","?. Log.wtf() == WTF   -- OK! ");
+        // Log.a("?. Log.a() == Silent  -- OK! "); // APP no this.
+        // Log.f("?. Log.f() == Fatal   -- OK! "); // APP no this.
+        // Log.s("?. Log.s() == Silent  -- OK! "); // APP no this.
+
     }
 
     /**

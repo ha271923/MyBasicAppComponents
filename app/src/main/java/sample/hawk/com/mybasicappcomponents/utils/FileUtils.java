@@ -35,6 +35,8 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import sample.hawk.com.mybasicappcomponents.MyApplication;
+
 /**
  * Created by ha271 on 2017/3/7.
  *
@@ -73,17 +75,27 @@ public class FileUtils {
 
     public FileUtils(Context context){
         SMLog.i("+++++++++++++++++++++++++");
-        SMLog.i("getExternalSdCardPath="+getExternalSdCardPath());
-        SMLog.i("getExternalMounts="+getExternalMounts());
+        SMLog.i("getInternalFilePath="+getInternalFilePath(context)); // EX: /data/user/0/sample.hawk.com.mybasicappcomponents/files
+        SMLog.i("getInternalCachePath="+getInternalCachePath(context)); // EX: /data/user/0/sample.hawk.com.mybasicappcomponents/cache
+        SMLog.i("getExternalSdCardPath="+getExternalSdCardPath()); // EX: /mnt/sdcard
+        SMLog.i("getExternalMounts="+getExternalMounts()); // EX: [/mnt/media_rw/375A-17F5]
         String[] dirs = getStorageDirectories();
         for( String dir: dirs){
-            SMLog.i("getStorageDirectories="+dir);
+            SMLog.i("getStorageDirectories="+dir); // EX: /sdcard
         }
         List<String> paths = getSdCardPaths(context, true);
         for( String path: paths){
-            SMLog.i("getSdCardPaths="+path);
+            SMLog.i("getSdCardPaths="+path); // EX: /storage/emulated and /storage/375A-17F5
         }
         SMLog.i("-------------------------");
+    }
+
+    public static String getInternalFilePath(Context context) {
+        return context.getFilesDir().getAbsolutePath();
+    }
+
+    public static String getInternalCachePath(Context context) {
+        return context.getCacheDir().getAbsolutePath(); // may be deleted if so required to free up space by Android OS
     }
 
     // Hawk: it can't get sdcard actually sometimes.

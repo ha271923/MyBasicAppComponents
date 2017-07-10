@@ -21,7 +21,7 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
     private final int MSG_THREAD_JOB=1;
     private final int MSG_OTHER_JOB=2;
     private final int MSG_UPDATE_STATUS_COUNT=100;
-
+    private final int WORKING_SECOND=200;
     // Hawk: I implemented two conditions:
     // 1. AsyncTask
     // 2. Thread
@@ -142,7 +142,7 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
             // Do updating and stopping logical here.
             SMLog.i("UpdateAppsAsyncTask::doInBackground   TID="+Thread.currentThread().getId()); // Background thread
             // TODO: put your background job at here!!! WorkerThread
-            DummyJob(10);
+            DummyJob(WORKING_SECOND);
             return params;
         }
 
@@ -180,7 +180,7 @@ public class MyJobSchedulerService extends JobService { // If APP killed for unk
         @Override
         public void run() {
             super.run();
-            DummyJob(10);
+            DummyJob(WORKING_SECOND);
             SMLog.i("Finishing job XXX id=" + mParams.getJobId());
             jobFinished(mParams, false);
         }
