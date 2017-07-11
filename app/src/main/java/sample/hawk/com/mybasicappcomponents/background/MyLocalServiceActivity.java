@@ -27,6 +27,7 @@ public class MyLocalServiceActivity extends Activity {
     public static ProgressBar mMainActivityProgressBar;
     public TextView mMyOutputTextView;
     public ToggleButton mMyLocalServiceToggleBtn;
+    public ToggleButton mMyLocalForegroundServiceToggleBtn;
     public ToggleButton mMyBindServiceToggleBtn;
     public Button mMygetBindServiceResultBtn;
 
@@ -39,20 +40,43 @@ public class MyLocalServiceActivity extends Activity {
         mMainActivityProgressBar = (ProgressBar) findViewById(R.id.myainactivity_progressBar);
         mMyOutputTextView        = (TextView) findViewById(R.id.OutputTextView);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
+        mMyLocalForegroundServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalForegroundServiceToggleBtn);
         mMyBindServiceToggleBtn  = (ToggleButton) findViewById(R.id.BindServiceToggleBtn);
         mMygetBindServiceResultBtn = (Button) findViewById(R.id.getBindServiceResultBtn);
         mMyLocalServiceToggleBtn.setOnClickListener(mMyLocalServiceToggleBtnListener);
         mMyBindServiceToggleBtn.setOnClickListener(mMyBindServiceToggleBtnListener);
         mMygetBindServiceResultBtn.setOnClickListener(mMygetBindServiceResultBtnListener);
+        mMyLocalForegroundServiceToggleBtn.setOnClickListener(mMyLocalForegroundServiceToggleBtnListener);
 
     }
+
+
+    // LocalForegroundService start/stop
+    private View.OnClickListener mMyLocalForegroundServiceToggleBtnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            SMLog.i();
+            if(mMyLocalForegroundServiceToggleBtn.isChecked()){
+                Intent intent = new Intent(MyLocalService.ACTION_FOREGROUND);
+                intent.setClass(mContext, MyLocalService.class);
+                startService(intent);
+                Toast.makeText(mContext, "START Foreground service", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("START Foreground Service");
+            }
+            else{
+                stopService(new Intent(mContext, MyLocalService.class));
+                Toast.makeText(mContext, "STOP Foreground service", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("STOP Foreground Service");
+            }
+        }
+    };
 
     // LocalService start/stop
     private View.OnClickListener mMyLocalServiceToggleBtnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             SMLog.i();
-            Intent intent = new Intent();
+            Intent intent = new Intent(MyLocalService.ACTION_BACKGROUND);
             intent.setClass( mContext, MyLocalService.class);
             if(mMyLocalServiceToggleBtn.isChecked()){
                 startService(intent);

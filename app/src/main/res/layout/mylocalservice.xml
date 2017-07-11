@@ -16,6 +16,13 @@
         android:id="@+id/OutputTextView"/>
 
     <ToggleButton
+        android:text="LocalForegroundServiceToggleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="STOP LocalForegroundService"
+        android:textOn="Start LocalForegroundService"
+        android:id="@+id/LocalForegroundServiceToggleBtn"/>
+    <ToggleButton
         android:text="LocalServiceToggleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

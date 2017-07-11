@@ -1,5 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.background;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -16,8 +18,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import sample.hawk.com.mybasicappcomponents.MainActivity;
-
+import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.activity.MyActivity1;
 import sample.hawk.com.mybasicappcomponents.receiver.ReceiverTestActivity;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -68,10 +70,37 @@ public class MyLocalService extends Service { // Hawk: UI thread, however the re
         SMLog.i();
     }
 
+    static final String ACTION_FOREGROUND = "sample.hawk.com.mybasicappcomponents.background.FOREGROUND";
+    static final String ACTION_BACKGROUND = "sample.hawk.com.mybasicappcomponents.background.BACKGROUND";
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         SMLog.i();
+        if(ACTION_FOREGROUND.equals(intent.getAction())) {
+            setAsForeground();
+            // return START_STICKY; // START_STICKY是service被kill掉後自動重寫建立
+        }
         return super.onStartCommand(intent, flags, startId);
+    }
+    
+    Notification mNotification;
+    void setAsForeground() { // ForegroundService優先權較高
+        // The contentIntent to launch our activity if the user selects this notification
+        Intent notificationIntent = new Intent(this, MyActivity1.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
+        mNotification = new Notification.Builder(this)
+                .setSmallIcon(R.mipmap.ic_launcher)  // the status icon
+                .setTicker("ForegroundService: setTicker")  // the status text
+                .setWhen(System.currentTimeMillis())  // the time stamp
+                .setContentTitle("ForegroundService: setContentTitle")  // the label of the entry
+                .setContentText( "ForegroundService: setContentText")  // the contents of the entry
+                .setContentIntent(contentIntent)  // The intent to send when the entry is clicked
+                .setLights(0xff00ff00,1000,3000) // LED
+                .build();
+
+        // 一個已啟動的service可以調用startForeground(int, Notification)將service置為foreground狀態，
+        // 調用stopForeground(boolean)將service置為 background狀態。
+        startForeground(1,mNotification);
     }
 
     public class LocalBinder extends Binder {
