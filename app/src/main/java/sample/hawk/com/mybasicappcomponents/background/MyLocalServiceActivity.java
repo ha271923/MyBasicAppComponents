@@ -24,7 +24,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyLocalServiceActivity extends Activity {
     Context mContext;
-    public static ProgressBar mMainActivityProgressBar;
+    public static ProgressBar mMyLocalServiceProgressBar;
     public TextView mMyOutputTextView;
     public ToggleButton mMyLocalServiceToggleBtn;
     public ToggleButton mMyLocalForegroundServiceToggleBtn;
@@ -37,7 +37,7 @@ public class MyLocalServiceActivity extends Activity {
 
         mContext = this;
         setContentView(R.layout.mylocalservice);
-        mMainActivityProgressBar = (ProgressBar) findViewById(R.id.myainactivity_progressBar);
+        mMyLocalServiceProgressBar = (ProgressBar) findViewById(R.id.mylocalservice_progressBar);
         mMyOutputTextView        = (TextView) findViewById(R.id.OutputTextView);
         mMyLocalServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalServiceToggleBtn);
         mMyLocalForegroundServiceToggleBtn  = (ToggleButton) findViewById(R.id.LocalForegroundServiceToggleBtn);

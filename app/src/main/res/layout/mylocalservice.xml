@@ -7,7 +7,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/myainactivity_progressBar"/>
+        android:id="@+id/mylocalservice_progressBar"/>
 
     <TextView
         android:text="OutputTextView"

@@ -176,7 +176,7 @@ public class MyLocalService extends Service { // Hawk: UI thread, however the re
             switch(msg.what){
                 case MSG_UPDATE_UI:
                     ps = count%100;
-                    MyLocalServiceActivity.mMainActivityProgressBar.setProgress(ps);
+                    MyLocalServiceActivity.mMyLocalServiceProgressBar.setProgress(ps);
                     break;
                 default:
                     break;
