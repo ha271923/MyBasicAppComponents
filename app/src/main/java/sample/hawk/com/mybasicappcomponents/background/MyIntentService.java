@@ -41,9 +41,8 @@ public class MyIntentService extends IntentService { //
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {  // in UI thread
         // TODO: process and receive the command by setAction() or param by putExtra() at here!!
-        SMLog.i(TAG," ----> onStartCommand() TID=" + Thread.currentThread().getId());
         String action = intent.getAction();
-        SMLog.i(TAG,action);
+        SMLog.i(TAG," ----> onStartCommand() TID=" + Thread.currentThread().getId() +"   action="+action);
         if (action.equals("START_IntentService")) {
             intent.putExtra("time", System.currentTimeMillis());
         } else if (action.equals("STOP_IntentService")) {
@@ -64,10 +63,8 @@ public class MyIntentService extends IntentService { //
     @Override
     protected void onHandleIntent(Intent intent) { // in Worker thread now!!!
         // TODO: put your job in workerThread at here!!
-        SMLog.i(TAG," ----> onHandleIntent() TID=" + Thread.currentThread().getId());
-        // WorkerThread
         String action = intent.getAction();
-        SMLog.i(TAG,action);
+        SMLog.i(TAG," ----> onHandleIntent() TID=" + Thread.currentThread().getId() +"   action="+action);
         long time = intent.getLongExtra("time", 0);
         Date date = new Date(time);
         try {

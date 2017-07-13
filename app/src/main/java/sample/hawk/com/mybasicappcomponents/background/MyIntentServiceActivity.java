@@ -27,10 +27,6 @@ public class MyIntentServiceActivity extends Activity {
     public TextView mMyOutputTextView;
     Handler mMainUiHandler;
 
-    interface passDataToIntentService {
-
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +62,8 @@ public class MyIntentServiceActivity extends Activity {
             else{
                 intent.setAction("STOP_IntentService");
                 startService(intent); // Hawk: call startService to pass intent with parameter to the running IntentService again.
-                Toast.makeText(mContext, "Can't STOP IntentService", Toast.LENGTH_SHORT).show();
-                mMyOutputTextView.setText("Can't STOP IntentService");
+                Toast.makeText(mContext, "STOP IntentService", Toast.LENGTH_SHORT).show();
+                mMyOutputTextView.setText("STOP IntentService");
             }
         }
     };
