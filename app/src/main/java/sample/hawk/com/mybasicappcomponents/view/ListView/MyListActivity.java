@@ -29,13 +29,14 @@ public class MyListActivity extends ListActivity {
     private ListView listV;
     List<MyListRowDataItem> rowItems = new ArrayList<MyListRowDataItem>();
     MyListDataAdapter adapter;
+    static int idx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Create DB
-        rowItems.add(new MyListRowDataItem(0, 0 , "HBO電影台","")); // Channel 1
-        rowItems.add(new MyListRowDataItem(1, R.drawable.gallery_photo_1, "綠光戰警","7:00"));
+        rowItems.add(new MyListRowDataItem(0,0 , "HBO電影台","")); // Channel 1
+        rowItems.add(new MyListRowDataItem(1,R.drawable.gallery_photo_1, "綠光戰警","7:00"));
         rowItems.add(new MyListRowDataItem(2,R.drawable.gallery_photo_2, "鋼鐵人","9:00"));
         rowItems.add(new MyListRowDataItem(1,R.drawable.gallery_photo_3, "蝙蝠俠:開戰時刻","11:00"));
         rowItems.add(new MyListRowDataItem(0,0,"Discovery","")); // Channel 2
@@ -74,18 +75,41 @@ public class MyListActivity extends ListActivity {
             @Override
             public void onClick(View view) {
                 SMLog.i("You click FAB button");
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("MyAction",new View.OnClickListener() {
+                AddChannelItems(idx++);
+                Snackbar.make(view, "Call notifyDataSetChanged() API?", Snackbar.LENGTH_LONG)
+                        .setAction("Yes",new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                SMLog.i("You click MyAction on snackbar");
+                                SMLog.i("You clicked the setAction button on snackbar");
+                                adapter.notifyDataSetChanged();
                             }
                         }).show();
             }
         });
     }
 
-
+    /**
+     * IllegalStateException by if change the List data content without call notifyDataSetChanged().
+     * <Sample Log>
+     * E/MessageQueue-JNI: java.lang.IllegalStateException:
+     * The content of the adapter has changed but ListView did not receive a notification.
+     * Make sure the content of your adapter is not modified from a background thread, but
+     * only from the UI thread. Make sure your adapter calls notifyDataSetChanged() when its
+     * content changes. [in ListView(2131689916, class android.widget.ListView) with
+     * Adapter(class sample.hawk.com.mybasicappcomponents.view.ListView.MyListActivity$MyListDataAdapter)]
+     *
+     * To simulate this issue:
+     *   STEP1: press FAB button to change data in list
+     *   STEP2: touch any view on the screen
+     *   issue occurs!!
+     *   STEP3: solve it by call notifyDataSetChanged() API
+     * */
+    void AddChannelItems(int i){ // For Test notifyDataSetChanged() issue
+        rowItems.add(new MyListRowDataItem(0, 0 , "New Channel "+ Integer.toString(i),"")); // Channel
+        rowItems.add(new MyListRowDataItem(1, R.drawable.gallery_photo_1, "XXXXX","7:00"));
+        rowItems.add(new MyListRowDataItem(2, R.drawable.gallery_photo_2, "YYYYY","9:00"));
+        rowItems.add(new MyListRowDataItem(1, R.drawable.gallery_photo_3, "ZZZZZ","11:00"));
+    }
     // ListView有個很方便的功能叫做setTextFilterEnabled
     // 但是自從我們自訂ListView的內容以後, 這個方法不能直接套用 所以要自己override一些東西
     public class MyListDataAdapter extends BaseAdapter {
