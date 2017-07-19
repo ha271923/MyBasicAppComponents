@@ -4,6 +4,8 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
  * Created by ha271 on 2016/8/8.
@@ -63,6 +66,23 @@ public class MyListActivity extends ListActivity {
         setContentView(R.layout.mylist_activity); // your listview page layout
         listV=(ListView)findViewById(R.id.myactivitylist);
         listV.setAdapter(adapter);
+
+        // FAB button
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_button);
+        fab.setImageResource(R.drawable.ic_child_care_black_24dp);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SMLog.i("You click FAB button");
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("MyAction",new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                SMLog.i("You click MyAction on snackbar");
+                            }
+                        }).show();
+            }
+        });
     }
 
 
