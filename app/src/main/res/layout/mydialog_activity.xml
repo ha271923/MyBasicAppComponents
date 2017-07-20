@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+        android:id="@+id/dialog_notice"
+        android:text="dialog with notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+    <Button
+        android:id="@+id/alertdialog_button"
+        android:text="Alert dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+    <Button
+        android:id="@+id/dialog_multisel_button"
+        android:text="Multi-Selection dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+
+    <Button
+        android:id="@+id/dialog_radio_button"
+        android:text="dialog with radio selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+
+    <Button
+        android:id="@+id/dialog_seekbar"
+        android:text="dialog with seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+    <Button
+        android:id="@+id/dialog_list_items"
+        android:text="dialog with list items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+    <Button
+        android:id="@+id/dialog_list_items2"
+        android:text="dialog from intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_dialog_buttons"/>
+
+
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -28,7 +29,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by ha271 on 2016/11/23.
@@ -264,5 +267,22 @@ public class Util {
 
     public static boolean isNullOrEmpty(String s) {
         return (s == null) || (s.length() == 0);
+    }
+
+
+    public static ArrayList GetAllInstalledAppsList(Activity activity) {
+        ArrayList arrayList = new ArrayList();
+        Intent intent = new Intent("android.intent.action.MAIN", null);
+        intent.addCategory("android.intent.category.LAUNCHER");
+        PackageManager packageManager = activity.getPackageManager();
+        List queryIntentActivities = packageManager.queryIntentActivities(intent, 0);
+        for (int i = 0; i < queryIntentActivities.size(); i++) {
+            AppItem appItem = new AppItem();
+            appItem.appLabel = ((ResolveInfo) queryIntentActivities.get(i)).loadLabel(packageManager).toString();
+            appItem.packageName = ((ResolveInfo) queryIntentActivities.get(i)).activityInfo.packageName;
+            appItem.iconImage = ((ResolveInfo) queryIntentActivities.get(i)).loadIcon(packageManager);
+            arrayList.add(appItem);
+        }
+        return arrayList;
     }
 }
