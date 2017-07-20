@@ -385,6 +385,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.MyDialogFragActivity"
+                  android:label="activity/MyDialogFragActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".jni.Plasma"
                   android:label="jni/Plasma">
             <intent-filter>

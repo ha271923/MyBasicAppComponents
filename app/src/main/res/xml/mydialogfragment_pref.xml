@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Click on the item" android:key="prefCategoryAbout">
+        <Preference android:title="Item 1" android:key="Item_1_key" android:summary="Item_1_summary" />
+        <Preference android:title="Item 2" android:key="Item_2_key" android:summary="Item_2_summary" />
+        <Preference android:title="Item 3" android:key="Item_3_key" android:summary="Item_3_summary" />
+        <Preference android:title="Item 4" android:key="Item_4_key" android:summary="Item_4_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>
