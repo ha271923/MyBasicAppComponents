@@ -1,5 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
+import com.sample.hawk.mylibrary.MyLibClass1;
+
 import sample.hawk.com.mybasicappcomponents.background.MyScheduledThreadPoolExecutor;
 import sample.hawk.com.mybasicappcomponents.background.MyThreadGroup;
 import sample.hawk.com.mybasicappcomponents.background.MyThreadPoolExecutor;
@@ -366,7 +368,7 @@ public class MyJavaClass {
                 mstpe.test();
                 break;
 
-/*
+
             case 9001: // MyLibrary
                 // remarked these code, since it's always failed at building the signed release key APP.
                 MyLibClass1.static_var = 9001;
@@ -387,7 +389,7 @@ public class MyJavaClass {
                 MyLibClass1 Lcres = new MyLibClass1();
                 Lcres.function("MyLibrary's InnerClass inside API");
                 break;
-*/
+
             default:
 
         }

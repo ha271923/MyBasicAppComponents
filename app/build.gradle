@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply from: '../shared-build.gradle'
+// apply plugin: 'project-report' // dependencies report by ./gradlew htmlDependencyReport at app/build/reports/project/dependencies/index.html
 
 apply plugin: 'android-apt' // For GoogleMap
 
@@ -82,9 +83,14 @@ android {
             storePassword 'aasssp'
         }
     }
+
     buildTypes {
         release {
+            minifyEnabled true
             signingConfig signingConfigs.HawkAPP
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }

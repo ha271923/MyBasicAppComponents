@@ -14,10 +14,4 @@ android {
 
         multiDexEnabled true // If method over 65k, you need to uncomment this line. I add it for verifying GoogleMapActivity.
     }
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
