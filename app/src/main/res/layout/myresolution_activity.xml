@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/bacground_framelayout"
+             android:background="@color/yellow"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" >
+    <sample.hawk.com.mybasicappcomponents.view.GridLineView android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"/>
+
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+        <TextView android:id="@+id/tvScreenData" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/tvImageData" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <!-- 將圖素px 1:1 填到畫面px上 -->
+        <ImageView
+            android:background="@color/blue"
+            android:src="@drawable/android_robot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- dp, dip(Density-Independent Pixels)：對應到在 160 dpi 的螢幕上的幾個像素， 1 dp = 1/160 in -->
+        <ImageView
+            android:src="@drawable/android_robot"
+            android:background="@color/blue"
+            android:layout_width="160dp"
+            android:layout_height="160dp"/>
+
+        <!-- px(pixel): 基於螢幕的實體像素，以RGB螢幕來說，是三原色合成的一個彩色點 -->
+        <ImageView
+            android:background="@color/blue"
+            android:src="@drawable/android_robot"
+            android:layout_width="160px"
+            android:layout_height="160px"/>
+
+        <!-- pt(points)：點數，1pt 代表 1/72 英吋，事實上，你可以把它看成比英吋還小的物理長度。常用在字型大小的表示。 -->
+        <ImageView
+            android:background="@color/blue"
+            android:src="@drawable/android_robot"
+            android:layout_width="160pt"
+            android:layout_height="160pt"/>
+
+    </LinearLayout>
+</FrameLayout>
