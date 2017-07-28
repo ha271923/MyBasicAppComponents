@@ -16,6 +16,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.My
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Book;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MySerializable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.Student;
+import sample.hawk.com.mybasicappcomponents.oo.MyAbstractClass;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -35,6 +36,11 @@ public class MyActivity1 extends Activity {
         goOtherActivity = new Intent(activity, MyActivity2.class);
         LinearLayout myRoot = new LinearLayout(this);
         myRoot.setOrientation(LinearLayout.VERTICAL);
+
+        // MyInterface.static_Var = 10; // ERROR: Cannot assign a value to final variable
+        // MyInterface.mVar = 11; // ERROR: Cannot assign a value to final variable
+        MyAbstractClass.static_Var =20; // OK
+        // MyAbstractClass.mVar = 21; // ERROR: mVar cannot be reference from a static context.
 
         Button toNextPage = new Button(this);
         toNextPage.setText("toNextPage");
