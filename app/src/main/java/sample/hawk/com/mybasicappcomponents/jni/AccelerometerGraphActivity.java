@@ -16,8 +16,13 @@
 
 package sample.hawk.com.mybasicappcomponents.jni;
 
-// Hawk: For non-NDK installed build env, I remarked the following code.
-/*
+import android.app.Activity;
+import android.opengl.GLSurfaceView;
+import android.os.Bundle;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+
 public class AccelerometerGraphActivity extends Activity {
 
     GLSurfaceView mView;
@@ -73,4 +78,3 @@ public class AccelerometerGraphActivity extends Activity {
         });
     }
 }
-*/

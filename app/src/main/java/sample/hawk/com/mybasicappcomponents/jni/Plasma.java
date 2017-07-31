@@ -15,8 +15,15 @@
  */
 package sample.hawk.com.mybasicappcomponents.jni;
 
-// Hawk: For non-NDK installed build env, I remarked the following code.
-/*
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+
 public class Plasma extends Activity
 {
     // Called when the activity is first created.
@@ -59,4 +66,3 @@ class PlasmaView extends View {
         invalidate();
     }
 }
-*/

@@ -18,8 +18,8 @@ package sample.hawk.com.mybasicappcomponents.jni;
 
 // Wrapper for native library
 
-// Hawk: For non-NDK installed build env, I remarked the following code.
-/*
+import android.content.res.AssetManager;
+
 public class AccelerometerGraphJNI {
 
      static {
@@ -33,4 +33,3 @@ public class AccelerometerGraphJNI {
      public static native void pause();
      public static native void resume();
 }
-*/
