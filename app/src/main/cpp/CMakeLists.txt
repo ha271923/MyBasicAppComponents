@@ -23,3 +23,13 @@ target_link_libraries(accelerometergraph
                       android
                       GLESv2
                       log)
+                      
+                      
+add_library(myc SHARED
+            myc.c)
+            
+# Include libraries needed for myc lib
+target_link_libraries(myc
+                      android
+                      log
+                      m)
