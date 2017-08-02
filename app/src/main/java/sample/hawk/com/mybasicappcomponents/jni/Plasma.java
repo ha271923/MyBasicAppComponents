@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/*
 package sample.hawk.com.mybasicappcomponents.jni;
 
 import android.annotation.SuppressLint;
@@ -65,4 +67,4 @@ class PlasmaView extends View {
         // force a redraw, with a different time-based pattern.
         invalidate();
     }
-}
+}*/

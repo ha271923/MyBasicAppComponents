@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 package sample.hawk.com.mybasicappcomponents.jni;
 
 // Wrapper for native library
@@ -33,3 +33,4 @@ public class AccelerometerGraphJNI {
      public static native void pause();
      public static native void resume();
 }
+*/

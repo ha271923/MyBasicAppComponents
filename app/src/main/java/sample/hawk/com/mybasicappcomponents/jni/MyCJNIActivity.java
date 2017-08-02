@@ -1,13 +1,9 @@
 package sample.hawk.com.mybasicappcomponents.jni;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
-
 /**
  * Created by ha271 on 2017/7/28.
  */
-
+/*
 public class MyCJNIActivity extends Activity {
     // 讀取My C native函式庫
     static {
@@ -28,3 +24,4 @@ public class MyCJNIActivity extends Activity {
         setContentView(root);
     }
 }
+*/

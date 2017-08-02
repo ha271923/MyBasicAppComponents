@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 package sample.hawk.com.mybasicappcomponents.jni;
 
 import android.app.Activity;
@@ -78,3 +78,4 @@ public class AccelerometerGraphActivity extends Activity {
         });
     }
 }
+*/
