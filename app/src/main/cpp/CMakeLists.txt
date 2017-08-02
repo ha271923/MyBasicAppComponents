@@ -33,3 +33,12 @@ target_link_libraries(myc
                       android
                       log
                       m)
+
+add_library(mycpplibrary SHARED
+            mycpp.cpp)
+
+# Include libraries needed for mycpplibrary lib
+target_link_libraries(mycpplibrary
+                      android
+                      log
+                      m)
