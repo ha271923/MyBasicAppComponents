@@ -48,5 +48,40 @@
             android:tag="3"
             android:onClick="onClick_MyDesignPatternClass"/>
 
+        <Button
+            android:text="No Singleton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="40"
+            android:onClick="onClick_MyDesignPatternClass"/>
+
+        <Button
+            android:text="Singleton - singleThread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="41"
+            android:onClick="onClick_MyDesignPatternClass"/>
+
+        <Button
+            android:text="Singleton - multiThread(ERROR)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="42"
+            android:onClick="onClick_MyDesignPatternClass"/>
+
+        <Button
+            android:text="Singleton - multiThread(slow)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="43"
+            android:onClick="onClick_MyDesignPatternClass"/>
+
+        <Button
+            android:text="Singleton - multiThread(fast)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="44"
+            android:onClick="onClick_MyDesignPatternClass"/>
+
     </LinearLayout>
 </ScrollView>

@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
+import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.ProductFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
+import sample.hawk.com.mybasicappcomponents.designpattern.singleton.NoSingleton;
+import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton;
+import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton_sync1;
+import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton_sync2;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -34,7 +38,7 @@ public class MyDesignPatternActivity extends Activity{
 
     public void MyDesignPattern(int pattern_type){
         switch(pattern_type){
-            case 0:
+            case 0: // callback
                 CallBack1 mcb = new CallBack1();
                 mcb.register(new ICallBack1() {
                     @Override
@@ -44,7 +48,7 @@ public class MyDesignPatternActivity extends Activity{
                 });
                 mcb.api(); // Call scb's call_api() will callback onCall_API.
                 break;
-            case 1:
+            case 1: // callback
                 Teacher teacher = new Teacher(); // 有位老師
                 teacher.onClass(); // 這位老師正在上課
                 break;
@@ -65,7 +69,7 @@ public class MyDesignPatternActivity extends Activity{
                 SMLog.i("title= "+ subject.getTitle());
                 break;
 
-            case 3:
+            case 3: // factory
                 ProductFactory pf = new ProductFactory();
                 pf.createProduct(ProductFactory.Tea.Cafe);
                 pf.createProduct(ProductFactory.Tea.GreenTea);
@@ -73,6 +77,75 @@ public class MyDesignPatternActivity extends Activity{
                 pf.createProduct(ProductFactory.Tea.BlackTea);
                 pf.createProduct(ProductFactory.Tea.MilkTea);
                 break;
+            case 40: // No singleton ( MEMORY is double than singleton. )
+                NoSingleton nosingleton0_1 = new NoSingleton();
+                nosingleton0_1.printCounter();
+                NoSingleton nosingleton0_2 = new NoSingleton();
+                nosingleton0_2.printCounter();
+                break;
+            case 41: // singleton for single Thread
+                Singleton singleton1_1 = Singleton.getInstance();
+                singleton1_1.printCounter();
+                Singleton singleton1_2 = Singleton.getInstance();
+                singleton1_2.printCounter();
+                break;
+            case 42: // singleton on multi Thread(ERROR)
+                Singleton singleton1_1M = Singleton.getInstance();
+                singleton1_1M.printCounter();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Singleton singleton1_2M = Singleton.getInstance();
+                        singleton1_2M.printCounter();
+                    }
+                }).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Singleton singleton1_3M = Singleton.getInstance();
+                        singleton1_3M.printCounter();
+                    }
+                }).start();
+                break;
+            case 43: // singleton for multi Thread(slow)
+                Singleton_sync1 singleton_sync1_1 = Singleton_sync1.getInstance();
+                singleton_sync1_1.printCounter();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Singleton_sync1 singleton_sync1_2 = Singleton_sync1.getInstance();
+                        singleton_sync1_2.printCounter();
+                    }
+                }).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Singleton_sync1 singleton_sync1_3 = Singleton_sync1.getInstance();
+                        singleton_sync1_3.printCounter();
+                    }
+                }).start();
+                break;
+
+            case 44: // singleton for multi Thread(fast)
+                Singleton_sync2 singleton_sync2_1 = Singleton_sync2.getInstance();
+                singleton_sync2_1.printCounter();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Singleton_sync2 singleton_sync2_2 = Singleton_sync2.getInstance();
+                        singleton_sync2_2.printCounter();
+                    }
+                }).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Singleton_sync2 singleton_sync2_3 = Singleton_sync2.getInstance();
+                        singleton_sync2_3.printCounter();
+                    }
+                }).start();
+                break;
+
+
             default:
 
         }
