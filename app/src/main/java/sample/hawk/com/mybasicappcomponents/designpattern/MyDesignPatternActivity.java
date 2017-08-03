@@ -12,12 +12,16 @@ import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.Drink
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodType;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.IAbstractFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Cafe;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.GreenTea;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.IDrinkAction;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.BlackTeaFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.CafeFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.GreenTeaFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.MilkTeaFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.NormalFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.RedTeaFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.RedTea;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Simple.SimpleFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.TeaType;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
@@ -110,7 +114,19 @@ public class MyDesignPatternActivity extends Activity{
                 break;
 
             case 33: // Factory Method
-
+                IDrinkAction id = null;
+                id = new Cafe();
+                    id.AddMaterial();
+                    id.Brew();
+                    id.DeliverCpu();
+                id = new GreenTea();
+                    id.AddMaterial();
+                    id.Brew();
+                    id.DeliverCpu();
+                id = new RedTea();
+                    id.AddMaterial();
+                    id.Brew();
+                    id.DeliverCpu();
                 break;
 
             case 40: // No singleton ( MEMORY is double than singleton. )
