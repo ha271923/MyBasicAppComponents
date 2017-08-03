@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.designpattern.builder.Meal;
+import sample.hawk.com.mybasicappcomponents.designpattern.builder.MealBuilder;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
@@ -197,6 +199,21 @@ public class MyDesignPatternActivity extends Activity{
                 }).start();
                 break;
 
+            case 5: // Builder
+                SMLog.i("----- Packing is FREE!! -----");
+                MealBuilder mealBuilder = new MealBuilder();
+                Meal set;
+                set = mealBuilder.SetNo1();
+                SMLog.i("Price= " + set.getCost());
+                set = mealBuilder.SetNo2();
+                SMLog.i("Price= " + set.getCost());
+                set = mealBuilder.SetNo3();
+                SMLog.i("Price= " + set.getCost());
+                set = mealBuilder.SetNo4();
+                SMLog.i("Price= " + set.getCost());
+                set = mealBuilder.SetAll();
+                SMLog.i("Price= " + set.getCost());
+                break;
 
             default:
 
