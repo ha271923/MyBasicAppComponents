@@ -8,7 +8,14 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.ProductFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.BlackTeaFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.CafeFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.GreenTeaFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.MilkTeaFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.NormalFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.RedTeaFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Simple.SimpleFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.TeaType;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
@@ -69,14 +76,36 @@ public class MyDesignPatternActivity extends Activity{
                 SMLog.i("title= "+ subject.getTitle());
                 break;
 
-            case 3: // factory
-                ProductFactory pf = new ProductFactory();
-                pf.createProduct(ProductFactory.Tea.Cafe);
-                pf.createProduct(ProductFactory.Tea.GreenTea);
-                pf.createProduct(ProductFactory.Tea.RedTea);
-                pf.createProduct(ProductFactory.Tea.BlackTea);
-                pf.createProduct(ProductFactory.Tea.MilkTea);
+            case 30: // Simple Factory
+                SimpleFactory sf = new SimpleFactory();
+                sf.createProduct(TeaType.Cafe);
+                sf.createProduct(TeaType.GreenTea);
+                sf.createProduct(TeaType.RedTea);
+                sf.createProduct(TeaType.BlackTea);
+                sf.createProduct(TeaType.MilkTea);
                 break;
+
+            case 31: // Normal Factory
+                NormalFactory nf_product1 = new CafeFactory();
+                nf_product1.createProduct();
+                NormalFactory nf_product2 = new GreenTeaFactory();
+                nf_product2.createProduct();
+                NormalFactory nf_product3 = new RedTeaFactory();
+                nf_product3.createProduct();
+                NormalFactory nf_product4 = new BlackTeaFactory();
+                nf_product4.createProduct();
+                NormalFactory nf_product5 = new MilkTeaFactory();
+                nf_product5.createProduct();
+                break;
+
+            case 32: // Abstract Factory
+
+                break;
+
+            case 33: // Factory Method
+
+                break;
+
             case 40: // No singleton ( MEMORY is double than singleton. )
                 NoSingleton nosingleton0_1 = new NoSingleton();
                 nosingleton0_1.printCounter();
