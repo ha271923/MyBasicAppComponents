@@ -8,6 +8,10 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.DrinkFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodFactory;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodType;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.IAbstractFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.BlackTeaFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.CafeFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.GreenTeaFactory;
@@ -99,7 +103,10 @@ public class MyDesignPatternActivity extends Activity{
                 break;
 
             case 32: // Abstract Factory
-
+                IAbstractFactory abstractFactory1 = new DrinkFactory();
+                abstractFactory1.createProduct(TeaType.Cafe);
+                IAbstractFactory abstractFactory2 = new FoodFactory();
+                abstractFactory2.createProduct(FoodType.Bakery);
                 break;
 
             case 33: // Factory Method

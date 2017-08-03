@@ -42,25 +42,25 @@
             android:tag="2"
             android:onClick="onClick_MyDesignPatternClass"/>
         <Button
-            android:text="Simple Factory"
+            android:text="Factory - Simple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="30"
             android:onClick="onClick_MyDesignPatternClass"/>
         <Button
-            android:text="Normal Factory"
+            android:text="Factory - Normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="31"
             android:onClick="onClick_MyDesignPatternClass"/>
         <Button
-            android:text="Abstract Factory"
+            android:text="Factory - Abstract"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="32"
             android:onClick="onClick_MyDesignPatternClass"/>
         <Button
-            android:text="Factory Method"
+            android:text="Factory - Factory Method"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="33"
