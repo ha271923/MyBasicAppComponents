@@ -4,6 +4,8 @@ package sample.hawk.com.mybasicappcomponents.designpattern.builder;
 import java.util.ArrayList;
 import java.util.List;
 
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
 /**
  * Created by ha271 on 2017/8/3.
  */
@@ -24,9 +26,7 @@ public class Meal {
 
     public void showItem(){
         for(IItem item : items){
-            System.out.print("Item: " + item.name());
-            System.out.print(", Packing:" + item.packing().pack());
-            System.out.println(", Price: " + item.price());
+            SMLog.i("Item: "+item.name()+ ", Packing["+item.packing().pack()+"], Price="+item.price());
         }
     }
 }

@@ -1,7 +1,5 @@
 package sample.hawk.com.mybasicappcomponents.designpattern.builder;
 
-import sample.hawk.com.mybasicappcomponents.utils.SMLog;
-
 /**
  * 定義
  *  將一個複雜對象的構建與他的表示分離，使得同樣的構建過程可以創建不同的表示。 一步一步創建一個複雜的對象，它允許
@@ -21,52 +19,9 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  *  2. 如果產品的內部變化複雜，可能會導致需要定義很多具體建造者來實現這種變化，導致系統變龐大。
  */
 
-public class MealBuilder {
-
-    public Meal SetNo1(){
-        SMLog.i("SetNo1:");
-        Meal meal = new Meal();
-        meal.buyItem(new VegBurger());
-        meal.buyItem(new Coke());
-        meal.showItem();
-        return meal;
-    }
-
-    public Meal SetNo2(){
-        SMLog.i("SetNo2:");
-        Meal meal = new Meal();
-        meal.buyItem(new ChickenBurger());
-        meal.buyItem(new LemonTea());
-        meal.showItem();
-        return meal;
-    }
-
-    public Meal SetNo3(){
-        SMLog.i("SetNo3:");
-        Meal meal = new Meal();
-        meal.buyItem(new ChickenBurger());
-        meal.buyItem(new Coke());
-        meal.showItem();
-        return meal;
-    }
-
-    public Meal SetNo4(){
-        SMLog.i("SetNo4:");
-        Meal meal = new Meal();
-        meal.buyItem(new VegBurger());
-        meal.buyItem(new LemonTea());
-        meal.showItem();
-        return meal;
-    }
-
-    public Meal SetAll(){
-        SMLog.i("SetAll:");
-        Meal meal = new Meal();
-        meal.buyItem(new VegBurger());
-        meal.buyItem(new LemonTea());
-        meal.buyItem(new ChickenBurger());
-        meal.buyItem(new Coke());
-        meal.showItem();
-        return meal;
-    }
+interface MealBuilder {
+    Meal BuildMeal();
+    void BuildDrink(Meal meal);
+    void BuildFood(Meal meal);
+    void ListItems(Meal meal);
 }

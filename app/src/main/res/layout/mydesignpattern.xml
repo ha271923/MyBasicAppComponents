@@ -67,6 +67,13 @@
             android:onClick="onClick_MyDesignPatternClass"/>
 
         <Button
+            android:text="Builder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="34"
+            android:onClick="onClick_MyDesignPatternClass"/>
+
+        <Button
             android:text="No Singleton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,13 +106,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="44"
-            android:onClick="onClick_MyDesignPatternClass"/>
-
-        <Button
-            android:text="Builder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="5"
             android:onClick="onClick_MyDesignPatternClass"/>
 
     </LinearLayout>

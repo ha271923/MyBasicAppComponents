@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.designpattern.builder.Meal;
-import sample.hawk.com.mybasicappcomponents.designpattern.builder.MealBuilder;
+import sample.hawk.com.mybasicappcomponents.designpattern.builder.MealDirector;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
@@ -131,6 +130,16 @@ public class MyDesignPatternActivity extends Activity{
                     id.DeliverCpu();
                 break;
 
+            case 34: // Builder
+                SMLog.i("----- Packing is FREE!! -----");
+                MealDirector mealDirector = new MealDirector();
+                SMLog.i("Total Price= " + mealDirector.getOrder(1));
+                SMLog.i("Total Price= " + mealDirector.getOrder(2));
+                SMLog.i("Total Price= " + mealDirector.getOrder(3));
+                SMLog.i("Total Price= " + mealDirector.getOrder(4));
+                SMLog.i("Total Price= " + mealDirector.getOrder(123456789));
+                break;
+
             case 40: // No singleton ( MEMORY is double than singleton. )
                 NoSingleton nosingleton0_1 = new NoSingleton();
                 nosingleton0_1.printCounter();
@@ -199,21 +208,7 @@ public class MyDesignPatternActivity extends Activity{
                 }).start();
                 break;
 
-            case 5: // Builder
-                SMLog.i("----- Packing is FREE!! -----");
-                MealBuilder mealBuilder = new MealBuilder();
-                Meal set;
-                set = mealBuilder.SetNo1();
-                SMLog.i("Price= " + set.getCost());
-                set = mealBuilder.SetNo2();
-                SMLog.i("Price= " + set.getCost());
-                set = mealBuilder.SetNo3();
-                SMLog.i("Price= " + set.getCost());
-                set = mealBuilder.SetNo4();
-                SMLog.i("Price= " + set.getCost());
-                set = mealBuilder.SetAll();
-                SMLog.i("Price= " + set.getCost());
-                break;
+
 
             default:
 
