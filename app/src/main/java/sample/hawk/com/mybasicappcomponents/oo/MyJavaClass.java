@@ -287,6 +287,15 @@ public class MyJavaClass {
                 // mif.MyInterfaceUsageTest();  // ERROR: No Way
                 mif.MyInterfaceAPI(55555);
                 break;
+            case 222:
+                ChildClass cci = new ChildClass("cci");
+                cci.strong(); // call parent class api by class
+                cci.MyInterfaceAPI(5);
+                MyInterface mif1 = new ChildClass("mif1");
+                mif1.MyInterfaceAPI(5);
+                // mif1.strong(); // ERROR: Can NOT call parent class api by interface
+                break;
+
             case 23:
                 MyAbstractUsage mau = new MyAbstractUsage();
                 mau.MyAbstractTest();
