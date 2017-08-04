@@ -1,9 +1,5 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class ChildClass extends ParentClass implements MyInterface {
@@ -30,9 +26,13 @@ public class ChildClass extends ParentClass implements MyInterface {
         return  "ChildClass=====";
     }
 
+    public void ChildFunction(int i) {
+        SMLog.i(TAG,"ChildFunction+++");
+    }
+
     @Override
-    public void MyInterfaceAPI(int i) {
-        SMLog.i(TAG,"MyInterfaceAPI+++");
+    public void MyInterfaceImpl_InterfaceFunction(int i) {
+        SMLog.i(TAG,"MyInterfaceImpl_InterfaceFunction+++");
     }
 
 }

@@ -13,10 +13,8 @@ import sample.hawk.com.mybasicappcomponents.Polymorphism.IIQActions;
 
 public class MyPolymorphism {
 
-    void test() {
-        ParentClass pc = new ParentClass();
-        ChildClass cc1 = new ChildClass("cc1");
-        ChildClass cc2 = new ChildClass("cc2");
+    public static void test() {
+
     }
 
     // Compile time Polymorhism( or Static polymorphism or Method Overloading )

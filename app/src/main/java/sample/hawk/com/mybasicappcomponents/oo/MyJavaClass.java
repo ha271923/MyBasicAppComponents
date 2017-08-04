@@ -106,6 +106,8 @@ public class MyJavaClass {
                 }
                 break;
             case 6:
+                MyPolymorphism.test();
+
                 MyPolymorphism mp2 = new MyPolymorphism();
                 mp2.StaticPolymorphism();
                 break;
@@ -277,28 +279,55 @@ public class MyJavaClass {
                 sleep_VS_wait svt = new sleep_VS_wait();
                 svt.start_tests();
                 break;
-            case 22: // Object pointer to its object
-                MyInterfaceUsage mifu = new MyInterfaceUsage();
-                mifu.MyInterfaceUsageTest();
-                mifu.MyInterfaceAPI(55555);
-                break;
-            case 221: // Interface pointer to its parent object
-                MyInterface mif = new MyInterfaceUsage();
-                // mif.MyInterfaceUsageTest();  // ERROR: No Way
-                mif.MyInterfaceAPI(55555);
-                break;
-            case 222:
-                ChildClass cci = new ChildClass("cci");
-                cci.strong(); // call parent class api by class
-                cci.MyInterfaceAPI(5);
-                MyInterface mif1 = new ChildClass("mif1");
-                mif1.MyInterfaceAPI(5);
-                // mif1.strong(); // ERROR: Can NOT call parent class api by interface
+
+            case 2221:
+                ParentClass pc = new ParentClass();
+                pc.ParentFunction(0000);
+                
+                ChildClass cc1 = new ChildClass("cc1");
+                cc1.ParentFunction(111);
+                cc1.ChildFunction(11111);
+                ChildClass cc2 = new ChildClass("cc2");
+                cc2.ParentFunction(222);
+                cc2.ChildFunction(22222);
+
+                ParentClass p2c = new ChildClass("cc3");
+                p2c.ParentFunction(333);
+                // p2c.ChildFunction(33333);  // ERROR: cannot resolve function
+
+                // ChildClass c2p = new ParentClass(); // ERROR: incompatible type
                 break;
 
-            case 23:
-                MyAbstractUsage mau = new MyAbstractUsage();
-                mau.MyAbstractTest();
+            case 22: // Class reference
+                MyInterfaceImpl_1 mifi1 = new MyInterfaceImpl_1();
+                mifi1.MyInterfaceImpl_RealFunction(); // The DIFF between abstract with interface is abstract can NOT access non-interface API.
+                mifi1.MyInterfaceImpl_InterfaceFunction(11111);
+
+                MyInterfaceImpl_2 mifi2 = new MyInterfaceImpl_2();
+                mifi2.MyInterfaceImpl_RealFunction(); // The DIFF between abstract with interface is abstract can NOT access non-interface API.
+                mifi2.MyInterfaceImpl_InterfaceFunction(22222);
+                break;
+            case 23: // abstract reference
+                // MyAbstractClass AbObj = new MyAbstractClass();  // ERROR: MyAbstractClass is abstract, cannot be init.
+                MyAbstractClass mac1 = new MyAbstractImpl_1();
+                mac1.MyAbstractFunction(33333);
+                mac1.MyFunctionInAbstrace(33333); // The DIFF between abstract with interface is abstract can NOT access non-interface API.
+                // mac1.MyAbstractImplFunction(1);  // ERROR: cannot resolve function
+
+                MyAbstractClass mac2 = new MyAbstractImpl_2();
+                mac2.MyAbstractFunction(44444);
+                mac2.MyFunctionInAbstrace(44444);  // The DIFF between abstract with interface is abstract can NOT access non-interface API.
+                // mac2.MyAbstractImplFunction(2);  // ERROR: cannot resolve function
+                break;
+            case 221: // interface reference
+                // MyInterface mifa = new MyInterface(); // ERROR: MyInterface is abstract, cannot be init.
+                MyInterface mif1 = new MyInterfaceImpl_1();
+                mif1.MyInterfaceImpl_InterfaceFunction(55555);
+                // mif1.MyInterfaceImpl_RealFunction();  // ERROR: cannot resolve function
+
+                MyInterface mif2 = new MyInterfaceImpl_2();
+                mif2.MyInterfaceImpl_InterfaceFunction(66666);
+                // mif2.MyInterfaceImpl_RealFunction();  // ERROR: cannot resolve function
                 break;
 
             case 24: // static, object

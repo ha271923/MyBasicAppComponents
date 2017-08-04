@@ -18,7 +18,7 @@ public interface MyInterface { // a class MUST implement ALL methods if keyword 
     static int static_Var=100; // static final will ADD
     int mVar=1000; // static final will ADD
 
-    void MyInterfaceAPI(int i);
+    void MyInterfaceImpl_InterfaceFunction(int i);
 
     // void MyInterfaceAPI_Impl(int i){int x;}; // ERROR: interface methods cannot have body.
 

@@ -250,14 +250,14 @@
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
-            android:text="interface test(1)"
+            android:text="Class reference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="22"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
-            android:text="interface test(2)"
+            android:text="Interface reference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="221"
@@ -265,7 +265,7 @@
 
 
         <Button
-            android:text="abstract class"
+            android:text="Abstract reference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="23"

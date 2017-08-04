@@ -1,7 +1,5 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
-import android.util.Log;
-
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class ParentClass {
@@ -24,6 +22,10 @@ public class ParentClass {
     private static String init_var(){
         SMLog.i(TAG,"ParentClass call <cinit> for all static variables");
         return  "ParentClass-----";
+    }
+
+    public void ParentFunction(int i) {
+        SMLog.i(TAG,"ParentFunction+++");
     }
 
     public int strong(){

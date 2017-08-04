@@ -19,8 +19,8 @@ public abstract class MyAbstractClass { // JAVA: you can't new a abstract class 
     public static int static_Var; // You can access this var without instance
     public int mVar;
 
-    public boolean MyRealFunction(int param) {
-        SMLog.i(TAG, "MyAbstractClass::MyRealFunction = "+ param);
+    public boolean MyFunctionInAbstrace(int param) {
+        SMLog.i(TAG, "MyAbstractClass::MyFunctionInAbstrace = "+ param);
         static_Var = 100;
         mVar = 1000;
         return true;
