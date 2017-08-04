@@ -6,9 +6,6 @@ import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.builder.MealDirector;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
-import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.DrinkFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodType;
@@ -25,10 +22,6 @@ import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.RedTeaF
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.RedTea;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Simple.SimpleFactory;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.TeaType;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.NoSingleton;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton_sync1;
@@ -39,51 +32,21 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/10/6.
  */
 
-public class MyDesignPatternActivity extends Activity{
+public class MyCreationPatternsActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mydesignpattern);
+        setContentView(R.layout.mydesignpatterns_creation);
 
     }
 
-    public void onClick_MyDesignPatternClass(View view){
+    public void onClick_MyCreationPatternsClass(View view){
         MyDesignPattern(Integer.parseInt(view.getTag().toString()));
     }
 
-    public void MyDesignPattern(int pattern_type){
+    private void MyDesignPattern(int pattern_type){
         switch(pattern_type){
-            case 0: // callback
-                CallBack1 mcb = new CallBack1();
-                mcb.register(new ICallBack1() {
-                    @Override
-                    public void onCall_API() {
-                        SMLog.i("***  api()'s callback was defined by caller. ***");
-                    }
-                });
-                mcb.api(); // Call scb's call_api() will callback onCall_API.
-                break;
-            case 1: // callback
-                Teacher teacher = new Teacher(); // 有位老師
-                teacher.onClass(); // 這位老師正在上課
-                break;
-
-            case 2: // Observer: 定義對象間的一對多的依賴關係，當一個對象狀態發生改變時，所有依賴他的對像都得到通知並被自動更新。
-                Subject subject =  new Subject();
-                subject.setTitle("0000");
-                Observer observer1 = new Person1();
-                Observer observer2 = new Person2();
-                subject.setTitle("1111");
-                subject.register(observer1);
-                subject.register(observer2);
-                subject._notifyAll();
-                SMLog.i("title= "+ subject.getTitle());
-                subject.setTitle("2222");
-                subject.unRegister(observer1); //取消觀察者1的註冊
-                subject._notifyAll();
-                SMLog.i("title= "+ subject.getTitle());
-                break;
 
             case 30: // Simple Factory
                 SimpleFactory sf = new SimpleFactory();
@@ -93,7 +56,6 @@ public class MyDesignPatternActivity extends Activity{
                 sf.createProduct(TeaType.BlackTea);
                 sf.createProduct(TeaType.MilkTea);
                 break;
-
             case 31: // Normal Factory
                 NormalFactory nf_product1 = new CafeFactory();
                 nf_product1.createProduct();
@@ -106,14 +68,12 @@ public class MyDesignPatternActivity extends Activity{
                 NormalFactory nf_product5 = new MilkTeaFactory();
                 nf_product5.createProduct();
                 break;
-
             case 32: // Abstract Factory
                 IAbstractFactory abstractFactory1 = new DrinkFactory();
                 abstractFactory1.createProduct(TeaType.Cafe);
                 IAbstractFactory abstractFactory2 = new FoodFactory();
                 abstractFactory2.createProduct(FoodType.Bakery);
                 break;
-
             case 33: // Factory Method
                 IDrinkAction id = null;
                 id = new Cafe();
@@ -129,7 +89,9 @@ public class MyDesignPatternActivity extends Activity{
                     id.Brew();
                     id.DeliverCpu();
                 break;
-
+            // 差異
+            //  A. Factory模式：創建單個類的模式（關注單個產品）
+            //  B. Builder模式：將各種產品集中起來進行管理（關注複合對象）
             case 34: // Builder
                 SMLog.i("----- Packing is FREE!! -----");
                 MealDirector mealDirector = new MealDirector();
@@ -139,7 +101,6 @@ public class MyDesignPatternActivity extends Activity{
                 SMLog.i("Total Price= " + mealDirector.getOrder(4));
                 SMLog.i("Total Price= " + mealDirector.getOrder(123456789));
                 break;
-
             case 40: // No singleton ( MEMORY is double than singleton. )
                 NoSingleton nosingleton0_1 = new NoSingleton();
                 nosingleton0_1.printCounter();
@@ -188,7 +149,6 @@ public class MyDesignPatternActivity extends Activity{
                     }
                 }).start();
                 break;
-
             case 44: // singleton for multi Thread(fast)
                 Singleton_sync2 singleton_sync2_1 = Singleton_sync2.getInstance();
                 singleton_sync2_1.printCounter();
@@ -207,11 +167,10 @@ public class MyDesignPatternActivity extends Activity{
                     }
                 }).start();
                 break;
-
-
-
+            case 5: // Prototype
+                break;
             default:
-
+                SMLog.e("Not support this pattern yet");
         }
     }
 

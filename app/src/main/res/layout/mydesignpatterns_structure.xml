@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView
+            android:text="status_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/status_textView"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mydesignpattern_progressBar"/>
+
+        <Button
+            android:text="Adapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="10"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+        <!--
+        <Button
+            android:text="Bridge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
+            android:text="Composite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
+            android:text="Decorator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="40"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
+            android:text="Facade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
+            android:text="Flyweight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="60"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
+            android:text="Proxy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="70"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+        -->
+    </LinearLayout>
+</ScrollView>

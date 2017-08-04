@@ -22,91 +22,96 @@
             android:id="@+id/mydesignpattern_progressBar"/>
 
 
-        <!-- Many Buttons share a CallBack function -->
         <Button
             android:text="callback in caller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="0"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="10"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
         <Button
             android:text="callback in callee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="1"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="11"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
         <Button
             android:text="observer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="2"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="20"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+    <!--
         <Button
-            android:text="Factory - Simple"
+            android:text="Interpreter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="30"
-            android:onClick="onClick_MyDesignPatternClass"/>
-        <Button
-            android:text="Factory - Normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="31"
-            android:onClick="onClick_MyDesignPatternClass"/>
-        <Button
-            android:text="Factory - Abstract"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="32"
-            android:onClick="onClick_MyDesignPatternClass"/>
-        <Button
-            android:text="Factory - Factory Method"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="33"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button
-            android:text="Builder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="34"
-            android:onClick="onClick_MyDesignPatternClass"/>
-
-        <Button
-            android:text="No Singleton"
+            android:text="Template Method"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="40"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button
-            android:text="Singleton - singleThread"
+            android:text="Chain of Responsibility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="41"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="50"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button
-            android:text="Singleton - multiThread(ERROR)"
+            android:text="Command"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="42"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="60"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button
-            android:text="Singleton - multiThread(slow)"
+            android:text="Iterator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="43"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="70"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button
-            android:text="Singleton - multiThread(fast)"
+            android:text="Mediator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="44"
-            android:onClick="onClick_MyDesignPatternClass"/>
+            android:tag="80"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
 
+        <Button
+            android:text="Mememto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="90"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
+        <Button
+            android:text="State"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="100"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
+        <Button
+            android:text="Strategy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="110"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
+        <Button
+            android:text="Visitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="120"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+    -->
     </LinearLayout>
 </ScrollView>
