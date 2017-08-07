@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ClassAdapter.cAdapterMedia;
+import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ClassAdapter.cPlayerAudio;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.AdapterMedia;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.PlayerAudio;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.PlayerMp4;
@@ -30,7 +32,7 @@ public class MyStructurePatternsActivity extends Activity{
 
     private void MyDesignPattern(int pattern_type){
         switch(pattern_type){
-            case 10: // Adapter
+            case 10: // Object Adapter
                 PlayerAudio audioPlayer = new PlayerAudio();
                 audioPlayer.play("mp3", "beyond the horizon.mp3");
                 audioPlayer.play("mp4", "alone.mp4");
@@ -47,6 +49,17 @@ public class MyStructurePatternsActivity extends Activity{
                 PlayerVlc vlcPlayer = new PlayerVlc();
                 vlcPlayer.playMp4("alone.mp4");
                 vlcPlayer.playVlc("far far away.vlc");
+
+                break;
+            case 11: // Class Adapter
+                cPlayerAudio audioPlayer2 = new cPlayerAudio();
+                audioPlayer2.play("mp3", "beyond the horizon.mp3");
+                audioPlayer2.play("mp4", "alone.mp4");
+                audioPlayer2.play("vlc", "far far away.vlc");
+                audioPlayer2.play("avi", "mind me.avi");
+
+                cAdapterMedia adapterMedia2 = new cAdapterMedia("vlc");
+                adapterMedia2.play("vlc", "far far away.vlc");
 
                 break;
             case 20: // Bridge
