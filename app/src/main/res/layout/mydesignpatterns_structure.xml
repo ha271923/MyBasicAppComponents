@@ -22,11 +22,19 @@
             android:id="@+id/mydesignpattern_progressBar"/>
 
         <Button
-            android:text="Adapter"
+            android:text="Object Adapter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="10"
             android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
+            android:text="Class Adapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="11"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
         <!--
         <Button
             android:text="Bridge"
