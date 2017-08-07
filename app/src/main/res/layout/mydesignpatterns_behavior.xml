@@ -42,6 +42,14 @@
             android:layout_height="wrap_content"
             android:tag="20"
             android:onClick="onClick_MyBehaviorPatternsClass"/>
+
+        <Button
+            android:text="State"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="100"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
     <!--
         <Button
             android:text="Interpreter"
@@ -90,13 +98,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="90"
-            android:onClick="onClick_MyBehaviorPatternsClass"/>
-
-        <Button
-            android:text="State"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="100"
             android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button

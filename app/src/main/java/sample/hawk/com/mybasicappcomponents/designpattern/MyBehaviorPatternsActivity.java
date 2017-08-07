@@ -12,6 +12,8 @@ import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
+import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelConditionMachine;
+import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelStateMachine;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -84,8 +86,31 @@ public class MyBehaviorPatternsActivity extends Activity{
             case 90: // Mememto
 
                 break;
-            case 100: // State
-
+            case 100: // State by OOP 適合複雜情況採用, 且沒比較快
+                LevelStateMachine player1 = new LevelStateMachine();
+                player1.level = 1;   // STATE變化
+                player1.stateWork(); // STATE machine運作
+                player1.level = 19;
+                player1.stateWork();
+                player1.level = 27;
+                player1.stateWork();
+                player1.level = 62;
+                player1.stateWork();
+                player1.level = 93;
+                player1.stateWork();
+                break;
+            case 101: // State by if-else 簡單易懂
+                LevelConditionMachine player2 = new LevelConditionMachine();
+                player2.level = 1;   // STATE變化
+                player2.stateWork(); // STATE machine運作
+                player2.level = 19;
+                player2.stateWork();
+                player2.level = 27;
+                player2.stateWork();
+                player2.level = 62;
+                player2.stateWork();
+                player2.level = 93;
+                player2.stateWork();
                 break;
             case 110: // Strategy
 
