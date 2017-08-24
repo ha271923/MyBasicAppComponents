@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/yellow"
+              android:id="@+id/mythemeactivity_layout">
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:text="Blur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+    >
+        <RadioButton
+            android:id="@+id/rb_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None"
+        />
+        <RadioButton
+            android:id="@+id/rb_inner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inner blur"
+        />
+        <RadioButton
+            android:id="@+id/rb_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"
+        />
+        <RadioButton
+            android:id="@+id/rb_outer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Outer"
+        />
+        <RadioButton
+            android:id="@+id/rb_solid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solid"
+        />
+    </RadioGroup>
+    <ImageView
+        android:id="@+id/result"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="ANDROID"
+        android:textSize="100dp"
+        android:textStyle="bold"
+        android:textColor="#ff0000"
+    />
+
+</LinearLayout>
