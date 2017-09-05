@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
-
-import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.drawableToBitmap;
 
 /**
  * Created by ha271 on 2017/6/14.
@@ -47,7 +46,7 @@ public class MySurfaceViewActivity2 extends Activity {
                 byte[] jpegbyte = mMyPaintSurface.getSignatureJPEG(30);
                 break;
             case R.id.SetBitmap:
-                Bitmap bitmap = drawableToBitmap(this.getResources().getDrawable(R.drawable.android_robot));
+                Bitmap bitmap = DrawableUtils.drawableToBitmap(this.getResources().getDrawable(R.drawable.android_robot));
                 mMyPaintSurface.setSignatureBitmap(bitmap);
                 break;
             case R.id.CLEAR:

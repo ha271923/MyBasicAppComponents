@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-import sample.hawk.com.mybasicappcomponents.utils.ImageUtils;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils;
 import sample.hawk.com.mybasicappcomponents.view.GraphicAcceleratorActivity2;
 import sample.hawk.com.mybasicappcomponents.view.MyPolygonShape;
 

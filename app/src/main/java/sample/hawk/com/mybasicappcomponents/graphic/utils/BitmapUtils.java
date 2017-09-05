@@ -1,46 +1,120 @@
-package sample.hawk.com.mybasicappcomponents.utils;
+package sample.hawk.com.mybasicappcomponents.graphic.utils;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+
+import java.io.ByteArrayOutputStream;
+
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
- * Created by ha271 on 2017/6/6.
+ * Created by ha271 on 2017/8/25.
  */
 
-public class ImageUtils {
+public class BitmapUtils {
 
-    public static Bitmap drawableToBitmap (Drawable drawable) {
-        Bitmap bitmap = null;
-
-        if (drawable instanceof BitmapDrawable) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            if(bitmapDrawable.getBitmap() != null) {
-                return bitmapDrawable.getBitmap();
-            }
+    public static Bitmap createBitmapSafely(int nWidth, int nHeight, Bitmap.Config config) {
+        SMLog.i("createBitmapSafely: w: "+nWidth+", h: %d"+ nHeight);
+        if (nWidth <= 0 || nHeight <= 0) { // abnormal width or height
+            SMLog.i("width and height must be > 0");
         }
-
-        if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
-            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
-        } else {
-            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-        }
-
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-        return bitmap;
+        return Bitmap.createBitmap(Math.max(nWidth, 1), Math.max(nHeight, 1), config);
     }
+
+    public static Bitmap scaleBitmap(Bitmap bitmap, int wantedWidth, int wantedHeight) {
+        Bitmap output = Bitmap.createBitmap(wantedWidth, wantedHeight, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+        Matrix m = new Matrix();
+        m.setScale((float) wantedWidth / bitmap.getWidth(), (float) wantedHeight / bitmap.getHeight());
+        canvas.drawBitmap(bitmap, m, new Paint());
+        return output;
+    }
+
+    public static Bitmap getRoundedShape(Bitmap scaleBitmapImage) {
+        // TODO Auto-generated method stub
+        int targetWidth = 50;
+        int targetHeight = 50;
+        Bitmap targetBitmap = Bitmap.createBitmap(targetWidth,
+                targetHeight,Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(targetBitmap);
+        Path path = new Path();
+        path.addCircle(((float) targetWidth - 1) / 2,
+                ((float) targetHeight - 1) / 2,
+                (Math.min(((float) targetWidth),
+                        ((float) targetHeight)) / 2),
+                Path.Direction.CCW);
+
+        canvas.clipPath(path);
+        Bitmap sourceBitmap = scaleBitmapImage;
+        canvas.drawBitmap(sourceBitmap,
+                new Rect(0, 0, sourceBitmap.getWidth(),
+                        sourceBitmap.getHeight()),
+                new Rect(0, 0, targetWidth,
+                        targetHeight), null);
+        return targetBitmap;
+    }
+
+    static public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap(
+                bm, 0, 0, width, height, matrix, false);
+        bm.recycle();
+        return resizedBitmap;
+    }
+
+
+    private static byte[] BitmapToByteArray(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
+    }
+
+    private static Drawable BitmapToDrawable(Context context, Bitmap bitmap){
+        return new BitmapDrawable(context.getResources(), bitmap);
+    }
+
+    public static Bitmap ByteArrayToBimap(byte[] b){
+        if(b.length!=0){
+            return BitmapFactory.decodeByteArray(b, 0, b.length);
+        }
+        else {
+            return null;
+        }
+    }
+
+
+
+    public static Bitmap cropBitmap(Bitmap bitmap , int LeftShift){
+        return Bitmap.createBitmap(bitmap, LeftShift, 0, bitmap.getWidth() - LeftShift , bitmap.getHeight());
+    }
+
+    public static Drawable overlapBitmap(Context context, Bitmap bitmapBottom, Bitmap bitmapTop, int LeftShift) {
+        Canvas canvas = new Canvas(bitmapBottom);
+        canvas.drawBitmap(bitmapBottom, 0, 0, null);
+        canvas.drawBitmap(bitmapTop, LeftShift, 0, null);
+        return new BitmapDrawable(context.getResources(), bitmapBottom);
+    }
+
+
+
 
     /**
      * Stack Blur v1.0 from
@@ -277,99 +351,9 @@ public class ImageUtils {
         return (bitmap);
     }
 
-    public static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
-        matrix.postScale(scaleWidth, scaleHeight);
-
-        // "RECREATE" THE NEW BITMAP
-        Bitmap resizedBitmap = Bitmap.createBitmap(
-                bm, 0, 0, width, height, matrix, false);
-        bm.recycle();
-        return resizedBitmap;
-    }
 
 
-    public static Bitmap getScreenshot(View v) {
-        Bitmap b = Bitmap.createBitmap(v.getMeasuredWidth(),
-                v.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(b);
-        v.draw(c);
-        return b;
-    }
 
-
-    public static boolean isHardwareAccelerated(Application app) {
-        // Has HW acceleration been enabled in the manifest?
-        ApplicationInfo info = app.getApplicationInfo();
-        if ((info.flags & ApplicationInfo.FLAG_HARDWARE_ACCELERATED) != 0) {
-            SMLog.i("1. App Accelerator = ENABLED");
-            return true;
-        }
-        else{
-            SMLog.i("1. App Accelerator = disable");
-        }
-        return false;
-    }
-
-    // Has HW acceleration been enabled in the manifest?
-    public static boolean isHardwareAccelerated(Activity activity) {
-        try {
-            ActivityInfo info = activity.getPackageManager().getActivityInfo(
-                    activity.getComponentName(), 0);
-            if ((info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0) {
-                SMLog.i("2. Activity Accelerator = ENABLED");
-                return true;
-            }
-            else{
-                SMLog.i("2. Activity Accelerator = disable");
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            SMLog.e("Hawk", "getActivityInfo(self) should not fail");
-        }
-        return false;
-    }
-
-    // Has HW acceleration been enabled in the manifest?
-    public static boolean isHardwareAccelerated(Window window) {
-        if (window != null) {
-            if ((window.getAttributes().flags
-                    & WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED) != 0) {
-                SMLog.i("3. Window Accelerator = ENABLED");
-                return true;
-            }
-            else{
-                SMLog.i("3. Window Accelerator = disable");
-            }
-        }
-        return false;
-    }
-
-    public static boolean isHardwareAccelerated(View view) {
-        if(view.isHardwareAccelerated()==true){
-            SMLog.i("4. View Accelerator = ENABLED");
-            return true;
-        }
-        else{
-            SMLog.i("4. View Accelerator = disable");
-        }
-        return false;
-    }
-
-    public static boolean isHardwareAccelerated(Canvas canvas) {
-        if(canvas.isHardwareAccelerated()==true){
-            SMLog.i("5. Canvas Accelerator = ENABLED");
-            return true;
-        }
-        else{
-            SMLog.i("5. Canvas Accelerator = disable");
-        }
-        return false;
-    }
 
 }
+

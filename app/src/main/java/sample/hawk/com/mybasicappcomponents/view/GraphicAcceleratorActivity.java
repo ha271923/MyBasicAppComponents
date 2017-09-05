@@ -24,7 +24,7 @@ import sample.hawk.com.mybasicappcomponents.MyApplication;
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
-import static sample.hawk.com.mybasicappcomponents.utils.ImageUtils.isHardwareAccelerated;
+import static sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils.isHardwareAccelerated;
 
 /**
  * https://developer.android.com/guide/topics/graphics/hardware-accel.html

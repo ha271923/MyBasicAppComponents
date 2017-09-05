@@ -422,6 +422,22 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".graphic.MyDrawableActivity"
+                  android:label="graphic/MyDrawableActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".graphic.MyBitmapActivity"
+                  android:label="graphic/MyBitmapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".jni.Plasma"
                   android:label="jni/Plasma">
             <intent-filter>
@@ -1169,8 +1185,10 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <!-- enable to true, a process will monitor app crash. -->
         <activity android:name=".debugTest.crashreport.ReportActivity" android:label="Report Activity"
                   android:noHistory="true" android:process=":report_process"
+                  android:enabled="false"
                   android:theme="@android:style/Theme.NoDisplay"/>
 
         <provider android:name=".debugTest.crashreport.ReportFilesProvider" android:process=":report_process"

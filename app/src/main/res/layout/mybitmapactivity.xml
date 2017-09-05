@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="1152px">
+        <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="0"
+                android:text="test 0"/>
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="1"
+                android:text="test 0"/>
+
+            <Button
+                android:id="@+id/Button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="2"
+                android:text="test 2"/>
+
+            <Button
+                android:id="@+id/Button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="3"
+                android:text="test 3"/>
+
+            <Button
+                android:id="@+id/Button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="4"
+                android:text="test 4"/>
+
+            <Button
+                android:id="@+id/Button5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="5"
+                android:text="test 5"/>
+
+            <Button
+                android:id="@+id/Button6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickMyBitmapActivityButtons"
+                android:tag="6"
+                android:text="test 6"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <SeekBar android:id="@+id/bitmap_seekbar"
+             android:layout_width="match_parent"
+             android:layout_height="100dp"
+             android:layout_marginLeft="30dp"
+             android:layout_marginRight="30dp"
+             android:max="100" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imageViewOrigin"
+        android:layout_width="match_parent"
+        android:layout_height="1280px"
+        android:background="@color/yellow"/>
+    <ImageView
+        android:id="@+id/imageViewBlurred"
+        android:layout_width="match_parent"
+        android:layout_height="1280px"
+        android:layout_toRightOf="@+id/imageViewOrigin"
+        android:background="@color/colorAccent"/>
+    </RelativeLayout>
+
+</LinearLayout>

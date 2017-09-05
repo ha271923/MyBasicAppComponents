@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.utils;
+package sample.hawk.com.mybasicappcomponents.graphic.utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+
+import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 
 public class BlurBuilder {
