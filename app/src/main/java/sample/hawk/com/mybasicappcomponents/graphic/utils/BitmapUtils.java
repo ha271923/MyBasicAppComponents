@@ -7,19 +7,41 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+import sample.hawk.com.mybasicappcomponents.utils.logger2.Logger;
 
 /**
  * Created by ha271 on 2017/8/25.
  */
 
 public class BitmapUtils {
+
+    private static final String LOG_TAG = "BitmapUtils";
+
+    public static boolean isBitmapMatch(Bitmap a, Bitmap b) {
+        boolean isSame = false;
+        if (a != null && b != null) {
+            try {
+                isSame = a.sameAs(b);
+            } catch (Exception e) {
+                Logger.w(LOG_TAG, "checkBitmapSame fail", e);
+            } catch (Error e) {
+                Logger.w(LOG_TAG, "checkBitmapSame fail", e);
+            }
+        } else {
+            Logger.w(LOG_TAG, "checkBitmapSame with null object a:" + a
+                    + " b:" + b);
+        }
+        return isSame;
+    }
 
     public static Bitmap createBitmapSafely(int nWidth, int nHeight, Bitmap.Config config) {
         SMLog.i("createBitmapSafely: w: "+nWidth+", h: %d"+ nHeight);
@@ -36,6 +58,32 @@ public class BitmapUtils {
         m.setScale((float) wantedWidth / bitmap.getWidth(), (float) wantedHeight / bitmap.getHeight());
         canvas.drawBitmap(bitmap, m, new Paint());
         return output;
+    }
+
+    public static Bitmap scaleBitmap(Bitmap bmp, int nW, int nH, ImageView.ScaleType scaleType) {
+        Canvas canvas = new Canvas();
+
+        final Bitmap b = createBitmapSafely(nW, nH, bmp.getConfig());
+        canvas.setBitmap(b);
+
+        Rect rectSrc = new Rect(0, 0, bmp.getWidth(), bmp.getHeight());
+        float fScaleFactor;
+        if (scaleType == ImageView.ScaleType.CENTER) {
+            fScaleFactor = 1;
+        } else {
+            fScaleFactor = Math.min(nW / (float) bmp.getWidth(), nH / (float) bmp.getHeight());
+        }
+        int nScaledWidth = (int) (fScaleFactor * bmp.getWidth());
+        int nScaledHeight = (int) (fScaleFactor * bmp.getHeight());
+        Rect rectDst = new Rect(0, 0, nScaledWidth, nScaledHeight);
+
+        // center the image
+        rectDst.offset((nW - nScaledWidth) / 2, (nH - nScaledHeight) / 2);
+
+        canvas.drawBitmap(bmp, rectSrc, rectDst, null);
+        canvas.setBitmap(null);
+
+        return b;
     }
 
     public static Bitmap getRoundedShape(Bitmap scaleBitmapImage) {
@@ -113,7 +161,10 @@ public class BitmapUtils {
         return new BitmapDrawable(context.getResources(), bitmapBottom);
     }
 
-
+    private static Bitmap createFullScreenEmptyBitmap(Context context) {
+        Point ptScreenSize = ImageUtils.getDisplaySize(context, true, true);
+        return BitmapUtils.createBitmapSafely(ptScreenSize.x, ptScreenSize.y, Bitmap.Config.ARGB_8888);
+    }
 
 
     /**

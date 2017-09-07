@@ -2,12 +2,14 @@ package sample.hawk.com.mybasicappcomponents.graphic.utils;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.Window;
@@ -35,11 +37,11 @@ public class ImageUtils {
         return statusBarHeight;
     }
 
-    public static int getStatusBarHeight(Activity activity) {
+    public static int getStatusBarHeight(Context context) {
         int result = 0;
-        int resourceId = activity.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
-            result = activity.getResources().getDimensionPixelSize(resourceId);
+            result = context.getResources().getDimensionPixelSize(resourceId);
         }
         return result;
     }
@@ -125,6 +127,28 @@ public class ImageUtils {
         Canvas c = new Canvas(b);
         v.draw(c);
         return b;
+    }
+
+    public static Point getDisplaySize(Context context, boolean bIsReal) {
+        Point ptSize = new Point();
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        if (bIsReal) {
+            windowManager.getDefaultDisplay().getRealSize(ptSize);
+        } else {
+            windowManager.getDefaultDisplay().getSize(ptSize);
+        }
+        return ptSize;
+    }
+
+    public static Point getDisplaySize(Context context, boolean bIsReal, boolean bIsPortrait) {
+        Point ptScreenSize = getDisplaySize(context, bIsReal);
+        if (bIsPortrait) {
+            return new Point(Math.min(ptScreenSize.x, ptScreenSize.y),
+                    Math.max(ptScreenSize.x, ptScreenSize.y));
+        } else {
+            return new Point(Math.max(ptScreenSize.x, ptScreenSize.y),
+                    Math.min(ptScreenSize.x, ptScreenSize.y));
+        }
     }
 
 }

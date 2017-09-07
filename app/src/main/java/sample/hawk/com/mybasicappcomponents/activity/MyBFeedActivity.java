@@ -7,7 +7,7 @@ import android.os.Bundle;
  * Created by ha271 on 2016/10/5.
  */
 
-public class MyBlinkFeedActivity extends Activity {
+public class MyBFeedActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

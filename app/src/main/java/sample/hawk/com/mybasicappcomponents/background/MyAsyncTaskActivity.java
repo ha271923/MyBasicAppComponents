@@ -3,15 +3,23 @@ package sample.hawk.com.mybasicappcomponents.background;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -20,11 +28,12 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/12/14.
  */
 
-public class MyAsyncTaskActivity extends Activity {
+public class MyAsyncTaskActivity extends Activity implements MyAsyncTaskApi.MyAsyncTaskApiCallback {
 
     Context m_context;
     public static ProgressBar mMainActivityProgressBar;
     public ToggleButton mMyAsyncTaskToggleBtn;
+    public Button mAsyncTaskApiBtn;
     public TextView mMyOutputTextView;
     public static int pa;
 
@@ -37,6 +46,8 @@ public class MyAsyncTaskActivity extends Activity {
         mMyOutputTextView        = (TextView) findViewById(R.id.OutputTextView);
         mMyAsyncTaskToggleBtn    = (ToggleButton) findViewById(R.id.AsyncTaskToggleBtn);
         mMyAsyncTaskToggleBtn.setOnClickListener(mMyAsyncTaskToggleBtnListener);
+        mAsyncTaskApiBtn    = (Button) findViewById(R.id.AsyncTaskApiBtn);
+        mAsyncTaskApiBtn.setOnClickListener(mMyAsyncTaskApiBtnListener);
         mMyTask= new  MyAsyncTask();
     }
 
@@ -60,13 +71,36 @@ public class MyAsyncTaskActivity extends Activity {
         }
     };
 
-    // AsyncTask can only start by UI thread. ------------------------------------------------------
+
+    // use an independent executor for MyAsyncTaskApi;
+    static private final AtomicInteger mCount = new AtomicInteger(1);
+    private static class WorkerThreadFactory implements ThreadFactory {
+        private static final String PREFIX = "My WorkerThread # ";
+
+        @Override
+        public Thread newThread(Runnable runnable) {
+            return new Thread(runnable, PREFIX + mCount.getAndIncrement());
+        }
+    }
+    static public Executor ASYNCTASKAPI_EXECUTOR = new ThreadPoolExecutor(0, 1,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>(), new WorkerThreadFactory());
+    private View.OnClickListener mMyAsyncTaskApiBtnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            MyAsyncTaskApi.MyAsyncTaskApi(m_context, null, (MyAsyncTaskActivity)m_context, ASYNCTASKAPI_EXECUTOR); // TODO: follow asyncBlur to write this code
+        }
+    };
+
+    // AsyncTask can only start by UI thread.
+
+    // CLASS: AsyncTask Class ------------------------------------------------------
     // UPDATE_UI WAY3: AsyncTask can update UI easily.
     //param1：向後台任務的執行方法傳遞參數的類型；
     //param2：在後台任務執行過程中，要求主UI thread處理中間狀態，通常是一些UI處理中傳遞的參數類型；
     //param3：return value
     private  MyAsyncTask mMyTask;
-    private class MyAsyncTask extends AsyncTask<String/*param1*/,String/*param2*/,String/*param3*/>
+    public class MyAsyncTask extends AsyncTask<String/*param1*/,String/*param2*/,String/*param3*/>
     {
         // Update UI before job start.
         protected void onPreExecute() {
@@ -108,5 +142,11 @@ public class MyAsyncTaskActivity extends Activity {
             SMLog.i();
             mMyOutputTextView.setText("AsyncTask cancelled");
         }
+    }
+
+    // API: AsyncTask built-in API ------------------------------------------------------
+    @Override
+    public void onAsyncTaskApiCompleted(Bitmap blurredBitmap) {
+        SMLog.i("onAsyncTaskApiCompleted");
     }
 }

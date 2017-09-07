@@ -50,7 +50,10 @@ public class MyBitmapActivity extends Activity {
         }
 
         public final void onProgressChanged(SeekBar seekBar, int progress, boolean z) {
-
+            float fWallpaperAlpha = progress * 2.55f;
+            int test_color = 0xBF010203;
+            test_color = ColorAlphaTransition(test_color, fWallpaperAlpha);
+            SMLog.i("New color="+ test_color);
         }
 
         public final void onStartTrackingTouch(SeekBar seekBar) {
@@ -134,6 +137,11 @@ public class MyBitmapActivity extends Activity {
         long end_time = SystemClock.uptimeMillis();
         SMLog.i("Effect     TimeCost = " + (end_time - start_time));
         // mImageView_org.setImageDrawable(drawable_out);
+    }
+
+    // 0:full transparent, 1:opaque
+    private static int ColorAlphaTransition(int color, float alpha) {
+        return ((((int)((float)((color >> 24) & 0xFF) * alpha)) << 24)|(color & 0xFFFFFF));
     }
 
 }

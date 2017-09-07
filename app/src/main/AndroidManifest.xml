@@ -768,7 +768,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MyBlinkFeedActivity"
+        <activity android:name=".activity.MyBFeedActivity"
                   android:label="activity/MyBlinkFeedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />

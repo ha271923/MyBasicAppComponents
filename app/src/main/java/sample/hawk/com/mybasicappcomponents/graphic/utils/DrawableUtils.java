@@ -22,30 +22,7 @@ import static sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils.cre
  */
 
 public class DrawableUtils {
-
-    public static Bitmap convertDrawable2Bitmap(Drawable drawable) {
-        Bitmap bitmap = null;
-        if (drawable != null) {
-            if (drawable instanceof BitmapDrawable) {
-                SMLog.i("convertDrawable2Bitmap from bitmapDrawable");
-                BitmapDrawable bitmapD = (BitmapDrawable) drawable;
-                bitmap = bitmapD.getBitmap();
-            } else {
-                SMLog.i("convertDrawable2Bitmap draw again");
-                try {
-                    bitmap = createBitmapSafely(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-                    Canvas canvas = new Canvas(bitmap);
-                    drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-                    drawable.draw(canvas);
-                } catch (Exception e) {
-                    SMLog.i("convertDrawable2Bitmap draw fail"+ e);
-                } catch (Error e) {
-                    SMLog.i("convertDrawable2Bitmap draw fail"+ e);
-                }
-            }
-        }
-        return bitmap;
-    }
+    private static final String LOG_TAG = "DrawableUtils";
 
     public static TransitionDrawable transitionDrawable(Drawable currentBG, Drawable newBG ) {
         TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{currentBG, newBG});
@@ -124,6 +101,30 @@ public class DrawableUtils {
         Canvas canvas = new Canvas(bitmap);
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
+        return bitmap;
+    }
+
+    public static Bitmap drawableToBitmap2(Drawable drawable) {
+        Bitmap bitmap = null;
+        if (drawable != null) {
+            if (drawable instanceof BitmapDrawable) {
+                SMLog.i("drawableToBitmap2 from bitmapDrawable");
+                BitmapDrawable bitmapD = (BitmapDrawable) drawable;
+                bitmap = bitmapD.getBitmap();
+            } else {
+                SMLog.i("drawableToBitmap2 draw again");
+                try {
+                    bitmap = createBitmapSafely(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(bitmap);
+                    drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                    drawable.draw(canvas);
+                } catch (Exception e) {
+                    SMLog.i("drawableToBitmap2 draw fail"+ e);
+                } catch (Error e) {
+                    SMLog.i("drawableToBitmap2 draw fail"+ e);
+                }
+            }
+        }
         return bitmap;
     }
 
