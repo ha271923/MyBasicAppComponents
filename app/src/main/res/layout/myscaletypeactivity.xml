@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView android:textSize="20dp" android:text="wrap_content ----" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:background="#ffaa77"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:background="#aa99cc"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+        <TextView android:textSize="20dp" android:text="matrix" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:adjustViewBounds="false"
+            android:background="#ffaa77"
+            android:scaleType="matrix"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:adjustViewBounds="false"
+            android:background="#aa99cc"
+            android:scaleType="matrix"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="fitXY" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#ffaa77"
+            android:scaleType="fitXY"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="128dp"
+            android:background="#aa99cc"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="fitStart" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="256dp"
+            android:background="#ffaa77"
+            android:scaleType="fitStart"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="36dp"
+            android:background="#aa99cc"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="fitCenter" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="256dp"
+            android:background="#ffaa77"
+            android:scaleType="fitCenter"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="48dp"
+            android:background="#aa99cc"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="fitEnd" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="256dp"
+            android:background="#ffaa77"
+            android:scaleType="fitEnd"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="48dp"
+            android:background="#aa99cc"
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="center" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="256dp"
+            android:background="#ffaa77"
+            android:scaleType="center"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="24dp"
+            android:background="#aa99cc"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="centerCrop" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="256dp"
+            android:background="#ffaa77"
+            android:scaleType="centerCrop"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="48dp"
+            android:background="#aa99cc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+
+
+        <TextView android:textSize="20dp" android:text="centerInside" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="256dp"
+            android:background="#ffaa77"
+            android:scaleType="centerInside"
+            android:src="@drawable/vertical_photo_480x720" />
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="48dp"
+            android:background="#aa99cc"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_action_device_access_bluetooth_searching" />
+    </LinearLayout>
+</ScrollView>

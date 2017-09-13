@@ -390,6 +390,15 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.MyTransparentActivity"
+                  android:theme="@style/MyTransparentTheme"
+                  android:label="activity/MyTransparentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activity.MyThemeActivity"
                   android:label="activity/MyThemeActivity">
             <intent-filter>
@@ -430,8 +439,24 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".graphic.MyDrawableActivity2"
+                  android:label="graphic/MyDrawableActivity2">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".graphic.MyBitmapActivity"
                   android:label="graphic/MyBitmapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".graphic.MyScaleTypeActivity"
+                  android:label="graphic/MyScaleTypeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
