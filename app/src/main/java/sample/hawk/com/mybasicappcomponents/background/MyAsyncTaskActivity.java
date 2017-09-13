@@ -61,7 +61,7 @@ public class MyAsyncTaskActivity extends Activity implements MyAsyncTaskApi.MyAs
             if(mMyAsyncTaskToggleBtn.isChecked()){
                 // Hawk: Update UI in AsyncTask's override APIs.
                 mMyTask= new  MyAsyncTask(); // AsyncTask can be executed only once, so new it everytime.
-                mMyTask.execute( "Start MyAsyncTask job!" );
+                mMyTask.execute( "Start MyAsyncTask job!" , "InputParam2"/*param1*/);
             }
             else{
                 // Hawk: Update UI in AsyncTask's override APIs.
@@ -110,12 +110,15 @@ public class MyAsyncTaskActivity extends Activity implements MyAsyncTaskApi.MyAs
         @Override
         protected String/*param3*/ doInBackground(String... params/*param1*/) { // WorkerThread at here!
             SMLog.i();
-            String pre = params[0]; // params[0]="Start MyAsyncTask job!"
+            // param1 == params == {params[0], params[1], ....}
+            String strInput1 = params[0];  // params[0] == "Start MyAsyncTask job!"
+            String strInput2 = params[1]; // params[1] == "InputParam2"
             // TODO: WORKTHREAD at here for implement your job!
             for (int i = 0; i < 1000; i++) {
-                publishProgress(pre+i/*param2*/); // Hawk: related with onProgressUpdate()
+                publishProgress(strInput1+i/*param2*/); // Hawk: related with onProgressUpdate()
                 SystemClock.sleep(10);
-                SMLog.i("["+i+"]  AsyncTask::doInBackground"); // Hawk: Activity BACK or TaskSwitch does NOT stop this Job.
+                SMLog.i("["+i+"]  AsyncTask::doInBackground" + "   strInput1="+strInput1+ "   strInput2="+strInput2); // Hawk: Activity BACK or TaskSwitch does NOT stop this Job.
+                // Hawk: Activity BACK or TaskSwitch does NOT stop this Job.
             }
             return "AsyncTask finish!";
         }
@@ -146,7 +149,7 @@ public class MyAsyncTaskActivity extends Activity implements MyAsyncTaskApi.MyAs
 
     // API: AsyncTask built-in API ------------------------------------------------------
     @Override
-    public void onAsyncTaskApiCompleted(Bitmap blurredBitmap) {
+    public void onAsyncTaskApiCompleted(Bitmap[] blurredBitmaps) {
         SMLog.i("onAsyncTaskApiCompleted");
     }
 }
