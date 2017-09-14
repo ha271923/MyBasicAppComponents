@@ -1,16 +1,21 @@
 package sample.hawk.com.mybasicappcomponents.graphic.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ScaleDrawable;
 import android.graphics.drawable.TransitionDrawable;
+
+import java.io.ByteArrayOutputStream;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -18,12 +23,27 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import static sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils.createBitmapSafely;
 
 /**
- * Created by ha271 on 2017/9/4.
+ * Created by ha271 on 2017/8/25..
+ *
+    JAVA有 reference)這個特性，如果沒有小心使用，像︰ 
+      Bitmap使用後沒有recycle()、
+      Drawable使用後沒有setCallback(null)⋯
+    都會容易出現OutOfMemoryException而導致程式出錯。
  */
 
 public class DrawableUtils {
     private static final String LOG_TAG = "DrawableUtils";
 
+    private static boolean isDrawed(Drawable drawable){
+        Rect bounds = drawable.copyBounds();
+        if ((bounds.right == 0) && (bounds.left == 0) &&
+            (bounds.top   == 0) && (bounds.bottom == 0)) // Drawables have no dimensions unless they've been drawn.
+            return false;
+        return true;
+    }
+
+
+    // Applied on Background test PASSED! like an animation
     public static TransitionDrawable transitionDrawable(Drawable currentBG, Drawable newBG ) {
         TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{currentBG, newBG});
         transitionDrawable.setCrossFadeEnabled(true);
@@ -31,19 +51,9 @@ public class DrawableUtils {
     }
 
     // Applied on Background test PASSED!
-    public static Drawable moveDrawable1(Drawable drawable, int x, int y) {
-        Rect bounds = drawable.copyBounds(); // return four points actually position in View.
-        bounds.left += x;
-        bounds.top += y;
-        bounds.right += x;
-        bounds.bottom += y;
-        drawable.setBounds(bounds);
-        return drawable;
-    }
-
     public static Drawable shiftDrawable(Drawable drawable, int x) {
         Rect bounds = drawable.copyBounds();
-        if ((bounds.right == 0) && (bounds.left == 0)) // Drawables have no dimensions unless they've been drawn.
+        if (isDrawed(drawable) != true) // Drawables have no dimensions unless they've been drawn.
             return drawable;
         bounds.left = x;
         bounds.right = x + drawable.getIntrinsicWidth();
@@ -51,9 +61,10 @@ public class DrawableUtils {
         return drawable;
     }
 
+    // Applied on Background test PASSED!
     public static Drawable moveDrawable(Drawable drawable, int x, int y) {
         Rect bounds = drawable.copyBounds(); // return four points actually position in View.
-        if ((bounds.right == 0) && (bounds.left == 0)) // Drawables don't have dimensions unless they've been drawn.
+        if (isDrawed(drawable) != true) // Drawables have no dimensions unless they've been drawn.
             return drawable;
         bounds.left = x;
         bounds.top = y;
@@ -68,18 +79,24 @@ public class DrawableUtils {
         // copyBounds() and getBounds() returns (0,0,0,0) if Drawables don't have dimensions unless they've been drawn.
         Rect bounds = drawable.copyBounds(); // return four points actually position in View.
         // Rect bounds = drawable.getBounds(); // Return (0,0,0,0) if Drawables don't have dimensions unless they've been drawn.
-        bounds.left += x;
-        bounds.right -= x;
-        bounds.top += y;
-        bounds.bottom += y;
+        if (isDrawed(drawable) != true) // Drawables have no dimensions unless they've been drawn.
+            return drawable;
+        bounds.left = 0;
+        bounds.right = x;
+        bounds.top = 0;
+        bounds.bottom = y;
         drawable.setBounds(bounds);
         return drawable;
     }
 
-
-    public static Drawable scaleDrawable(Drawable drawable, int gravity, float scaleWidth, float scaleHeight ){
-        ScaleDrawable scaleDrawable = new ScaleDrawable(drawable, gravity, scaleWidth, scaleHeight);
-        return scaleDrawable;
+    // OK!
+    public static Drawable scaleDrawable(Drawable drawable, int targetWidth, int targetHeight ){
+        if (isDrawed(drawable) != true) // Drawables have no dimensions unless they've been drawn.
+            return drawable;
+        drawable.setBounds(0, 0, targetWidth, targetHeight);
+        SMLog.i("Intrinsic: getIntrinsicWidth="+drawable.getIntrinsicWidth() +"   getIntrinsicHeight="+ drawable.getIntrinsicHeight());
+        SMLog.i("Minimum:   getMinimumWidth="+drawable.getMinimumWidth() +"   getMinimumHeight="+ drawable.getMinimumHeight());
+        return drawable;
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
@@ -139,6 +156,26 @@ public class DrawableUtils {
         canvas.drawBitmap(bitmapTop, LeftShift, 0, null);
 
         return new BitmapDrawable(context.getResources(), bitmapOverlap);
+    }
+
+    public static Drawable changeDrawableColor(Drawable drawable, int newColor) {
+        drawable.setColorFilter(new PorterDuffColorFilter(newColor, PorterDuff.Mode.SRC_IN));
+        return drawable;
+    }
+    public static byte[] drawableToByteArray(Drawable drawable) {
+        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] bitmapdata = stream.toByteArray();
+        return bitmapdata;
+    }
+
+    public static Drawable bytesToDrawable(Resources resources, byte[] imageBytes) {
+
+        if (imageBytes != null)
+            return new BitmapDrawable(resources, BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length));
+        else
+            return null;
     }
 
     public static Drawable getColoredDrawable(Context context, boolean isworking) {

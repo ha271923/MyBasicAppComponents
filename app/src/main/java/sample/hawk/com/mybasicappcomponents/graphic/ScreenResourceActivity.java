@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.data_structure;
+package sample.hawk.com.mybasicappcomponents.graphic;
 
 import android.app.Activity;
 import android.content.res.Configuration;

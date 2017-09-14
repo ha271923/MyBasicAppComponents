@@ -982,8 +982,8 @@
         </activity>
 
 
-        <activity android:name=".data_structure.ScreenResourceActivity"
-                  android:label="data_structure/ScreenResourceActivity">
+        <activity android:name=".graphic.ScreenResourceActivity"
+                  android:label="graphic/ScreenResourceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />

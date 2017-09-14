@@ -3,8 +3,10 @@ package sample.hawk.com.mybasicappcomponents.graphic.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.support.annotation.AttrRes;
+import android.support.annotation.ColorInt;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -29,6 +31,15 @@ public class ThemeUtils {
         } finally {
             array.recycle();
         }
+    }
+
+    private static int getColorPrimaryInt(Context context)
+    {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        @ColorInt int color = typedValue.data;
+        return color;
     }
 
     // Set the theme of the activity, according to the configuration.

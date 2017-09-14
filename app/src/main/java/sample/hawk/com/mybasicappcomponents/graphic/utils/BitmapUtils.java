@@ -13,13 +13,22 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 import sample.hawk.com.mybasicappcomponents.utils.logger2.Logger;
 
 /**
- * Created by ha271 on 2017/8/25.
+ * Created by ha271 on 2017/8/25..
+ *
+    JAVA有 reference)這個特性，如果沒有小心使用，像︰ 
+      Bitmap使用後沒有recycle()、
+      Drawable使用後沒有setCallback(null)⋯
+    都會容易出現OutOfMemoryException而導致程式出錯。
  */
 
 public class BitmapUtils {
@@ -135,7 +144,7 @@ public class BitmapUtils {
         return baos.toByteArray();
     }
 
-    private static Drawable BitmapToDrawable(Context context, Bitmap bitmap){
+    public static Drawable BitmapToDrawable(Context context, Bitmap bitmap){
         return new BitmapDrawable(context.getResources(), bitmap);
     }
 
@@ -154,6 +163,10 @@ public class BitmapUtils {
         return Bitmap.createBitmap(bitmap, LeftShift, 0, bitmap.getWidth() - LeftShift , bitmap.getHeight());
     }
 
+    public static Bitmap cropBitmap(Bitmap bitmap ,int posX, int posY, int wantedWidth, int wantedHeight ){
+        return Bitmap.createBitmap(bitmap, posX, posY, wantedWidth , wantedHeight);
+    }
+
     public static Drawable overlapBitmap(Context context, Bitmap bitmapBottom, Bitmap bitmapTop, int LeftShift) {
         Canvas canvas = new Canvas(bitmapBottom);
         canvas.drawBitmap(bitmapBottom, 0, 0, null);
@@ -166,7 +179,17 @@ public class BitmapUtils {
         return BitmapUtils.createBitmapSafely(ptScreenSize.x, ptScreenSize.y, Bitmap.Config.ARGB_8888);
     }
 
-
+    // format = Bitmap.CompressFormat.JPEG....
+    public static void saveBitmapToFile(Bitmap finalBitmap, String outFilePath, Bitmap.CompressFormat format) throws IOException {
+        int quality = 100;
+        // write back to file
+        OutputStream outStream = new BufferedOutputStream(new FileOutputStream(outFilePath));
+        try {
+            finalBitmap.compress(format, quality, outStream);
+        } finally {
+            outStream.close();
+        }
+    }
     /**
      * Stack Blur v1.0 from
      * http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html

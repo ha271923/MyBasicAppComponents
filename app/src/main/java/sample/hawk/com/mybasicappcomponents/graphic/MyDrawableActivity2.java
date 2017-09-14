@@ -21,6 +21,8 @@ import java.io.FileNotFoundException;
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BlurBuilder;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils2;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -29,8 +31,8 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2017/8/28.
  */
 
-// public class MyBitmapActivity extends Activity implements View.OnTouchListener, View.OnDragListener {
-public class MyBitmapActivity extends Activity {
+// public class MyDrawableActivity extends Activity implements View.OnTouchListener, View.OnDragListener {
+public class MyDrawableActivity2 extends Activity {
     Context mContext;
     static DisplayMetrics mDisplayMetrics;
     ImageView mImageView_org;
@@ -44,16 +46,13 @@ public class MyBitmapActivity extends Activity {
     final int GET_IMAGE = 1;
     int pixelShift = 300;
 
-    public  class BlurRangeSeekBar_Listener implements SeekBar.OnSeekBarChangeListener {
+    public  class MySeekBar_Listener implements SeekBar.OnSeekBarChangeListener {
 
-        public BlurRangeSeekBar_Listener(Activity activity) {
+        public MySeekBar_Listener(Activity activity) {
         }
 
         public final void onProgressChanged(SeekBar seekBar, int progress, boolean z) {
-            float fWallpaperAlpha = progress * 2.55f;
-            int test_color = 0xBF010203;
-            test_color = ColorAlphaTransition(test_color, fWallpaperAlpha);
-            SMLog.i("New color="+ test_color);
+
         }
 
         public final void onStartTrackingTouch(SeekBar seekBar) {
@@ -66,18 +65,18 @@ public class MyBitmapActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mybitmapactivity);
+        setContentView(R.layout.mydrawableactivity2);
         mContext = this;
         mDisplayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
         SMLog.i("StatusBarHeight="+ ImageUtils.getStatusBarHeight(this));
         mImageView_blur = (ImageView) findViewById(R.id.imageViewBlurred);
         mImageView_org = (ImageView) findViewById(R.id.imageViewOrigin);
-        SeekBar blur_pixelrange_seekbar = (SeekBar) findViewById(R.id.bitmap_seekbar);
+        SeekBar myseekbar = (SeekBar) findViewById(R.id.drawable_seekbar);
         int width =  mDisplayMetrics.widthPixels;
-        blur_pixelrange_seekbar.setMax(width);
-        blur_pixelrange_seekbar.setProgress(pixelShift);
-        blur_pixelrange_seekbar.setOnSeekBarChangeListener(new BlurRangeSeekBar_Listener(this ));
+        myseekbar.setMax(width);
+        myseekbar.setProgress(pixelShift);
+        myseekbar.setOnSeekBarChangeListener(new MySeekBar_Listener(this ));
 
         ImageUtils.getImageFromAlbum(this, GET_IMAGE);
     }
@@ -119,36 +118,50 @@ public class MyBitmapActivity extends Activity {
     }
 
 
-    public void onClickMyBitmapActivityButtons(View view){
+    public void onClickMyDrawableActivityButtons(View view){
         String Tag = view.getTag().toString();
         int tag = Integer.parseInt(Tag);
         long start_time = SystemClock.uptimeMillis();
+        int nStatusBarHeight = 100;
 
         switch(tag) {
             case 0:
-                // TODO: Add bitmap test case here
-
                 break;
 
-            case 1: // overlapBitmap
-                drawable_out = BitmapUtils.overlapBitmap(mContext, mBitmap_org, BitmapUtils.cropBitmap(mBitmap_blur,pixelShift) , pixelShift);
+            case 1:
+                DrawableUtils2.setContext(mContext);
+                Bitmap bitmap1 = DrawableUtils2.getBackgroundBitmap(null);
+                Bitmap mStatusBarBackgroundBitmap = Bitmap.createBitmap(bitmap1, 0, 0, bitmap1.getWidth(), nStatusBarHeight);
+                drawable_out = new BitmapDrawable(getResources(), mStatusBarBackgroundBitmap);
                 break;
 
             case 2:
-                // TODO: Add bitmap test case here
-
+                DrawableUtils2.setContext(mContext);
+                Bitmap bitmap2 = DrawableUtils2.getBackgroundBitmap(null);
+                Bitmap mBackgroundBitmap = Bitmap.createBitmap(bitmap2, 0, nStatusBarHeight, bitmap2.getWidth(), bitmap2.getHeight() - nStatusBarHeight);
+                drawable_out = new BitmapDrawable(getResources(), mBackgroundBitmap);
+                break;
+            case 3:
+                DrawableUtils.scaleDrawable(mDrawable_org, mImageView_org.getWidth()/2, mImageView_org.getHeight()/2); // setBounds
+                drawable_out = mDrawable_org;
                 break;
 
+            case 4:
+                drawable_out = DrawableUtils.changeDrawableColor(mDrawable_org, 0x7657321);
+                break;
 
+            case 5:
+                break;
+
+            case 6:
+                break;
         }
         long end_time = SystemClock.uptimeMillis();
         SMLog.i("Effect     TimeCost = " + (end_time - start_time));
         // mImageView_org.setImageDrawable(drawable_out);
+        mImageView_org.setBackground(drawable_out);
     }
 
-    // 0:full transparent, 1:opaque
-    private static int ColorAlphaTransition(int color, float alpha) {
-        return ((((int)((float)((color >> 24) & 0xFF) * alpha)) << 24)|(color & 0xFFFFFF));
-    }
+
 
 }

@@ -27,9 +27,10 @@ import java.io.FileNotFoundException;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
-import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils;
-import sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BlurBuilder;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils2;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 
@@ -145,7 +146,11 @@ public class MyDrawableActivity extends Activity {
                 break;
 
             case 1:
-
+                // drawable_out = DrawableUtils.copyDrawable(mDrawable_org);
+                DrawableUtils2.setContext(mContext);
+                Bitmap bitmap = DrawableUtils2.getBackgroundBitmap(null);
+                // Bitmap bitmap = DrawableUtils2.getStatusBarBitmap(null); // mBuffer has no data.
+                drawable_out = BitmapUtils.BitmapToDrawable(mContext, bitmap); // test OK
                 break;
 
             case 2: // overlapDrawable
@@ -154,9 +159,9 @@ public class MyDrawableActivity extends Activity {
                 break;
 
             case 3: // moveDrawable
-                drawable_out = DrawableUtils.shiftDrawable(mDrawable_blur,pixelShift);
+                // drawable_out = DrawableUtils.shiftDrawable(mDrawable_blur,pixelShift);
                 // drawable_out = DrawableUtils.moveDrawable(mDrawable_blur,pixelShift,0);
-                //drawable_out = GraphicUtils.resizeDrawable(mDrawable_blur,pixelShift,pixelShift);
+                drawable_out = DrawableUtils.resizeDrawable(mDrawable_blur,pixelShift,pixelShift);
                 break;
 
             case 4: // TransitionDrawable

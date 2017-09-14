@@ -14,7 +14,6 @@
         custom:timeText="My Time View"
         custom:timeColor="true" />
 
-
     <Button
         android:id="@+id/button_set_default"
         android:layout_width="wrap_content"
@@ -26,6 +25,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/my_button_apply_mytheme"/>
+
+    <Button
+        android:id="@+id/button_set_statusbar_transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set status_bar Transparent"/>
+
+    <Button
+        android:id="@+id/button_set_statusbar_bkg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set status_bar background"/>
 
     <CheckBox
         android:text="set Background Image"
