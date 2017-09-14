@@ -1,21 +1,12 @@
 package sample.hawk.com.mybasicappcomponents.oo;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.gson.Gson;
-
-import java.io.Serializable;
-
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyJson;
-import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Author;
-import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Book;
-import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MySerializable;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -24,10 +15,13 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MyJavaActivity extends Activity{
 
+    static Context m_Context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myjavaactivity);
+        m_Context = this;
 
     }
 
@@ -52,64 +46,8 @@ public class MyJavaActivity extends Activity{
     public void onClick_MyJavaClass(View view){
         SMLog.e("JAVA class: "+((Button)view).getText());
         String Tag = view.getTag().toString();
-        Intent intent;
         int tag = Integer.parseInt(Tag);
-        switch(tag){
-            case 1:
-                MyJavaClass javaTest = new MyJavaClass(tag);
-                javaTest.method_1();
-                javaTest.cc_instanceof_keyword(new ChildClass("testObj"));
-                javaTest.pc_instanceof_keyword(new ParentClass());
-                break;
-            case 7777: // Serializable
-                MySerializable myserial = new MySerializable();
-                myserial.mBook.setTitle("Java編程思想");
-                myserial.mBook.getAuthor().setId(7777);
-                myserial.mBook.getAuthor().setName("Hawk Wei");
-                intent = new Intent(this,MyJavaActivity2.class);
-                intent.putExtra("from","MySerializable");
-                intent.putExtra("book",(Serializable)myserial.mBook);
-                startActivity(intent);
-                break;
-            case 8888: // Json
-                MyJson myjson = new MyJson();
-                myjson.mBook.setTitle("Java編程思想");
-                myjson.mBook.getAuthor().setId(1);
-                myjson.mBook.getAuthor().setName("Hawk Wei");
-                myjson.mBook.setAuthor(myjson.mBook.getAuthor());
-                intent = new Intent(this,MyJavaActivity2.class);
-                intent.putExtra("from","MyJson");
-                intent.putExtra("book",new Gson().toJson(myjson.mBook));
-                startActivity(intent);
-                break;
-            case 9999: // Parcel
-                MyParcel_Book book = new MyParcel_Book();
-                book.setTitle("Java編程思想");
-                MyParcel_Author author = new MyParcel_Author();
-                author.setId(9999);
-                author.setName("Hawk Wei");
-                book.setAuthor(author);
-                intent = new Intent(this,MyJavaActivity2.class);
-                intent.putExtra("from","MyParcel");
-                intent.putExtra("book",(Parcelable)book);
-                startActivity(intent);
-
-                /* // BUG: this inner class parcel type will exception.
-                MyParcel myparcel = new MyParcel();
-                myparcel.mBook.setTitle("Java編程思想");
-                myparcel.mBook.getAuthor().setId(9999);
-                myparcel.mBook.getAuthor().setName("Hawk Wei");
-                intent = new Intent(this,MyJavaActivity2.class);
-                intent.putExtra("from","MyParcel");
-                intent.putExtra("book",(Parcelable)myparcel.mBook);
-                startActivity(intent);
-                */
-                break;
-
-            default:
-                new MyJavaClass(tag);
-                break;
-        }
+        new MyJavaClass(m_Context, tag);
     }
 
 

@@ -4,7 +4,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class ParentClass {
     // private static final String TAG = "[ParentClass]";
-    private static final String TAG = "[Hawk]";  // static
+    private static final String TAG = "ParentClass";  // static
     static String s = init_var();
 
     static {  // STEP C0, only first-time <cinit>

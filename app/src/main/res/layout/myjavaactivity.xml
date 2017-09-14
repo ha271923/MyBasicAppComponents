@@ -24,366 +24,385 @@
 
         <!-- Many Buttons share a CallBack function -->
         <Button
-            android:text="Variable test"
+            android:text="Basic: cinit,init,static sequence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="0"
+            android:tag="10000"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="cinit,init,static sequence"
+            android:text="Basic: Variable test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="1"
+            android:tag="10001"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="without synchronized(this) keyword"
+            android:text="Basic: Call by Value / Call by Ref"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="2"
+            android:tag="10002"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="with synchronized(this) keyword"
+            android:text="Basic: String and String[]"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="3"
+            android:tag="10003"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="without synchronized(this) keyword, Runnable"
+            android:text="Basic: Caller tests"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="4"
+            android:tag="10004"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="with synchronized(this) keyword, Runnable"
+            android:text="Basic: Method Layer tests"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="5"
+            android:tag="10005"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="Basic: Inner Class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="10006"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Static PolyMorphism"
+            android:text="Basic: Enum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="6"
+            android:tag="10007"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Dynamic PolyMorphism"
+            android:text="Basic: break, continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="7"
+            android:tag="10008"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="Basic: instanceof keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="10111"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Method Overriding"
+            android:text="Basic: Naming Rule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="8"
+            android:tag="10112"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Memory Leakage Test - Variable, Object, Thread"
+            android:text="MThread: without synchronized(this) keyword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="9"
+            android:tag="20000"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Memory Leakage Test - Reference Leak"
+            android:text="MThread: with synchronized(this) keyword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="91"
+            android:tag="20001"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Memory Leakage Test - WeakReference and Memory"
+            android:text="MThread: without synchronized(this) keyword, Runnable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="92"
+            android:tag="20002"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Call by Value / Call by Ref"
+            android:text="MThread: with synchronized(this) keyword, Runnable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="10"
+            android:tag="20003"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Strong, Soft, Weak , Phantom NULL Reference"
+            android:text="MThread: sleep , wait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="11"
+            android:tag="20004"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="Strong, Soft, Weak , Phantom less RAM"
+            android:text="MThread: WITH Volatile, Sync, Atomic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="12"
+            android:tag="20005"
             android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="MThread: WITHOUT Volatile, Sync, Atomic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20006"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="MThread: Thread vs Runnable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20007"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="MThread: ThreadGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20008"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="MThread: ThreadPoolExecutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20009"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="MThread: ScheduledThreadPoolExecutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20010"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="Reference: Strong, Soft, Weak , Phantom NULL Reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30001"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Reference: Strong, Soft, Weak , Phantom less RAM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30002"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Reference: Class reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30003"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Reference: Interface reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30004"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Reference: Abstract reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30005"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Exception: Try-Catch test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="40001"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Exception: ConcurrentModificationException"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="40002"
+            android:onClick="onClick_MyJavaClass"/>
+
         <Button
             android:text="DS: synchronizedCollection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="13"
+            android:tag="50001"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="131"
+            android:tag="50002"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
             android:text="DS: ArrayList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="14"
+            android:tag="50003"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: Array"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="141"
+            android:tag="50004"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: synchronized ArrayList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="142"
+            android:tag="50005"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: CopyOnWriteArrayList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="143"
+            android:tag="50006"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: Vector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="144"
+            android:tag="50007"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: Stack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="145"
+            android:tag="50008"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: LinkedList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="15"
+            android:tag="50009"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: ConcurrentLinkedQueue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="151"
+            android:tag="50010"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
             android:text="DS: Set"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="16"
+            android:tag="50011"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: HashSet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="161"
+            android:tag="50012"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: synchronizedSet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="162"
+            android:tag="50013"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: CopyOnWriteArraySet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="163"
+            android:tag="50014"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
             android:text="DS: Map , WeakHashMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="17"
+            android:tag="50015"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: synchronizedMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="171"
+            android:tag="50016"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: ConcurrentHashMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="172"
+            android:tag="50017"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: HashTable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="173"
+            android:tag="50018"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: SparseArray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="18"
+            android:tag="50019"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="DS: Tree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="19"
-            android:onClick="onClick_MyJavaClass"/>
-        <Button
-            android:text="Enum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="20"
-            android:onClick="onClick_MyJavaClass"/>
-        <Button
-            android:text="sleep , wait"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="21"
+            android:tag="50020"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
-            android:text="Class reference"
+            android:text="Polymor: Static PolyMorphism"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="22"
+            android:tag="60001"
             android:onClick="onClick_MyJavaClass"/>
-
         <Button
-            android:text="Interface reference"
+            android:text="Polymor: Dynamic PolyMorphism"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="221"
+            android:tag="60002"
             android:onClick="onClick_MyJavaClass"/>
-
-
         <Button
-            android:text="Abstract reference"
+            android:text="Polymor: Method Overriding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="23"
+            android:tag="60003"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Ploymor: Call Method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="60004"
             android:onClick="onClick_MyJavaClass"/>
 
-        <Button
-            android:text="Caller tests"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="24"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="Layer tests"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="25"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="JSON data object"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="26"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="Inner Class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="27"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="Try-Catch test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="28"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="break, continue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="29"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="Exception: ConcurrentModificationException"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="8001"
-            android:onClick="onClick_MyJavaClass"/>
 
         <Button
             android:text="Compare: Serial Data Object"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="7777"
+            android:tag="70001"
             android:onClick="onClick_MyJavaClass"/>
         <Button
-            android:text="WITH Volatile, Sync, Atomic"
+            android:text="Compare: JSON data object"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="7015"
-            android:onClick="onClick_MyJavaClass"/>
-        <Button
-            android:text="WITHOUT Volatile, Sync, Atomic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="7016"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="Thread vs Runnable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="7019"
-            android:onClick="onClick_MyJavaClass"/>
-        <Button
-            android:text="ThreadGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="7020"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="ThreadPoolExecutor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="7021"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="ScheduledThreadPoolExecutor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="7022"
-            android:onClick="onClick_MyJavaClass"/>
-
-        <Button
-            android:text="Compare: Json Data Object"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="8888"
+            android:tag="70002"
             android:onClick="onClick_MyJavaClass"/>
         <Button
             android:text="Compare: Parcel Data Object"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="9999"
+            android:tag="70003"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="JSON Data Object"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="70012"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
-            android:text="MyLibrary"
+            android:text="Module: MyLibrary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="9001"
+            android:tag="80001"
+            android:onClick="onClick_MyJavaClass"/>
+
+        <Button
+            android:text="MemLeak: Variable, Object, Thread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="90001"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="MemLeak: Reference Leak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="90002"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="MemLeak: WeakReference and Memory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="90003"
             android:onClick="onClick_MyJavaClass"/>
 
     </LinearLayout>

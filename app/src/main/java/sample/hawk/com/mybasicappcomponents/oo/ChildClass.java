@@ -4,7 +4,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class ChildClass extends ParentClass implements MyInterface {
     // private static final String TAG = "[ChildClass]";
-    private static final String TAG = "[Hawk]";
+    private static final String TAG = "ChildClass";
 
     static String mStr = init_var(); // keep the value
 
