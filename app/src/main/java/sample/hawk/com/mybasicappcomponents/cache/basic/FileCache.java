@@ -7,6 +7,7 @@ import android.os.Environment;
 import java.io.File;
 import java.io.IOException;
 
+import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -15,7 +16,8 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class FileCache {
     private static final String TAG = "FileCache";
-
+    // /storage/emulated/0/Android/data/sample.hawk.com.mybasicappcomponents/cache/
+    // Bmp file: adb pull storage/emulated/0/Android/data/sample.hawk.com.mybasicappcomponents/cache/XXXX /d/XXX.bmp
     private File cacheDir;	//the directory to save images
 
     /**
@@ -89,7 +91,7 @@ public class FileCache {
                 e.printStackTrace();
             }
         //Use the util's function to save the bitmap.
-        if(BitmapHelper.saveBitmap(f, value))
+        if(BitmapUtils.saveBitmap(f, value))
             SMLog.d(TAG, "Save file to sdcard successfully!");
         else
             SMLog.w(TAG, "Save file to sdcard failed!");

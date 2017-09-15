@@ -33,6 +33,10 @@ public class BFeedBlurBuilder {
         public void onBlurCompleted(Bitmap blurredBitmap);
     }
 
+    public static void setContext(Context context){
+        mContext = context;
+    }
+
     public static Bitmap realBlur(Context ctx, Bitmap inputBitmap) {
         Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap.getWidth(), inputBitmap.getHeight(), Bitmap.Config.ARGB_8888);
 
@@ -122,7 +126,7 @@ public class BFeedBlurBuilder {
         Canvas canvas = new Canvas(bitmap);
 
         //draw wallpaper
-        drawWallpaperBitmap(canvas, customizedBackground);
+        drawFullWallpaperBitmap(mContext, canvas, customizedBackground);
 
         //scale down bitmap;
         int newWidth = (int) (bitmap.getWidth() * BFeedBlurBuilder.BITMAP_SCALE);
@@ -132,7 +136,48 @@ public class BFeedBlurBuilder {
         return scaledBitmap;
     }
 
-    private static void drawWallpaperBitmap(Canvas canvas, Drawable customizedBackground) {
+
+    private static void drawFullWallpaperBitmap(Context context, Canvas canvas, Drawable customizedBackground) {
+        WallpaperManager wallpaperManager = WallpaperManager.getInstance(context);
+        if (wallpaperManager.getWallpaperInfo() != null) {
+            Logger.d(LOG_TAG, "current use live wallpaper");
+            return;
+        }
+        Drawable drawable = customizedBackground == null ? wallpaperManager.getDrawable() : customizedBackground;
+        int canvasHeight = canvas.getHeight();
+        int canvasWidth = canvas.getWidth();
+        int height = drawable.getIntrinsicHeight();
+        int width = drawable.getIntrinsicWidth();
+        if (canvasWidth == width){ // fitX: stretch height
+            if (canvasHeight != height) {
+                height = canvasHeight;
+            }
+        }
+        else if (canvasHeight == height) {  // fitY: stretch width
+            if (canvasWidth != width) {
+                width = canvasWidth;
+            }
+        } else if (height > width) { // portrait: scale
+            float scale;
+            scale = (float) canvasWidth / (float) width;
+            width = canvasWidth;
+            height = (int) (height * scale);
+        } else { // landscape: scale
+            float scale;
+            scale = (float) canvasHeight / (float) height;
+            width = (int) (width * scale);
+            height = canvasHeight;
+        }
+        int top = 0;
+        int left = (int) ((canvasWidth - width) / 2.0f);
+        int right = left + width;
+        int bottom = top + height;
+        drawable.setBounds(left, top, right, bottom);
+        drawable.draw(canvas);
+        wallpaperManager.forgetLoadedWallpaper();
+    }
+
+    public static void drawWallpaperBitmap(Canvas canvas, Drawable customizedBackground) {
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
         int nStatusBarHeight = ImageUtils.getStatusBarHeight(mContext);
         if (wallpaperManager.getWallpaperInfo() != null) {
@@ -144,12 +189,22 @@ public class BFeedBlurBuilder {
         int canvasWidth = canvas.getWidth();
         int height = drawable.getIntrinsicHeight();
         int width = drawable.getIntrinsicWidth();
-        if (height > width) {
+        if (canvasWidth == width){ // fitX: stretch height
+            if (canvasHeight != height) {
+                height = canvasHeight + nStatusBarHeight;
+            }
+        }
+        else if (canvasHeight == height) {  // fitY: stretch width
+            if (canvasWidth != width) {
+                width = canvasWidth;
+            }
+        }
+        else if (height > width) { // portrait: scale
             float scale;
             scale = (float) canvasWidth / (float) width;
             width = canvasWidth;
             height = (int) (height * scale) + nStatusBarHeight;
-        } else {
+        } else { // landscape: scale
             float scale;
             scale = (float) canvasHeight / (float) height;
             width = (int) (width * scale);

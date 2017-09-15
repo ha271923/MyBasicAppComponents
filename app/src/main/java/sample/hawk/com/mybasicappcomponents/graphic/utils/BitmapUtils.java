@@ -15,6 +15,8 @@ import android.widget.ImageView;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -190,6 +192,24 @@ public class BitmapUtils {
             outStream.close();
         }
     }
+
+    public static Bitmap decodeFile(File file, BitmapFactory.Options options){
+        return BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+    }
+
+    public static boolean saveBitmap(File file, Bitmap bitmap){
+        if(file == null || bitmap == null)
+            return false;
+        try {
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(file));
+            return bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     /**
      * Stack Blur v1.0 from
      * http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html

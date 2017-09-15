@@ -1,6 +1,7 @@
 package sample.hawk.com.mybasicappcomponents.graphic;
 
 import android.app.Activity;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,10 +20,14 @@ import android.widget.SeekBar;
 import java.io.FileNotFoundException;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.cache.basic.FileCache;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.BFeedBlurBuilder;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BlurBuilder;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
+import static sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils.drawableToBitmap;
 
 
 /**
@@ -31,6 +36,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 // public class MyBitmapActivity extends Activity implements View.OnTouchListener, View.OnDragListener {
 public class MyBitmapActivity extends Activity {
+    private static final String LOG_TAG = MyBitmapActivity.class.getSimpleName();
     Context mContext;
     static DisplayMetrics mDisplayMetrics;
     ImageView mImageView_org;
@@ -136,6 +142,20 @@ public class MyBitmapActivity extends Activity {
 
             case 2:
                 // TODO: Add bitmap test case here
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+                Drawable drawable = wallpaperManager.getDrawable();
+                SMLog.i("Intrinsic  Width="+drawable.getIntrinsicWidth()+"  Height="+drawable.getIntrinsicHeight());
+                SMLog.i("Minimum    Width="+drawable.getMinimumWidth()+"  Height="+drawable.getMinimumHeight());
+                Bitmap OriginWallpaperBmp = drawableToBitmap(drawable);
+                FileCache mFileCache = new FileCache(mContext);
+                if( mFileCache == null ) { // path at /storage/emulated/0/Android/data/sample.hawk.com.mybasicappcomponents/cache
+                    SMLog.i("No FileCache available!!");
+                }
+                mFileCache.put("OriginWallpaperBmp", OriginWallpaperBmp);
+
+                BFeedBlurBuilder.setContext(mContext);
+                Bitmap BFeedWallpaperBmp = BFeedBlurBuilder.getBackgroundBitmap(null);
+                mFileCache.put("BFeedWallpaperBmp", BFeedWallpaperBmp);
 
                 break;
 
