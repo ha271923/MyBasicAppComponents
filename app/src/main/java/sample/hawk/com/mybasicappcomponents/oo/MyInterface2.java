@@ -13,7 +13,8 @@ package sample.hawk.com.mybasicappcomponents.oo;
  *   多型: 一個 class卻可以實現多個interface
  */
 
-public interface MyInterface { // a class MUST implement ALL methods if keyword "implements" added.
+// interface可以繼承interface
+public interface MyInterface2 extends MyInterface { // a class MUST implement ALL methods if keyword "implements" added.
     // 所有變數即使沒寫 static final, 但是interface最終還是會強制為 static final field
     static final String TAG = "[MyInterface]";
     static int static_Var=100; // static final will ADD

@@ -9,6 +9,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 public class Brian implements IIQActions{
     private static String className="Brian";
     private Knowledge Know;
+    public int brian_var;
 
     public Brian(){
         Know = new Knowledge();
@@ -27,5 +28,8 @@ public class Brian implements IIQActions{
         SMLog.i();
     }
 
+    public void brian_api() {
+        SMLog.i();
+    }
 
 }

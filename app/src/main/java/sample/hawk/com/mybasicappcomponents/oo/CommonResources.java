@@ -23,6 +23,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class CommonResources { // by default, java class is static class, expect inner class.
     static int static_var;
+    static int static_var2;
     public int mVar0;
 
     // A. Non-static nested classes are called inner classes.
@@ -39,12 +40,35 @@ public class CommonResources { // by default, java class is static class, expect
         }
     }
 
+    // extend OK
+    public class InnerClassExt extends InnerClass{
+        int function(int param){
+            return param;
+        }
+    }
+    // implement OK
+    public class InnerClassInterf implements MyInterface {
+        @Override
+        public void MyInterfaceImpl_InterfaceFunction(int i){
+        }
+    }
+    // extend+implement= OK
+    public class InnerClassExt2 extends InnerClass implements MyInterface{
+        int function(int param){
+            return param;
+        }
+        @Override
+        public void MyInterfaceImpl_InterfaceFunction(int i){
+        }
+    }
+
     // B. Nested classes that are declared static are simply called static nested classes.
     static public class StaticNestedClass {
         static int static_var;
         int var5;
         static int static_function(int param){
             int inn_var = param;
+            static_var2 ++;
             // var5++; // ERROR: non-static field 'var' cannot be referenced from a static context.
             SMLog.i("StaticNestedClass.static_function()  param=" + param+"  inn_var="+ inn_var);
             return inn_var;
@@ -62,6 +86,7 @@ public class CommonResources { // by default, java class is static class, expect
         final int var0=0;
         int var1=1;
         mVar0++;
+        // Following ONE line code = public ClassICallBack1 implements ICallBack1 {....} + ClassICallBack1 obj = new new ICallBack1();
         new ICallBack1(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
             // static int svar; // ERROR: Inner classes cannot have static declarations.
             int var3=3;
@@ -88,11 +113,15 @@ public class CommonResources { // by default, java class is static class, expect
             }
 
             int function(int param){
+                int fvar1;
+
                 new CallBack1().register(new ICallBack1(){ // (3) Anonymous inner class(AIC) == (1) Local inner class
                     // static int svar; // ERROR: Inner classes cannot have static declarations.
                     int var3=3;
                     @Override
                     public void onCall_API() {
+                        // fvar1 = 1; // ERROR: Variable 'var1' is accessed from within inner class, need to be declared final.
+                        var2 = 2;
                         var3++;
                         int cb_var=5;cb_var++;
                         mVar0++;
@@ -107,6 +136,7 @@ public class CommonResources { // by default, java class is static class, expect
                 // var0++; // ERROR: cannot assign a value to final variable 'var0'.
                 // var1++; // ERROR: Variable 'var1' is accessed from within inner class, need to be declared final.
                 int var4=4;var4++;
+                var2 = 7;
                 int run_var=4;run_var++;
                 mVar0++;
                 StaticNestedClass with_new = new StaticNestedClass();

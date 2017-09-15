@@ -20,8 +20,8 @@ public class CallByValueOrRef {
     }
     /*
     Test Result:
-        oo.CallByValueOrRef :: P3() P3:  x=3  y=30       z[0]=300        inner_svar=3000
-        oo.CallByValueOrRef :: P2() P2:  a=2  b=20       c[0]=300        d=3000
+        oo.CallByValueOrRef :: P3() P3:  x=3  y=30       z[0]=300        obj.inner_svar=3000
+        oo.CallByValueOrRef :: P2() P2:  a=2  b=20       c[0]=300        d.inner_svar=3000
         oo.CallByValueOrRef :: P1() P1:  i=1  sInt=10    sArray[0]=300   in.inner_svar=3000
                                          ^^ CallByValue  ^ CallByRef     ^ CallByRef
     */
@@ -42,7 +42,7 @@ public class CallByValueOrRef {
         c[0] = 200;
         d.inner_svar = 2000;
         P3(a,b,c,d); // next layer
-        SMLog.i(TAG,"P2:  a="+a+"  b="+b+"  c[0]="+c[0]+"   d="+d.inner_svar);
+        SMLog.i(TAG,"P2:  a="+a+"  b="+b+"  c[0]="+c[0]+"   d.inner_svar="+d.inner_svar);
     }
 
     void P3(int x, int y, int[] z, inner obj){
@@ -50,7 +50,7 @@ public class CallByValueOrRef {
         y = 30;
         z[0] = 300;
         obj.inner_svar = 3000;
-        SMLog.i(TAG,"P3:  x="+x+"  y="+y+"  z[0]="+z[0]+"   inner_svar="+obj.inner_svar);
+        SMLog.i(TAG,"P3:  x="+x+"  y="+y+"  z[0]="+z[0]+"   obj.inner_svar="+obj.inner_svar);
     }
 
 }

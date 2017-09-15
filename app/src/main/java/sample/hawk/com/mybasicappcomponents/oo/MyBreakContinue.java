@@ -283,9 +283,9 @@ public class MyBreakContinue {
                     SMLog.i("      (i==j) =" + i);
                     break;
                 }
-                // SMLog.i("break will Bypass MSG1 ");
+                // SMLog.i("break will bypass this debugmsg ");
             }
-            SMLog.i(".");
+            SMLog.i("."); // break will show this debugmsg
         }
         SMLog.i("test_break ----------------");
     }
@@ -301,9 +301,9 @@ public class MyBreakContinue {
                     SMLog.i("      (i==j) =" + i);
                     continue;
                 }
-                // SMLog.i("continue will Bypass MSG2 ");
+                // SMLog.i("continue will bypass this debugmsg ");
             }
-            SMLog.i(".");
+            SMLog.i("."); // break will bypass this debugmsg too.
         }
         SMLog.i("test_continue ----------------");
     }

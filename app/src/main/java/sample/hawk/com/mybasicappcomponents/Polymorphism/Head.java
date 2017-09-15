@@ -8,6 +8,16 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class Head extends Brian implements IHeadActions, IIQActions{
     private static String className="Head";
+    public int head_var;
+
+    @Override
+    public void brian_api() {
+        SMLog.i();
+    }
+
+    public void head_api() {
+        SMLog.i();
+    }
 
     @Override
     public Knowledge learn(Knowledge source, Knowledge dest){

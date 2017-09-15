@@ -65,11 +65,13 @@ public class MyJavaClass {
     public MyJavaClass(Context context, int param){
         int idx=0;
         // SMLog.i(TAG,"MyJavaClass() constructor +++");
-        switch(param){
+        switch(param){ // Switch(exp)，exp為整數運算式，故僅有int,short,char,byte,enum
 
             case 10000: // <init>,<cinit> condition
-                MyJavaDynamic();
-                MyJavaStaticRef();
+                mObj1 = new ChildClass("DynamicObject1");
+                mObj2 = new ChildClass("DynamicObject2");
+                StaticRef1 = mObj1;
+                StaticRef2 = mObj2;
                 break;
             case 10001:
                 for(int i=0;i<10;i++){
@@ -96,6 +98,10 @@ public class MyJavaClass {
                 for (int x = 1; x < testStringA.length; x++) {
                     SMLog.i(testStringA[x] + " ");
                 }
+                // 字串可以用加(+) 來合併, 數字、字元、物件等等與字串做運算時，都會自動轉為字串，物件會呼叫toString() 方法
+                String str = "420";
+                str += 42;
+                SMLog.i("str= "+str);
                 break;
             case 10004: // static, object
                 Caller_Test.static_test();
@@ -134,6 +140,15 @@ public class MyJavaClass {
                 mbc.test_break();
                 mbc.test_continue();
                 mbc.test_break_continue();
+                break;
+            case 10009: // ++,-- 前置 後置 , 寫在迴圈的判斷式中，或是指派數值指令上要注意
+                // Answer: a=7，b=1，x=20，y=33，z=44
+                int  a=7, b=3;
+                int x=0, y=0, z=0;
+                x = ((--a)*3)+2; // x=(7-1)*3+2=20, a=6     前置 先運算
+                y = ((b--)+8)*3; // y=(3+8)*3=33, b=(3-1)=2 後置 後運算
+                z = 6*(a++)+8*(--b); // z=6*6+8*(2-1)=44, a=(6+1)=7  (前置 先運算&後置 後運算)
+                SMLog.i("a=" + a + ",b=" + b + ",x=" + x+ ",y=" + y+ ",z=" + z );
                 break;
             case 10111:
                 method_1();
@@ -249,6 +264,9 @@ public class MyJavaClass {
                 mac2.MyAbstractFunction(44444);
                 mac2.MyFunctionInAbstrace(44444);  // The DIFF between abstract with interface is abstract can NOT access non-interface API.
                 // mac2.MyAbstractImplFunction(2);  // ERROR: cannot resolve function
+
+                MyAbstractClass2 mac2_impl3 = new MyAbstractImpl_3();
+                mac2_impl3.MyAbstractFunction(5);
                 break;
             case 30005: // interface reference
                 // MyInterface mifa = new MyInterface(); // ERROR: MyInterface is abstract, cannot be init.
@@ -268,7 +286,18 @@ public class MyJavaClass {
                 ty.catch_wrong();
                 ty.no_catch();
                 break;
-
+            case 40012: // try-catch
+                try {
+                    SMLog.i("In try {...}");
+                    return; // always run finally before return
+                }
+                catch(Exception e){
+                    SMLog.i("In catch {...}");
+                }
+                finally{
+                    SMLog.i("In finally {...}");
+                }
+                break;
             case 40002: // ConcurrentModificationException
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);
@@ -512,16 +541,6 @@ public class MyJavaClass {
 
         }
         // SMLog.i(TAG,"MyJavaClass() constructor ---");
-    }
-
-    public void MyJavaDynamic(){
-        mObj1 = new ChildClass("DynamicObject1");
-        mObj2 = new ChildClass("DynamicObject2");
-    }
-
-    public void MyJavaStaticRef(){
-        StaticRef1 = mObj1;
-        StaticRef2 = mObj2;
     }
 
     public void method_1(){

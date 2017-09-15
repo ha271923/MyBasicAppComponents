@@ -8,6 +8,10 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class Layer_1_1 extends Layer_1{
 
+    Layer_1_1(){
+        SMLog.i("");
+    }
+
     public void Layer_1_1_API(){
         SMLog.i("");
         Layer_1_API();

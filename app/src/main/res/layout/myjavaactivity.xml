@@ -78,6 +78,12 @@
             android:layout_height="wrap_content"
             android:tag="10008"
             android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="Basic: ++, -- operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="10009"
+            android:onClick="onClick_MyJavaClass"/>
 
         <Button
             android:text="Basic: instanceof keyword"
@@ -198,12 +204,17 @@
             android:tag="40001"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="Exception: Try-Catch-finally test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="40012"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
             android:text="Exception: ConcurrentModificationException"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="40002"
             android:onClick="onClick_MyJavaClass"/>
-
         <Button
             android:text="DS: synchronizedCollection"
             android:layout_width="wrap_content"
