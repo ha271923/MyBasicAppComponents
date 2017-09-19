@@ -30,6 +30,7 @@ import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -284,5 +285,10 @@ public class Util {
             arrayList.add(appItem);
         }
         return arrayList;
+    }
+
+    // Usage: String[] mlistItems = Util.enumToString(ViewType.class);
+    public static String[] enumToString(Class<? extends Enum<?>> e) {
+        return Arrays.toString(e.getEnumConstants()).replaceAll("^.|.$", "").split(", ");
     }
 }
