@@ -63,18 +63,18 @@ public class MyCanvasActivity extends Activity implements Spinner.OnItemSelected
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-
-        switch (position) {
-            case 0:
+        ViewType vt = ViewType.values()[position]; // intToEnum
+        switch (vt) {
+            case drawArraw:
                 mViewType = ViewType.drawArraw;
                 break;
-            case 1:
+            case drawCropRect:
                 mViewType = ViewType.drawCropRect;
                 break;
-            case 2:
+            case drawLayer:
                 mViewType = ViewType.drawLayer;
                 break;
-            case 3:
+            case drawImage:
                 mViewType = ViewType.drawImage;
                 break;
         }
