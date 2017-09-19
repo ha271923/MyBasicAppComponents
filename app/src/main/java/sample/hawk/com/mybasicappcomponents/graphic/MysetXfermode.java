@@ -97,64 +97,61 @@ public class MysetXfermode extends Activity {
             mDstBmp = makeDst(W, H);
 
             // make a ckeckerboard pattern
-            Bitmap bm = Bitmap.createBitmap(new int[] { 0xFFFFFFFF, 0xFFCCCCCC,
-                            0xFFCCCCCC, 0xFFFFFFFF }, 2, 2,
-                    Bitmap.Config.RGB_565);
-            mBkgBmp = new BitmapShader(bm,
-                    Shader.TileMode.REPEAT,
-                    Shader.TileMode.REPEAT);
+            Bitmap bm = Bitmap.createBitmap(new int[] { 0xFFFFFFFF, 0xFFCCCCCC, 0xFFCCCCCC, 0xFFFFFFFF }, 2, 2, Bitmap.Config.RGB_565);
+            mBkgBmp = new BitmapShader(bm, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
             Matrix m = new Matrix();
             m.setScale(6, 6);
             mBkgBmp.setLocalMatrix(m);
         }
-
+        private static final int LAYER_FLAGS = Canvas.MATRIX_SAVE_FLAG |
+                Canvas.CLIP_SAVE_FLAG |
+                Canvas.HAS_ALPHA_LAYER_SAVE_FLAG |
+                Canvas.FULL_COLOR_LAYER_SAVE_FLAG |
+                Canvas.CLIP_TO_LAYER_SAVE_FLAG;
         @Override protected void onDraw(Canvas canvas) {
-            canvas.drawColor(Color.WHITE);
+            canvas.drawColor(Color.WHITE); // activity background color
 
+            // labelP for label paint
             Paint labelP = new Paint(Paint.ANTI_ALIAS_FLAG);
             labelP.setTextAlign(Paint.Align.CENTER);
             labelP.setTextSize(60);
 
+            // paint for color paint
             Paint paint = new Paint();
             paint.setFilterBitmap(false);
 
-            canvas.translate(15, 35);
+            canvas.translate(15, 150); // 設定繪製canvas的X,Y座標起始位置(0,0)其相對位置位於(15,150)
 
             int x = 0;
-            int y = 100;
+            int y = 0;
             for (int i = 0; i < sModes.length; i++) {
-                // draw the border
+                // draw the border - 劃出外框區域
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setShader(null);
-                canvas.drawRect(x - 0.5f, y - 0.5f,
-                        x + W + 0.5f, y + H + 0.5f, paint);
+                canvas.drawRect(x - 0.5f, y - 0.5f, x + W + 0.5f, y + H + 0.5f, paint);
 
-                // draw the checker-board pattern
+                // draw the checker-board pattern - 填入背景
                 paint.setStyle(Paint.Style.FILL);
                 paint.setShader(mBkgBmp);
                 canvas.drawRect(x, y, x + W, y + H, paint);
 
-                // draw the src/dst example into our offscreen bitmap
-                int sc = canvas.saveLayer(x, y, x + W, y + H, null,
-                        Canvas.MATRIX_SAVE_FLAG |
-                                Canvas.CLIP_SAVE_FLAG |
-                                Canvas.HAS_ALPHA_LAYER_SAVE_FLAG |
-                                Canvas.FULL_COLOR_LAYER_SAVE_FLAG |
-                                Canvas.CLIP_TO_LAYER_SAVE_FLAG);
+                // draw the src/dst example into our offscreen bitmap - 設定繪製圖層 範圍
+                int saveLayerCount = canvas.saveLayer(x, y, x + W, y + H, null, LAYER_FLAGS ); // saveLayerCount++
+
+                // 設定繪製canvas的X,Y座標起始位置(0,0)
                 canvas.translate(x, y);
-                canvas.drawBitmap(mDstBmp, 0, 0, paint);
-                paint.setXfermode(sModes[i]);
-                canvas.drawBitmap(mSrcBmp, 0, 0, paint);
-                paint.setXfermode(null);
-                canvas.restoreToCount(sc);
+                canvas.drawBitmap(mDstBmp, 0, 0, paint); // 繪製 圓形 完成
+                paint.setXfermode(sModes[i]); // 改變繪製模式
+                canvas.drawBitmap(mSrcBmp, 0, 0, paint); // 繪製 方形 完成
+                paint.setXfermode(null); // 回到預設繪製模式
+                canvas.restoreToCount(saveLayerCount); // saveLayerCount--;
 
-                // draw the label
-                canvas.drawText(sLabels[i],
-                        x + W/2, y - labelP.getTextSize()/2, labelP);
+                // 在上方寫出 繪製模式 設定字串
+                canvas.drawText(sLabels[i], x + W/2, y - labelP.getTextSize()/2, labelP);
 
-                x += W + 10;
+                x += W + 10; // 下次繪製起始
 
-                // wrap around when we've drawn enough for one row
+                // wrap around when we've drawn enough for one row - 換行繪製
                 if ((i % ROW_MAX) == ROW_MAX - 1) {
                     x = 0;
                     y += H + 140;
