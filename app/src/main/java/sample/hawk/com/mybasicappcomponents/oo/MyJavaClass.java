@@ -40,6 +40,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MySet;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MySparseArray;
+import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyStack1;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.Tree;
 import sample.hawk.com.mybasicappcomponents.debugTest.Exceptions.JavaExceptions;
@@ -302,7 +303,17 @@ public class MyJavaClass {
                 JavaExceptions je = new JavaExceptions();
                 je.Test(ConcurrentModificationException);
                 break;
-
+            case 50000: // basic array
+                // int[] arr = new int[5]={0,1,2,3,4}; // ERROR!
+                int[] arr = {0,1,2,3,4}; // OK!
+                SMLog.i("arr   [0]="+arr[0]+" [1]="+arr[1]+" [2]="+arr[2]+" [3]="+arr[3]+" [4]="+arr[4]);
+                int[] arr2 = new int[10];
+                // arr2 = {0,1,2,3,4}; // ERROR
+                for (int i = 0; i < 10; i++) {
+                    arr2[i] = i;
+                }
+                SMLog.i("arr2  [0]="+arr2[0]+" [1]="+arr2[1]+" [2]="+arr2[2]+" [3]="+arr2[3]+" [4]="+arr2[4]);
+                break;
             case 50001: // Collection structure
                 MysynchronizedCollection msc = new MysynchronizedCollection();
                 msc.error_case(false);
@@ -421,6 +432,16 @@ public class MyJavaClass {
                         Tree tr123=tr12.addLeaf("1.2.3");
                 tr1.show();
                 tr1.use_case();
+                break;
+
+            case 50021:
+                MyStack1 mystack1 = new MyStack1();
+                mystack1.push("1");
+                mystack1.push("2");
+                mystack1.push("3");
+                mystack1.push("4");
+                mystack1.pop();
+                mystack1.show();
                 break;
 
             case 60001:

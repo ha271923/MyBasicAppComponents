@@ -216,6 +216,12 @@
             android:tag="40002"
             android:onClick="onClick_MyJavaClass"/>
         <Button
+            android:text="DS: basic array"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50000"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
             android:text="DS: synchronizedCollection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -337,6 +343,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="50020"
+            android:onClick="onClick_MyJavaClass"/>
+        <Button
+            android:text="DS: Stack1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50021"
             android:onClick="onClick_MyJavaClass"/>
 
         <Button
