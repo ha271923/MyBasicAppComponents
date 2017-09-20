@@ -8,9 +8,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
@@ -187,17 +191,12 @@ public class DrawableUtils {
         return d;
     }
 
-    /*
-    private static Drawable cropDrawable(){
+
+    public static Drawable cropDrawable(Bitmap bitmapOrg, int targetWidth, int targetHeight){
         try{
 
             Paint paint = new Paint();
             paint.setFilterBitmap(true);
-            Bitmap bitmapOrg = BitmapFactory.decodeResource(getResources(),R.drawable.image);
-
-            int targetWidth  = 300;
-            int targetHeight = 300;
-
 
             Bitmap targetBitmap = Bitmap.createBitmap(targetWidth, targetHeight,Bitmap.Config.ARGB_8888);
 
@@ -212,29 +211,25 @@ public class DrawableUtils {
             canvas.drawBitmap( bitmapOrg, new Rect(0, 0, bitmapOrg.getWidth(), bitmapOrg.getHeight()),
                     new Rect(0, 0, targetWidth, targetHeight), paint);
 
-
-
             Matrix matrix = new Matrix();
             matrix.postScale(1f, 1f);
             Bitmap resizedBitmap = Bitmap.createBitmap(targetBitmap, 0, 0, 100, 100, matrix, true);
 
             BitmapDrawable bd = new BitmapDrawable(resizedBitmap);
-
-            part1.setBackgroundDrawable(bd);
-
+            return bd;
         }
         catch(Exception e){
             System.out.println("Error1 : " + e.getMessage() + e.toString());
         }
+        return null;
     }
-*/
-/*
-    private Drawable cropDrawable(Drawable drawable, int pixelToShift){
+
+    public static Drawable cropDrawable(Drawable drawable, int targetWidth, int targetHeight) {
         Bitmap bitmapSource = ((BitmapDrawable)drawable).getBitmap();
-        Bitmap bitmapResized = Bitmap.createBitmap(bitmapSource, 0, 0, pixelToShift, drawable.getIntrinsicHeight());
-        return new BitmapDrawable(getApplicationContext().getResources(), bitmapResized);
+        Bitmap bitmapResized = Bitmap.createBitmap(bitmapSource, 0, 0, targetWidth, targetHeight);
+        return new BitmapDrawable(bitmapResized);
     }
-*/
+
 
 /*
     private Drawable cropDrawable(Drawable drawable, int pixelToShift){

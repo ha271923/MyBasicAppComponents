@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -13,70 +14,86 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.SeekBar;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import java.io.FileNotFoundException;
 
-import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
-import sample.hawk.com.mybasicappcomponents.graphic.utils.BlurBuilder;
+import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableCropped;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils2;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.ImageUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+import sample.hawk.com.mybasicappcomponents.utils.Util;
 
-
-/**
- * Created by ha271 on 2017/8/28.
- */
 
 // public class MyDrawableActivity extends Activity implements View.OnTouchListener, View.OnDragListener {
-public class MyDrawableActivity2 extends Activity {
+public class MyDrawableActivity2 extends Activity implements Spinner.OnItemSelectedListener {
     Context mContext;
     static DisplayMetrics mDisplayMetrics;
     ImageView mImageView_org;
-    ImageView mImageView_blur;
     Drawable mDrawable_org;
-    Drawable mDrawable_blur;
     Uri source;
     Bitmap mBitmap_org;
-    Bitmap mBitmap_blur;
     Drawable drawable_out = null;
     final int GET_IMAGE = 1;
-    int pixelShift = 300;
 
-    public  class MySeekBar_Listener implements SeekBar.OnSeekBarChangeListener {
+    private enum EnumItems {
+        Item0,
+        BitmapDrawable_wallpaper,
+        BitmapDrawable_statusbar,
+        scaleDrawable,
+        changeDrawableColor,
+        DrawableCropped,
+        cropDrawable
+    }
+    private static EnumItems mEnumItem = EnumItems.Item0;
 
-        public MySeekBar_Listener(Activity activity) {
-        }
+    private static final String[] mlistItems = Util.enumToString(MyDrawableActivity2.EnumItems.class);
 
-        public final void onProgressChanged(SeekBar seekBar, int progress, boolean z) {
-
-        }
-
-        public final void onStartTrackingTouch(SeekBar seekBar) {
-        }
-
-        public final void onStopTrackingTouch(SeekBar seekBar) {
-        }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        mEnumItem = EnumItems.values()[position]; // intToEnum
+        ItemActions(mEnumItem);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mydrawableactivity2);
+        LinearLayout myRoot = new LinearLayout(this);
+        myRoot.setOrientation(LinearLayout.VERTICAL);
+
         mContext = this;
         mDisplayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-        SMLog.i("StatusBarHeight="+ ImageUtils.getStatusBarHeight(this));
-        mImageView_blur = (ImageView) findViewById(R.id.imageViewBlurred);
-        mImageView_org = (ImageView) findViewById(R.id.imageViewOrigin);
-        SeekBar myseekbar = (SeekBar) findViewById(R.id.drawable_seekbar);
-        int width =  mDisplayMetrics.widthPixels;
-        myseekbar.setMax(width);
-        myseekbar.setProgress(pixelShift);
-        myseekbar.setOnSeekBarChangeListener(new MySeekBar_Listener(this ));
+        int status_bar_height = ImageUtils.getStatusBarHeight(this);
+        SMLog.i("StatusBarHeight="+ status_bar_height );
+
+        final int spinner_height = 200;
+        Spinner spinner = new Spinner(this);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MyDrawableActivity2.this, android.R.layout.simple_spinner_item, mlistItems);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setMinimumHeight(spinner_height);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+        myRoot.addView(spinner);
+
+        mImageView_org = new ImageView(this);
+        mImageView_org.setBackgroundColor(Color.RED);
+        mImageView_org.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        int imgViewHeight = mDisplayMetrics.heightPixels - status_bar_height - spinner_height;
+        SMLog.i("imgViewHeight="+ imgViewHeight );
+        mImageView_org.setMinimumHeight(imgViewHeight);
+        myRoot.addView(mImageView_org);
+
+        setContentView(myRoot);
 
         ImageUtils.getImageFromAlbum(this, GET_IMAGE);
     }
@@ -98,15 +115,6 @@ public class MyDrawableActivity2 extends Activity {
                         mBitmap_org = BitmapFactory
                                 .decodeStream(getContentResolver().openInputStream( source));
                         mDrawable_org= new BitmapDrawable(mContext.getResources(), mBitmap_org);
-                        BlurBuilder.asyncBlur(mContext, mBitmap_org, new BlurBuilder.AsyncResponse() {
-                            @Override
-                            public void processFinish(Bitmap processedbmp) { // AsyncBlur will scale down the bitmap for processing quickly, so the width and height is small.
-                                mBitmap_blur = Bitmap.createBitmap(mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels, Bitmap.Config.ARGB_8888);
-                                mBitmap_blur = BitmapUtils.scaleBitmap( processedbmp, mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels);
-                                mDrawable_blur = new BitmapDrawable(getResources(), mBitmap_blur);
-                                mImageView_org.setBackground(mDrawable_blur);
-                            }
-                        });
 
                     } catch (FileNotFoundException e) {
                         // TODO Auto-generated catch block
@@ -117,43 +125,42 @@ public class MyDrawableActivity2 extends Activity {
         }
     }
 
-
-    public void onClickMyDrawableActivityButtons(View view){
-        String Tag = view.getTag().toString();
-        int tag = Integer.parseInt(Tag);
+    private void ItemActions(EnumItems item){
         long start_time = SystemClock.uptimeMillis();
         int nStatusBarHeight = 100;
 
-        switch(tag) {
-            case 0:
+        switch(item) {
+            case Item0:
                 break;
-
-            case 1:
-                DrawableUtils2.setContext(mContext);
-                Bitmap bitmap1 = DrawableUtils2.getBackgroundBitmap(null);
-                Bitmap mStatusBarBackgroundBitmap = Bitmap.createBitmap(bitmap1, 0, 0, bitmap1.getWidth(), nStatusBarHeight);
-                drawable_out = new BitmapDrawable(getResources(), mStatusBarBackgroundBitmap);
-                break;
-
-            case 2:
+            case BitmapDrawable_wallpaper:
                 DrawableUtils2.setContext(mContext);
                 Bitmap bitmap2 = DrawableUtils2.getBackgroundBitmap(null);
                 Bitmap mBackgroundBitmap = Bitmap.createBitmap(bitmap2, 0, nStatusBarHeight, bitmap2.getWidth(), bitmap2.getHeight() - nStatusBarHeight);
                 drawable_out = new BitmapDrawable(getResources(), mBackgroundBitmap);
                 break;
-            case 3:
+            case BitmapDrawable_statusbar:
+                DrawableUtils2.setContext(mContext);
+                Bitmap bitmap1 = DrawableUtils2.getBackgroundBitmap(null);
+                Bitmap mStatusBarBackgroundBitmap = Bitmap.createBitmap(bitmap1, 0, 0, bitmap1.getWidth(), nStatusBarHeight);
+                drawable_out = new BitmapDrawable(getResources(), mStatusBarBackgroundBitmap);
+                break;
+            case scaleDrawable:
                 DrawableUtils.scaleDrawable(mDrawable_org, mImageView_org.getWidth()/2, mImageView_org.getHeight()/2); // setBounds
                 drawable_out = mDrawable_org;
                 break;
 
-            case 4:
+            case changeDrawableColor:
                 drawable_out = DrawableUtils.changeDrawableColor(mDrawable_org, 0x7657321);
                 break;
 
-            case 5:
+            case DrawableCropped:
+                DrawableCropped drawableCropped = new DrawableCropped(mBitmap_org);
+                drawable_out = drawableCropped;
                 break;
 
-            case 6:
+            case cropDrawable:
+                // drawable_out = DrawableUtils.cropDrawable(mBitmap_org, 300, 300);
+                drawable_out = DrawableUtils.cropDrawable(mDrawable_org, 300, 300);
                 break;
         }
         long end_time = SystemClock.uptimeMillis();
