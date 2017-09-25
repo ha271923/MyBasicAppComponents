@@ -592,6 +592,14 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.Move.Scroll.MyScrollerActivity"
+                  android:label="view/MyScrollerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.Move.Scroll.MyScrollerViewActivity" />
 
         <activity android:name=".view.MyViewLayerActivity"
                   android:label="view/MyViewLayerActivity">

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sample.hawk.com.mybasicappcomponents.view.Move.Scroll.MyVerticalScrollerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sample.hawk.com.mybasicappcomponents.view.Move.Scroll.MyScrollerActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gallery_photo_6"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gallery_photo_7" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gallery_photo_8" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gallery_photo_5" />
+
+</sample.hawk.com.mybasicappcomponents.view.Move.Scroll.MyVerticalScrollerView>
