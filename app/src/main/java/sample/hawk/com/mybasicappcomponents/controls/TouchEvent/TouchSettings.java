@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.TouchEvent;
+package sample.hawk.com.mybasicappcomponents.controls.TouchEvent;
 
 /**
  * Created by pc on 2017/4/1.

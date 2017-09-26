@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.Move;
+package sample.hawk.com.mybasicappcomponents.controls.Move;
 
 import android.content.Context;
 import android.graphics.Bitmap;

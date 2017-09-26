@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.TouchEvent;
+package sample.hawk.com.mybasicappcomponents.controls.TouchEvent;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

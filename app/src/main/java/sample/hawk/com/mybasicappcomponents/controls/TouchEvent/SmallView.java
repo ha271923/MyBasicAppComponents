@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.TouchEvent;
+package sample.hawk.com.mybasicappcomponents.controls.TouchEvent;
 
 import android.content.Context;
 import android.support.annotation.AttrRes;
@@ -15,17 +15,17 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by pc on 2017/4/1.
  */
 
-public class MiddleView extends FrameLayout {
+public class SmallView extends FrameLayout {
 
-    public MiddleView(@NonNull Context context) {
+    public SmallView(@NonNull Context context) {
         super(context);
     }
 
-    public MiddleView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SmallView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MiddleView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public SmallView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -35,13 +35,13 @@ public class MiddleView extends FrameLayout {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                SMLog.i( "    MiddleView Dispatch DOWN");
+                SMLog.i( "        SmallView Dispatch DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                SMLog.i( "    MiddleView Dispatch MOVE");
+                SMLog.i( "        SmallView Dispatch MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                SMLog.i( "    MiddleView Dispatch UP");
+                SMLog.i( "        SmallView Dispatch up");
                 break;
         }
         View viewFrist = null;
@@ -50,7 +50,7 @@ public class MiddleView extends FrameLayout {
         }
         if(viewFrist != null && TouchSettings.MIDDLEDISPATCHFLAG){
             viewFrist.dispatchTouchEvent(ev); // dispatch to child at here!!
-            SMLog.i("    MiddleView Dispatch --> child view");
+            SMLog.i("        SmallView Dispatch --> child view");
             return true;
         }
         return super.dispatchTouchEvent(ev);
@@ -63,16 +63,16 @@ public class MiddleView extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                SMLog.i( "    MiddleView Intercept DOWN");
+                SMLog.i( "        SmallView Intercept DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                SMLog.i( "    MiddleView Intercept MOVE");
+                SMLog.i( "        SmallView Intercept MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                SMLog.i( "    MiddleView Intercept UP");
+                SMLog.i( "        SmallView Intercept up");
                 break;
         }
-        return TouchSettings.MIDDLEINTERFALG;
+        return TouchSettings.SMALLINTERFLAG;
     }
 
     // onTouchEvent：處理TouchEvent。
@@ -81,23 +81,23 @@ public class MiddleView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                SMLog.i( "    MiddleView Touch DOWN");
+                SMLog.i( "        SmallView Touch DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                SMLog.i( "    MiddleView Touch MOVE");
+                SMLog.i( "        SmallView Touch MOVE");
                 setMyPosition(event.getRawX() , event.getRawY());
                 break;
             case MotionEvent.ACTION_UP:
-                SMLog.i( "    MiddleView Touch UP");
+                SMLog.i( "        SmallView Touch UP");
                 break;
         }
-        return TouchSettings.MIDDLETOUFLAG;
+        return TouchSettings.SMALLTOUFLAG;
     }
 
     private void setMyPosition(float x , float y){
-        SMLog.i("    MiddleView:setMyPosition: left "+ x +" y "+y);
-        LayoutParams params = (LayoutParams)getLayoutParams();
-        params.leftMargin = (int)x;
+        SMLog.i("        SmallView:setMyPosition: left "+ x +" y "+y);
+        LayoutParams params =(LayoutParams)getLayoutParams();
+        params.leftMargin = (int)x ;
         params.topMargin = (int)y;
         this.setLayoutParams(params);
     }

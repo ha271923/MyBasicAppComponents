@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.TouchEvent;
+package sample.hawk.com.mybasicappcomponents.controls.TouchEvent;
 
 import android.content.Context;
 import android.support.annotation.AttrRes;
@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -15,17 +16,17 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by pc on 2017/4/1.
  */
 
-public class SmallView extends FrameLayout {
+public class BigView extends FrameLayout {
 
-    public SmallView(@NonNull Context context) {
+    public BigView(@NonNull Context context) {
         super(context);
     }
 
-    public SmallView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public BigView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SmallView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public BigView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -35,22 +36,22 @@ public class SmallView extends FrameLayout {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                SMLog.i( "        SmallView Dispatch DOWN");
+                SMLog.i( "BigView Dispatch DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                SMLog.i( "        SmallView Dispatch MOVE");
+                SMLog.i( "BigView Dispatch MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                SMLog.i( "        SmallView Dispatch up");
+                SMLog.i( "BigView Dispatch UP");
                 break;
         }
         View viewFrist = null;
         if (getChildCount() > 0) {
             viewFrist = getChildAt(0);
         }
-        if(viewFrist != null && TouchSettings.MIDDLEDISPATCHFLAG){
+        if(viewFrist != null && TouchSettings.BIGDISPATCHFLAG){
             viewFrist.dispatchTouchEvent(ev); // dispatch to child at here!!
-            SMLog.i("        SmallView Dispatch --> child view");
+            SMLog.i("BigView Dispatch --> child view");
             return true;
         }
         return super.dispatchTouchEvent(ev);
@@ -63,43 +64,44 @@ public class SmallView extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                SMLog.i( "        SmallView Intercept DOWN");
+                SMLog.i( "BigView Intercept DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                SMLog.i( "        SmallView Intercept MOVE");
+                SMLog.i( "BigView Intercept MOVE");
                 break;
             case MotionEvent.ACTION_UP:
-                SMLog.i( "        SmallView Intercept up");
+                SMLog.i( "BigView Intercept UP");
                 break;
         }
-        return TouchSettings.SMALLINTERFLAG;
+        return TouchSettings.BIGINTERFLAG;
     }
 
     // onTouchEvent：處理TouchEvent。
     // Return: True if the event was handled, false otherwise.
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                SMLog.i( "        SmallView Touch DOWN");
+                SMLog.i( "BigView Touch DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                SMLog.i( "        SmallView Touch MOVE");
-                setMyPosition(event.getRawX() , event.getRawY());
+                SMLog.i( "BigView Touch MOVE");
+                setPosition(ev.getRawX(), ev.getRawY());
                 break;
             case MotionEvent.ACTION_UP:
-                SMLog.i( "        SmallView Touch UP");
+                SMLog.i( "BigView Touch UP");
                 break;
         }
-        return TouchSettings.SMALLTOUFLAG;
+        return TouchSettings.BIGTOUFLAG;
     }
 
-    private void setMyPosition(float x , float y){
-        SMLog.i("        SmallView:setMyPosition: left "+ x +" y "+y);
-        LayoutParams params =(LayoutParams)getLayoutParams();
-        params.leftMargin = (int)x ;
-        params.topMargin = (int)y;
+    private void setPosition(float x, float y) {
+        SMLog.i("BigView:setMyPosition: left "+ x +" y "+y);
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) getLayoutParams();
+        params.leftMargin = (int) x;
+        params.topMargin = (int) y;
         this.setLayoutParams(params);
+
     }
 
 }

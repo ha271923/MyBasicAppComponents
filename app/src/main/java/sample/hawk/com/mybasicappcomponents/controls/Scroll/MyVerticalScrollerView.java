@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.Move.Scroll;
+package sample.hawk.com.mybasicappcomponents.controls.Scroll;
 
 import android.content.Context;
 import android.support.v4.view.ViewConfigurationCompat;

@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.view.TouchEvent;
+package sample.hawk.com.mybasicappcomponents.controls.TouchEvent;
 
 import android.app.Dialog;
 import android.content.Intent;

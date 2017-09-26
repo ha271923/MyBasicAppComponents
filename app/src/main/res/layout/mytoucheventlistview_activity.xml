@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="sample.hawk.com.mybasicappcomponents.view.TouchEvent.MyTouchEventListViewActivity">
+    tools:context=".controls.TouchEvent.MyTouchEventListViewActivity">
 
     <LinearLayout
         android:id="@+id/ll"
@@ -36,7 +36,7 @@
         android:layout_below="@id/ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <sample.hawk.com.mybasicappcomponents.view.TouchEvent.BigView
+    <sample.hawk.com.mybasicappcomponents.controls.TouchEvent.BigView
         android:id="@+id/big_view"
         android:layout_below="@id/tvPrompt"
         android:layout_width="match_parent"
@@ -50,6 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
-    </sample.hawk.com.mybasicappcomponents.view.TouchEvent.BigView>
+    </sample.hawk.com.mybasicappcomponents.controls.TouchEvent.BigView>
 
 </RelativeLayout>

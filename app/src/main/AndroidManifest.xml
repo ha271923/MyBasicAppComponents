@@ -577,14 +577,14 @@
         </activity>
 
 
-        <activity android:name=".view.TouchEvent.MyTouchEventActivity"
-                  android:label="view/MyTouchEventActivity">
+        <activity android:name=".controls.TouchEvent.MyTouchEventActivity"
+                  android:label="controls/MyTouchEventActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.TouchEvent.MyTouchEventListViewActivity"/>
+        <activity android:name=".controls.TouchEvent.MyTouchEventListViewActivity"/>
 
         <activity android:name=".view.MyShapeDrawableActivity"
                   android:label="view/MyShapeDrawableActivity">
@@ -595,21 +595,21 @@
         </activity>
 
 
-        <activity android:name=".view.Move.MyMoveViewActivity"
-                  android:label="view/MyMoveViewActivity">
+        <activity android:name=".controls.Move.MyMoveViewActivity"
+                  android:label="controls/MyMoveViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Move.Scroll.MyScrollerActivity"
-                  android:label="view/MyScrollerActivity">
+        <activity android:name=".controls.Scroll.MyScrollerActivity"
+                  android:label="controls/MyScrollerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Move.Scroll.MyScrollerViewActivity" />
+        <activity android:name=".controls.Scroll.MyScrollerViewActivity" />
 
         <activity android:name=".view.MyViewLayerActivity"
                   android:label="view/MyViewLayerActivity">
