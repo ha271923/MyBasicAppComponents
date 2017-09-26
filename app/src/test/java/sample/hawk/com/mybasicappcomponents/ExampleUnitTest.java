@@ -2,7 +2,7 @@ package sample.hawk.com.mybasicappcomponents;
 
 import org.junit.Test;
 
-import sample.hawk.com.mybasicappcomponents.test.test1;
+import sample.hawk.com.mybasicappcomponents.misc.MyClassForUnitTest;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -19,7 +19,7 @@ public class ExampleUnitTest {
 
     @Test
     public void check_output_str() throws Exception {
-        test1 t1 = new test1();
+        MyClassForUnitTest t1 = new MyClassForUnitTest();
         assertEquals( "BaaaaaaaaaaaaaaaaaaaD string",t1.validate_output_string());
     }
 

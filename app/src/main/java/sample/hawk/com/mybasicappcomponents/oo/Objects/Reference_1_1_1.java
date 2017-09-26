@@ -1,6 +1,6 @@
 package sample.hawk.com.mybasicappcomponents.oo.Objects;
 
-import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
+import sample.hawk.com.mybasicappcomponents.debugTest.MemoryLeak.MemoryEater;
 
 /**
  * Created by ha271 on 2017/1/12.

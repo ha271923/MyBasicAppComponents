@@ -94,17 +94,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".debugTest.MemLeak_MainActivity"
+        <activity android:name=".debugTest.MemoryLeak.MemLeak_MainActivity"
                   android:label="debugTest/MemLeak_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
-        <activity android:name=".debugTest.MemLeak_handler_anonymous_runnable_Activity"/>
-        <activity android:name=".debugTest.MemLeak_AsyncTask_Activity"/>
-        <activity android:name=".debugTest.MemLeak_Listener_Activity"/>
-        <activity android:name=".debugTest.MemLeak_Anonymous_Callback_Activity"/>
+        <activity android:name=".debugTest.MemoryLeak.MemLeak_handler_anonymous_runnable_Activity"/>
+        <activity android:name=".debugTest.MemoryLeak.MemLeak_AsyncTask_Activity"/>
+        <activity android:name=".debugTest.MemoryLeak.MemLeak_Listener_Activity"/>
+        <activity android:name=".debugTest.MemoryLeak.MemLeak_Anonymous_Callback_Activity"/>
 
         <activity android:name=".activity.GetPermissionsActivity"
                   android:label="activity/GetPermissionsActivity">

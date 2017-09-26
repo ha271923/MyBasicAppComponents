@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.debugTest;
+package sample.hawk.com.mybasicappcomponents.debugTest.MemoryLeak;
 
 /**
  * Created by ha271 on 2016/10/19.

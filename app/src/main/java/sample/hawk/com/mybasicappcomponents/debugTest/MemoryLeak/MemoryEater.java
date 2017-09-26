@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.debugTest;
+package sample.hawk.com.mybasicappcomponents.debugTest.MemoryLeak;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.debugTest;
+package sample.hawk.com.mybasicappcomponents.debugTest.MemoryLeak;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

@@ -1,6 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.Polymorphism;
-
-import android.graphics.Color;
+package sample.hawk.com.mybasicappcomponents.oo.Polymorphism;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 

@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.debugTest;
+package sample.hawk.com.mybasicappcomponents.debugTest.MemoryLeak;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -6,7 +6,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/10/19.
  */
 
-public class ThreadLeakage implements MemoryActions{
+public class ThreadLeakage implements MemoryActions {
     private final int MAX_THREAD_NUM = 10;
     Thread[] ThreadArrays = new Thread[MAX_THREAD_NUM];
     private int number;

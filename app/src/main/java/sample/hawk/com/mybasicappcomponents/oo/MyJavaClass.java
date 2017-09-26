@@ -44,7 +44,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.MyWeakHashMap;
 import sample.hawk.com.mybasicappcomponents.data_structure.basic_ForSingleThread.Tree;
 import sample.hawk.com.mybasicappcomponents.debugTest.Exceptions.JavaExceptions;
-import sample.hawk.com.mybasicappcomponents.debugTest.MemoryEater;
+import sample.hawk.com.mybasicappcomponents.debugTest.MemoryLeak.MemoryEater;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Caller_Test;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Layer_Test;
 import sample.hawk.com.mybasicappcomponents.oo.Objects.Reference_Test;

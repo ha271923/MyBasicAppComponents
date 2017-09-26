@@ -2,10 +2,10 @@ package sample.hawk.com.mybasicappcomponents.oo;
 
 import android.graphics.Color;
 
-import sample.hawk.com.mybasicappcomponents.Polymorphism.Brian;
-import sample.hawk.com.mybasicappcomponents.Polymorphism.Head;
-import sample.hawk.com.mybasicappcomponents.Polymorphism.IHeadActions;
-import sample.hawk.com.mybasicappcomponents.Polymorphism.IIQActions;
+import sample.hawk.com.mybasicappcomponents.oo.Polymorphism.Brian;
+import sample.hawk.com.mybasicappcomponents.oo.Polymorphism.Head;
+import sample.hawk.com.mybasicappcomponents.oo.Polymorphism.IHeadActions;
+import sample.hawk.com.mybasicappcomponents.oo.Polymorphism.IIQActions;
 
 /**
  * Created by ha271 on 2016/10/17.
