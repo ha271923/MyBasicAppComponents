@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="sample.hawk.com.mybasicappcomponents.view.TouchEvent.MyTouchEventActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Touch Event" />
+
+
+    <sample.hawk.com.mybasicappcomponents.view.TouchEvent.BigView
+        android:id="@+id/bigView"
+        android:layout_width="1000px"
+        android:layout_height="1000px"
+        android:background="#DB3838">
+
+        <sample.hawk.com.mybasicappcomponents.view.TouchEvent.MiddleView
+            android:id="@+id/middleView"
+            android:layout_width="600px"
+            android:layout_height="600px"
+            android:background="#2E1B98">
+
+            <sample.hawk.com.mybasicappcomponents.view.TouchEvent.SmallView
+                android:id="@+id/smallView"
+                android:layout_width="200px"
+                android:layout_height="200px"
+                android:background="#198E31" />
+
+        </sample.hawk.com.mybasicappcomponents.view.TouchEvent.MiddleView>
+
+    </sample.hawk.com.mybasicappcomponents.view.TouchEvent.BigView>
+    <TextView
+        android:id="@id/tvPrompt"
+        android:text="You can move the Color regions."
+        android:layout_above="@+id/touch_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/touch_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Touch Settings" />
+
+    <Button
+        android:id="@+id/listview_touch_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/touch_settings"
+        android:layout_alignParentBottom="true"
+        android:text="和ListView的事件衝突" />
+
+    <!--<Button-->
+    <!--android:id="@+id/move_middle"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@id/move_bigger"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:text="移动middle" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/move_small"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@id/move_middle"-->
+    <!--android:text="移动small" />-->
+
+
+</RelativeLayout>

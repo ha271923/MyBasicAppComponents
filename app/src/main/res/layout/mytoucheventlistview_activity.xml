@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sample.hawk.com.mybasicappcomponents.view.TouchEvent.MyTouchEventListViewActivity">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/big_inter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Big Interpreter"
+            />
+        <CheckBox
+            android:id="@+id/big_dispatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Big Dispatch"
+            />
+        <CheckBox
+            android:id="@+id/big_ontouch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Big onTouch"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@id/tvPrompt"
+        android:text="You can move and resize the RED region."
+        android:layout_below="@id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <sample.hawk.com.mybasicappcomponents.view.TouchEvent.BigView
+        android:id="@+id/big_view"
+        android:layout_below="@id/tvPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DB3838"
+        >
+        <ListView
+            android:id="@+id/listview"
+            android:layout_margin="20dp"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </sample.hawk.com.mybasicappcomponents.view.TouchEvent.BigView>
+
+</RelativeLayout>
