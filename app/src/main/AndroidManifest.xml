@@ -595,8 +595,8 @@
         </activity>
 
 
-        <activity android:name=".controls.MyTouchImageViewActivity"
-                  android:label="controls/MyTouchImageViewActivity">
+        <activity android:name=".controls.MyZoomImageViewActivity"
+                  android:label="controls/MyZoomImageViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
