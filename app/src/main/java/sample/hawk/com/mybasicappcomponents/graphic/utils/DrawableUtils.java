@@ -70,10 +70,10 @@ public class DrawableUtils {
         Rect bounds = drawable.copyBounds(); // return four points actually position in View.
         if (isDrawed(drawable) != true) // Drawables have no dimensions unless they've been drawn.
             return drawable;
-        bounds.left = x;
-        bounds.top = y;
-        bounds.right = x + drawable.getIntrinsicWidth();
-        bounds.bottom = y + drawable.getIntrinsicHeight();
+        bounds.left = x + bounds.left;
+        bounds.top = y + bounds.top;
+        bounds.right = x + bounds.right;
+        bounds.bottom = y + bounds.bottom;
         drawable.setBounds(bounds);
         return drawable;
     }

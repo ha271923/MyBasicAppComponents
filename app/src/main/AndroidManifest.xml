@@ -595,6 +595,13 @@
         </activity>
 
 
+        <activity android:name=".controls.MyTouchImageViewActivity"
+                  android:label="controls/MyTouchImageViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".controls.Move.MyViewDragActivity"
                   android:label="controls/MyViewDragActivity">
             <intent-filter>
