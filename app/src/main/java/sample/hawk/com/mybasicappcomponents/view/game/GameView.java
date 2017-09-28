@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -24,9 +25,13 @@ public class GameView extends SurfaceView {
     private GameLoopThread gameLoopThread;
     private List<LiveSprite> sprites = new CopyOnWriteArrayList<LiveSprite>();
     private List<DeadSprite> temps = new CopyOnWriteArrayList<DeadSprite>();
+    GameMap mGameMap;
+    Drawable mBackground;
+    private Context mContext;
 
     public GameView(Context context) {
         super(context);
+        mContext = context;
         holder = getHolder();
         gameLoopThread = new GameLoopThread(this);
         holder.addCallback(new Callback() {
@@ -38,6 +43,9 @@ public class GameView extends SurfaceView {
 
             public void surfaceCreated(SurfaceHolder holder) {
                 SMLog.i("surface Created");
+                mGameMap = new GameMap(mContext); // create a ASCII map for output System.out.print console window.
+                GameMap.Tile[][] mapTile = mGameMap.createRandomMap(mGameMap);
+                mBackground = mGameMap.convertMapToDrawable(mapTile);
                 createSprites(10);
                 gameLoopThread.setRunning(true);
                 gameLoopThread.start();
@@ -82,6 +90,8 @@ public class GameView extends SurfaceView {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.BLACK);
+        // mBackground.draw(canvas);
+        // canvas.drawBitmap(mBackground, 0, 0, null);
         for (int i = temps.size() - 1; i >= 0; i--) {
             temps.get(i).onDraw(canvas);
         }
