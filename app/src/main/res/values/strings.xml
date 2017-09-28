@@ -142,4 +142,14 @@
     <string name="bt_Visible">Get Visible</string>
     <string name="bt_List">List Devices</string>
 
+
+    <!-- Tile Game -->
+    <string name="about_text">Tile game example using Android canvas.</string>
+    <string name="about_open_source">The code used to create this example is open-source:</string>
+    <string name="about_link">http://ruscoe.org/code/</string>
+    <string name="about_label">About</string>
+    <string name="exit_label">Exit</string>
+    <string name="about_shortcut">a</string>
+    <string name="exit_shortcut">x</string>
+
 </resources>
