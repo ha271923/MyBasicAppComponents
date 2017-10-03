@@ -9,25 +9,25 @@
         android:text="Move an Object"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tag="sample.hawk.com.mybasicappcomponents.animation.MoveAnimActivity"
+        android:tag="sample.hawk.com.mybasicappcomponents.controls.animation.MoveAnimActivity"
         android:onClick="onClick_NewActivity"/>
     <Button
         android:text="ValueAnimation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tag="sample.hawk.com.mybasicappcomponents.animation.ColorAnimView"
+        android:tag="sample.hawk.com.mybasicappcomponents.controls.animation.ColorAnimView"
         android:onClick="onClick_CurrentActivity"/>
     <Button
         android:text="MyViewAnimation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tag="sample.hawk.com.mybasicappcomponents.animation.MyViewAnimation"
+        android:tag="sample.hawk.com.mybasicappcomponents.controls.animation.MyViewAnimation"
         android:onClick="onClick_CurrentActivity"/>
     <Button
         android:text="ScaleAnimationActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tag="sample.hawk.com.mybasicappcomponents.animation.ScaleAnimationActivity"
+        android:tag="sample.hawk.com.mybasicappcomponents.controls.animation.ScaleAnimationActivity"
         android:onClick="onClick_NewActivity"/>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

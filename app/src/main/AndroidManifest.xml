@@ -1121,6 +1121,13 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".data_structure.Serial_Json_Parcel.Serial_Json_Parcel_Activity"
+                  android:label="data_structure/Serial_Json_Parcel/Serial_Json_Parcel_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".network.HttpDownloadFileByThread_Activity"
