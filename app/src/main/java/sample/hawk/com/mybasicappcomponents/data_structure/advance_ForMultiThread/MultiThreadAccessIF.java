@@ -6,4 +6,7 @@ package sample.hawk.com.mybasicappcomponents.data_structure.advance_ForMultiThre
 
 public interface MultiThreadAccessIF {
     void error_case(boolean error);
+
+    Runnable getReadRunnable(Object obj);
+    Runnable getWriteRunnable(Object obj, int i);
 }

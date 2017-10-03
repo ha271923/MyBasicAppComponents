@@ -16,7 +16,7 @@ import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.My
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MyParcel_Book;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.MySerializable;
 import sample.hawk.com.mybasicappcomponents.data_structure.Serial_Json_Parcel.Student;
-import sample.hawk.com.mybasicappcomponents.oo.MyAbstractClass;
+import sample.hawk.com.mybasicappcomponents.basic.MyAbstractClass;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**

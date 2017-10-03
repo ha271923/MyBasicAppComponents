@@ -28,7 +28,7 @@ import android.widget.ToggleButton;
 import java.io.File;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.cache.basic.FileCache;
+import sample.hawk.com.mybasicappcomponents.data_structure.cache.basic.FileCache;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BlurBuilder;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.DrawableUtils;

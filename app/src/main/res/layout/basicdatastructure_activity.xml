@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView
+            android:text="status_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/status_textView"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myprogressBar"/>
+
+        <Button
+            android:text="DS: basic array"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50000"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: List"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50002"
+            android:onClick="onClick_BasicDataStructClass"/>
+
+        <Button
+            android:text="DS: ArrayList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50003"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: Array"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50004"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: LinkedList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50009"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: Set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50011"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: HashSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50012"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: Map , WeakHashMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50015"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: SparseArray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50019"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: Tree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50020"
+            android:onClick="onClick_BasicDataStructClass"/>
+        <Button
+            android:text="DS: Stack1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50021"
+            android:onClick="onClick_BasicDataStructClass"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView
+            android:text="status_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/status_textView"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/myprogressBar"/>
+
+        <Button
+            android:text="MThread: WITH Volatile, Sync, Atomic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20005"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="MThread: WITHOUT Volatile, Sync, Atomic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20006"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+
+        <Button
+            android:text="DS: synchronized Collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50001"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: synchronized ArrayList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50005"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: CopyOnWriteArrayList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50006"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: Vector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50007"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: Stack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50008"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: synchronizedSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50013"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: CopyOnWriteArraySet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50014"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: synchronizedMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50016"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: ConcurrentHashMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50017"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+        <Button
+            android:text="DS: HashTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="50018"
+            android:onClick="onClick_AdvanceDataStructClass"/>
+
+    </LinearLayout>
+</ScrollView>

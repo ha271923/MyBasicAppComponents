@@ -24,10 +24,20 @@ public class MyCopyOnWriteArrayList implements MultiThreadAccessIF {
     public void ThreadsAccessData(List<String> list, int num) {
         ExecutorService executorService = Executors.newFixedThreadPool(num);
         for (int i=0; i<num; i++) {
-            executorService.execute(new MyCopyOnWriteArrayList.ReadTask(list));
-            executorService.execute(new MyCopyOnWriteArrayList.WriteTask(list, i));
+            executorService.execute(getReadRunnable(list));
+            executorService.execute(getWriteRunnable(list, i));
         }
         executorService.shutdown();
+    }
+
+    @Override
+    public Runnable getReadRunnable(Object obj){
+        return new ReadTask((List<String>)obj);
+    }
+
+    @Override
+    public Runnable getWriteRunnable(Object obj, int i){
+        return new WriteTask((List<String>)obj, i);
     }
 
     private static class ReadTask implements Runnable {

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:paddingTop="50dp"
-    tools:context="sample.hawk.com.mybasicappcomponents.ad.Facebook_NativeADActivity">
+    tools:context=".view.ad.Facebook_NativeADActivity">
 
     <LinearLayout
         android:id="@+id/native_ad_container"

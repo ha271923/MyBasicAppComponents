@@ -24,10 +24,20 @@ public class MyConcurrentHashMap implements MultiThreadAccessIF {
     public void ThreadsAccessData(Map<Integer, String> map, int num) {
         ExecutorService executorService = Executors.newFixedThreadPool(num);
         for (int i=0; i<num; i++) {
-            executorService.execute(new MyConcurrentHashMap.ReadTask(map));
-            executorService.execute(new MyConcurrentHashMap.WriteTask(map, i));
+            executorService.execute(getReadRunnable(map));
+            executorService.execute(getWriteRunnable(map, i));
         }
         executorService.shutdown();
+    }
+
+    @Override
+    public Runnable getReadRunnable(Object obj){
+        return new ReadTask((Map<Integer, String>)obj);
+    }
+
+    @Override
+    public Runnable getWriteRunnable(Object obj, int i){
+        return new WriteTask((Map<Integer, String>)obj, i);
     }
 
     private static class ReadTask implements Runnable {

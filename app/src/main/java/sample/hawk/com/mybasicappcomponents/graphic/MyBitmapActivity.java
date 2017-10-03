@@ -20,7 +20,7 @@ import android.widget.SeekBar;
 import java.io.FileNotFoundException;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.cache.basic.FileCache;
+import sample.hawk.com.mybasicappcomponents.data_structure.cache.basic.FileCache;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BFeedBlurBuilder;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BitmapUtils;
 import sample.hawk.com.mybasicappcomponents.graphic.utils.BlurBuilder;

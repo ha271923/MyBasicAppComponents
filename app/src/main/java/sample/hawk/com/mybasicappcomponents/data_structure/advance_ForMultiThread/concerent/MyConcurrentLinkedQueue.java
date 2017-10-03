@@ -24,10 +24,20 @@ public class MyConcurrentLinkedQueue implements MultiThreadAccessIF {
     public void ThreadsAccessData(Queue<String> queue, int num) {
         ExecutorService executorService = Executors.newFixedThreadPool(num);
         for (int i=0; i<num; i++) {
-            executorService.execute(new MyConcurrentLinkedQueue.ReadTask(queue));
-            executorService.execute(new MyConcurrentLinkedQueue.WriteTask(queue, i));
+            executorService.execute(getReadRunnable(queue));
+            executorService.execute(getWriteRunnable(queue, i));
         }
         executorService.shutdown();
+    }
+
+    @Override
+    public Runnable getReadRunnable(Object obj){
+        return new ReadTask((Queue<String>)obj);
+    }
+
+    @Override
+    public Runnable getWriteRunnable(Object obj, int i){
+        return new WriteTask((Queue<String>)obj, i);
     }
 
     private static class ReadTask implements Runnable {
