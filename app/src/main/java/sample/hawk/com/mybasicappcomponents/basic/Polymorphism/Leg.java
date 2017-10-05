@@ -4,7 +4,7 @@ package sample.hawk.com.mybasicappcomponents.basic.Polymorphism;
  * Created by ha271 on 2016/10/18.
  */
 
-public class Leg implements ILegActions{
+public class Leg extends Bio implements ILegActions{
 
     @Override
     public void run(int distance) {

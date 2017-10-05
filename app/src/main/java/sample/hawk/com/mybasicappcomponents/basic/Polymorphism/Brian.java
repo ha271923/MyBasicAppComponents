@@ -6,7 +6,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * Created by ha271 on 2016/10/18.
  */
 
-public class Brian implements IIQActions{
+public class Brian extends Bio implements IIQActions{
     private static String className="Brian";
     private Knowledge Know;
     public int brian_var;
@@ -15,6 +15,10 @@ public class Brian implements IIQActions{
         Know = new Knowledge();
         Know.getName();
         Know.getAge();
+    }
+
+    public void BrianApi(){
+        SMLog.i("BrianApi");
     }
 
     @Override
