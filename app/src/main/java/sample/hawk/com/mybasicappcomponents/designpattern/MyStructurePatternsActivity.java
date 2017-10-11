@@ -11,6 +11,7 @@ import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.PlayerAudio;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.PlayerMp4;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.PlayerVlc;
+import sample.hawk.com.mybasicappcomponents.designpattern.proxy.Client;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -76,6 +77,10 @@ public class MyStructurePatternsActivity extends Activity{
                 break;
             case 60: // Flyweight
 
+                break;
+            case 70: // Proxy
+                Client client = new Client();
+                client.show();
                 break;
             default:
                 SMLog.e("Not support this pattern yet");

@@ -71,12 +71,13 @@
             android:tag="60"
             android:onClick="onClick_MyStructurePatternsClass"/>
 
+
+        -->
         <Button
             android:text="Proxy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="70"
             android:onClick="onClick_MyStructurePatternsClass"/>
-        -->
     </LinearLayout>
 </ScrollView>
