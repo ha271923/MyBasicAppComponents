@@ -19,13 +19,13 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  *    ?和T區別是？是一個不確定類，？和T都表示不確定的類型，但如果是T的話，函數里面可以對T進行操作，比方T car = getCar()，而不能用？car = getCar()。
  */
 
-public class UnkonwnType {
+public class UnknownType {
     List<? extends ParentClass> mlistA;
     List<? extends ParentClass> mlistB;
     List<? extends ParentClass> mlistC;
     List<? extends CommonResources> mlistD;
 
-    public UnkonwnType(){
+    public UnknownType(){
         mlistA = new ArrayList<ParentClass>();
         mlistB = new ArrayList<ChildClass>();
         // mlistC = new ArrayList<MyInterface>(); // ERROR: incompatible types.

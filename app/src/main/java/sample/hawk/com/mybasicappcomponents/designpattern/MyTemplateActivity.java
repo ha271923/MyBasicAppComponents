@@ -19,13 +19,18 @@ import sample.hawk.com.mybasicappcomponents.designpattern.generic.GenericChild;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.GenericParent;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.LimitedType;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.RecursiveAnyType;
-import sample.hawk.com.mybasicappcomponents.designpattern.generic.UnkonwnType;
+import sample.hawk.com.mybasicappcomponents.designpattern.generic.UnknownType;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.Utils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
- * Created by ha271 on 2017/10/5.
- */
+ * Q: 何時該使用Generic? 原本Object不就可以了麼?
+ * A: 使用Object透過轉型, 一旦發生錯誤是 run time error,
+ *    使用 generic 則會得到 compile time error,
+ *    compile time error 比 run time error 要好
+ *
+ * 也就是說, Generic Type其實就是一種在Compiler time就把該位置所需的Type字串, 給置換好的靜態技術!
+ **/
 
 public class MyTemplateActivity extends Activity {
     AnyType1 anyType1;
@@ -103,31 +108,31 @@ public class MyTemplateActivity extends Activity {
     }
 
     public void LimitedTypeTest() {
-        LinkedList[] linkedListArr = new LinkedList[5];
-        linkedListArr[0].add(0);
-        linkedListArr[1].add("str1");
-        linkedListArr[2].add(Elements.E1);
-        linkedListArr[3].add(new RecursiveAnyType("new Param1"));
-        LimitedType<LinkedList> limitedTypeLinkedList = new LimitedType<>(linkedListArr);
-        // limitedTypeLinkedList.setArrayAsList(1);  // ERROR: T is not extended from List interface.
-        // limitedTypeLinkedList.setArrayAsList(iArr);  // ERROR: T is not extended from List interface.
-        limitedTypeLinkedList.setArrayAsList(linkedListArr);
+        // Generic Type can store any type in mList[].
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(0);
+        linkedList.add("str1");
+        linkedList.add(Elements.E1);
+        linkedList.add(new RecursiveAnyType("new Param1"));
+        LimitedType<LinkedList> limitedTypeLinkedList = new LimitedType<>(linkedList);
+        // limitedTypeLinkedList.setList(1);  // ERROR: T is not extended from List interface.
+        limitedTypeLinkedList.setList(linkedList);
         limitedTypeLinkedList.show();
-
-        ArrayList[] arrayListArr = new ArrayList[5];
-        arrayListArr[0].add(0);
-        arrayListArr[1].add("str1");
-        arrayListArr[2].add(Elements.E1);
-        arrayListArr[3].add(new RecursiveAnyType("new Param1"));
-        LimitedType<ArrayList> limitedTypeArrayList = new LimitedType<ArrayList>(arrayListArr);
-        limitedTypeArrayList.setArrayAsList(arrayListArr);
+        // Generic Type can store any type in mList[].
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(0);
+        arrayList.add("str1");
+        arrayList.add(Elements.E1);
+        arrayList.add(new RecursiveAnyType("new Param1"));
+        LimitedType<ArrayList> limitedTypeArrayList = new LimitedType<ArrayList>(arrayList);
+        limitedTypeArrayList.setList(arrayList);
         limitedTypeArrayList.show();
 
     }
 
     public void UnknownTypeTest() {
-        UnkonwnType unkonwnType = new UnkonwnType();
-        unkonwnType.show();
+        UnknownType unknownType = new UnknownType();
+        unknownType.show();
     }
 
     public void AnyArryTest() {

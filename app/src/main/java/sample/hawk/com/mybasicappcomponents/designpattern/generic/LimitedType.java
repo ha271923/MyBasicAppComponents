@@ -9,22 +9,22 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  */
 
 public class LimitedType<T extends List>{
-    private T[] mList;
+    private T mList;
 
-    public LimitedType(T[] ref ){
+    public LimitedType(T ref ){
         mList = ref;
     }
 
-    public void setArrayAsList(T[] mArray) {
+    public void setList(T mArray) {
         this.mList = mArray;
     }
 
-    public T[] getArrayFromList() {
+    public T getList() {
         return mList;
     }
 
     public void show(){
-        for(int idx=0; idx < mList.length; idx++)
-            SMLog.i("mList["+idx+"]= "+mList[idx]);
+        for(int idx=0; idx < mList.size(); idx++)
+            SMLog.i("mList["+idx+"]= "+mList.get(idx));
     }
 }
