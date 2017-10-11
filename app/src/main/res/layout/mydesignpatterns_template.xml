@@ -61,5 +61,12 @@
             android:tag="14"
             android:onClick="onClick_MyGenericPatternsClass"/>
 
+        <Button
+            android:text="Generic Layer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="15"
+            android:onClick="onClick_MyGenericPatternsClass"/>
+
     </LinearLayout>
 </ScrollView>

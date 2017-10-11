@@ -8,12 +8,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import sample.hawk.com.mybasicappcomponents.R;
+import sample.hawk.com.mybasicappcomponents.basic.Polymorphism.Hand;
+import sample.hawk.com.mybasicappcomponents.basic.Polymorphism.Head;
+import sample.hawk.com.mybasicappcomponents.basic.Polymorphism.Leg;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.AnyArray;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.AnyClass;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.AnyType1;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.AnyType2;
+import sample.hawk.com.mybasicappcomponents.designpattern.generic.GenericChild;
+import sample.hawk.com.mybasicappcomponents.designpattern.generic.GenericParent;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.LimitedType;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.RecursiveAnyType;
+import sample.hawk.com.mybasicappcomponents.designpattern.generic.UnkonwnType;
 import sample.hawk.com.mybasicappcomponents.designpattern.generic.Utils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -60,6 +66,9 @@ public class MyTemplateActivity extends Activity {
                 break;
             case 14:
                 UtilTests(1);
+                break;
+            case 15:
+                GenericLayerTest();
                 break;
             default:
                 SMLog.i("Not support yet!");
@@ -117,6 +126,8 @@ public class MyTemplateActivity extends Activity {
     }
 
     public void UnknownTypeTest() {
+        UnkonwnType unkonwnType = new UnkonwnType();
+        unkonwnType.show();
     }
 
     public void AnyArryTest() {
@@ -165,5 +176,14 @@ public class MyTemplateActivity extends Activity {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void GenericLayerTest() {
+        GenericChild genericChild = new GenericChild();
+        genericChild.setT1(new Head());
+        genericChild.setT2(new Hand("Hand T2"));
+        genericChild.setT3(new Leg("Leg T3"));
+        genericChild.show(); // T3
+        ((GenericParent) genericChild).show(); // It's still T3 even casting did.
     }
 }
