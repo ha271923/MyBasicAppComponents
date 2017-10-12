@@ -19,6 +19,7 @@ import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelConditionMachine;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelStateMachine;
+import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Vistor_demo;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -140,11 +141,13 @@ public class MyBehaviorPatternsActivity extends Activity{
 
                 break;
             case 120: // Visitor
-
+                Vistor_demo.vistor_test();
                 break;
             default:
                 SMLog.e("Not support this pattern yet");
         }
     }
+
+
 
 }
