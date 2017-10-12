@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Iterator;
+
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
+import sample.hawk.com.mybasicappcomponents.designpattern.iterator.Book;
+import sample.hawk.com.mybasicappcomponents.designpattern.iterator.BookShelf;
+import sample.hawk.com.mybasicappcomponents.designpattern.iterator.MyIterator;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
@@ -78,6 +83,25 @@ public class MyBehaviorPatternsActivity extends Activity{
 
                 break;
             case 70: // Iterator
+                BookShelf bookShelf = new BookShelf(4);
+                bookShelf.appendBook(new Book("Around the World in 80 Days"));
+                bookShelf.appendBook(new Book("Bible"));
+                bookShelf.appendBook(new Book("Cinderella"));
+                bookShelf.appendBook(new Book("Daddy-Long-Legs"));
+                //我們只有用到Iterator的方法，實際上BookShelf內部怎麼實作的我們不管。
+                //如果今天BookShelf把陣列改成vector，下面的程式碼還是不會變動。
+                // use my custom iterator
+                MyIterator _iterator = bookShelf._iterator();
+                while (_iterator.hasNext()) {
+                    Book book = (Book)_iterator.next();
+                    SMLog.i("MyIterator -> [ " + book.getName()+" ]");
+                }
+                // use java iterator
+                Iterator iterator = bookShelf.iterator();
+                while (iterator.hasNext()) {
+                    Book book = (Book)iterator.next();
+                    SMLog.i("Iterator -> [ " + book.getName()+" ]");
+                }
 
                 break;
             case 80: // Mediator
