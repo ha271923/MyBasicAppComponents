@@ -6,6 +6,7 @@ import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.PlayerVlc;
 
 /**
+ *  Adapter Pattern -- 換個包裝再度利用
  *
  * 定義
  *  把一個類的接口變換成客戶端所期待的另一種接口，而使原本兩個不匹配的接口可以一起工作。

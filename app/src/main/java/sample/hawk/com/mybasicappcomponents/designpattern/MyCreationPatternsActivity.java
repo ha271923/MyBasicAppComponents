@@ -5,23 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import sample.hawk.com.mybasicappcomponents.R;
-import sample.hawk.com.mybasicappcomponents.designpattern.builder.MealDirector;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.DrinkFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.FoodType;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.IAbstractFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Cafe;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.GreenTea;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.IDrinkAction;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.BlackTeaFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.CafeFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.GreenTeaFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.MilkTeaFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.NormalFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.RedTeaFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.RedTea;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.Simple.SimpleFactory;
-import sample.hawk.com.mybasicappcomponents.designpattern.factory.TeaType;
+import sample.hawk.com.mybasicappcomponents.designpattern.builder.Builder_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.AbstractFactory_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.FactoryMethod_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.NormalFactory_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.factory.Simple.SimpleFactory_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.NoSingleton;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton_sync1;
@@ -49,57 +37,22 @@ public class MyCreationPatternsActivity extends Activity{
         switch(pattern_type){
 
             case 30: // Simple Factory
-                SimpleFactory sf = new SimpleFactory();
-                sf.createProduct(TeaType.Cafe);
-                sf.createProduct(TeaType.GreenTea);
-                sf.createProduct(TeaType.RedTea);
-                sf.createProduct(TeaType.BlackTea);
-                sf.createProduct(TeaType.MilkTea);
+                new SimpleFactory_Pattern().demo();
                 break;
             case 31: // Normal Factory
-                NormalFactory nf_product1 = new CafeFactory();
-                nf_product1.createProduct();
-                NormalFactory nf_product2 = new GreenTeaFactory();
-                nf_product2.createProduct();
-                NormalFactory nf_product3 = new RedTeaFactory();
-                nf_product3.createProduct();
-                NormalFactory nf_product4 = new BlackTeaFactory();
-                nf_product4.createProduct();
-                NormalFactory nf_product5 = new MilkTeaFactory();
-                nf_product5.createProduct();
+                new NormalFactory_Pattern().demo();
                 break;
             case 32: // Abstract Factory
-                IAbstractFactory abstractFactory1 = new DrinkFactory();
-                abstractFactory1.createProduct(TeaType.Cafe);
-                IAbstractFactory abstractFactory2 = new FoodFactory();
-                abstractFactory2.createProduct(FoodType.Bakery);
+                new AbstractFactory_Pattern().demo();
                 break;
             case 33: // Factory Method
-                IDrinkAction id = null;
-                id = new Cafe();
-                    id.AddMaterial();
-                    id.Brew();
-                    id.DeliverCpu();
-                id = new GreenTea();
-                    id.AddMaterial();
-                    id.Brew();
-                    id.DeliverCpu();
-                id = new RedTea();
-                    id.AddMaterial();
-                    id.Brew();
-                    id.DeliverCpu();
+                new FactoryMethod_Pattern().demo();
                 break;
             // 差異
             //  A. Factory模式：創建單個類的模式（關注單個產品）
             //  B. Builder模式：將各種產品集中起來進行管理（關注複合對象）
             case 34: // Builder
-                SMLog.i("----- Packing is FREE!! -----");
-                MealDirector mealDirector = new MealDirector();
-                SMLog.i("Total Price= " + mealDirector.getOrder(1));
-                SMLog.i("Total Price= " + mealDirector.getOrder(2));
-                SMLog.i("Total Price= " + mealDirector.getOrder(3));
-                SMLog.i("Total Price= " + mealDirector.getOrder(4));
-                SMLog.i("Total Price= " + mealDirector.getOrder(123456789));
+                new Builder_Pattern().demo();
                 break;
             case 40: // No singleton ( MEMORY is double than singleton. )
                 NoSingleton nosingleton0_1 = new NoSingleton();

@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature;
 
 /**
  * Created by ha271 on 2017/10/12.
@@ -6,10 +6,10 @@ package sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature;
 
 import java.util.Iterator;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Visitable;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Directory;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Entry;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.File;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitable;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Directory;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Entry;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.File;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 //accept 呼叫 visit，visit 呼叫 accept，兩個方法互相呼叫對方

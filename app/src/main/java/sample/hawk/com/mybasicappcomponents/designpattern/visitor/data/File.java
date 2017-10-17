@@ -1,6 +1,6 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.data;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.data;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Visitable;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitable;
 
 public class File extends Entry {
     private String name;

@@ -8,7 +8,7 @@ package sample.hawk.com.mybasicappcomponents.designpattern.builder;
  *
  * 差異
  *  A. Factory模式：創建單個類的模式（關注單個產品）
- *  B. Builder模式：將各種產品集中起來進行管理（關注複合對象）
+ *  B. Builder模式：將各種產品集中起來進行管理（關注複合對象及步驟）
  *
  * 優點
  *  1. 在建造者模式中，客戶端不必知道產品內部組成細節。

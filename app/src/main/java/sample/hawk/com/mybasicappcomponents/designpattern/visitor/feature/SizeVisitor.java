@@ -1,11 +1,11 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature;
 
 import java.util.Iterator;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Visitable;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Directory;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Entry;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.File;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitable;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Directory;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Entry;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.File;
 
 /**
  * Directory 類別的 getSize 方法是進行取得目錄容量的處理。現在把這個方法改寫成取得容量大小的 SizeVisitor 類別。

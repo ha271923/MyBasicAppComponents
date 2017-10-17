@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor;
 
 /**
  * Acceptor內需要定義一個accept method,這method只是都固定用來

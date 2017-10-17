@@ -1,12 +1,12 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature;
 
 import java.util.Iterator;
 import java.util.Vector;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Visitable;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Directory;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Entry;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.File;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitable;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Directory;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Entry;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.File;
 
 public class FileFindVisitor extends Visitable {
     private String filetype;

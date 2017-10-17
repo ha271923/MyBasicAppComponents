@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.data;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.data;
 
 /**
  * Created by ha271 on 2017/10/12.

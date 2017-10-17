@@ -1,8 +1,8 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.data;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.data;
 
 import java.util.Iterator;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.IAcceptor;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.IAcceptor;
 
 //add,iterator等方法只有在 Directory 類別有效，因此預設是丟出例外
 public abstract class Entry implements IAcceptor {

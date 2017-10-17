@@ -1,10 +1,10 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.data;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.data;
 
 import java.util.Iterator;
 import java.util.Vector;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature.SizeVisitor;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Visitable;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature.SizeVisitor;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitable;
 
 public class Directory extends Entry {
     private String name;

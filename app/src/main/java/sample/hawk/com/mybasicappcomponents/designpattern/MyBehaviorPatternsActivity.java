@@ -4,22 +4,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.Iterator;
-
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
-import sample.hawk.com.mybasicappcomponents.designpattern.iterator.Book;
-import sample.hawk.com.mybasicappcomponents.designpattern.iterator.BookShelf;
-import sample.hawk.com.mybasicappcomponents.designpattern.iterator.MyIterator;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person1;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Person2;
-import sample.hawk.com.mybasicappcomponents.designpattern.observer.Subject;
+import sample.hawk.com.mybasicappcomponents.designpattern.iterator.Iterator_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.mediator.Mediator_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelConditionMachine;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelStateMachine;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Vistor_demo;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitor_Pattern;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -56,21 +50,8 @@ public class MyBehaviorPatternsActivity extends Activity{
                 teacher.onClass(); // 這位老師正在上課
                 break;
             case 20: // Observer: 定義對象間的一對多的依賴關係，當一個對象狀態發生改變時，所有依賴他的對像都得到通知並被自動更新。
-                Subject subject =  new Subject();
-                subject.setTitle("0000");
-                Observer observer1 = new Person1();
-                Observer observer2 = new Person2();
-                subject.setTitle("1111");
-                subject.register(observer1);
-                subject.register(observer2);
-                subject._notifyAll();
-                SMLog.i("title= "+ subject.getTitle());
-                subject.setTitle("2222");
-                subject.unRegister(observer1); //取消觀察者1的註冊
-                subject._notifyAll();
-                SMLog.i("title= "+ subject.getTitle());
+                new Observer_Pattern().demo();
                 break;
-
             case 30: // Interpreter
 
                 break;
@@ -84,29 +65,11 @@ public class MyBehaviorPatternsActivity extends Activity{
 
                 break;
             case 70: // Iterator
-                BookShelf bookShelf = new BookShelf(4);
-                bookShelf.appendBook(new Book("Around the World in 80 Days"));
-                bookShelf.appendBook(new Book("Bible"));
-                bookShelf.appendBook(new Book("Cinderella"));
-                bookShelf.appendBook(new Book("Daddy-Long-Legs"));
-                //我們只有用到Iterator的方法，實際上BookShelf內部怎麼實作的我們不管。
-                //如果今天BookShelf把陣列改成vector，下面的程式碼還是不會變動。
-                // use my custom iterator
-                MyIterator _iterator = bookShelf._iterator();
-                while (_iterator.hasNext()) {
-                    Book book = (Book)_iterator.next();
-                    SMLog.i("MyIterator -> [ " + book.getName()+" ]");
-                }
-                // use java iterator
-                Iterator iterator = bookShelf.iterator();
-                while (iterator.hasNext()) {
-                    Book book = (Book)iterator.next();
-                    SMLog.i("Iterator -> [ " + book.getName()+" ]");
-                }
+                new Iterator_Pattern().demo();
 
                 break;
             case 80: // Mediator
-
+                new Mediator_Pattern().demo();
                 break;
             case 90: // Mememto
 
@@ -141,7 +104,7 @@ public class MyBehaviorPatternsActivity extends Activity{
 
                 break;
             case 120: // Visitor
-                Vistor_demo.vistor_test();
+                new Visitor_Pattern().demo();
                 break;
             default:
                 SMLog.e("Not support this pattern yet");

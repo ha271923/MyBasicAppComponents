@@ -1,7 +1,7 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Directory;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.File;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Directory;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.File;
 
 /**
  * 程式的運作核心是在Visitor的visit function

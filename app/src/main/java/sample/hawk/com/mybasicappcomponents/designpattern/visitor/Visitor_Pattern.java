@@ -1,13 +1,14 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor;
 
 import java.util.Iterator;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.Directory;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.File;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.data.FileTreatmentException;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature.AcceptorVector;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature.FileFindVisitor;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature.ListVisitor;
+import sample.hawk.com.mybasicappcomponents.IDemo;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.Directory;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.File;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.data.FileTreatmentException;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature.AcceptorVector;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature.FileFindVisitor;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature.ListVisitor;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -36,8 +37,8 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * 每一個 「Visitor(訪問者) 物件」，都能依據不同的「元素」，對應到不同的行為結果。
  */
 
-public class Vistor_demo {
-    public static void vistor_test(){
+public class Visitor_Pattern implements IDemo{
+    public void demo(){
         try {
             SMLog.i("1. Creating entries in root dir... =============");
             Directory dir0 = new Directory("dir0");

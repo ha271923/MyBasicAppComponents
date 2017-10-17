@@ -1,10 +1,10 @@
-package sample.hawk.com.mybasicappcomponents.designpattern.vistor.feature;
+package sample.hawk.com.mybasicappcomponents.designpattern.visitor.feature;
 
 import java.util.Vector;
 import java.util.Iterator;
 
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.IAcceptor;
-import sample.hawk.com.mybasicappcomponents.designpattern.vistor.Visitable;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.IAcceptor;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitable;
 
 /**
  * 在 java.util.Vector 建立一個具有 Acceptor 介面功能的 AcceptorVector 類別。讓它能對 AcceptorVector 的物
