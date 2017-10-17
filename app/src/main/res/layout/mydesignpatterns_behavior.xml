@@ -86,12 +86,7 @@
             android:tag="60"
             android:onClick="onClick_MyBehaviorPatternsClass"/>
 
-        <Button
-            android:text="Mediator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="80"
-            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
 
         <Button
             android:text="Mememto"
@@ -107,6 +102,12 @@
             android:tag="110"
             android:onClick="onClick_MyBehaviorPatternsClass"/>
     -->
+        <Button
+            android:text="Mediator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="80"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
         <Button
             android:text="Visitor"
             android:layout_width="wrap_content"
