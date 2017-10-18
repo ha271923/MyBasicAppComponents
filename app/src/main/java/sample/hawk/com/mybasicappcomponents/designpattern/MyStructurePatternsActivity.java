@@ -8,6 +8,7 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ClassAdapter.ClassAdapter_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.ObjectAdapter_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.proxy.Proxy_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.flyweight.Flyweight_Pattern;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -52,7 +53,7 @@ public class MyStructurePatternsActivity extends Activity{
 
                 break;
             case 60: // Flyweight
-
+                new Flyweight_Pattern().demo();
                 break;
             case 70: // Proxy
                 new Proxy_Pattern().demo();
