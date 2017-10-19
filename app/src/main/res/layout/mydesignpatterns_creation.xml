@@ -87,13 +87,12 @@
             android:layout_height="wrap_content"
             android:tag="44"
             android:onClick="onClick_MyCreationPatternsClass"/>
-        <!--
+
         <Button
             android:text="Prototype"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="50"
             android:onClick="onClick_MyCreationPatternsClass"/>
-        -->
     </LinearLayout>
 </ScrollView>

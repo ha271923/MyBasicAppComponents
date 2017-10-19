@@ -10,6 +10,7 @@ import sample.hawk.com.mybasicappcomponents.designpattern.factory.Abstract.Abstr
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.FactoryMethod_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Normal.NormalFactory_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.factory.Simple.SimpleFactory_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.prototype.Prototype_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.NoSingleton;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton;
 import sample.hawk.com.mybasicappcomponents.designpattern.singleton.Singleton_sync1;
@@ -120,7 +121,8 @@ public class MyCreationPatternsActivity extends Activity{
                     }
                 }).start();
                 break;
-            case 5: // Prototype
+            case 50: // Prototype
+                new Prototype_Pattern().demo();
                 break;
             default:
                 SMLog.e("Not support this pattern yet");
