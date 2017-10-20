@@ -7,8 +7,9 @@ import android.view.View;
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ClassAdapter.ClassAdapter_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.ObjectAdapter_Pattern;
-import sample.hawk.com.mybasicappcomponents.designpattern.proxy.Proxy_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.bridge.Bridge_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.flyweight.Flyweight_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.proxy.Proxy_Pattern;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -41,7 +42,7 @@ public class MyStructurePatternsActivity extends Activity{
                 new ClassAdapter_Pattern().demo();
                 break;
             case 20: // Bridge
-
+                new Bridge_Pattern().demo();
                 break;
             case 30: // Composite
 
