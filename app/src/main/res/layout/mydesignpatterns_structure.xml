@@ -36,6 +36,13 @@
             android:onClick="onClick_MyStructurePatternsClass"/>
 
         <Button
+            android:text="Object Adapter VS Class Adapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="12"
+            android:onClick="onClick_MyStructurePatternsClass"/>
+
+        <Button
             android:text="Bridge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
