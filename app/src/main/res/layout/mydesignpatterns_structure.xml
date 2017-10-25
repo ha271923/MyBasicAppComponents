@@ -56,14 +56,14 @@
             android:layout_height="wrap_content"
             android:tag="30"
             android:onClick="onClick_MyStructurePatternsClass"/>
-
+        -->
         <Button
             android:text="Decorator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="40"
             android:onClick="onClick_MyStructurePatternsClass"/>
-        -->
+
         <Button
             android:text="Facade"
             android:layout_width="wrap_content"
