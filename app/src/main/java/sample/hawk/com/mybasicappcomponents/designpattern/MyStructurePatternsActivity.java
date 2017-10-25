@@ -9,6 +9,7 @@ import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ClassAdapter.C
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.Class_VS_Object.CmpObjClassAdapter_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.adapter.ObjectAdapter.ObjectAdapter_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.bridge.Bridge_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.composite.Composite_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.decorator.Decorator_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.facade.Facade_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.flyweight.Flyweight_Pattern;
@@ -51,7 +52,7 @@ public class MyStructurePatternsActivity extends Activity{
                 new Bridge_Pattern().demo();
                 break;
             case 30: // Composite
-
+                new Composite_Pattern().demo();
                 break;
             case 40: // Decorator
                 new Decorator_Pattern().demo();
