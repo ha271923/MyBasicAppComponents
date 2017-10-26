@@ -17,5 +17,5 @@ package sample.hawk.com.mybasicappcomponents.designpattern.iterator;
 
 // Aggregate(聚集) Interface，實作此Interface的類別就變成類似陣列（多個數字或變數的集合)。
 public interface IAggregate {
-    public abstract MyIterator _iterator(); //一個可對應聚合的_iterator
+    public abstract IMyIterator _iterator(); //一個可對應聚合的_iterator
 }

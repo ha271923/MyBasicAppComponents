@@ -7,7 +7,7 @@ package sample.hawk.com.mybasicappcomponents.designpattern.iterator;
  */
 
 // 如果要掃描整個聚合時，利用_iterator方法即可建立一個實作MyIterator介面的類別物件個體
-public interface MyIterator {
+public interface IMyIterator {
     public abstract boolean hasNext(); //有沒有下一個元素
     public abstract Object next(); //下一個元素
 }

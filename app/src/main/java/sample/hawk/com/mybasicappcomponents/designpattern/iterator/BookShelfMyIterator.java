@@ -7,7 +7,7 @@ package sample.hawk.com.mybasicappcomponents.designpattern.iterator;
  */
 
 // BookShelfIterator實作MyIterator Interface。
-public class BookShelfMyIterator implements MyIterator {
+public class BookShelfMyIterator implements IMyIterator {
     private BookShelf bookShelf;
     private int index;
     public BookShelfMyIterator(BookShelf bookShelf) {

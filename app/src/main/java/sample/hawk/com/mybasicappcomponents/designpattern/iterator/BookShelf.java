@@ -26,7 +26,7 @@ public class BookShelf implements IAggregate {
         return last;
     }
 
-    public MyIterator _iterator() { // My custom iterator
+    public IMyIterator _iterator() { // My custom iterator
         return new BookShelfMyIterator(this);
     }
 

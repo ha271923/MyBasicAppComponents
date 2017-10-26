@@ -6,7 +6,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  * content
  */
 
-public class Song implements Playable {
+public class Song implements IPlayable {
     private String mSongName;
     Song(String songName) {
         this.mSongName = songName;
