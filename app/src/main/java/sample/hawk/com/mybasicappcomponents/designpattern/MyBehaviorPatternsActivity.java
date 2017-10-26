@@ -9,11 +9,13 @@ import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
 import sample.hawk.com.mybasicappcomponents.designpattern.iterator.Iterator_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.iterator.compare.Iterator_Pattern2;
 import sample.hawk.com.mybasicappcomponents.designpattern.mediator.Mediator_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelConditionMachine;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelStateMachine;
 import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitor_Pattern;
+import sample.hawk.com.mybasicappcomponents.designpattern.visitor.compare.Visitor_Pattern2;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
@@ -66,7 +68,9 @@ public class MyBehaviorPatternsActivity extends Activity{
                 break;
             case 70: // Iterator
                 new Iterator_Pattern().demo();
-
+                break;
+            case 71: // Iterator V.S Composite
+                new Iterator_Pattern2().demo();
                 break;
             case 80: // Mediator
                 new Mediator_Pattern().demo();
@@ -105,6 +109,9 @@ public class MyBehaviorPatternsActivity extends Activity{
                 break;
             case 120: // Visitor
                 new Visitor_Pattern().demo();
+                break;
+            case 121:
+                new Visitor_Pattern2().demo();
                 break;
             default:
                 SMLog.e("Not support this pattern yet");
