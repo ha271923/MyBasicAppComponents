@@ -8,6 +8,7 @@ import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.CallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.ICallBack1;
 import sample.hawk.com.mybasicappcomponents.designpattern.callback.Teacher;
+import sample.hawk.com.mybasicappcomponents.designpattern.command.Command_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.iterator.Iterator_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.iterator.compare.Iterator_Pattern2;
 import sample.hawk.com.mybasicappcomponents.designpattern.mediator.Mediator_Pattern;
@@ -64,7 +65,7 @@ public class MyBehaviorPatternsActivity extends Activity{
 
                 break;
             case 60: // Command
-
+                new Command_Pattern().demo();
                 break;
             case 70: // Iterator
                 new Iterator_Pattern().demo();

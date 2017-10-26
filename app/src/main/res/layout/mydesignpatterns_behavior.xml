@@ -51,6 +51,13 @@
             android:onClick="onClick_MyBehaviorPatternsClass"/>
 
         <Button
+            android:text="Command"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="60"
+            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
+        <Button
             android:text="Iterator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,12 +93,7 @@
             android:tag="50"
             android:onClick="onClick_MyBehaviorPatternsClass"/>
 
-        <Button
-            android:text="Command"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="60"
-            android:onClick="onClick_MyBehaviorPatternsClass"/>
+
 
 
 
