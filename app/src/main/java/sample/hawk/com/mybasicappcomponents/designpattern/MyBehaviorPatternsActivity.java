@@ -15,12 +15,16 @@ import sample.hawk.com.mybasicappcomponents.designpattern.mediator.Mediator_Patt
 import sample.hawk.com.mybasicappcomponents.designpattern.observer.Observer_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelConditionMachine;
 import sample.hawk.com.mybasicappcomponents.designpattern.state.LevelStateMachine;
+import sample.hawk.com.mybasicappcomponents.designpattern.strategy.Strategy_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.visitor.Visitor_Pattern;
 import sample.hawk.com.mybasicappcomponents.designpattern.visitor.compare.Visitor_Pattern2;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 /**
- * Created by ha271 on 2016/10/6.
+ * 設計物件導向程式的準則:
+ *   1.獨立變動
+ *   2.對介面寫程式
+ *   3.多用合成，少用繼承
  */
 
 public class MyBehaviorPatternsActivity extends Activity{
@@ -106,7 +110,7 @@ public class MyBehaviorPatternsActivity extends Activity{
                 player2.stateWork();
                 break;
             case 110: // Strategy
-
+                new Strategy_Pattern().demo();
                 break;
             case 120: // Visitor
                 new Visitor_Pattern().demo();
