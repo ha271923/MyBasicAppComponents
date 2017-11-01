@@ -294,6 +294,13 @@
         </activity>
         <activity android:name=".data_structure.Serial_Json_Parcel.Serial_Json_Parcel_Activity2" />
 
+        <activity android:name=".designpattern.MyDesignPrincipleActivity"
+                  android:label="designpattern/MyDesignPrincipleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".designpattern.MyTemplateActivity"
                   android:label="designpattern/MyTemplateActivity">
             <intent-filter>
