@@ -1347,6 +1347,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".debugTest.debugmode.MyDebugModeActivity"
+                  android:label="debugTest/debugmode/MyDebugModeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
         <!-- https://github.com/slightfoot/android-crash-reporting -->
         <activity android:name=".debugTest.crashreport.MyCrashReportActivity"
                   android:label="debugTest/crashreport/MyCrashReportActivity">
