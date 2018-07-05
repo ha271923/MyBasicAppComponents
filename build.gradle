@@ -16,6 +16,13 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+
+        /*
+        * Fix gradle sync failed at com.android.support:support-annotations on Android Studio 3.0.1
+        * It is because the Android native library depends on the latest version of the Android Support Annotations library,
+        * which historically was installed via the SDK manager, but is now only available from https://maven.google.com
+        */
+        maven { url 'https://maven.google.com' }
     }
 }
 
