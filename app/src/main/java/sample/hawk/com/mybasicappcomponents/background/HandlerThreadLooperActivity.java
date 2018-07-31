@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
+
+import static sample.hawk.com.mybasicappcomponents.utils.Util.isUiThread;
 
 /**
  * 整個Handler, Message, MessageQueue, Looper 它們四個 class 只有一個共同的目標:
@@ -28,6 +31,40 @@ public class HandlerThreadLooperActivity extends Activity {
     private Handler mHandler;
     private Context mContext=this;
     private int mCount;
+
+//region = 寫法0: HandlerThread*1 + Handler*1 + overwrite handleMessage method, 傳遞參數給workerThread處理
+    private Handler mMain_Handler0;
+    private int     WHAT_CUSTOM = 12345;
+    void Test0(){
+        mHandlerThread = new HandlerThread("myHandlerThread-0");
+        mHandlerThread.start(); // HandlerThread can be free by quitSafely() called.
+        mMain_Handler0 = new Handler(mHandlerThread.getLooper()){
+            @Override
+            public void handleMessage(Message msg) { // run on WorkerThread now!!!
+                super.handleMessage(msg);
+                Log.i("Test0" , "handleMessage   isUiThread="+isUiThread()); // not UI thread now
+                if (msg.what == WHAT_CUSTOM) {
+                    String getStr = (String) msg.obj; // Parser the param from UI thread
+                    OutputToWorker(getStr);
+                }
+            }
+        };
+        InputFromUI("Input a TEST string");
+    }
+    private void InputFromUI(String strInput) {
+            Log.i("Test0" , "InputFromUI   isUiThread="+isUiThread()); // UI thread already.
+            Message msg = mMain_Handler0.obtainMessage();
+            msg.what = WHAT_CUSTOM;
+            msg.obj = strInput; // Put the param to Worker Thread at here!
+            mMain_Handler0.sendMessage(msg);
+    }
+
+    private void OutputToWorker(String str) {
+        Log.i("Test0" , "OutputToWorker("+str+")");
+    }
+//endregion
+
+
 //region = 寫法1: HandlerThread*1 + Handler*1 + Runnable*2, 更新UI與DATA
     private Handler mMain_Handler1 = new Handler(); // In Activity, this is equal with new Handler(mContext.getMainLooper());.
     void Test1(){
@@ -296,6 +333,9 @@ public class HandlerThreadLooperActivity extends Activity {
         mCount = 0;
         SMLog.e("styleId="+styleId+"   -------------------------");
         switch (styleId){
+            case 0:
+                Test0();
+                break;
             case 1:
                 Test1();
                 break;

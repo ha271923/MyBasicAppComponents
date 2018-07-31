@@ -11,6 +11,12 @@
         android:text="Medium Text"
         android:id="@+id/myValue"/>
     <Button
+        android:text="Button0"
+        android:tag="0"
+        android:onClick="onClick_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/button0"/>
+    <Button
         android:text="Button1"
         android:tag="1"
         android:onClick="onClick_Buttons"
