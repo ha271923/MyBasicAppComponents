@@ -291,4 +291,17 @@ public class Util {
     public static String[] enumToString(Class<? extends Enum<?>> e) {
         return Arrays.toString(e.getEnumConstants()).replaceAll("^.|.$", "").split(", ");
     }
+
+
+    public static String getVersionName(Activity activity) {
+        String versionName = "";
+        PackageInfo packageInfo;
+        try {
+            packageInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+            versionName = packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return versionName;
+    }
 }

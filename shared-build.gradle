@@ -2,16 +2,23 @@
 project.group = 'sample.hawk.com'
 project.version = '1.2.3'
 
+
+def buildApkTime() {
+    new Date().format('yyyyMMddHHmmss')
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "25.0.0"
+
+    def versionMajor = 23.25
 
     defaultConfig {
         minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
-        versionName "1.789_Hawk"
-
+        versionNameSuffix "-release" + buildApkTime()
+        versionName "${versionMajor}" // versionName+versionNameSuffix = versionName
         multiDexEnabled true // If method over 65k, you need to uncomment this line. I add it for verifying GoogleMapActivity.
     }
 }
