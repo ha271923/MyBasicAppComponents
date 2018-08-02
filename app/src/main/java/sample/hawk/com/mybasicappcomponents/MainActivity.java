@@ -44,6 +44,7 @@ public class MainActivity extends ListActivity {
     String mAppVersion;
     private static final int PERMISSIONS_REQUEST_CODE = 1234;
     private static final String[] RequiredPermissions= {Manifest.permission.READ_CONTACTS,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private final String TAG = this.getClass().getSimpleName();
 
     public void getPermission(String[] permissions){
         if (!PermissionUtil.hasSelfPermission(this, permissions)){
@@ -74,7 +75,6 @@ public class MainActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Util.getAppVersion(mContext, "com.google.android.webview");
         mAppVersion = Util.getAppVersion(this, this.getPackageName());
         SMLog.i("App version: " + mAppVersion);
         Util.appendLog(mAppVersion);
@@ -90,6 +90,18 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_1, new String[] { "title" },
                 new int[] { android.R.id.text1 }));
         getListView().setTextFilterEnabled(true);
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+        Log.i(TAG, "HOME key pressed"); // can only detect in this Activity, not APP scope.
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.i(TAG, "BACK key pressed"); // can only detect in this Activity, not APP scope.
     }
 
     @Override
