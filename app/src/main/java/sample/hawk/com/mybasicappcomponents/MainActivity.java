@@ -110,6 +110,13 @@ public class MainActivity extends ListActivity {
         getPermission(RequiredPermissions);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Util.getAppVersion(this, "com.google.android.webview"); // get com.google.android.webview APP package version
+        Toast.makeText(this, "Version:"+Util.getVersionName(this), Toast.LENGTH_LONG).show();
+    }
+
     protected List<Map<String, Object>> getData(String prefix) {
         List<Map<String, Object>> myData = new ArrayList<Map<String, Object>>();
 
