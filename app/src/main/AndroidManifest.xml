@@ -84,6 +84,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".debugTest.MemoryLeak.MyMemoryProfilingActivity"
+                  android:label="debugTest/MyMemoryProfilingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".background.MyWakeLockActivity"
                   android:label="background/MyWakeLockActivity">
             <intent-filter>

@@ -11,7 +11,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 public class MemoryEater {
 
-    MemoryLeakage leakObj;
+    ObjectLeakage leakObj;
     ThreadLeakage leakThread;
     private byte[] leak_obj_var;
     private static byte[] leak_static_class_var;
@@ -29,29 +29,31 @@ public class MemoryEater {
         this.key =Key;
     }
 
-    public void waste_Memory(TYPE type, int size){
+    public byte[] waste_Memory(TYPE type, int size){
         // stay ONE for verify the memory usage in the memory monitor.
+        byte[] ret = null;
         switch(type){
             case LOCAL_VAR:
-                waste_LocalVar(size);     // A0: No leak: Auto Release after Var life-end and GC()
+                ret = waste_LocalVar(size);     // A0: No leak: Auto Release after Var life-end and GC()
                 break;
             case OBJECT_VAR:
-                waste_ObjectVar(size);    // B0: No leak: Auto Release after Object destroy and GC().
+                ret = waste_ObjectVar(size);    // B0: No leak: Auto Release after Object destroy and GC().
                 break;
             case STATIC_VAR:
-                waste_StaticVar(size);    // C0: set NULL by you: Allow release if this static ref is NULL in finalize().
+                ret = waste_StaticVar(size);    // C0: set NULL by you: Allow release if this static ref is NULL in finalize().
                 break;
             case OBJECT:
-                waste_Object(size);       // No leak: JAVA will release this objects if this object destroy.
+                // ret = waste_Object(size);       // No leak: JAVA will release this objects if this object destroy.
                 break;
             case THREAD:
                 if(size > 20)
                     size = 20;
-                waste_Thread(size);       // No leak: Thread objects will be released if its thread run() is END.
+                // ret = waste_Thread(size);       // No leak: Thread objects will be released if its thread run() is END.
                 break;
             default:
                 // no support type
         }
+        return ret;
     }
 
 
@@ -108,11 +110,11 @@ public class MemoryEater {
         return null;
     }
 
-    public MemoryLeakage waste_Object(int size){
+    public ObjectLeakage waste_Object(int size){
         try{
             SMLog.i("waste_Object +++++++++++");
-            MemoryLeakage leakObj2;
-            leakObj2 = new MemoryLeakage();
+            ObjectLeakage leakObj2;
+            leakObj2 = new ObjectLeakage();
             leakObj2.create(size);
             leakObj2.fill(leakObj2);
             SMLog.i("waste_Object -----------");

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="30dp"
+              android:text="leak which one"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOCAL_VAR"
+            android:onClick="onClick_LOCAL_VAR"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OBJECT_VAR"
+            android:onClick="onClick_OBJECT_VAR"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="STATIC_VAR"
+            android:onClick="onClick_STATIC_VAR"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OBJECT"
+            android:onClick="onClick_OBJECT"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THREAD"
+            android:onClick="onClick_THREAD"/>
+
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="30dp"
+              android:text="Available Memory"/>
+
+    <TextView android:id="@+id/availablememory"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="30dp"/>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GC"
+            android:onClick="onClick_GC"/>
+
+
+</LinearLayout>
