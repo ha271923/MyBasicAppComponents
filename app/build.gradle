@@ -57,10 +57,11 @@ dependencies {
 
 android {
 // Hawk: For non-NDK installed build env, I remarked the following code.
-/*
+
     defaultConfig.with {
         ndk {
             abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
+            ldLibs "log"
         }
         externalNativeBuild {
             cmake {
@@ -74,7 +75,7 @@ android {
             path 'src/main/cpp/CMakeLists.txt'
         }
     }
-*/
+
     signingConfigs {
         HawkAPP {
             keyAlias 'HawkAPP'

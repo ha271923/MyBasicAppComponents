@@ -8,6 +8,15 @@
 #include <cstdint>
 #include <cassert>
 #include <string>
+#include <android/Log.h>
+
+#define TAG "myc" //
+#define ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) //
+#define ALOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG ,__VA_ARGS__)  //
+#define ALOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__)  //
+#define ALOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) //
+#define ALOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) //
+
 static class mycpp {
 
 public:
@@ -24,9 +33,27 @@ mycpp mMyCpp;
 
 extern "C" {
 
-    JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCppJNI_helloString(
-            JNIEnv* env, jobject obj, jstring str){
-        return env->NewStringUTF("Hello from JNI !");
+    JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCppJNI_JAVAtoJNI(
+            JNIEnv* env, jobject thiz, jstring str){
+        return env->NewStringUTF("Output from JNI !");
+    }
+
+    // C and Cpp diff at:
+    // .C   is   (*env)->FindClass(env, ...)
+    // .Cpp is     env->FindClass(...)
+    JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCppJNI_JAVAtoJNIcallbackJAVA(
+            JNIEnv* env, jobject thiz, jstring inputString){
+        ALOGD("JNI: input= %s",inputString);
+
+        // setup callback api +++
+        jclass clazz = env->FindClass("sample/hawk/com/mybasicappcomponents/jni/MyCppJNI");
+        jmethodID apiID = env->GetMethodID(clazz, "fromJNIcallbackJAVA", "(Ljava/lang/String;)Ljava/lang/String;");
+        jobject result = env->CallObjectMethod(thiz, apiID, inputString);
+        // setup callback api ---
+
+        const char* str = env->GetStringUTFChars((jstring) result, NULL); // should be released but what a heck, it's a tutorial :)
+        ALOGD("JNI: output= %s",str);
+        return env->NewStringUTF(str);
     }
 
     JNIEXPORT jint JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCppJNI_multiply(
