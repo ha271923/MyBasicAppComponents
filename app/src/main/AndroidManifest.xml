@@ -1174,6 +1174,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".security.SecurityUtilsActivity"
+                  android:label="security/SecurityUtilsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".network.HttpDownloadFileByThread_Activity"
                   android:label="network/HttpDownloadFileByThread_Activity">
