@@ -1136,6 +1136,15 @@
             </intent-filter>
         </activity>
 
+
+        <activity android:name=".data_structure.ByteArray.ByteArrayActivity"
+                  android:label="data_structure/ByteArray/ByteArrayActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".data_structure.SQL.DB_Manager_Activity"
                   android:label="data_structure/SQL/DB_Manager_Activity">
             <intent-filter>
