@@ -16,6 +16,7 @@ dependencies {
     // http://google.github.io/ExoPlayer/guide.html#add-exoplayer-as-a-dependency
     compile project(':app2')
     compile project(':mylibrary')
+    compile project(':kotlinlibrary')
     // compile project('../libs/gif-library')
     compile project(':libs:gif-library')
     // MyLayout
