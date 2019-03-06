@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 
 import sample.hawk.com.mybasicappcomponents.R;
@@ -45,5 +48,28 @@ public class ByteArrayActivity extends Activity {
         }
 
     }
+
+    static private final int FILE_EOF = -1;
+    public void onClickByteArrayOutputStream(View v) {
+        byte buffer[] = new byte[512];
+        int length = 0;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        try {
+            InputStream is = getApplicationContext().getAssets().open("hawk.png");;
+            while( (length = is.read(buffer)) != FILE_EOF ){
+                baos.write(buffer, 0, length);
+            }
+            Log.i("ByteArrayActivity", "baos.size()="+baos.size());
+            // convert ByteArrayOutputStream to byte[]
+            byte data [] = baos.toByteArray();
+            is.close();
+            baos.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
