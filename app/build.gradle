@@ -89,7 +89,7 @@ android {
         HawkAPP {
             keyAlias 'HawkAPP'
             keyPassword 'aasssp'
-            storeFile file('D:/APP/_Tools/_SignKey/Hawk-release.jks')
+            storeFile file('Tools/_SignKey/Hawk-release.jks')
             storePassword 'aasssp'
         }
     }
