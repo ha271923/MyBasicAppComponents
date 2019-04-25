@@ -52,6 +52,13 @@
     you should omit this in the manifest.  Instead, determine BLE capability by using
     PackageManager.hasSystemFeature(FEATURE_BLUETOOTH_LE) -->
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <!-- accquire permissionexample  -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+
+
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -75,6 +82,39 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- permission -->
+        <activity android:name=".permission.PermissionActivity1"
+            android:label="permission/PermissionActivity1"
+            android:launchMode="singleTop"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|fontScale">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".permission.PermissionActivity2"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|fontScale"
+            android:exported="false" >
+        </activity>
+
+        <activity android:name=".permission.activity.permission.RequestPermissionsActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|fontScale"
+            android:exported="false" >
+        </activity>
+
+        <activity android:name=".permission.activity.permission.RequestBkgPermissionsActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.htc.android.example.second"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|fontScale"
+            android:exported="false" >
+        </activity>
+
+        <service android:name=".permission.service.ReqeustIntentService"
+            android:process=":sync"
+            android:exported="false">
+        </service>
 
         <activity android:name=".debugTest.autoTest.MyAutoClickActivity"
                   android:label="debugTest/MyAutoClickActivity">

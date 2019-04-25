@@ -2,7 +2,11 @@
     <string name="app_name">MyBasicAppComponents</string>
     
     <string name="res_value_folder">values</string>
-    
+    <!-- For permission sample -->
+    <string name="request_permission_title">Request Permssion</string>
+    <string name="request_permission_content">Tap to enter allow extra permission.</string>
+    <string name="missing_required_permission">You have disabled a required permission.</string>
+
     <!-- For ContentProvider -->
     <string name="action_settings">Settings</string>
     <string name="birthday">Birthday</string>
