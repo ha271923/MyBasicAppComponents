@@ -160,6 +160,15 @@
         <activity android:name=".debugTest.MemoryLeak.MemLeak_Listener_Activity"/>
         <activity android:name=".debugTest.MemoryLeak.MemLeak_Anonymous_Callback_Activity"/>
 
+        <activity android:name=".activity.RotateActivity"
+            android:label="activity/RotateActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activity.GetPermissionsActivity"
                   android:label="activity/GetPermissionsActivity">
             <intent-filter>
