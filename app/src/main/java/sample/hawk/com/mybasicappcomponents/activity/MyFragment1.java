@@ -35,7 +35,8 @@ public class MyFragment1 extends Fragment{
 
     @Override   // Fragment only
     public void onAttach(Context context) {
-        super.onAttach(context);SMLog.i();
+        super.onAttach(context);
+        SMLog.i();
         // retain this fragment
         // setRetainInstance(true);
         this.data1 = new MyDataObject("data1");
@@ -45,12 +46,15 @@ public class MyFragment1 extends Fragment{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);SMLog.i();
+        super.onCreate(savedInstanceState);
+        SMLog.i();
         mState +="(C1)onCreate->";
     }
 
     @Override   // Fragment only
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // super.onCreateView(inflater, container, savedInstanceState);  // Most samples does NOT call it.
+        SMLog.i();
         View v = inflater.inflate(R.layout.myfragment1, container, false);
         mStatus = (TextView) v.findViewById(R.id.MyFragment1_subtitle);
         mState +="(C2/D4-1)onCreateView->"; mStatus.setText(mState);
@@ -59,37 +63,43 @@ public class MyFragment1 extends Fragment{
 
     @Override   // Fragment only
     public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);SMLog.i();
+        super.onActivityCreated(savedInstanceState);
+        SMLog.i();
         mState +="(C3)onActivityCreated->"; mStatus.setText(mState);
     }
 
     @Override
     public void onStart() {
-        super.onStart();SMLog.i();
+        super.onStart();
+        SMLog.i();
         mState +="(C4/D3-1)onStart->"; mStatus.setText(mState);
     }
 
     @Override
     public void onResume() {
-        super.onResume();SMLog.i();
+        super.onResume();
+        SMLog.i();
         mState +="(C5)onResume->"; mStatus.setText(mState);
     }
 
     @Override
     public void onPause() {
-        super.onPause();SMLog.i();
+        super.onPause();
+        SMLog.i();
         mState +="(D1)onPause->"; mStatus.setText(mState);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);SMLog.i();
+        super.onSaveInstanceState(outState);
+        SMLog.i();
     }
 
 
     @Override
     public void onStop() {
-        super.onStop();SMLog.i();
+        super.onStop();
+        SMLog.i();
         mState +="(D2)onStop->"; mStatus.setText(mState);
     }
 /*
@@ -102,19 +112,22 @@ public class MyFragment1 extends Fragment{
 
     @Override   // Fragment only, the fragment returns to the layout from the back stack.
     public void onDestroyView() {
-        super.onDestroyView();SMLog.i();
+        super.onDestroyView();
+        SMLog.i();
         mState +="(D3)onDestroyView->"; mStatus.setText(mState);
     }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();SMLog.i();
+        super.onDestroy();
+        SMLog.i();
         mState +="(D4-0)onDestroy->"; mStatus.setText(mState);
     }
 
     @Override   // Fragment only
     public void onDetach() {
-        super.onDetach();SMLog.i();
+        super.onDetach();
+        SMLog.i();
         mState +="(D5)onDetach->"; mStatus.setText(mState);
     }
 

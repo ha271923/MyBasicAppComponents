@@ -11,15 +11,16 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical|center_horizontal"
         android:text="myfragment2.xml"
-        android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"
+        android:layout_weight="4"
+        android:background="@color/green"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     <TextView
         android:id="@+id/MyFragment2_subtitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom"
+        android:gravity="top"
         android:text="myfragment2_subtitle"
         android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"/>
+        android:scrollbars = "vertical"
+        android:background="@color/dark_gray"/>
 </LinearLayout>
