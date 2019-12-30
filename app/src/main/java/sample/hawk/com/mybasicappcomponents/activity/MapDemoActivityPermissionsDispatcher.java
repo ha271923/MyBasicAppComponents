@@ -2,6 +2,12 @@ package sample.hawk.com.mybasicappcomponents.activity;
 
 import android.support.v4.app.ActivityCompat;
 import java.lang.String;
+
+final class MapDemoActivityPermissionsDispatcher {
+
+}
+
+/*
 import permissions.dispatcher.PermissionUtils;
 
 final class MapDemoActivityPermissionsDispatcher {
@@ -35,3 +41,4 @@ final class MapDemoActivityPermissionsDispatcher {
         }
     }
 }
+*/

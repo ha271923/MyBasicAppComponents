@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
+/*
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
@@ -25,10 +25,15 @@ import sample.hawk.com.mybasicappcomponents.R;
 // import com.google.android.gms.analytics.HitBuilders;
 // import com.google.android.gms.analytics.Tracker;
 
-/**
- * Activity which displays numerous background images that may be viewed. These background images
- * are shown via {@link ImageFragment}.
  */
+public class GoogleAnalyticsActivity extends AppCompatActivity {
+
+}
+/*
+//
+// Activity which displays numerous background images that may be viewed. These background images
+// are shown via {@link ImageFragment}.
+//
 public class GoogleAnalyticsActivity extends AppCompatActivity {
     private static final String TAG = "GoogleAnalyticsActivity";
 
@@ -39,21 +44,21 @@ public class GoogleAnalyticsActivity extends AppCompatActivity {
             new ImageInfo(R.drawable.whitebalance, "whitebalance"),
     };
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each image.
-     * This uses a {@link FragmentPagerAdapter}, which keeps every loaded fragment in memory.
-     */
+    //
+    // The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each image.
+    // This uses a {@link FragmentPagerAdapter}, which keeps every loaded fragment in memory.
+    //
     @SuppressWarnings("FieldCanBeLocal")
     private ImagePagerAdapter mImagePagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the patterns.
-     */
+    //
+    // The {@link ViewPager} that will host the patterns.
+    //
     private ViewPager mViewPager;
 
-    /**
-     * The {@link Tracker} used to record screen views.
-     */
+    //
+    // The {@link Tracker} used to record screen views.
+    //
     private Tracker mTracker;
 
     @Override
@@ -122,20 +127,20 @@ public class GoogleAnalyticsActivity extends AppCompatActivity {
         return false;
     }
 
-    /**
-     * Return the title of the currently displayed image.
-     * @return title of image
-     */
+    //
+    // Return the title of the currently displayed image.
+    // @return title of image
+    //
     private String getCurrentImageTitle() {
         int position = mViewPager.getCurrentItem();
         ImageInfo info = IMAGE_INFOS[position];
         return info.title;
     }
 
-    /**
-     * Record a screen view hit for the visible {@link ImageFragment} displayed
-     * inside {@link FragmentPagerAdapter}.
-     */
+    //
+    // Record a screen view hit for the visible {@link ImageFragment} displayed
+    // inside {@link FragmentPagerAdapter}.
+    //
     private void sendScreenImageName() {
         String name = getCurrentImageTitle();
 
@@ -146,10 +151,10 @@ public class GoogleAnalyticsActivity extends AppCompatActivity {
         // [END screen_view_hit]
     }
 
-    /**
-     * Check to make sure global_tracker.xml was configured correctly (this function only needed
-     * for sample apps).
-     */
+    //
+    // Check to make sure global_tracker.xml was configured correctly (this function only needed
+    // for sample apps).
+    //
     private boolean checkConfiguration() {
         XmlResourceParser parser = getResources().getXml(R.xml.global_tracker);
 
@@ -179,10 +184,10 @@ public class GoogleAnalyticsActivity extends AppCompatActivity {
         return true;
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
+    ///
+     // A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     // one of the sections/tabs/pages.
+     //
     public class ImagePagerAdapter extends FragmentPagerAdapter {
 
         private final ImageInfo[] infos;
@@ -214,3 +219,4 @@ public class GoogleAnalyticsActivity extends AppCompatActivity {
         }
     }
 }
+*/
