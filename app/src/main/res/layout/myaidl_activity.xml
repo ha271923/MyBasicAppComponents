@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="SVC2APP: SVC call App's AIDL APIs" />
+
+    <Button
+        android:id="@+id/btn_startAidlService"
+        android:textAllCaps="false"
+        android:text="Start Service\n
+        ======================================================\n
+        if SVC started and registerSvc2AppCallback() called,\n
+        SVC2APP is OK!\n
+        SVC: call APP's AIDL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStartServiceClick"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="APP2SVC: APP should bindService first if call SVC's AIDL" />
+
+    <Button
+        android:id="@+id/btn_onSvcAPIClick"
+        android:textAllCaps="false"
+        android:text="APP: call SvcAPI() vis SVC's AIDL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSvcAPIClick"/>
+
+    <Button
+        android:id="@+id/btn_onregisterSvc2AppCallbackClick"
+        android:textAllCaps="false"
+        android:text="APP: call onregisterSvc2AppCallbackClick()\n
+                      this is for SVC call APP's AIDL later "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onregisterSvc2AppCallbackClick"/>
+
+</LinearLayout>

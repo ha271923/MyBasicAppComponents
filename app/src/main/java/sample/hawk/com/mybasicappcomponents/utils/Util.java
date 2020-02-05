@@ -304,4 +304,10 @@ public class Util {
         }
         return versionName;
     }
+
+    public static String strPidTid(){
+        return "PID="+ android.os.Process.myPid()+"   TID="+ android.os.Process.myTid()+"   ";
+    }
+
+
 }
