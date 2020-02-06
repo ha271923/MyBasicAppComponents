@@ -77,6 +77,15 @@
         android:layout_marginTop="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="APP send bundle to next Activity with Result"
+        android:textSize="17sp"
+        android:onClick="onActivityToActivityForResultClick"
+        />
+    
+    <Button
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="APP send bundle to Service"
         android:textSize="17sp"
         android:onClick="onActivityToServiceClick"

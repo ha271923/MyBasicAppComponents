@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import sample.hawk.com.mybasicappcomponents.R;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
@@ -41,6 +42,7 @@ public class MyBundleActivity extends Activity {
         bundle.putString("sex", sex);
         // 將Bundle物件assign給intent
         intent.putExtras(bundle);
+        intent.putExtra("from","MyBundleActivity");
         return intent;
     }
 
@@ -48,6 +50,25 @@ public class MyBundleActivity extends Activity {
         Intent i = buildIntentFor(MyBundleActivity2.class);
         // 切換 Activity
         startActivity(i);
+    }
+
+    String mFrom;
+    private static final int GET_RESULT=1111111;
+    public void onActivityToActivityForResultClick(View v) {
+        Intent i = buildIntentFor(MyBundleActivity2.class);
+        // 切換 Activity
+        startActivityForResult(i,GET_RESULT); // return at onActivityResult callback
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch(requestCode){
+            case GET_RESULT:
+                Toast.makeText(this, data.getExtras().getString("MyBundleActivity_Result"), Toast.LENGTH_SHORT).show();
+                SMLog.i("return MyBundleActivity_Result = "+data.getExtras().getString("MyBundleActivity_Result"));
+                break;
+        }
     }
 
     public void onActivityToServiceClick(View v) {
