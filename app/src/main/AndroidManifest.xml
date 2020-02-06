@@ -157,6 +157,19 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".ipc.ashmem.MemoryFetchService"
+            android:process=":MemoryFetchService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <activity android:name=".ipc.ashmem.MyAshmemActivity"
+            android:label="ipc/MyAshmemActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
 
         <activity android:name=".background.MyWakeLockActivity"
                   android:label="background/MyWakeLockActivity">
