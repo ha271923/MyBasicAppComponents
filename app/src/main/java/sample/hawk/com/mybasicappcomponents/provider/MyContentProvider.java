@@ -12,6 +12,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -234,6 +237,15 @@ public class MyContentProvider extends ContentProvider { // Hawk: UI thread, how
 
     }
 
+
+    @Override
+    public Bundle call(String method, String arg, Bundle extras) {
+        SMLog.i("MyBundleContentProvider call() +++ " + method);
+        Bundle bundle=new Bundle();
+        bundle.putString("returnCall", "call被执行了");
+        SMLog.i("MyBundleContentProvider call() ---");
+        return bundle;
+    }
 
 
 }

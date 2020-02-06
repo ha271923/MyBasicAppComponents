@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="標準體重計算器"
+        android:textSize="22sp"
+        />
+
+    <TextView
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="性別"
+        android:textSize="20sp"
+        android:id="@+id/TextView01"
+        />
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RadioGroup01"
+        >
+        <RadioButton
+            android:text="男"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/RadioButton01"
+            android:checked="true"
+            />
+        <RadioButton
+            android:text="女"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/RadioButton02"
+            />
+    </RadioGroup>
+    <TextView
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="身高"
+        android:textSize="20sp"
+        android:id="@+id/TextView02"
+        />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EditText01"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" cm"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APP send bundle to next Activity"
+        android:textSize="17sp"
+        android:onClick="onActivityToActivityClick"
+        />
+
+    <Button
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APP send bundle to Service"
+        android:textSize="17sp"
+        android:onClick="onActivityToServiceClick"
+        />
+
+    <Button
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APP send bundle to BroadcastReceiver"
+        android:textSize="17sp"
+        android:onClick="onActivityToBroadcastReceiverClick"
+        />
+
+    <Button
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APP send bundle to ContenProvider"
+        android:textSize="17sp"
+        android:onClick="onActivityToContentProviderClick"
+        />
+</LinearLayout>

@@ -170,18 +170,30 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".ipc.broadcast.MyBroadcastReceiver" >
+        <receiver android:name=".ipc.bundle.MyBroadcastReceiver" >
             <intent-filter>
                 <action android:name="i_am_hungry" />
             </intent-filter>
         </receiver>
-        <activity android:name=".ipc.broadcast.MyBroadcastActivity"
-            android:label="ipc/MyBroadcastActivity">
+        <activity android:name=".ipc.bundle.MyBundleActivity"
+            android:label="ipc/MyBundleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.HAWK_UI" />
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name=".ipc.bundle.MyBundleActivity2"
+            android:label="ipc/MyBundleActivity2">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:name=".ipc.bundle.MyBundleService"
+            android:process=":MyBundleService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
 
         <activity android:name=".background.MyWakeLockActivity"
                   android:label="background/MyWakeLockActivity">

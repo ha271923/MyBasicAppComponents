@@ -1,4 +1,4 @@
-package sample.hawk.com.mybasicappcomponents.ipc.broadcast;
+package sample.hawk.com.mybasicappcomponents.ipc.bundle;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
