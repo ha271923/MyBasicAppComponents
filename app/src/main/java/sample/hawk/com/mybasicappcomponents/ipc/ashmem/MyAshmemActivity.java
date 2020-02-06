@@ -21,6 +21,7 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
 //
 // EXAMPLE at  https://github.com/xiaoxinxin003/AshmDemo
+// https://www.jianshu.com/p/d9bc9c668ba6
 public class MyAshmemActivity extends AppCompatActivity {
     private static final String TAG = "MyAshmemActivity";
 
