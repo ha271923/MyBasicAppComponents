@@ -1514,6 +1514,17 @@
                 <category android:name="android.intent.category.HAWK_CODE" />
             </intent-filter>
         </activity>
+
+        <!-- https://www.vogella.com/tutorials/Retrofit/article.html#retrofit  -->
+        <activity android:name=".SDKs.Retrofit.RetrofitActivity"
+            android:label="SDKs/RetrofitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI" />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
+
         <!-- enable to true, a process will monitor app crash. -->
         <activity android:name=".debugTest.crashreport.ReportActivity" android:label="Report Activity"
                   android:noHistory="true" android:process=":report_process"

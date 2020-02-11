@@ -54,6 +54,11 @@ dependencies {
     // Optional -- UI testing with UI Automator, A UI testing framework suitable for cross-app functional UI testing between both system and installed apps
     // androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
     compile 'com.google.code.gson:gson:2.8.0'
+
+    // test REST APIs
+    // https://www.vogella.com/tutorials/Retrofit/article.html
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 }
 
 android {
