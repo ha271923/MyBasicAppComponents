@@ -3,6 +3,8 @@ package sample.hawk.com.mybasicappcomponents.data_structure.protobuf;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
+
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.mohsenoid.protobuftest.AddressBookProtos;
 
@@ -42,9 +44,11 @@ public class MyProtobufActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.myprotobuf_activity);
+    }
 
+
+    public void onClick_createAddressBook(View view) {
         AddressBookProtos.AddressBook addressBook = createAddressBookProtobuf();
 
         // Serialize AddressBook to ByteArray
@@ -57,7 +61,6 @@ public class MyProtobufActivity extends Activity {
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
         }
-        System.out.println(myAddressBook);
         SMLog.i(myAddressBook.toString());
 
         SMLog.i("Protobuf byte size: ${bytes.size}");
@@ -84,9 +87,31 @@ public class MyProtobufActivity extends Activity {
                 .build();
 
         // building an AddressBook object using person data
-        return AddressBookProtos.AddressBook.newBuilder()
+        AddressBookProtos.AddressBook addressBook =  AddressBookProtos.AddressBook.newBuilder()
                 .addAllPeople( (Iterable)CollectionsKt.listOf((person)))
                 .build();
+
+        return addressBook;
     }
+
+    public void onClick_addPeople(View view) {
+        sendRequest();
+    }
+    private void sendRequest() {
+        AddressBookProtos.Person.Builder person = AddressBookProtos.Person.newBuilder().
+                setId(1).
+                setEmail("we@ff.com").
+                setName("wikiddd");
+        AddressBookProtos.Person.PhoneNumber.Builder phoneNumber = AddressBookProtos.Person.PhoneNumber.newBuilder().
+                setType(AddressBookProtos.Person.PhoneType.MOBILE).
+                setNumber("234235634634");
+        person.addPhones(phoneNumber);
+
+        AddressBookProtos.AddressBook.Builder addressBook = AddressBookProtos.AddressBook.newBuilder().
+                addPeople(person);
+
+        SocketHandler.send(addressBook.build().toByteArray());
+    }
+
 
 }
