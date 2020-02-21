@@ -705,6 +705,15 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".data_structure.protobuf.MyProtobufActivity"
+            android:theme="@style/BitmapsThemeDark"
+            android:label="data_structure/protobuf/MyProtobufActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.HAWK_UI"  />
+                <category android:name="android.intent.category.HAWK_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".data_structure.cache.DisplayingBitmaps.ui.ImageGridActivity"
                   android:theme="@style/BitmapsThemeDark"
                   android:label="data_structure/cache/DisplayingBitmaps">

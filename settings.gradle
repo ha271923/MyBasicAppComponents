@@ -1,1 +1,1 @@
-include ':app', ':app2', ':mylibrary', ':libs:gif-library', ':kotlinlibrary'
+include ':app', ':protobuf', ':app2', ':mylibrary', ':libs:gif-library', ':kotlinlibrary'

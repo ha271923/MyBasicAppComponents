@@ -59,6 +59,9 @@ dependencies {
     // https://www.vogella.com/tutorials/Retrofit/article.html
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    // test protobuf
+    implementation project(':protobuf')
+    implementation 'com.google.protobuf:protobuf-lite:3.0.1'
 }
 
 android {
