@@ -70,7 +70,7 @@ android {
 /*
     defaultConfig.with {
         ndk {
-            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
             ldLibs "log" // for use ALOGD() in .cpp/.c
         }
         externalNativeBuild {
