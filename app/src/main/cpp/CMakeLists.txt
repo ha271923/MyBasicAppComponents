@@ -14,6 +14,17 @@ target_link_libraries(plasma
                       log
                       m)
 
+add_library(plasmabmp SHARED
+        plasmabmp.c)
+
+
+# Include libraries needed for plasma lib
+target_link_libraries(plasmabmp
+        android
+        jnigraphics
+        log
+        m)
+
 add_library(accelerometergraph SHARED
             sensorgraph.cpp)
             
