@@ -237,12 +237,12 @@ public class MyJavaActivity extends Activity{
                 // MyAbstractClass AbObj = new MyAbstractClass();  // ERROR: MyAbstractClass is abstract, cannot be init.
                 MyAbstractClass mac1 = new MyAbstractImpl_1();
                 mac1.MyAbstractFunction(33333);
-                mac1.MyFunctionInAbstrace(33333); // The DIFF between abstract with interface is abstract can NOT access non-interface API.
+                mac1.MyFunctionInAbstract(33333); // The DIFF between abstract with interface is abstract can NOT access non-interface API.
                 // mac1.MyAbstractImplFunction(1);  // ERROR: cannot resolve function
 
                 MyAbstractClass mac2 = new MyAbstractImpl_2();
                 mac2.MyAbstractFunction(44444);
-                mac2.MyFunctionInAbstrace(44444);  // The DIFF between abstract with interface is abstract can NOT access non-interface API.
+                mac2.MyFunctionInAbstract(44444);  // The DIFF between abstract with interface is abstract can NOT access non-interface API.
                 // mac2.MyAbstractImplFunction(2);  // ERROR: cannot resolve function
 
                 MyAbstractClass2 mac2_impl3 = new MyAbstractImpl_3();

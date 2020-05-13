@@ -18,6 +18,12 @@ public interface MyInterface { // a class MUST implement ALL methods if keyword 
     static final String TAG = "[MyInterface]";
     static int static_Var=100; // static final will ADD
     int mVar=1000; // static final will ADD
+    MyInterface mMyInterface_instance = new MyInterface(){
+        @Override
+        public void MyInterfaceImpl_InterfaceFunction(int i) {
+
+        }
+    };
 
     void MyInterfaceImpl_InterfaceFunction(int i);
 

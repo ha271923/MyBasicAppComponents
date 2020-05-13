@@ -18,8 +18,18 @@ public abstract class MyAbstractClass { // JAVA: you can't new a abstract class 
     private static final String TAG = "[MyAbstractClass]";
     public static int static_Var; // You can access this var without instance
     public int mVar;
+    MyAbstractClass mMyAbstractClass_instance = new MyAbstractClass(){
+        @Override
+        public boolean MyFunctionInAbstract(int param) {
+            return super.MyFunctionInAbstract(param);
+        }
 
-    public boolean MyFunctionInAbstrace(int param) {
+        @Override
+        public boolean MyAbstractFunction(int p) {
+            return false;
+        }
+    };
+    public boolean MyFunctionInAbstract(int param) {
         SMLog.i(TAG, "MyAbstractClass::MyFunctionInAbstrace = "+ param);
         static_Var = 100;
         mVar = 1000;

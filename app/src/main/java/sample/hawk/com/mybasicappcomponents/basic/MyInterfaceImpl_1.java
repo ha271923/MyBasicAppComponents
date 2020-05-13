@@ -7,6 +7,15 @@ import sample.hawk.com.mybasicappcomponents.utils.SMLog;
  */
 
 public class MyInterfaceImpl_1 implements MyInterface {
+    MyInterface MyInterfaceImpl_1 = new MyInterfaceImpl_1(){
+        // Implement APIs is NOT mandatory.
+        /*
+        @Override
+        public void MyInterfaceImpl_InterfaceFunction(int i) {
+
+        }
+         */
+    };
 
     public void MyInterfaceImpl_RealFunction(){
 
