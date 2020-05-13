@@ -1,3 +1,6 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 apply plugin: 'com.android.application'
 apply from: '../shared-build.gradle'
 // apply plugin: 'project-report' // dependencies report by ./gradlew htmlDependencyReport at app/build/reports/project/dependencies/index.html
@@ -111,4 +114,33 @@ android {
     }
 
 
+}
+
+
+def getCurrentFlavor() {
+    println "getCurrentFlavor()"
+    println("gradle name: " + gradle.class.name)
+    String  tskReqStr = getStartParameter().getTaskRequests().toString()
+
+    Pattern pattern;
+
+    if( tskReqStr.contains( "assemble" ) )
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    else
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+
+    Matcher matcher = pattern.matcher( tskReqStr )
+
+    if( matcher.find() )
+        return matcher.group(1).toLowerCase()
+    else
+    {
+        println "NO MATCH FOUND"
+        return "";
+    }
+}
+
+task gradleTest << {
+    println "gradleTest"
+    getCurrentFlavor()
 }
