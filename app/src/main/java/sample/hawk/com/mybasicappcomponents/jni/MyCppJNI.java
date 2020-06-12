@@ -28,7 +28,7 @@ public class MyCppJNI {
     // method for callback from JNI
     // non-static method will cause Exception "JNI DETECTED ERROR IN APPLICATION: can't call java.lang.String sample.hawk.com.mybasicappcomponents.jni.MyCppJNI.fromJNIcallbackJAVA(java.lang.String) on instance of java.lang.Class<sample.hawk.com.mybasicappcomponents.jni.MyCppJNI>"
     // static method will cause Exception " JNI DETECTED ERROR IN APPLICATION: JNI CallObjectMethodV called with pending exception java.lang.NoSuchMethodError: no non-static method "Lsample/hawk/com/mybasicappcomponents/jni/MyCppJNI;.fromJNIcallbackJAVA"
-    public String fromJNIcallbackJAVA(String text) {
+    static public String callbackHandleEvent(String text) {
         SMLog.e("MyCppJNIActivity::fromJNIcallbackJAVA input="+text);
         text = "JNI string modified in JAVA";
         SMLog.e("MyCppJNIActivity::fromJNIcallbackJAVA output="+text);

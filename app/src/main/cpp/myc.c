@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "myc.h"
-#include <android/Log.h>
+//#include <android/Log.h>
 
 #define TAG "myc" //
 #define ALOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG ,__VA_ARGS__) //
@@ -25,6 +25,8 @@
 #define ALOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__)  //
 #define ALOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) //
 #define ALOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) //
+
+JavaVM* mJvm = NULL;
 
 /* Return current time in milliseconds */
 static double now_ms(void)
@@ -36,7 +38,8 @@ static double now_ms(void)
 
 JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCJNIActivity_JAVAtoJNI(
         JNIEnv* env, jobject obj, jstring inputStr){
-    ALOGD("JNI: inputStr= %s",inputStr);
+    // ALOGD("JNI: inputStr= %s",inputStr);
+    callbackHandleEvent(1,2,3); // JNI callback to JAVA directly
     return (*env)->NewStringUTF(env, "Output from JNI !");
 }
 
@@ -46,7 +49,7 @@ JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCJNIAc
 // .Cpp is     env->FindClass(...)
 JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCJNIActivity_JAVAtoJNIcallbackJAVA(
 		JNIEnv* env, jobject obj, jstring inputString){
-    ALOGD("JNI: input= %s",inputString);
+    //ALOGD("JNI: input= %s",inputString);
     // setup callback api +++
     jclass clazz = (*env)->FindClass(env, "sample/hawk/com/mybasicappcomponents/jni/MyCJNIActivity");
     jmethodID apiID = (*env)->GetMethodID(env, clazz, "fromJNIcallbackJAVA", "(Ljava/lang/String;)Ljava/lang/String;");
@@ -54,7 +57,7 @@ JNIEXPORT jstring JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCJNIAc
     // setup callback api ---
 
     const char* str = (*env)->GetStringUTFChars(env,(jstring) result, NULL); // should be released but what a heck, it's a tutorial :)
-    ALOGD("JNI: output= %s",str);
+    //ALOGD("JNI: output= %s",str);
     return (*env)->NewStringUTF(env, str);
 }
 
@@ -68,4 +71,32 @@ JNIEXPORT jint JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCJNIActiv
 JNIEXPORT jdouble JNICALL Java_sample_hawk_com_mybasicappcomponents_jni_MyCJNIActivity_getTimeOfDay(
         JNIEnv *env, jobject thiz) {
     return now_ms();
+}
+
+
+jint JNI_OnLoad(JavaVM* vm, void* reserved) {
+    //ALOGD("JNI: JNI_OnLoad");
+    mJvm = vm;
+    return 1;
+}
+
+jint JNI_OnUnLoad(JavaVM* vm, void* reserved) {
+    //ALOGD("JNI: JNI_OnUnLoad");
+    return 1;
+}
+JNIEnv* mEnv;
+
+void callbackHandleEvent(int type, int deviceType, int inputId) {
+    // if( mMainActivity == NULL || mEnv == NULL ) {
+    //     LOGD("ERROR!! callbackHandleEvent  got mMainActivity==NULL or  mEnv==NULL");
+    //     return;
+    // }
+
+    if ((*mJvm)->GetEnv(mJvm, (void **) mEnv, JNI_VERSION_1_6) != JNI_OK) {
+        return;
+    }
+    jclass clazz = mEnv->FindClass("sample/hawk/com/mybasicappcomponents/jni/MyCJNIActivity");
+    jmethodID apiID = mEnv->GetStaticMethodID(clazz, "onHandleEvent", "(III)V");
+    mEnv->CallStaticVoidMethod(clazz, apiID, type, deviceType, inputId);
+    mEnv->DeleteLocalRef(clazz); // FindClass will consume memory, need to DeleteLocalRef.
 }
