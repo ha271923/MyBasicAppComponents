@@ -11,9 +11,14 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Environment;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Random;
 
 import sample.hawk.com.mybasicappcomponents.utils.SMLog;
 
@@ -129,6 +134,38 @@ public class ImageUtils {
         return b;
     }
 
+    // PATH: adb pull /storage/emulated/0/test_images/
+    public static void saveScreenshot(final View v) {
+        new Thread(){
+            public void run() {
+                try {
+                    String root = Environment.getExternalStorageDirectory().toString();
+                    android.util.Log.i("hawk", "SaveImage  file path = " + root);
+                    File myDir = new File(root + "/test_images");
+                    myDir.mkdirs();
+                    Random generator = new Random();
+                    int n = 10000;
+                    n = generator.nextInt(n);
+                    String fname = "Image-" + n + ".jpg";
+                    File file = new File(myDir, fname);
+                    if (file.exists()) file.delete();
+                    try {
+                        FileOutputStream out = new FileOutputStream(file);
+                        Bitmap finalBitmap = getScreenshot(v);
+                        finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                        out.flush();
+                        out.close();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
     public static Point getDisplaySize(Context context, boolean bIsReal) {
         Point ptSize = new Point();
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -150,5 +187,6 @@ public class ImageUtils {
                     Math.min(ptScreenSize.x, ptScreenSize.y));
         }
     }
+
 
 }
